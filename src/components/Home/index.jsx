@@ -6,24 +6,21 @@ import * as THREE from "three"
 import { Box } from "@mui/system"
 
 
-export const Home = ({height}:any) => {
-    const ballsRef = useRef()
-    const [canvasHeight, setCanvasHeight] = useState(0)
+export const Home = () => {
+    const ballsRef = useRef();
 
-    useEffect(()=>{
-        setCanvasHeight(window.innerHeight - height)
-    }, [window.innerHeight, height])
-    
     const changeEyeDirection = (e) => {
         var x = e.pageX * 100 / window.innerWidth + "%"
         var y = e.pageY * 100 / window.innerHeight + "%"
-        ballsRef.current.style.left = x;
-        ballsRef.current.style.top = y;
+        if(ballsRef.current){
+            ballsRef.current.style.left = x;
+            ballsRef.current.style.top = y;
+        }
     }
 
     return(
         <div onMouseMove={changeEyeDirection}>
-            <Grid container sx={{height: canvasHeight}}>
+            <Grid container sx={{height: "100vh"}}>
                 <Grid item xs={12} sm={6}>
                 <Canvas 
                     className='canvas' 
