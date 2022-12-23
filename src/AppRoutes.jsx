@@ -13,7 +13,7 @@ const router = createBrowserRouter([
       ),
     },
     {
-      path: "projects",
+      path: "/projects",
       element: (
       <>
         <Navbar/>
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       ),
     },
     {
-      path: "work",
+      path: "/work",
       element: (
       <>
         <Navbar/>
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       ),
     },
     {
-      path: "contact",
+      path: "/contact",
       element: (
       <>
         <Navbar/>

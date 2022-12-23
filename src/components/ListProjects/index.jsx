@@ -13,6 +13,8 @@ import Grid from '@mui/material/Grid';
 import { ListTags } from './ListTags';
 import { CardList } from './CardList';
 import { Tag } from '../../organisms';
+import { ModalProject } from '../ModalProject';
+import { List } from './List';
 
 const style = {
   position: 'absolute',
@@ -42,17 +44,17 @@ export const ListProjects = () => {
                 <Grid container>
                     <Grid item xs = {12} mt={6}>
                         <Paper
-                            sx={{ p: '0px 4px', border:"2px solid #560293" }}
+                            sx={{ p: '0px 4px', border:"2px solid #3900BB" }}
                         >                            
                             <form onSubmit={onClickSearchBar} style={{display: 'flex', alignItems: 'center',}}>
 
                             <InputBase
-                                sx={{ ml: 1, flex: 1, input: {color:"#560293"} }}
+                                sx={{ ml: 1, flex: 1, input: {color:"#3900BB"} }}
                                 placeholder="Search Project"
                                 inputProps={{ 'aria-label': 'search project' }}
                             />
                             <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
-                                <SearchIcon sx={{color:"#560293"}} />
+                                <SearchIcon sx={{color:"#3900BB"}} />
                             </IconButton>
                             </form>
                         </Paper>
@@ -68,21 +70,7 @@ export const ListProjects = () => {
                 </Grid>
             </div>
             <div>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Text in a modal
-                </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                </Typography>
-                </Box>
-            </Modal>
+                <ModalProject project={List[0]} open={open} onClose={handleClose}/>
             </div>
         </div>  
 
