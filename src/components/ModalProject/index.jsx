@@ -7,25 +7,31 @@ import Grid from '@mui/material/Grid';
 import { Divider, Stack } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Backdrop from '@mui/material/Backdrop';
 import Fade from '@mui/material/Fade';
 
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: "100%",
-  p: 4,
-  outline: "0",
-  display:"flex",
-  justifyContent:"center",
-  alignItems:"center"
-};
-
 export const ModalProject = ({project, open, onClose}) => {
+  const themeM = useTheme();
+  const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
+  const downMd = useMediaQuery(themeM.breakpoints.down('md'));
+  const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: "75%",
+    outline: "0",
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+    flexDirection: downLg ? "column" : "row"
+  };
+  
+
   return (
       <Modal
         open={open}
@@ -40,9 +46,8 @@ export const ModalProject = ({project, open, onClose}) => {
         }}
       >
         <Fade in={open}>
-
         <Grid container sx={style}>
-          <Grid item xs={"auto"} sx={{backgroundColor:"#3900BB"}}>
+          <Grid item xs={0} lg={"auto"} sx={{backgroundColor:"#3900BB", display: downLg ? "none" : ""}}>
            <Box sx={{padding:"0", margin:"0", position:"relative"}}>
               <div style={{position:"relative"}}>
                 <div style={{display:"flex", justifyContent:"flex-end", alignItem:"center", position:"absolute", right:"1rem", top:"-2.5rem", height:"1.5rem"}}>
@@ -70,9 +75,26 @@ export const ModalProject = ({project, open, onClose}) => {
               />
            </Box>
           </Grid>
-          <Grid item xs={4} sx={{backgroundColor:"#1D0060", padding:"2rem"}}>
-            <Box sx={{fontSize:"2rem", fontWeight:"600"}}>
-              {project.name}
+          <Grid item xs={12} lg={5} sx={{backgroundColor:"#1D0060", padding:"2rem"}}>
+            <Box sx={{fontSize:"2rem", fontWeight:"600",  display:"flex", justifyContent:"space-between",flexDirection: downSm ? "column-reverse" :"", lineHeight:"2.3rem"}}>
+              <div>{project.name}</div>
+                    <div style={{display: downLg ? "flex" : "none", justifyContent: downSm ? "flex-Start" : "flex-end", alignItem:"center", marginBottom: downSm ? "1rem" : ""}}>
+                      <img
+                          src={`/link.png`}
+                          style={{height:"2rem", width:"2rem",marginRight:"0.8rem"}}
+                          loading="lazy"
+                      />
+                      <img
+                          src={`/youtube.png`}
+                          loading="lazy"
+                          style={{height:"2rem", width:"2rem",marginRight:"0.8rem"}}
+                      />
+                      <img
+                          src={`/github.png`}
+                          style={{height:"2rem", width:"2rem"}}
+                          loading="lazy"
+                      />
+                  </div>
             </Box>
             <Box sx={{fontSize:"1.2rem", fontWeight:"400", color:"#F2E5FF", marginTop:"1rem"}}>
               {project.date}
@@ -123,6 +145,7 @@ export const ModalProject = ({project, open, onClose}) => {
               </Grid>
             </Grid>
           </Grid>
+          
         </Grid>
         </Fade>
       </Modal>

@@ -11,3 +11,4 @@ let theme = createTheme({
     },
   }}
 )
+export default theme

@@ -1,5 +1,5 @@
 export { Home } from './Home/index'
 export { Education } from './Education/index'
-export { Navbar } from './Navbar/index'
+export { Navbar, NewNav } from './Navbar/index'
 export { FeaturedProjects} from './FeaturedProjects/index'
 export { ListProjects } from './ListProjects/index'

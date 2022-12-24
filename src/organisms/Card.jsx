@@ -4,8 +4,9 @@ import Carousel from "react-material-ui-carousel";
 import { Tag } from "./Tag"
 
 export const Card = ({ info, key, openFunc }) => {
+    
   return (
-    <Grid item xs = {3} key={key}>
+    <Grid item xs={"auto"} key={key}>
         <div className="card">
             <span></span>
             <span></span>

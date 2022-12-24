@@ -28,3 +28,33 @@ export const Navbar = () => {
     </div>
   );
 };
+
+export const NewNav = () => {
+  return(
+    <div className="navigation">
+    <input type="checkbox" className="navigation__checkbox" id="navi-toggle"/>
+
+    <label for="navi-toggle" className="navigation__button">
+        <span className="navigation__icon">&nbsp;</span>
+    </label>
+
+    <div className="navigation__background">&nbsp;</div>
+
+    <nav className="navigation__nav">
+        <ul className="navigation__list">
+        {Tabs.map((tab) => {
+          return (
+            <Link
+              className="navigation__item"
+              to={tab.url}
+              key={tab.name}
+            >
+              <a href="#" className="navigation__link"><span>{tab.name}</span></a>
+            </Link>
+          );
+        })}
+        </ul>
+    </nav>
+</div>
+  )
+}

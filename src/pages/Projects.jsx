@@ -6,7 +6,7 @@ export const Projects = () =>{
 
     return (
         <Grid container className='app'>
-            <Grid item xs={12} sx = {{height: "80vh", width:"100%"}} >
+            <Grid item xs={12} sx = {{height: "100vh", width:"100%"}} >
                 <Canvas 
                     className='canvas' 
                     shadows
