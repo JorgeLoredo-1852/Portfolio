@@ -3,17 +3,16 @@ import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { Tag } from "./Tag"
 
-export const Card = ({ info, key, openFunc }) => {
-    
+export const Card = ({ info, ke, openFunc }) => {
   return (
-    <Grid item xs={"auto"} key={key}>
-        <div className="card">
+    <Grid item xs={"auto"} key={`${info.id}-card`}>
+        <div key={`${info.id}-cardText`} className="card">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <Box container sx={{padding:"15px", width:"100%"}}>
-                <Box item>
+            <Box sx={{padding:"15px", width:"100%"}}>
+                <Box>
                     <div sx={{position:"relative"}}>
                         <h2 className="card__number">{info.name}</h2>
                         <img src={info.img} className="card__image" alt="dasd" />
@@ -23,10 +22,10 @@ export const Card = ({ info, key, openFunc }) => {
                 {/*<div style={{overflowX:"hidden", width:"100%", whiteSpace:"nowrap"}}>*/}
                 <Carousel autoplay cycleNavigation navButtonsAlwaysInvisible indicators={false}>
                     {info.tags.map((e) => (
-                        <div style={{display:"inline-block", textAlign:"center", width:"100%", fontWeight:"300", color:"#BBA9CE"}}>
+                        <div key={`${info.id}-${e}`} style={{display:"inline-block", textAlign:"center", width:"100%", fontWeight:"300", color:"#BBA9CE"}}>
                             {e}
-                        </div>
-                    ))}
+                        </div>)
+                    )}
                 </Carousel>
                 <Divider color="#BBA9CE"/>
 
@@ -38,7 +37,7 @@ export const Card = ({ info, key, openFunc }) => {
                         {info.description}
                     </div>
                 </Box>
-                <Box item xs={12} sx={{display:"flex", justifyContent:"center"}}>
+                <Box sx={{display:"flex", justifyContent:"center"}}>
                     <div className="card__button" onClick={openFunc}>
                         <p>View Details</p>
                     </div>

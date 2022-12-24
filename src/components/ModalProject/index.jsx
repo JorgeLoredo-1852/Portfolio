@@ -23,7 +23,7 @@ export const ModalProject = ({project, open, onClose}) => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: "75%",
+    width: downSm ? "90%" : "75%",
     outline: "0",
     display:"flex",
     justifyContent:"center",

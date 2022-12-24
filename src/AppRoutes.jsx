@@ -4,12 +4,12 @@ import { Navbar, NewNav } from './components';
 
 export const AppRoutes = () => {
     return (
-      <BrowserRouter>
+      <BrowserRouter><NewNav/>
         <Routes>
-          <Route exact path= "/" element= {<><NewNav/><LandingPage /></>}></Route>
-          <Route path= "/projects" element= {<><NewNav/><Projects /></>}></Route>
-          <Route path= "/work" element= {<><NewNav/></>}></Route>
-          <Route path= "/contact" element= {<><NewNav/></>}></Route>
+          <Route exact path= "/" element= {<><LandingPage /></>}></Route>
+          <Route path= "/projects" element= {<><Projects /></>}></Route>
+          <Route path= "/work" element= {<></>}></Route>
+          <Route path= "/contact" element= {<></>}></Route>
         </Routes>
       </BrowserRouter>       
       )

@@ -34,7 +34,7 @@ export const NewNav = () => {
     <div className="navigation">
     <input type="checkbox" className="navigation__checkbox" id="navi-toggle"/>
 
-    <label for="navi-toggle" className="navigation__button">
+    <label htmlFor="navi-toggle" className="navigation__button">
         <span className="navigation__icon">&nbsp;</span>
     </label>
 
@@ -44,13 +44,13 @@ export const NewNav = () => {
         <ul className="navigation__list">
         {Tabs.map((tab) => {
           return (
+            <li key={tab.name} className="navigation__item">
             <Link
-              className="navigation__item"
+              className="navigation__link"
               to={tab.url}
-              key={tab.name}
             >
-              <a href="#" className="navigation__link"><span>{tab.name}</span></a>
-            </Link>
+              <span>{tab.name}</span>
+            </Link></li>
           );
         })}
         </ul>

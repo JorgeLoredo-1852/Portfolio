@@ -23,13 +23,13 @@ const theme = createTheme({
     },
   });
 
-export const Tag = ({text, key}) =>{
+export const Tag = ({text}) =>{
     const [active, setActive] = useState(false)
     const onCLickButton = () =>{
         setActive(!active)
     }
     return(
-        <Grid item key={key}> 
+        <Grid item key={text}> 
             <ThemeProvider theme={theme}>
                 <Button variant={active ? "contained" : "outlined"} color= {active ? 'primary' : 'secondary'} onClick={onCLickButton}>
                     {text}

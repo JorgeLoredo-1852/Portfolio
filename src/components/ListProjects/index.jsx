@@ -98,7 +98,7 @@ export const ListProjects = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={12} mt={4}>
-                        <CardList tags={["Frontend", "Backend"]} openFunc={handleOpen}/>
+                        <CardList key={"cardlist"} tags={["Frontend", "Backend"]} openFunc={handleOpen}/>
                     </Grid>
                 </Grid>
             </div>

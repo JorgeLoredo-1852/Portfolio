@@ -13,10 +13,9 @@ export const CardList = ({tags, openFunc}) => {
     const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
     return(
             <Grid container spacing={3} rowSpacing={3} className={"card__container"} sx={{display:"flex", justifyContent: downLg ? "center" : ""}}>
-                                 {List.map((info) => (
-                <Card info={info} key={info.name} openFunc={openFunc}/>
+                {List.map((info) => (
+                    <Card info={info} key={`${info.id}-dasdada`} openFunc={openFunc}/>
                 ))}   
-
             </Grid>
     )
 }

@@ -1,16 +1,22 @@
 import { Grid } from "@mui/material"
 import { FeaturedProjects, ListProjects } from '../components'
 import { Canvas } from "@react-three/fiber"
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export const Projects = () =>{
-
+    const themeM = useTheme();
+    const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
+    const downMd = useMediaQuery(themeM.breakpoints.down('md'));
+    const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
     return (
         <Grid container className='app'>
-            <Grid item xs={12} sx = {{height: "100vh", width:"100%"}} >
+            <Grid item xs={12} sx = {{height: downSm ? "90vh" : "100vh", width:"100%"}} >
                 <Canvas 
                     className='canvas' 
                     shadows
                     camera={{position: [0,30,60], fov:15}}
+                    gl={{ antialias: false }}
                 >
                     <FeaturedProjects/>
                 </Canvas>
