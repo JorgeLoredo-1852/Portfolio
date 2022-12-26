@@ -26,16 +26,26 @@ export const List = [
         id:3,
         name: "Caritapp iOS",
         date: "Sept 2022 - Oct 2023",
-        description: "Developed (as a team) a mobile application for a local ONG to manage volunteers",
+        description: "Developed (as a team) a mobile application for a local ONG to manage and enroll volunteers.",
         completeDescription: <><p>Developed (as a team) a mobile application for a local ONG to manage volunteers.</p><p style={{marginTop:"0.6rem"}}>Created a RESTful API with Flask and used Swift for iOS development.</p></>,
         tags: ["Frontend", "Backend", "Mobile", "Databases"],
         technologies: ["Swift", "Flask", "MySQL","Python"],
         img: "/thumbnails/caritapp.png",
         modalImg:"/modalImg/caritapp.png",
     },
-
     {
         id:4,
+        name: "HackMTY Challenge",
+        date: "Sept 2022",
+        description: "First place in Hack MTY - Banorte's Challenge (team), by designing a new way to retain young clients through gamification.",
+        completeDescription: <><p>First place in Hack MTY - Banorte Challenge, the biggest student hackathon in Mexico, by designing a new way to attract young clients through gamification.</p><p style={{marginTop:"0.6rem"}}>Created the complete design of the application/gadgets and market study in 24 hours.</p></>,
+        tags: ["Docs", "Competition"],
+        technologies: ["Python", "Figma"],
+        img: "/thumbnails/banorte.png",
+        modalImg:"/modalImg/banorte.png",
+    },
+    {
+        id:5,
         name: "Moonlight NFT Labs",
         date: "Dec 2021 - Sept 2022",
         description: "Developed and offered a series of blockchain-decentralized applications on Ethereum, Avalanche, Terra, and Solana.",
@@ -49,7 +59,7 @@ export const List = [
         twitter: "https://twitter.com/MoonlightNFTLab",
     },
     {
-        id:5,
+        id:6,
         name: "Moonlight Launchpad",
         date: "Dec 2021 - Sept 2022",
         description: "Created a Multichain Launchpad with custom smart contracts implemented in a responsive web app to mint NFT tokens.",
@@ -63,7 +73,7 @@ export const List = [
         twitter: "https://twitter.com/MoonlightNFTLab",
     },
     {
-        id:6,
+        id:7,
         name: "Moonlight Bots",
         date: "Dec 2021 - Sept 2022",
         description: "Deployed an NFT Sales bot as well as a Verification Bot to power DAOs (Decentralized autonomous organizations).",
@@ -76,20 +86,34 @@ export const List = [
         youtube: "https://www.youtube.com/watch?v=Wg70E0fOBYM",
         twitter: "https://twitter.com/MoonlightNFTLab",
     },
+    {
+        id:8,
+        name: "Gas Leak Simulation",
+        date: "May 2022",
+        description: "Modeled (as a team) a gas leak via using a heat map in a factory given CO2 indices andemployee movement",
+        completeDescription: <><p>Modeled (as a team) a gas leak via using a heat map in a factory given CO2 indices andemployee movement.</p><p style={{marginTop:"0.6rem"}}>Created a script to generate raw data, simulated in Unity and rendered to a web application via Web GL.</p></>,
+        tags: ["Frontend","Backend","Databases", "Unity", "Simulation"],
+        technologies: ["Unity", "React.js", "Node.js"],
+        img: "/thumbnails/construccion.png",
+        modalImg:"/modalImg/construccion.png",
+    },
+    { 
+        id: 9,
+        name: "SEMS: Monitoring",
+        date: "Jan 2021 - June 2021",
+        description: "Developed (team) a monitoring system which tracks factors of the student community in a post-pandemic scenario.",
+        completeDescription: <><p>Developed as a team a web application that generates data on factors that impact the health of the student community through a monitoring system for a post-pandemic scenario. </p><p style={{marginTop:"0.6rem"}}>Created a dashboard that allows the user to view and interact with the metrics of the student flow at the university, as well as record environmental variables in real-time.</p><p style={{marginTop:"0.6rem"}}>First place in “Conexión Tec” competition in the category "Software Prototype Development."</p></>,
+        tags: ["Frontend", "IOT", "Competition", "Docs"],
+        technologies: ["React.js", "Sass", "Redux"],
+        img: "/thumbnails/covid.png",
+        modalImg:"/modalImg/covid.png",
+        link: "https://conecta.tec.mx/es/noticias/monterrey/educacion/el-software-que-analiza-estudios-urbanos-para-cumplir-medidas-vs-covid?_hsmi=147996003&_hsenc=p2ANqtz-_7cAvOiumdQwPtBrJ9_JE2yOIYHzsrNFaJoJz82yxzUDAfCpttr6st43RsGd6INLGgnak37S7q6SJ0yjYCphcUpuFFvA"
+    },
 ]
 
 export const List2 = [
     {
-        name: "Proyecto Ternium"
-    },
-    {
-        name: "Hack MTY"
-    },
-    {
         name: "Modelo Recoge huevos"
-    },
-    {
-        name: "Frontend Covid"
     },
     {
         name: "WEB30 TEMPLATES"

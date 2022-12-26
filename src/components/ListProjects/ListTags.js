@@ -28,5 +28,8 @@ export const ListTags = [
     },
     {
         name: "Simulation"
+    },
+    {
+        name: "Mobile"
     }
 ]
