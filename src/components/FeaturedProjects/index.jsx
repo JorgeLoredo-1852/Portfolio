@@ -8,6 +8,8 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import {Model as CardModel} from '../../models/cardModel';
+import {Model as Disk} from '../../models/Disk';
+
 
 export const FeaturedProjects = () => {
 
@@ -69,6 +71,9 @@ export const FeaturedProjects = () => {
     const [movingLeft, setMovingLeft] = useState(true)
     const [loadingPosCards, setloadingPosCards] = useState(false)
 
+    const [posGameBoy, setPosGameBoy] = useState([0, 0, -2])
+    const [elevateGameBoy, setElevateGameBoy] = useState(false)
+
     useEffect(() =>{
         if(downSm){
             setPercentage(0.8)
@@ -77,28 +82,45 @@ export const FeaturedProjects = () => {
         }
     })
 
+    useFrame(()=>{
+        if(loadingPosCards){
+            if(posGameBoy[1] > 0 && elevateGameBoy){
+                setPosGameBoy([0,0,-2])
+            }
+        }
+    })
+
 
     useFrame(()=>{
         if(loadingPosCards){
+            console.log(elevateGameBoy)
             if(locationCard1 == 1){
                 //ESTABA CARTA 11
                 if(movingLeft){
                     if(posCard6[0] > 0){
-                        if(posCard1[0] > -26.2 + 0.2){
-                            setPosCard1([posCard1[0] - 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] - 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] - 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] - 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] - 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] - 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] - 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] - 0.2 , 4, 0])
-                        }
-                        setPosCard5([posCard5[0] - 0.2 , 4, 0])
-                        setPosCard6([posCard6[0] - 0.2 , 4, 0])
+                        if(posCard1[0] > -26.2 + 0.1){
+                            setPosCard1([posCard1[0] - 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] - 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] - 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] - 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] - 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] - 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] - 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] - 0.1 , 4, 0])
 
-                        setSizeCard5([sizeCard5[0] - 0.128, sizeCard5[1] - 0.1725,0.5])
-                        setSizeCard6([sizeCard6[0] + 0.128, sizeCard6[1] + 0.1725,0.5])
+                            if(posCard1[0] < - 23.8 + 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard5([posCard5[0] - 0.1 , 4, 0])
+                        setPosCard6([posCard6[0] - 0.1 , 4, 0])
+
+                        setSizeCard5([sizeCard5[0] - 0.064, sizeCard5[1] - 0.08625,0.5])
+                        setSizeCard6([sizeCard6[0] + 0.064, sizeCard6[1] + 0.08625,0.5])
                     }
                     else {
                         setPosCard5([-7, 4, 0])
@@ -109,25 +131,37 @@ export const FeaturedProjects = () => {
 
                         setPosCard11([26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
                     }
                 } 
                 else {
                     if(posCard6[0] < 0){
-                        if(posCard2[0] < -21.4 - 0.2){
-                            setPosCard2([posCard2[0] + 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.2 , 4, 0])
-                        }
-                        setPosCard6([posCard6[0] + 0.2 , 4, 0])
-                        setPosCard7([posCard7[0] + 0.2 , 4, 0])
+                        if(posCard2[0] < -21.4 - 0.1){
+                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
 
-                        setSizeCard6([sizeCard6[0] + 0.128, sizeCard6[1] + 0.1725,0.5])
-                        setSizeCard7([sizeCard7[0] - 0.128, sizeCard7[1] - 0.1725,0.5])
+                            //checkElevation(posCard2[0], "right");
+                            if(posCard2[0] > - 23.8 - 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard6([posCard6[0] + 0.1 , 4, 0])
+                        setPosCard7([posCard7[0] + 0.1 , 4, 0])
+
+                        setSizeCard6([sizeCard6[0] + 0.064, sizeCard6[1] + 0.08625,0.5])
+                        setSizeCard7([sizeCard7[0] - 0.064, sizeCard7[1] - 0.08625,0.5])
                     }
                     else {
                         setPosCard6([0, 4, 0])
@@ -138,6 +172,9 @@ export const FeaturedProjects = () => {
 
                         setPosCard1([-26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 }
             } 
@@ -145,21 +182,30 @@ export const FeaturedProjects = () => {
             else if (locationCard1 == 2){
                 if(movingLeft){
                     if(posCard5[0] > 0){
-                        if(posCard11[0] > -26.2 + 0.2){
-                            setPosCard1([posCard1[0] - 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] - 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] - 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] - 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] - 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] - 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] - 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] - 0.2 , 4, 0])
-                        }
-                        setPosCard4([posCard4[0] - 0.2 , 4, 0])
-                        setPosCard5([posCard5[0] - 0.2 , 4, 0])
+                        if(posCard11[0] > -26.2 + 0.1){
+                            setPosCard1([posCard1[0] - 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] - 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] - 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] - 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] - 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] - 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] - 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] - 0.1 , 4, 0])
 
-                        setSizeCard4([sizeCard4[0] - 0.128, sizeCard4[1] - 0.1725,0.5])
-                        setSizeCard5([sizeCard5[0] + 0.128, sizeCard5[1] + 0.1725,0.5])
+                            //checkElevation(posCard11[0], "left");
+                            if(posCard11[0] < - 23.8 + 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard4([posCard4[0] - 0.1 , 4, 0])
+                        setPosCard5([posCard5[0] - 0.1 , 4, 0])
+
+                        setSizeCard4([sizeCard4[0] - 0.064, sizeCard4[1] - 0.08625,0.5])
+                        setSizeCard5([sizeCard5[0] + 0.064, sizeCard5[1] + 0.08625,0.5])
                     }
                     else {
                         setPosCard4([-7, 4, 0])
@@ -170,25 +216,37 @@ export const FeaturedProjects = () => {
 
                         setPosCard10([26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 } 
                 else {
                     if(posCard5[0] < 0){
-                        if(posCard1[0] < -21.4 - 0.2){
-                            setPosCard1([posCard1[0] + 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.2 , 4, 0])
-                        }
-                        setPosCard5([posCard5[0] + 0.2 , 4, 0])
-                        setPosCard6([posCard6[0] + 0.2 , 4, 0])
+                        if(posCard1[0] < -21.4 - 0.1){
+                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
 
-                        setSizeCard5([sizeCard5[0] + 0.128, sizeCard5[1] + 0.1725,0.5])
-                        setSizeCard6([sizeCard6[0] - 0.128, sizeCard6[1] - 0.1725,0.5])
+                            //checkElevation(posCard1[0], "right");
+                            if(posCard1[0] > - 23.8 - 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard5([posCard5[0] + 0.1 , 4, 0])
+                        setPosCard6([posCard6[0] + 0.1 , 4, 0])
+
+                        setSizeCard5([sizeCard5[0] + 0.064, sizeCard5[1] + 0.08625,0.5])
+                        setSizeCard6([sizeCard6[0] - 0.064, sizeCard6[1] - 0.08625,0.5])
                     }
                     else {
                         setPosCard5([0, 4, 0])
@@ -199,6 +257,9 @@ export const FeaturedProjects = () => {
                         
                         setPosCard11([-26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 }
             }
@@ -206,21 +267,30 @@ export const FeaturedProjects = () => {
             else if (locationCard1 == 3){
                 if(movingLeft){
                     if(posCard4[0] > 0){
-                        if(posCard10[0] > -26.2 + 0.2){
-                            setPosCard1([posCard1[0] - 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] - 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] - 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] - 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] - 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] - 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] - 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] - 0.2 , 4, 0])
-                        }
-                        setPosCard3([posCard3[0] - 0.2 , 4, 0])
-                        setPosCard4([posCard4[0] - 0.2 , 4, 0])
+                        if(posCard10[0] > -26.2 + 0.1){
+                            setPosCard1([posCard1[0] - 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] - 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] - 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] - 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] - 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] - 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] - 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] - 0.1 , 4, 0])
 
-                        setSizeCard3([sizeCard3[0] - 0.128, sizeCard3[1] - 0.1725,0.5])
-                        setSizeCard4([sizeCard4[0] + 0.128, sizeCard4[1] + 0.1725,0.5])
+                            //checkElevation(posCard10[0], "left");
+                            if(posCard10[0] < - 23.8 + 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard3([posCard3[0] - 0.1 , 4, 0])
+                        setPosCard4([posCard4[0] - 0.1 , 4, 0])
+
+                        setSizeCard3([sizeCard3[0] - 0.064, sizeCard3[1] - 0.08625,0.5])
+                        setSizeCard4([sizeCard4[0] + 0.064, sizeCard4[1] + 0.08625,0.5])
                     }
                     else {
                         setPosCard3([-7, 4, 0])
@@ -231,25 +301,37 @@ export const FeaturedProjects = () => {
 
                         setPosCard9([26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 } 
                 else {
                     if(posCard4[0] < 0){
-                        if(posCard11[0] < -21.4 - 0.2){
-                            setPosCard1([posCard1[0] + 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.2 , 4, 0])
-                        }
-                        setPosCard4([posCard4[0] + 0.2 , 4, 0])
-                        setPosCard5([posCard5[0] + 0.2 , 4, 0])
+                        if(posCard11[0] < -21.4 - 0.1){
+                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
 
-                        setSizeCard4([sizeCard4[0] + 0.128, sizeCard4[1] + 0.1725,0.5])
-                        setSizeCard5([sizeCard5[0] - 0.128, sizeCard5[1] - 0.1725,0.5])
+                            //checkElevation(posCard11[0], "right");
+                            if(posCard11[0] > - 23.8 - 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard4([posCard4[0] + 0.1 , 4, 0])
+                        setPosCard5([posCard5[0] + 0.1 , 4, 0])
+
+                        setSizeCard4([sizeCard4[0] + 0.064, sizeCard4[1] + 0.08625,0.5])
+                        setSizeCard5([sizeCard5[0] - 0.064, sizeCard5[1] - 0.08625,0.5])
                     }
                     else {
                         setPosCard4([0, 4, 0])
@@ -260,6 +342,9 @@ export const FeaturedProjects = () => {
 
                         setPosCard10([-26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 }
             }
@@ -267,21 +352,30 @@ export const FeaturedProjects = () => {
             else if (locationCard1 == 4){
                 if(movingLeft){
                     if(posCard3[0] > 0){
-                        if(posCard9[0] > -26.2 + 0.2){
-                            setPosCard1([posCard1[0] - 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] - 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] - 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] - 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] - 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] - 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] - 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] - 0.2 , 4, 0])
-                        }
-                        setPosCard2([posCard2[0] - 0.2 , 4, 0])
-                        setPosCard3([posCard3[0] - 0.2 , 4, 0])
+                        if(posCard9[0] > -26.2 + 0.1){
+                            setPosCard1([posCard1[0] - 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] - 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] - 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] - 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] - 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] - 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] - 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] - 0.1 , 4, 0])
 
-                        setSizeCard2([sizeCard2[0] - 0.128, sizeCard2[1] - 0.1725,0.5])
-                        setSizeCard3([sizeCard3[0] + 0.128, sizeCard3[1] + 0.1725,0.5])
+                            //checkElevation(posCard9[0], "left");
+                            if(posCard9[0] < - 23.8 + 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard2([posCard2[0] - 0.1 , 4, 0])
+                        setPosCard3([posCard3[0] - 0.1 , 4, 0])
+
+                        setSizeCard2([sizeCard2[0] - 0.064, sizeCard2[1] - 0.08625,0.5])
+                        setSizeCard3([sizeCard3[0] + 0.064, sizeCard3[1] + 0.08625,0.5])
                     }
                     else {
                         setPosCard2([-7, 4, 0])
@@ -292,25 +386,37 @@ export const FeaturedProjects = () => {
 
                         setPosCard8([26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 } 
                 else {
                     if(posCard3[0] < 0){
-                        if(posCard10[0] < -21.4 - 0.2){
-                            setPosCard1([posCard1[0] + 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.2 , 4, 0])
-                        }
-                        setPosCard3([posCard3[0] + 0.2 , 4, 0])
-                        setPosCard4([posCard4[0] + 0.2 , 4, 0])
+                        if(posCard10[0] < -21.4 - 0.1){
+                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
 
-                        setSizeCard3([sizeCard3[0] + 0.128, sizeCard3[1] + 0.1725,0.5])
-                        setSizeCard4([sizeCard4[0] - 0.128, sizeCard4[1] - 0.1725,0.5])
+                            //checkElevation(posCard10[0], "right");
+                            if(posCard10[0] > - 23.8 - 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard3([posCard3[0] + 0.1 , 4, 0])
+                        setPosCard4([posCard4[0] + 0.1 , 4, 0])
+
+                        setSizeCard3([sizeCard3[0] + 0.064, sizeCard3[1] + 0.08625,0.5])
+                        setSizeCard4([sizeCard4[0] - 0.064, sizeCard4[1] - 0.08625,0.5])
                     }
                     else {
                         setPosCard3([0, 4, 0])
@@ -321,6 +427,9 @@ export const FeaturedProjects = () => {
 
                         setPosCard9([-26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 }
             }
@@ -328,21 +437,30 @@ export const FeaturedProjects = () => {
             else if (locationCard1 == 5){
                 if(movingLeft){
                     if(posCard2[0] > 0){
-                        if(posCard8[0] > -26.2 + 0.2){
-                            setPosCard3([posCard3[0] - 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] - 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] - 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] - 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] - 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] - 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] - 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] - 0.2 , 4, 0])
-                        }
-                        setPosCard1([posCard1[0] - 0.2 , 4, 0])
-                        setPosCard2([posCard2[0] - 0.2 , 4, 0])
+                        if(posCard8[0] > -26.2 + 0.1){
+                            setPosCard3([posCard3[0] - 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] - 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] - 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] - 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] - 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] - 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] - 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] - 0.1 , 4, 0])
 
-                        setSizeCard1([sizeCard1[0] - 0.128, sizeCard1[1] - 0.1725,0.5])
-                        setSizeCard2([sizeCard2[0] + 0.128, sizeCard2[1] + 0.1725,0.5])
+                            //checkElevation(posCard8[0], "left");
+                            if(posCard8[0] < - 23.8 + 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard1([posCard1[0] - 0.1 , 4, 0])
+                        setPosCard2([posCard2[0] - 0.1 , 4, 0])
+
+                        setSizeCard1([sizeCard1[0] - 0.064, sizeCard1[1] - 0.08625,0.5])
+                        setSizeCard2([sizeCard2[0] + 0.064, sizeCard2[1] + 0.08625,0.5])
                     }
                     else {
                         setPosCard1([-7, 4, 0])
@@ -353,25 +471,37 @@ export const FeaturedProjects = () => {
 
                         setPosCard7([26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 } 
                 else {
                     if(posCard2[0] < 0){
-                        if(posCard9[0] < -21.4 - 0.2){
-                            setPosCard1([posCard1[0] + 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.2 , 4, 0])
-                        }
-                        setPosCard2([posCard2[0] + 0.2 , 4, 0])
-                        setPosCard3([posCard3[0] + 0.2 , 4, 0])
+                        if(posCard9[0] < -21.4 - 0.1){
+                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
 
-                        setSizeCard2([sizeCard2[0] + 0.128, sizeCard2[1] + 0.1725,0.5])
-                        setSizeCard3([sizeCard3[0] - 0.128, sizeCard3[1] - 0.1725,0.5])
+                            //checkElevation(posCard9[0], "right");
+                            if(posCard9[0] > - 23.8 - 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard2([posCard2[0] + 0.1 , 4, 0])
+                        setPosCard3([posCard3[0] + 0.1 , 4, 0])
+
+                        setSizeCard2([sizeCard2[0] + 0.064, sizeCard2[1] + 0.08625,0.5])
+                        setSizeCard3([sizeCard3[0] - 0.064, sizeCard3[1] - 0.08625,0.5])
                     }
                     else {
                         setPosCard2([0, 4, 0])
@@ -382,6 +512,9 @@ export const FeaturedProjects = () => {
 
                         setPosCard8([-26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 }
             }
@@ -389,22 +522,30 @@ export const FeaturedProjects = () => {
             else if (locationCard1 == 6){
                 if(movingLeft){
                     if(posCard1[0] > 0){
-                        if(posCard7[0] > -26.2 + 0.2){
-                            setPosCard2([posCard2[0] - 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] - 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] - 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] - 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] - 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] - 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] - 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] - 0.2 , 4, 0])
+                        if(posCard7[0] > -26.2 + 0.1){
+                            setPosCard2([posCard2[0] - 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] - 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] - 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] - 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] - 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] - 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] - 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] - 0.1 , 4, 0])
 
+                            //checkElevation(posCard7[0], "left");
+                            if(posCard7[0] < - 23.8 + 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
                         }
-                        setPosCard11([posCard11[0] - 0.2 , 4, 0])
-                        setPosCard1([posCard1[0] - 0.2 , 4, 0])
+                        setPosCard11([posCard11[0] - 0.1 , 4, 0])
+                        setPosCard1([posCard1[0] - 0.1 , 4, 0])
 
-                        setSizeCard11([sizeCard11[0] - 0.128, sizeCard11[1] - 0.1725,0.5])
-                        setSizeCard1([sizeCard1[0] + 0.128, sizeCard1[1] + 0.1725,0.5])
+                        setSizeCard11([sizeCard11[0] - 0.064, sizeCard11[1] - 0.08625,0.5])
+                        setSizeCard1([sizeCard1[0] + 0.064, sizeCard1[1] + 0.08625,0.5])
                     }
                     else {
                         setPosCard11([-7, 4, 0])
@@ -415,25 +556,37 @@ export const FeaturedProjects = () => {
 
                         setPosCard6([26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 } 
                 else {
                     if(posCard1[0] < 0){
-                        if(posCard8[0] < -21.4 - 0.2){
-                            setPosCard3([posCard3[0] + 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.2 , 4, 0])
-                        }
-                        setPosCard1([posCard1[0] + 0.2 , 4, 0])
-                        setPosCard2([posCard2[0] + 0.2 , 4, 0])
+                        if(posCard8[0] < -21.4 - 0.1){
+                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
 
-                        setSizeCard1([sizeCard1[0] + 0.128, sizeCard1[1] + 0.1725,0.5])
-                        setSizeCard2([sizeCard2[0] - 0.128, sizeCard2[1] - 0.1725,0.5])
+                            //checkElevation(posCard8[0], "right");
+                            if(posCard8[0] > - 23.8 - 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard1([posCard1[0] + 0.1 , 4, 0])
+                        setPosCard2([posCard2[0] + 0.1 , 4, 0])
+
+                        setSizeCard1([sizeCard1[0] + 0.064, sizeCard1[1] + 0.08625,0.5])
+                        setSizeCard2([sizeCard2[0] - 0.064, sizeCard2[1] - 0.08625,0.5])
                     }
                     else {
                         setPosCard1([0, 4, 0])
@@ -444,6 +597,9 @@ export const FeaturedProjects = () => {
 
                         setPosCard7([-26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 }
             }
@@ -451,21 +607,30 @@ export const FeaturedProjects = () => {
             else if (locationCard1 == 7){
                 if(movingLeft){
                     if(posCard11[0] > 0){
-                        if(posCard6[0] > -26.2 + 0.2){
-                            setPosCard1([posCard1[0] - 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] - 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] - 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] - 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] - 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] - 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] - 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] - 0.2 , 4, 0])
-                        }
-                        setPosCard10([posCard10[0] - 0.2 , 4, 0])
-                        setPosCard11([posCard11[0] - 0.2 , 4, 0])
+                        if(posCard6[0] > -26.2 + 0.1){
+                            setPosCard1([posCard1[0] - 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] - 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] - 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] - 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] - 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] - 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] - 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] - 0.1 , 4, 0])
 
-                        setSizeCard10([sizeCard10[0] - 0.128, sizeCard10[1] - 0.1725,0.5])
-                        setSizeCard11([sizeCard11[0] + 0.128, sizeCard11[1] + 0.1725,0.5])
+                            //checkElevation(posCard6[0], "left");
+                            if(posCard6[0] < - 23.8 + 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard10([posCard10[0] - 0.1 , 4, 0])
+                        setPosCard11([posCard11[0] - 0.1 , 4, 0])
+
+                        setSizeCard10([sizeCard10[0] - 0.064, sizeCard10[1] - 0.08625,0.5])
+                        setSizeCard11([sizeCard11[0] + 0.064, sizeCard11[1] + 0.08625,0.5])
                     }
                     else {
                         setPosCard10([-7, 4, 0])
@@ -476,25 +641,37 @@ export const FeaturedProjects = () => {
 
                         setPosCard5([26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 } 
                 else {
                     if(posCard11[0] < 0){
-                        if(posCard7[0] < -21.4 - 0.2){
-                            setPosCard2([posCard2[0] + 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.2 , 4, 0])
-                        }
-                        setPosCard11([posCard11[0] + 0.2 , 4, 0])
-                        setPosCard1([posCard1[0] + 0.2 , 4, 0])
+                        if(posCard7[0] < -21.4 - 0.1){
+                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
 
-                        setSizeCard11([sizeCard11[0] + 0.128, sizeCard11[1] + 0.1725,0.5])
-                        setSizeCard1([sizeCard1[0] - 0.128, sizeCard1[1] - 0.1725,0.5])
+                            //checkElevation(posCard7[0], "right");
+                            if(posCard7[0] > - 23.8 - 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard11([posCard11[0] + 0.1 , 4, 0])
+                        setPosCard1([posCard1[0] + 0.1 , 4, 0])
+
+                        setSizeCard11([sizeCard11[0] + 0.064, sizeCard11[1] + 0.08625,0.5])
+                        setSizeCard1([sizeCard1[0] - 0.064, sizeCard1[1] - 0.08625,0.5])
                     }
                     else {
                         setPosCard11([0, 4, 0])
@@ -505,6 +682,9 @@ export const FeaturedProjects = () => {
 
                         setPosCard6([-26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 }
             }
@@ -512,21 +692,30 @@ export const FeaturedProjects = () => {
             else if (locationCard1 == 8){
                 if(movingLeft){
                     if(posCard10[0] > 0){
-                        if(posCard5[0] > -26.2 + 0.2){
-                            setPosCard1([posCard1[0] - 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] - 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] - 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] - 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] - 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] - 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] - 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] - 0.2 , 4, 0])
-                        }
-                        setPosCard9([posCard9[0] - 0.2 , 4, 0])
-                        setPosCard10([posCard10[0] - 0.2 , 4, 0])
+                        if(posCard5[0] > -26.2 + 0.1){
+                            setPosCard1([posCard1[0] - 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] - 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] - 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] - 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] - 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] - 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] - 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] - 0.1 , 4, 0])
 
-                        setSizeCard9([sizeCard9[0] - 0.128, sizeCard9[1] - 0.1725,0.5])
-                        setSizeCard10([sizeCard10[0] + 0.128, sizeCard10[1] + 0.1725,0.5])
+                            //checkElevation(posCard5[0], "left");
+                            if(posCard5[0] < - 23.8 + 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard9([posCard9[0] - 0.1 , 4, 0])
+                        setPosCard10([posCard10[0] - 0.1 , 4, 0])
+
+                        setSizeCard9([sizeCard9[0] - 0.064, sizeCard9[1] - 0.08625,0.5])
+                        setSizeCard10([sizeCard10[0] + 0.064, sizeCard10[1] + 0.08625,0.5])
                     }
                     else {
                         setPosCard9([-7, 4, 0])
@@ -537,25 +726,37 @@ export const FeaturedProjects = () => {
 
                         setPosCard4([26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 } 
                 else {
                     if(posCard10[0] < 0){
-                        if(posCard6[0] < -21.4 - 0.2){
-                            setPosCard1([posCard1[0] + 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.2 , 4, 0])
-                        }
-                        setPosCard10([posCard10[0] + 0.2 , 4, 0])
-                        setPosCard11([posCard11[0] + 0.2 , 4, 0])
+                        if(posCard6[0] < -21.4 - 0.1){
+                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
 
-                        setSizeCard10([sizeCard10[0] + 0.128, sizeCard10[1] + 0.1725,0.5])
-                        setSizeCard11([sizeCard11[0] - 0.128, sizeCard11[1] - 0.1725,0.5])
+                            //checkElevation(posCard6[0], "right");
+                            if(posCard6[0] > - 23.8 - 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard10([posCard10[0] + 0.1 , 4, 0])
+                        setPosCard11([posCard11[0] + 0.1 , 4, 0])
+
+                        setSizeCard10([sizeCard10[0] + 0.064, sizeCard10[1] + 0.08625,0.5])
+                        setSizeCard11([sizeCard11[0] - 0.064, sizeCard11[1] - 0.08625,0.5])
                     }
                     else {
                         setPosCard10([0, 4, 0])
@@ -566,6 +767,9 @@ export const FeaturedProjects = () => {
 
                         setPosCard5([-26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 }
             }
@@ -573,21 +777,30 @@ export const FeaturedProjects = () => {
             else if (locationCard1 == 9){
                 if(movingLeft){
                     if(posCard9[0] > 0){
-                        if(posCard4[0] > -26.2 + 0.2){
-                            setPosCard1([posCard1[0] - 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] - 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] - 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] - 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] - 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] - 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] - 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] - 0.2 , 4, 0])
-                        }
-                        setPosCard8([posCard8[0] - 0.2 , 4, 0])
-                        setPosCard9([posCard9[0] - 0.2 , 4, 0])
+                        if(posCard4[0] > -26.2 + 0.1){
+                            setPosCard1([posCard1[0] - 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] - 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] - 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] - 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] - 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] - 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] - 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] - 0.1 , 4, 0])
 
-                        setSizeCard8([sizeCard8[0] - 0.128, sizeCard8[1] - 0.1725,0.5])
-                        setSizeCard9([sizeCard9[0] + 0.128, sizeCard9[1] + 0.1725,0.5])
+                            //checkElevation(posCard4[0], "left");
+                            if(posCard4[0] < - 23.8 + 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard8([posCard8[0] - 0.1 , 4, 0])
+                        setPosCard9([posCard9[0] - 0.1 , 4, 0])
+
+                        setSizeCard8([sizeCard8[0] - 0.064, sizeCard8[1] - 0.08625,0.5])
+                        setSizeCard9([sizeCard9[0] + 0.064, sizeCard9[1] + 0.08625,0.5])
                     }
                     else {
                         setPosCard8([-7, 4, 0])
@@ -598,25 +811,37 @@ export const FeaturedProjects = () => {
 
                         setPosCard3([26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 } 
                 else {
                     if(posCard9[0] < 0){
-                        if(posCard5[0] < -21.4 - 0.2){
-                            setPosCard1([posCard1[0] + 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.2 , 4, 0])
-                        }
-                        setPosCard9([posCard9[0] + 0.2 , 4, 0])
-                        setPosCard10([posCard10[0] + 0.2 , 4, 0])
+                        if(posCard5[0] < -21.4 - 0.1){
+                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
 
-                        setSizeCard9([sizeCard9[0] + 0.128, sizeCard9[1] + 0.1725,0.5])
-                        setSizeCard10([sizeCard10[0] - 0.128, sizeCard10[1] - 0.1725,0.5])
+                            //checkElevation(posCard5[0], "right");
+                            if(posCard5[0] > - 23.8 - 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard9([posCard9[0] + 0.1 , 4, 0])
+                        setPosCard10([posCard10[0] + 0.1 , 4, 0])
+
+                        setSizeCard9([sizeCard9[0] + 0.064, sizeCard9[1] + 0.08625,0.5])
+                        setSizeCard10([sizeCard10[0] - 0.064, sizeCard10[1] - 0.08625,0.5])
                     }
                     else {
                         setPosCard9([0, 4, 0])
@@ -627,6 +852,9 @@ export const FeaturedProjects = () => {
 
                         setPosCard4([-26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 }
             }
@@ -634,21 +862,30 @@ export const FeaturedProjects = () => {
             else if (locationCard1 == 10){
                 if(movingLeft){
                     if(posCard8[0] > 0){
-                        if(posCard3[0] > -26.2 + 0.2){
-                            setPosCard1([posCard1[0] - 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] - 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] - 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] - 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] - 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] - 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] - 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] - 0.2 , 4, 0])
-                        }
-                        setPosCard7([posCard7[0] - 0.2 , 4, 0])
-                        setPosCard8([posCard8[0] - 0.2 , 4, 0])
+                        if(posCard3[0] > -26.2 + 0.1){
+                            setPosCard1([posCard1[0] - 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] - 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] - 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] - 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] - 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] - 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] - 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] - 0.1 , 4, 0])
 
-                        setSizeCard7([sizeCard7[0] - 0.128, sizeCard7[1] - 0.1725,0.5])
-                        setSizeCard8([sizeCard8[0] + 0.128, sizeCard8[1] + 0.1725,0.5])
+                            //checkElevation(posCard3[0], "left");
+                            if(posCard3[0] < - 23.8 + 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard7([posCard7[0] - 0.1 , 4, 0])
+                        setPosCard8([posCard8[0] - 0.1 , 4, 0])
+
+                        setSizeCard7([sizeCard7[0] - 0.064, sizeCard7[1] - 0.08625,0.5])
+                        setSizeCard8([sizeCard8[0] + 0.064, sizeCard8[1] + 0.08625,0.5])
                     }
                     else {
                         setPosCard7([-7, 4, 0])
@@ -659,25 +896,37 @@ export const FeaturedProjects = () => {
 
                         setPosCard2([26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 } 
                 else {
                     if(posCard8[0] < 0){
-                        if(posCard4[0] < -21.4 - 0.2){
-                            setPosCard1([posCard1[0] + 0.2 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.2 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.2 , 4, 0])
-                        }
-                        setPosCard8([posCard8[0] + 0.2 , 4, 0])
-                        setPosCard9([posCard9[0] + 0.2 , 4, 0])
+                        if(posCard4[0] < -21.4 - 0.1){
+                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
 
-                        setSizeCard8([sizeCard8[0] + 0.128, sizeCard8[1] + 0.1725,0.5])
-                        setSizeCard9([sizeCard9[0] - 0.128, sizeCard9[1] - 0.1725,0.5])
+                            //checkElevation(posCard4[0], "right");
+                            if(posCard4[0] > - 23.8 - 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard8([posCard8[0] + 0.1 , 4, 0])
+                        setPosCard9([posCard9[0] + 0.1 , 4, 0])
+
+                        setSizeCard8([sizeCard8[0] + 0.064, sizeCard8[1] + 0.08625,0.5])
+                        setSizeCard9([sizeCard9[0] - 0.064, sizeCard9[1] - 0.08625,0.5])
                     }
                     else {
                         setPosCard8([0, 4, 0])
@@ -688,6 +937,9 @@ export const FeaturedProjects = () => {
 
                         setPosCard3([-26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 }
             }
@@ -696,21 +948,30 @@ export const FeaturedProjects = () => {
                 // CARTA 1 ESTABA EN LA POS 1
                 if(movingLeft){
                     if(posCard7[0] > 0){
-                        if(posCard2[0] > -26.2 + 0.2){
-                            setPosCard2([posCard2[0] - 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] - 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] - 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] - 0.2 , 4, 0])
-                            setPosCard8([posCard8[0] - 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] - 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] - 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] - 0.2 , 4, 0])
-                        }
-                        setPosCard6([posCard6[0] - 0.2 , 4, 0])
-                        setPosCard7([posCard7[0] - 0.2 , 4, 0])
+                        if(posCard2[0] > -26.2 + 0.1){
+                            setPosCard2([posCard2[0] - 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] - 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] - 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] - 0.1 , 4, 0])
+                            setPosCard8([posCard8[0] - 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] - 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] - 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] - 0.1 , 4, 0])
 
-                        setSizeCard6([sizeCard6[0] - 0.128, sizeCard6[1] - 0.1725,0.5])
-                        setSizeCard7([sizeCard7[0] + 0.128, sizeCard7[1] + 0.1725,0.5])
+                            //checkElevation(posCard2[0], "left");
+                            if(posCard2[0] < - 23.8 + 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                                setElevateGameBoy(true)
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                                setElevateGameBoy(false)
+                            }
+                        }
+                        setPosCard6([posCard6[0] - 0.1 , 4, 0])
+                        setPosCard7([posCard7[0] - 0.1 , 4, 0])
+
+                        setSizeCard6([sizeCard6[0] - 0.064, sizeCard6[1] - 0.08625,0.5])
+                        setSizeCard7([sizeCard7[0] + 0.064, sizeCard7[1] + 0.08625,0.5])
                     }
                     else {
                         setPosCard6([-7, 4, 0])
@@ -721,25 +982,35 @@ export const FeaturedProjects = () => {
 
                         setPosCard1([26.2, 4, 0])
                         setloadingPosCards(false)
+
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 } 
                 else {
                     if(posCard7[0] < 0){
-                        if(posCard3[0] < -21.4 - 0.2){
-                            setPosCard1([posCard1[0] + 0.2 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.2 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.2 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.2 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.2 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.2 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.2 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.2 , 4, 0])
-                        }
-                        setPosCard7([posCard7[0] + 0.2 , 4, 0])
-                        setPosCard8([posCard8[0] + 0.2 , 4, 0])
+                        if(posCard3[0] < -21.4 - 0.1){
+                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
 
-                        setSizeCard7([sizeCard7[0] + 0.128, sizeCard7[1] + 0.1725,0.5])
-                        setSizeCard8([sizeCard8[0] - 0.128, sizeCard8[1] - 0.1725,0.5])
+                            //checkElevation(posCard3[0], "right");
+                            if(posCard3[0] > - 23.8 - 0.1){
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3, posGameBoy[2]])
+                            } else {
+                                setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3, posGameBoy[2]])
+                            }
+                        }
+                        setPosCard7([posCard7[0] + 0.1 , 4, 0])
+                        setPosCard8([posCard8[0] + 0.1 , 4, 0])
+
+                        setSizeCard7([sizeCard7[0] + 0.064, sizeCard7[1] + 0.08625,0.5])
+                        setSizeCard8([sizeCard8[0] - 0.064, sizeCard8[1] - 0.08625,0.5])
                     }
                     else {
                         setPosCard7([0, 4, 0])
@@ -750,6 +1021,8 @@ export const FeaturedProjects = () => {
 
                         setPosCard2([-26.2, 4, 0])
                         setloadingPosCards(false)
+                        setPosGameBoy([0, 0, -2])
+
                     }
                 }
             }
@@ -783,11 +1056,30 @@ export const FeaturedProjects = () => {
     return (
     <>
 <ambientLight intensity={0.5} />
-      
+<spotLight position={[0, 0, 30]} angle={0.3} penumbra={1} intensity={2} castShadow shadow-mapSize-width={256} shadow-mapSize-height={256} />
+
+
          <OrbitControls maxAzimuthAngle={Math.PI/6} minAzimuthAngle={-Math.PI/6} maxPolarAngle={Math.PI / 2 - Math.PI / 12} enableZoom={false} minPolarAngle={Math.PI / 2 - Math.PI / 12}></OrbitControls>
          <Environment preset="forest" blur={0.5}/>
 
-        <group  position={[0, -4.5, 0]}>
+        <group  position={[0, -3, 0]}>
+
+
+
+                <CardModel rotation-x={-Math.PI/10} scale={[140,140,140]} position={posGameBoy}/>
+                <Disk rotation-x={-Math.PI/10}  position={posCard1} scale={[sizeCard1[0] / 3 * percentage, sizeCard1[1] / 3 * percentage, sizeCard1[2] / 3] }/>
+                <Disk rotation-x={-Math.PI/10}  position={posCard2} scale={[sizeCard2[0] / 3 * percentage, sizeCard2[1] / 3 * percentage, sizeCard2[2] / 3] }/>
+                <Disk rotation-x={-Math.PI/10}  position={posCard3} scale={[sizeCard3[0] / 3 * percentage, sizeCard3[1] / 3 * percentage, sizeCard3[2] / 3] }/>
+                <Disk rotation-x={-Math.PI/10}  position={posCard4} scale={[sizeCard4[0] / 3 * percentage, sizeCard4[1] / 3 * percentage, sizeCard4[2] / 3] }/>
+                <Disk rotation-x={-Math.PI/10}  position={posCard5} scale={[sizeCard5[0] / 3 * percentage, sizeCard5[1] / 3 * percentage, sizeCard5[2] / 3] }/>
+                <Disk rotation-x={-Math.PI/10}  position={posCard6} scale={[sizeCard6[0] / 3 * percentage, sizeCard6[1] / 3 * percentage, sizeCard6[2] / 3] }/>
+                <Disk rotation-x={-Math.PI/10}  position={posCard7} scale={[sizeCard7[0] / 3 * percentage, sizeCard7[1] / 3 * percentage, sizeCard7[2] / 3] }/>
+                <Disk rotation-x={-Math.PI/10}  position={posCard8} scale={[sizeCard8[0] / 3 * percentage, sizeCard8[1] / 3 * percentage, sizeCard8[2] / 3] }/>
+                <Disk rotation-x={-Math.PI/10}  position={posCard9} scale={[sizeCard9[0] / 3 * percentage, sizeCard9[1] / 3 * percentage, sizeCard9[2] / 3] }/>
+                <Disk rotation-x={-Math.PI/10}  position={posCard10} scale={[sizeCard10[0] / 3 * percentage, sizeCard10[1] / 3 * percentage, sizeCard10[2] / 3] }/>
+                <Disk rotation-x={-Math.PI/10}  position={posCard11} scale={[sizeCard11[0] / 3 * percentage, sizeCard11[1] / 3 * percentage, sizeCard11[2] / 3] }/>
+                
+
                 <mesh receiveShadow castShadow position={downSm ? [-3, -3, 2] :  [-6, -0.5, 2]} rotation-z={Math.PI/2} onClick={moveCardLeft}>
                     <coneGeometry args={[0.8,1.3,20,5,false,0,Math.PI * 2]}/>
                     <meshStandardMaterial color="#ffd500" envMapIntensify={0.5}/>
@@ -798,38 +1090,16 @@ export const FeaturedProjects = () => {
                     <meshStandardMaterial color="#ffd500" envMapIntensify={0.5} />
                 </mesh>
 
-                <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard1} scale={[sizeCard1[0] * percentage, sizeCard1[1] * percentage, sizeCard1[2]]}>
-                    <meshStandardMaterial color="#3900BB" envMapIntensity={0.5} roughness={0} metalness={0}/>
-                </RoundedBox>
-
-                <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard2} scale={[sizeCard2[0] * percentage, sizeCard2[1] * percentage, sizeCard2[2]]}>
-                    <meshStandardMaterial color="#3900BB" envMapIntensity={0.5} roughness={0} metalness={0}/>
-                </RoundedBox>
-
-                <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard3} scale={[sizeCard3[0] * percentage, sizeCard3[1] * percentage, sizeCard3[2]]}>
-                    <meshStandardMaterial color="#3900BB" envMapIntensity={0.5} roughness={0} metalness={0}/>
-                </RoundedBox>
-
-                <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard4} scale={[sizeCard4[0] * percentage, sizeCard4[1] * percentage, sizeCard4[2]]}>
-                    <meshStandardMaterial color="#3900BB" envMapIntensity={0.5} roughness={0} metalness={0}/>
-                </RoundedBox>
-
-                <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard5} scale={[sizeCard5[0] * percentage, sizeCard5[1] * percentage, sizeCard5[2]]}>
-                    <meshStandardMaterial color="#3900BB" envMapIntensity={0.5} roughness={0} metalness={0} />
-                </RoundedBox>
 
 
 
 
-                {/* COMPLETE CARD */}
 
-
-
+                {/* COMPLETE CARD */}{/*
                 <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard6} scale={[sizeCard6[0] * percentage, sizeCard6[1] * percentage, sizeCard6[2]]}>
                     <meshStandardMaterial color="#1D0060" envMapIntensity={0.5} roughness={0} metalness={0}/>
-                </RoundedBox>
+                </RoundedBox>                
                 
-                {/*
                 
                 <mesh castShadow receiveShadow rotation-x={-Math.PI/10} position={[posCard6[0], posCard6[1] + 1, posCard6[2] + 0.05]} scale={[sizeCard6[0] - 1,sizeCard6[1] - 3,sizeCard6[2]]}>
                     <planeGeometry />
@@ -846,9 +1116,28 @@ export const FeaturedProjects = () => {
 
                 
                 
-                
-                
-                <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard7} scale={[sizeCard7[0] * percentage, sizeCard7[1] * percentage, sizeCard7[2]]}>
+                {
+                    /*
+                    
+                    
+                                    <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard2} scale={[sizeCard2[0] * percentage, sizeCard2[1] * percentage, sizeCard2[2]]}>
+                    <meshStandardMaterial color="#3900BB" envMapIntensity={0.5} roughness={0} metalness={0}/>
+                </RoundedBox>
+
+                <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard3} scale={[sizeCard3[0] * percentage, sizeCard3[1] * percentage, sizeCard3[2]]}>
+                    <meshStandardMaterial color="#3900BB" envMapIntensity={0.5} roughness={0} metalness={0}/>
+                </RoundedBox>
+
+                <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard4} scale={[sizeCard4[0] * percentage, sizeCard4[1] * percentage, sizeCard4[2]]}>
+                    <meshStandardMaterial color="#3900BB" envMapIntensity={0.5} roughness={0} metalness={0}/>
+                </RoundedBox>
+
+                <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard5} scale={[sizeCard5[0] * percentage, sizeCard5[1] * percentage, sizeCard5[2]]}>
+                    <meshStandardMaterial color="#3900BB" envMapIntensity={0.5} roughness={0} metalness={0} />
+                </RoundedBox>
+
+                    
+                    <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard7} scale={[sizeCard7[0] * percentage, sizeCard7[1] * percentage, sizeCard7[2]]}>
                     <meshStandardMaterial color="#3900BB" envMapIntensity={0.5} roughness={0} metalness={0} />
                 </RoundedBox>
 
@@ -867,6 +1156,12 @@ export const FeaturedProjects = () => {
                 <RoundedBox receiveShadow rotation-x={-Math.PI/10} castShadow smoothness={10}  radius={0.015} position={posCard11} scale={[sizeCard11[0] * percentage, sizeCard11[1] * percentage, sizeCard11[2]]}>
                     <meshStandardMaterial color="#3900BB" envMapIntensity={0.5} roughness={0} metalness={0}/>
                 </RoundedBox>
+                    
+                    
+                    */
+                }
+                
+                
 
                 {/* BUBBLES */}
             </group>
