@@ -10,7 +10,7 @@ export const Projects = () =>{
     const downMd = useMediaQuery(themeM.breakpoints.down('md'));
     const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
     return (
-        <Grid container className='app'>
+        <Grid container className='app' sx={{backgroundColor:"#0b051a"}}>
             <Grid item xs={12} sx = {{height: downSm ? "90vh" : "100vh", width:"100%"}} >
                 <Canvas 
                     className='canvas' 

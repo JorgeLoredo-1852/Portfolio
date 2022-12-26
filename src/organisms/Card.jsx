@@ -4,6 +4,9 @@ import Carousel from "react-material-ui-carousel";
 import { Tag } from "./Tag"
 
 export const Card = ({ info, ke, openFunc }) => {
+    const openModal = () => {
+        openFunc(info)
+    }
   return (
     <Grid item xs={"auto"} key={`${info.id}-card`}>
         <div key={`${info.id}-cardText`} className="card">
@@ -38,7 +41,7 @@ export const Card = ({ info, ke, openFunc }) => {
                     </div>
                 </Box>
                 <Box sx={{display:"flex", justifyContent:"center"}}>
-                    <div className="card__button" onClick={openFunc}>
+                    <div className="card__button" onClick={openModal}>
                         <p>View Details</p>
                     </div>
                 </Box>

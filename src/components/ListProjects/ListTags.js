@@ -25,5 +25,8 @@ export const ListTags = [
     },
     {
         name: "3D Modelling"
+    },
+    {
+        name: "Simulation"
     }
 ]

@@ -61,7 +61,11 @@ export const ListProjects = () => {
   const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
 
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
+    const [detailProject, setDetailProject] = useState(List[0])
+    const handleOpen = (project) => {
+        setOpen(true);
+        setDetailProject(project)
+    }
     const handleClose = () => setOpen(false);
     
     const onClickSearchBar = (e) => {
@@ -71,7 +75,7 @@ export const ListProjects = () => {
     return(
         <div style={{backgroundColor:"#110728", width: "100%", display:"flex", justifyContent:"center", paddingBottom:"3rem"}}>
             <div style={{maxWidth: '1260px', width:"100%"}}>
-                <Grid container mt={6} spacing={1} sx={{padding:downLg ? "2rem" : "0.5rem"}}>
+                <Grid container mt={3} spacing={1} sx={{padding:downLg ? "2rem" : "0.5rem"}}>
                     <Grid item xs={12}>
                         <Box
                                 component="form"
@@ -103,7 +107,7 @@ export const ListProjects = () => {
                 </Grid>
             </div>
             <div>
-                <ModalProject project={List[0]} open={open} onClose={handleClose}/>
+                <ModalProject project={detailProject} open={open} onClose={handleClose}/>
             </div>
         </div>  
 

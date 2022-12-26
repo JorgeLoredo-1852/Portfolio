@@ -69,8 +69,8 @@ export const ModalProject = ({project, open, onClose}) => {
               </div>
               </div>
               <img
-                    src={`/modal1.png`}
-                    style={{padding:"0.5rem 0.5rem 0rem 0.5rem"}}
+                    src={project.modalImg}
+                    style={{padding:"0.5rem 0.5rem 0rem 0.5rem", maxWidth:"550px"}}
                     loading="lazy"
               />
            </Box>

@@ -1055,8 +1055,8 @@ export const FeaturedProjects = () => {
 
     return (
     <>
-<ambientLight intensity={0.5} />
-<spotLight position={[0, 0, 30]} angle={0.3} penumbra={1} intensity={2} castShadow shadow-mapSize-width={256} shadow-mapSize-height={256} />
+<ambientLight intensity={0.4} />
+<spotLight position={[0, 0, 30]} angle={0.3} penumbra={1} intensity={1.5} castShadow shadow-mapSize-width={256} shadow-mapSize-height={256} />
 
 
          <OrbitControls maxAzimuthAngle={Math.PI/6} minAzimuthAngle={-Math.PI/6} maxPolarAngle={Math.PI / 2 - Math.PI / 12} enableZoom={false} minPolarAngle={Math.PI / 2 - Math.PI / 12}></OrbitControls>
@@ -1080,12 +1080,12 @@ export const FeaturedProjects = () => {
                 <Disk rotation-x={-Math.PI/10}  position={posCard11} scale={[sizeCard11[0] / 3 * percentage, sizeCard11[1] / 3 * percentage, sizeCard11[2] / 3] }/>
                 
 
-                <mesh receiveShadow castShadow position={downSm ? [-3, -3, 2] :  [-6, -0.5, 2]} rotation-z={Math.PI/2} onClick={moveCardLeft}>
+                <mesh receiveShadow castShadow position={downSm ? [-3, -3, 2] :  [-7, -1, 3.5]} rotation-z={Math.PI/2} onClick={moveCardLeft}>
                     <coneGeometry args={[0.8,1.3,20,5,false,0,Math.PI * 2]}/>
                     <meshStandardMaterial color="#ffd500" envMapIntensify={0.5}/>
                 </mesh>
 
-                <mesh receiveShadow castShadow position={downSm ? [3, -3, 2] :  [6, -0.5, 2]} rotation-z={-Math.PI/2} onClick={moveCardRight}>
+                <mesh receiveShadow castShadow position={downSm ? [3, -3, 2] :  [7, -1, 3.5]} rotation-z={-Math.PI/2} onClick={moveCardRight}>
                     <coneGeometry args={[0.8,1.3,20,5,false,0,Math.PI * 2]}/>
                     <meshStandardMaterial color="#ffd500" envMapIntensify={0.5} />
                 </mesh>
