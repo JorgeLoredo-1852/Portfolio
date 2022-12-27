@@ -88,6 +88,19 @@ export const List = [
     },
     {
         id:8,
+        name: "Web 3.0 Templates",
+        date: "Aug 2022",
+        description: "Created templates for blockchain-based applications on Solana (Staking Platform, Mystery Box Game)",
+        completeDescription: <><p>Created templates for blockchain-based applications on Solana (Staking Platform, Mystery Box Game).</p><p style={{marginTop:"0.6rem"}}>Created a script to generate raw data, simulated in Unity and rendered to a web application via Web GL.</p></>,
+        tags: ["Frontend","Web 3.0"],
+        technologies: ["React.js", "CSS", "Material UI"],
+        img: "/thumbnails/template.png",
+        modalImg:"/modalImg/template.png",
+        link: "https://main.d2juybscny22sl.amplifyapp.com/",
+        link2: "https://main.d3nwwa1llv0ubk.amplifyapp.com/"
+    },
+    {
+        id:9,
         name: "Gas Leak Simulation",
         date: "May 2022",
         description: "Modeled (as a team) a gas leak via using a heat map in a factory given CO2 indices andemployee movement",
@@ -98,7 +111,7 @@ export const List = [
         modalImg:"/modalImg/construccion.png",
     },
     { 
-        id: 9,
+        id: 10,
         name: "SEMS: Monitoring",
         date: "Jan 2021 - June 2021",
         description: "Developed (team) a monitoring system which tracks factors of the student community in a post-pandemic scenario.",
@@ -109,26 +122,33 @@ export const List = [
         modalImg:"/modalImg/covid.png",
         link: "https://conecta.tec.mx/es/noticias/monterrey/educacion/el-software-que-analiza-estudios-urbanos-para-cumplir-medidas-vs-covid?_hsmi=147996003&_hsenc=p2ANqtz-_7cAvOiumdQwPtBrJ9_JE2yOIYHzsrNFaJoJz82yxzUDAfCpttr6st43RsGd6INLGgnak37S7q6SJ0yjYCphcUpuFFvA"
     },
+    { 
+        id: 11,
+        name: "Mathematics HL (IB)",
+        date: "May 2020",
+        description: "IB Mathematics High Level Internal Assessment focused on finding the shortest path in a transportation network",
+        completeDescription: <><p>IB Mathematics High Level Internal Assessment focused on finding the shortest path in a transportation network.</p><p style={{marginTop:"0.6rem"}}>Iterative algorithm that calculates all the possible paths in the transportation network on a specific Monterrey region using Dijkstra</p><p style={{marginTop:"0.6rem"}}>International Baccalaureate Grade: 6/7</p></>,
+        tags: ["Docs"],
+        technologies: ["Java"],
+        img: "/thumbnails/math.png",
+        modalImg:"/modalImg/math.png",
+    },
+    { 
+        id: 12,
+        name: "Computing HL (IB)",
+        date: "May 2020",
+        description: "IB Computer Science High Level Internal Assessment focused on developing a desktop app for a local business",
+        completeDescription: <><p>IB Computer Science High Level Internal Assessment focused on developing a desktop app for a local business</p><p style={{marginTop:"0.6rem"}}>OOP Application </p><p style={{marginTop:"0.6rem"}}>International Baccalaureate Grade: 6/7</p></>,
+        tags: ["Backend", "Docs"],
+        technologies: ["Java"],
+        img: "/thumbnails/portilla.png",
+        modalImg:"/modalImg/portilla.png",
+    },
 ]
 
 export const List2 = [
     {
-        name: "Modelo Recoge huevos"
-    },
-    {
-        name: "WEB30 TEMPLATES"
-    },
-    {
-        name: "Matematicas BI"
-    },
-    {
-        name: "Cmputacion BI"
-    },
-    {
         name: "Hackathon Unity"
-    },
-    {
-        name: "Modelo 3D Kuchau"
     },
     {
         name: "Miscalleanuos Web Pages (SIMIS)"
@@ -147,5 +167,14 @@ export const List2 = [
     },
     {
         name: "Proyecto iOT"
-    }
+    },
+
+
+    
+    {
+        name: "Modelo Recoge huevos"
+    },
+    {
+        name: "Modelo 3D Kuchau"
+    },
 ]
