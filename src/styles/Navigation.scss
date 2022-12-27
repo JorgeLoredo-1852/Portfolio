@@ -7,7 +7,7 @@
     }
 
     &__button{
-        background-color: white;
+        background-color: #3900BB;
         height: 6rem;
         width: 6rem;
         border-radius: 50%;
@@ -27,7 +27,7 @@
     &__background{
         height: 5rem;
         width: 5rem;
-        background-image: radial-gradient(blue,blue);
+        background-image: radial-gradient(#3900BB,#1D0060);
         border-radius: 50%;
         position: fixed;
         top: 6rem;
@@ -95,7 +95,7 @@
         &:active{
             background-position: 100%;
             transform: translateX(1rem);
-            color: blue;
+            color: #1D0060;
         }
     }
 
@@ -119,7 +119,7 @@
         &,&::before,&::after{
             width: 3rem;
             height: 2px;
-            background-color: grey;
+            background-color: white;
             display: inline-block;
             transition: all .2s;
         }

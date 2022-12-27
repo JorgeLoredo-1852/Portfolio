@@ -26,7 +26,7 @@ export const List = [
         id:3,
         name: "Caritapp iOS",
         date: "Sept 2022 - Oct 2023",
-        description: "Developed (as a team) a mobile application for a local ONG to manage and enroll volunteers.",
+        description: "Developed (as a team) a mobile application for a local NGO to manage and enroll volunteers.",
         completeDescription: <><p>Developed (as a team) a mobile application for a local ONG to manage volunteers.</p><p style={{marginTop:"0.6rem"}}>Created a RESTful API with Flask and used Swift for iOS development.</p></>,
         tags: ["Frontend", "Backend", "Mobile", "Databases"],
         technologies: ["Swift", "Flask", "MySQL","Python"],
@@ -110,11 +110,22 @@ export const List = [
         img: "/thumbnails/construccion.png",
         modalImg:"/modalImg/construccion.png",
     },
-    { 
+    {
         id: 10,
+        name: "Energy efficiency",
+        date: "Dec 2021",
+        description: "Built (team) an IoT simulation to streamline the energy usage in a house given environmental variables",
+        completeDescription: <><p>Built (team) an IoT simulation to streamline the energy usage in a house given environmental variables.</p><p style={{marginTop:"0.6rem"}}>Simulated locally on 2 machines and 2 physical microcontrollers.</p></>,
+        tags: ["Backend","Databases", "IOT", "Simulation"],
+        technologies: ["Arduino", "C++", "Tableau","Python"],
+        img: "/thumbnails/iot.png",
+        modalImg:"/modalImg/iot.png",
+    },
+    { 
+        id: 11,
         name: "SEMS: Monitoring",
         date: "Jan 2021 - June 2021",
-        description: "Developed (team) a monitoring system which tracks factors of the student community in a post-pandemic scenario.",
+        description: "Developed (team) a monitoring system which tracks factors of the student community in a post-pandemic scenario",
         completeDescription: <><p>Developed as a team a web application that generates data on factors that impact the health of the student community through a monitoring system for a post-pandemic scenario. </p><p style={{marginTop:"0.6rem"}}>Created a dashboard that allows the user to view and interact with the metrics of the student flow at the university, as well as record environmental variables in real-time.</p><p style={{marginTop:"0.6rem"}}>First place in “Conexión Tec” competition in the category "Software Prototype Development."</p></>,
         tags: ["Frontend", "IOT", "Competition", "Docs"],
         technologies: ["React.js", "Sass", "Redux"],
@@ -123,7 +134,88 @@ export const List = [
         link: "https://conecta.tec.mx/es/noticias/monterrey/educacion/el-software-que-analiza-estudios-urbanos-para-cumplir-medidas-vs-covid?_hsmi=147996003&_hsenc=p2ANqtz-_7cAvOiumdQwPtBrJ9_JE2yOIYHzsrNFaJoJz82yxzUDAfCpttr6st43RsGd6INLGgnak37S7q6SJ0yjYCphcUpuFFvA"
     },
     { 
-        id: 11,
+        id: 12,
+        name: "URL Shortener",
+        date: "Dec 2020 - May 2021",
+        description: "Developed in a team of two the Back-End for a link shortener that manages the information from the Roborregos robotics team.",
+        completeDescription: <><p>Developed in a team of two the Back-End for a link shortener that manages the information from the Roborregos robotics team.</p></>,
+        tags: ["Backend", "Databases"],
+        technologies: ["PHP", "Laravel", "MySQL"],
+        img: "/thumbnails/robolinks.png",
+        modalImg:"/modalImg/robolinks.png",
+    },
+    { 
+        id: 13,
+        name: "Misc. Web",
+        date: "Dec 2020 - Apr 2021",
+        description: "Coded +10 websites/templates as part of 3 online courses with modern CSS, HTML, Javascript and React",
+        completeDescription: <><p>Coded +10 websites/templates as part of 3 online courses.</p><p style={{marginTop:"0.6rem"}}>1. Advanced CSS and Sass: Flexbox, Grid, Animations and More! by J. Schmedtmann </p> <p>2. Modern React with Redux [2023 Update] by S. Grider </p><p>3. HTML, CSS, and Javascript for Web Developers by John Hopkins University</p></>,
+        tags: ["Frontend"],
+        technologies: ["React.js", "Sass", "Redux", "CSS", "HTML"],
+        img: "/thumbnails/simi.png",
+        modalImg:"/modalImg/simi.png",
+        github: "https://github.com/JorgeLoredo-1852/Website-1stProject",
+        link: "https://drsimi7.netlify.app/"
+    },
+    {
+        id: 14,
+        name: "Natours API",
+        date: "March 2021",
+        description: "Created a complete RESTful API with error handling, authentication, security, data modelling and more",
+        completeDescription: <><p>Created a complete REST API with error handling, security, data modelling and more, as part of "Node.js, Express, MongoDB & More: The Comlpete Bootcamp 2021"</p></>,
+        tags: ["Backend","Databases"],
+        technologies: ["MongoDB", "Mongoose", "Node.js", "Express"],
+        img: "/thumbnails/natours.png",
+        modalImg:"/modalImg/natours.png",
+    },
+    {
+        id: 15,
+        name: "Egg Collector",
+        date: "Oct 2020",
+        description: "Developed a magnetic stripe mechanism box for egg collection as part of a mechanics hackathon",
+        completeDescription: <><p>Developed a magnetic stripe mechanism box for egg collection as part of a mechanics hackathon</p><p style={{marginTop:"0.6rem"}}>First place among +15 participants at the university</p></>,
+        tags: ["3D Modelling","Competition"],
+        technologies: ["Fusion 360"],
+        img: "/thumbnails/egg.png",
+        modalImg:"/modalImg/egg.png",
+        link: "https://gallery.autodesk.com/projects/155724/egg-storing-box"
+    },
+    {
+        id: 16,
+        name: "Maze Robot",
+        date: "Oct 2020",
+        description: "Created a robot that could solve a maze given various requirements for Roborregos Candidates 2020",
+        completeDescription: <><p>Created a robot that could solve a maze given various requirements for Roborregos Candidates 2020</p><p style={{marginTop:"0.6rem"}}>First place among +25 teams at the university</p></>,
+        tags: ["3D Modelling","Competition"],
+        technologies: ["Fusion 360"],
+        img: "/thumbnails/cars.png",
+        modalImg:"/modalImg/cars.png",
+        link: "https://gallery.autodesk.com/projects/155725/maze-robot-solver"
+    },
+    {
+        id: 17,
+        name: "Game Jam",
+        date: "Oct 2020",
+        description: "Developed as a team a 2D RPG game set on the spooky horrors of Halloween during a 24h Hackathon.",
+        completeDescription: <><p>Developed as a team a 2D RPG game set on the spooky horrors of Halloween during a 24h Hackathon.</p><p style={{marginTop:"0.6rem"}}>Fifth place among 15+ teams competing in the university.</p></>,
+        tags: ["Unity", "Competition"],
+        technologies: ["Unity"],
+        img: "/thumbnails/unity.png",
+        modalImg:"/modalImg/unity.png",
+    },
+    {
+        id: 18,
+        name: "Photo Generation AI",
+        date: "August 2020",
+        description: "Created a neural network to edit photos as part of the Deep Learning specialization by Andrew Ng",
+        completeDescription: <><p>Created a neural network to edit photos as part of the Deep Learning specialization by Andrew Ng.</p><p style={{marginTop:"0.6rem"}}>Tunned parameters and regularized data via Tensorflow</p></>,
+        tags: ["Docs"],
+        technologies: ["Tensorflow","Python"],
+        img: "/thumbnails/ml.png",
+        modalImg:"/modalImg/ml.png",
+    },
+    { 
+        id: 19,
         name: "Mathematics HL (IB)",
         date: "May 2020",
         description: "IB Mathematics High Level Internal Assessment focused on finding the shortest path in a transportation network",
@@ -132,9 +224,10 @@ export const List = [
         technologies: ["Java"],
         img: "/thumbnails/math.png",
         modalImg:"/modalImg/math.png",
+        github:"https://github.com/JorgeLoredo-1852/High-School-Projects"
     },
     { 
-        id: 12,
+        id: 20,
         name: "Computing HL (IB)",
         date: "May 2020",
         description: "IB Computer Science High Level Internal Assessment focused on developing a desktop app for a local business",
@@ -143,38 +236,17 @@ export const List = [
         technologies: ["Java"],
         img: "/thumbnails/portilla.png",
         modalImg:"/modalImg/portilla.png",
+        github:"https://github.com/JorgeLoredo-1852/High-School-Projects"
     },
-]
-
-export const List2 = [
-    {
-        name: "Hackathon Unity"
-    },
-    {
-        name: "Miscalleanuos Web Pages (SIMIS)"
-    },
-    {
-        name: "API NATOURS"
-    },
-    {
-        name: "Algo de Machine Learning"
-    },
-    {
-        name: "Robolinks"
-    },
-    {
-        name: "Proyecto Museo Marco"
-    },
-    {
-        name: "Proyecto iOT"
-    },
-
-
-    
-    {
-        name: "Modelo Recoge huevos"
-    },
-    {
-        name: "Modelo 3D Kuchau"
+    { 
+        id: 21,
+        name: "Proximité Installation",
+        date: "Nov 2019",
+        description: "Built an electronic art installation that got exposed in Marco Museum inspired in the exposition Présence Instable.",
+        completeDescription: <><p>Built an electronic art installation that got exposed in Marco Museum inspired in the exposition Présence Instable.</p><p style={{marginTop:"0.6rem"}}>First approach to engineering, programming and electronics</p></>,
+        tags: ["IOT"],
+        technologies: ["C++","Arduino"],
+        img: "/thumbnails/french.png",
+        modalImg:"/modalImg/french.png",
     },
 ]
