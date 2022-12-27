@@ -50,22 +50,22 @@ export const ModalProject = ({project, open, onClose}) => {
           <Grid item xs={0} lg={"auto"} sx={{backgroundColor:"#3900BB", display: downLg ? "none" : ""}}>
            <Box sx={{padding:"0", margin:"0", position:"relative"}}>
               <div style={{position:"relative"}}>
-                <div style={{display:"flex", justifyContent:"flex-end", alignItem:"center", position:"absolute", right:"1rem", top:"-2.5rem", height:"1.5rem"}}>
-                  <img
-                      src={`/link.png`}
-                      style={{height:"2rem", width:"2rem",marginRight:"0.8rem"}}
-                      loading="lazy"
-                  />
-                  <img
-                      src={`/youtube.png`}
-                      loading="lazy"
-                      style={{height:"2rem", width:"2rem",marginRight:"0.8rem"}}
-                  />
-                  <img
-                      src={`/github.png`}
-                      style={{height:"2rem", width:"2rem"}}
-                      loading="lazy"
-                  />
+                <div style={{display:"flex", justifyContent:"flex-end", alignItem:"center", position:"absolute", right:"0", top:"-2.5rem", height:"1.5rem"}}>
+                  {
+                    project.twitter ? <a href={project.twitter} target="_blank" rel='nonereferrer'><img src={"/icons/twitter.svg"} style={{height:"1.8rem", width:"1.8rem",marginRight:"0.8rem"}} loading="lazy"/></a>:<></>
+                  }
+                                    {
+                    project.youtube ? <a href={project.youtube} target="_blank" rel='nonereferrer'><img src={"/icons/youtube.svg"} style={{height:"2rem", width:"2rem",marginRight:"0.8rem", marginTop:"-0.1rem"}} loading="lazy"/></a>:<></>
+                  }
+                                    {
+                    project.github ? <a href={project.github} target="_blank" rel='nonereferrer'><img src={"/icons/github.svg"} style={{height:"1.8rem", width:"1.8rem",marginRight:"0.8rem", marginTop:"-0.1rem"}} loading="lazy"/></a>:<></>
+                  }
+                                    {
+                    project.link ? <a href={project.link} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.6rem", width:"1.6rem",marginRight:"0.8rem", marginTop:"0.1rem"}} loading="lazy"/></a>:<></>
+                  }
+                  {
+                    project.link2 ? <a href={project.link2} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.6rem", width:"1.6rem",marginRight:"0.8rem", marginTop:"0.1rem"}} loading="lazy"/></a>:<></>
+                  }
               </div>
               </div>
               <img
@@ -76,25 +76,15 @@ export const ModalProject = ({project, open, onClose}) => {
            </Box>
           </Grid>
           <Grid item xs={12} lg={5} sx={{backgroundColor:"#1D0060", padding:"2rem"}}>
-            <Box sx={{fontSize:"2rem", fontWeight:"600",  display:"flex", justifyContent:"space-between",flexDirection: downSm ? "column-reverse" :"", lineHeight:"2.3rem"}}>
-              <div>{project.name}</div>
+            <Box sx={{fontSize:"2rem", fontWeight:"600",  display:"flex", justifyContent:"space-between",flexDirection: downSm ? "column-reverse" :""}}>
+              <div style={{lineHeight:"2.3rem"}}>{project.name}</div>
                     <div style={{display: downLg ? "flex" : "none", justifyContent: downSm ? "flex-Start" : "flex-end", alignItem:"center", marginBottom: downSm ? "1rem" : ""}}>
-                      <img
-                          src={`/link.png`}
-                          style={{height:"2rem", width:"2rem",marginRight:"0.8rem"}}
-                          loading="lazy"
-                      />
-                      <img
-                          src={`/youtube.png`}
-                          loading="lazy"
-                          style={{height:"2rem", width:"2rem",marginRight:"0.8rem"}}
-                      />
-                      <img
-                          src={`/github.png`}
-                          style={{height:"2rem", width:"2rem"}}
-                          loading="lazy"
-                      />
-                  </div>
+                    { project.twitter ? <a href={project.twitter} target="_blank" rel='nonereferrer'><img src={"/icons/twitter.svg"} style={{height:"1.6rem", width:"1.6rem",marginRight:"0.8rem"}} loading="lazy"/></a>:<></> }
+                    { project.youtube ? <a href={project.youtube} target="_blank" rel='nonereferrer'><img src={"/icons/youtube.svg"} style={{height:"1.8rem", width:"1.8rem",marginRight:"0.8rem"}} loading="lazy"/></a>:<></> }
+                    { project.github ? <a href={project.github} target="_blank" rel='nonereferrer'><img src={"/icons/github.svg"} style={{height:"1.7rem", width:"1.7rem",marginRight:"0.8rem"}} loading="lazy"/></a>:<></> }
+                    { project.link ? <a href={project.link} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.5rem", width:"1.5rem",marginRight:"0.8rem"}} loading="lazy"/></a>:<></> }
+                    { project.link2 ? <a href={project.link2} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.5rem", width:"1.5remm",marginRight:"0.8rem"}} loading="lazy"/></a>:<></> }
+                  </div> 
             </Box>
             <Box sx={{fontSize:"1.2rem", fontWeight:"400", color:"#F2E5FF", marginTop:"1rem"}}>
               {project.date}
@@ -110,42 +100,23 @@ export const ModalProject = ({project, open, onClose}) => {
             <Grid container sx={{marginTop:"0.6rem", color:"#F2E5FF"}}>
               <Grid item xs={12}>
                 <Grid container columnSpacing={2}>
-                  <Grid item><span>React.js</span></Grid>
-                  <Grid item><span>Node.js</span></Grid>
-                  <Grid item><span>Solidity</span></Grid>
-                  <Grid item><span>Rust</span></Grid>
-                  <Grid item><span>Express</span></Grid>
-                  <Grid item><span>Material UI</span></Grid>
+                  { project.technologies.map((t) => (<Grid item><span>{t}</span></Grid>)) }
                 </Grid>
               </Grid>
-              <Grid item xs={12} sx={{marginTop:"1rem"}}>
-                  <img
-                    src={`/nodeLogo.png`}
-                    style={{height:"50px", width:"auto", marginRight:"1rem"}}
+              <Grid item xs={12}>
+                <div style={{overflow:"hidden", width:"100%", height:"63px"}}>
+                  <div className='hideScroll'>
+                                      { project.technologies.map((t) => (<img
+                    src={`/technologies/${t}.png`}
+                    style={{height:"40px", width:"auto", marginRight:"1.5rem", marginTop:"1rem"}}
                     loading="lazy"
-                  />
-
-                  <img
-                    src={`/reactLogo.png`}
-                    style={{height:"50px", width:"auto", marginRight:"1rem"}}
-                    loading="lazy"
-                  />
-
-                  <img
-                    src={`/nodeLogo.png`}
-                    style={{height:"50px", width:"auto", marginRight:"1rem"}}
-                    loading="lazy"
-                  />
-
-                  <img
-                    src={`/reactLogo.png`}
-                    style={{height:"50px", width:"auto", marginRight:"1rem"}}
-                    loading="lazy"
-                  />
+                  />)) }
+                  </div>
+                </div>
               </Grid>
             </Grid>
           </Grid>
-          
+
         </Grid>
         </Fade>
       </Modal>

@@ -18,7 +18,7 @@ export const Projects = () =>{
                     camera={{position: [0,30,60], fov:15}}
                     gl={{ antialias: false }}
                 >
-                    <FeaturedProjects/>
+                    {/*<FeaturedProjects/>*/}
                 </Canvas>
             </Grid>
             <Grid item xs={12}>
