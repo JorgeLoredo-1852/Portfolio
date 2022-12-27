@@ -62,6 +62,11 @@ export const ListProjects = () => {
 
     const [open, setOpen] = useState(false);
     const [detailProject, setDetailProject] = useState(List[0])
+    const [activeTags, setActiveTags] = useState({"Frontend":false,"Backend":false,"IOT":false,"Web 3.0":false,"Databases":false,"Unity":false,"Docs":false,"Competition":false,"3D Modeling":false,"Simulation":false, "Mobile":false})
+    const [showAll, setShowAll] = useState(true)
+    const [search, setSearch] = useState(null)
+    const [notFound, setNotFound] = useState(false)
+ 
     const handleOpen = (project) => {
         setOpen(true);
         setDetailProject(project)
@@ -70,11 +75,33 @@ export const ListProjects = () => {
     
     const onClickSearchBar = (e) => {
         e.preventDefault();
+        setActiveTags({"Frontend":false,"Backend":false,"IOT":false,"Web 3.0":false,"Databases":false,"Unity":false,"Docs":false,"Competition":false,"3D Modeling":false,"Simulation":false, "Mobile":false})
+        setSearch(event.target[0].value)
+        event.target[0].value = ""
     }
+
+    const activeItem = (tag) =>{
+        setActiveTags({...activeTags, [`${tag}`] : !activeTags[`${tag}`]})
+        setShowAll(false)
+        setSearch(null)
+    }
+
+    useEffect(()=>{
+        let allInactive = true;
+        for (const property in activeTags) {
+            if (activeTags[property]){
+                allInactive = false
+                break
+            }
+        }
+        if(allInactive){
+            setShowAll(true)
+        }    
+    },[activeTags])
 
     return(
         <div style={{backgroundColor:"#110728", width: "100%", display:"flex", justifyContent:"center", paddingBottom:"3rem"}}>
-            <div style={{maxWidth: '1260px', width:"100%"}}>
+            <div style={{maxWidth: '1260px', width:"100%", minHeight:"100vh"}}>
                 <Grid container mt={3} spacing={1} sx={{padding:downLg ? "2rem" : "0.5rem"}}>
                     <Grid item xs={12}>
                         <Box
@@ -98,11 +125,11 @@ export const ListProjects = () => {
                                 </div>
                            </Box>
                         <Grid container spacing={1} sx={{display: downSm ? "none" : "flex", marginTop:"0.5rem"}}>
-                            {ListTags.map((e) => (<Tag text={e.name} key={e.name}/>))}
+                            {ListTags.map((e) => (<Tag text={e.name} key={e.name} changeActive = {activeItem} initialActive={search}/>))}
                         </Grid>
                     </Grid>
                     <Grid item xs={12} mt={4}>
-                        <CardList key={"cardlist"} tags={["Frontend", "Backend"]} openFunc={handleOpen}/>
+                        <CardList key={"cardlist"} tags={activeTags} openFunc={handleOpen} showAll={showAll} search={search}/>
                     </Grid>
                 </Grid>
             </div>

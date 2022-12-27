@@ -100,13 +100,14 @@ export const ModalProject = ({project, open, onClose}) => {
             <Grid container sx={{marginTop:"0.6rem", color:"#F2E5FF"}}>
               <Grid item xs={12}>
                 <Grid container columnSpacing={2}>
-                  { project.technologies.map((t) => (<Grid item><span>{t}</span></Grid>)) }
+                  { project.technologies.map((t) => (<Grid item key={`${project.name} -  ${t}`}><span>{t}</span></Grid>)) }
                 </Grid>
               </Grid>
               <Grid item xs={12}>
                 <div style={{overflow:"hidden", width:"100%", height:"63px"}}>
                   <div className='hideScroll'>
                                       { project.technologies.map((t) => (<img
+                                      key={`${project.name} ${t}`}
                     src={`/technologies/${t}.png`}
                     style={{height:"40px", width:"auto", marginRight:"1.5rem", marginTop:"1rem"}}
                     loading="lazy"

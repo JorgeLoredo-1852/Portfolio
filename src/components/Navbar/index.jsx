@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const currentURL = window.location.href 
-  console.log(currentURL)
   return (
     <div className="navbar">
         <div className="navbar--container">

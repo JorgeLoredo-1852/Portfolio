@@ -23,11 +23,22 @@ const theme = createTheme({
     },
   });
 
-export const Tag = ({text}) =>{
+export const Tag = ({text, changeActive, initialActive}) =>{
     const [active, setActive] = useState(false)
+
+    useEffect(()=>{
+      if(initialActive){
+        setActive(false)
+      }
+    },[initialActive])
+
     const onCLickButton = () =>{
+        changeActive(text)
         setActive(!active)
     }
+
+    //console.log(active)
+
     return(
         <Grid item key={text}> 
             <ThemeProvider theme={theme}>
