@@ -28,6 +28,12 @@ export const CardList = ({tags, openFunc, showAll, search}) => {
                             foundAtLeastOne()
                             return(<Card info={info} key={`${info.id}-dasdada`} openFunc={openFunc}/>)
                         }
+                        for(let idx = 0; idx < info.technologies.length; idx++){
+                            if(info.technologies[idx].toLowerCase().includes(search.toLowerCase())){
+                                foundAtLeastOne()
+                                return(<Card info={info} key={`${info.id}-dasdada`} openFunc={openFunc}/>)
+                            }
+                        }
                     }
                     else if(showAll){
                         return(<Card info={info} key={`${info.id}-dasdada`} openFunc={openFunc}/>)
@@ -42,9 +48,9 @@ export const CardList = ({tags, openFunc, showAll, search}) => {
                 {
                     founded == 0 && search ? 
                         <Grid item xs={12} sx={{display:"flex",justifyContent:"center"}}>
-                        <div style={{marginTop:"4rem", display:"flex"}}>
-                            <img src={"/icons/Group.svg"} style={{height:"5rem", width:"5rem",marginRight:"0.8rem"}} loading="lazy"/>
-                            <div>Didn't find a project with that name, technology, date or description :(((</div>
+                        <div style={{width:downMd ? "80%" : "50%",marginTop:"4rem", display:"flex", alignItems:"center", flexDirection: downSm ? "column" : "row"}}>
+                            <img src={"/icons/Group.svg"} style={{height:"5rem", width:"5rem",marginRight: downSm ? "0":"2rem", marginBottom: downSm ? "2rem":"0"}} loading="lazy"/>
+                            <div style={{fontSize:downMd?"1.6rem":"2rem", lineHeight:"2.5rem", color:"#F2E5FF", textAlign:downSm?"center":"start"}}>Didn't find a project with that name, technology, date or description :(((</div>
                         </div> 
                         </Grid>
                         : <></>
