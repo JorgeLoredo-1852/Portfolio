@@ -90,7 +90,6 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
     const [ringOpacity, setRingOpacity] = useState(0)
 
     const openModal = () =>{
-        console.log(locationCard1)
         let projectToOpen = List[locationCard1 - 1]
         openModalFunc(projectToOpen)
     }
