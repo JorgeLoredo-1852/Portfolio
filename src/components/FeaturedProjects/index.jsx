@@ -81,7 +81,7 @@ export const FeaturedProjects = () => {
             setPercentage(1)
         }
     })
-
+/*
     useFrame(()=>{
         if(loadingPosCards){
             if(posGameBoy[1] > 0 && elevateGameBoy){
@@ -89,8 +89,8 @@ export const FeaturedProjects = () => {
             }
         }
     })
-
-
+*/
+/*
     useFrame(()=>{
         if(loadingPosCards){
             console.log(elevateGameBoy)
@@ -1028,7 +1028,7 @@ export const FeaturedProjects = () => {
             }
         }
     })
-
+*/
     const moveCardLeft = () => {
         if(!loadingPosCards){
                 if (locationCard1 == 1){
