@@ -101,3 +101,23 @@ h1 {
   box-sizing: content-box; /* So the width will be 100% + 17px */
 }
 
+.container1 {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.section1{
+  height: 100vh;
+  scroll-snap-align: start;
+}
+
+.section2{
+  min-height: 100vh;
+  scroll-snap-align: start;
+}
+
+.fullMinus1{
+  height: calc(100vh - 1px);
+}

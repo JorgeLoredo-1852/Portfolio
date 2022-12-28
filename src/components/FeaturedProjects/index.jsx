@@ -94,8 +94,8 @@ export const FeaturedProjects = () => {
 
 
     useFrame(()=>{
+        console.log("AAAA")
         if(loadingPosCards){
-            console.log(elevateGameBoy)
             if(locationCard1 == 1){
                 //ESTABA CARTA 11
                 if(movingLeft){
