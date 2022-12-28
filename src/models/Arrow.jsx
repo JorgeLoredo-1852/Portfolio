@@ -6,20 +6,19 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/disk.glb");
+  const { nodes, materials } = useGLTF("/arrow.glb");
   return (
     <group {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Gameboy_chip_v1.geometry}
-        material={materials["Material.001"]}
-        position={[-0.17, -0.8, 0]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={0.05}
+        geometry={nodes.arrow_v1.geometry}
+        material={materials["Steel_-_Satin"]}
+        position={[-0.65, 0, 0]}
+        scale={0.18}
       />
     </group>
   );
 }
 
-useGLTF.preload("/disk.glb");
+useGLTF.preload("/arrow.glb");
