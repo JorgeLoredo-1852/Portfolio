@@ -5,15 +5,15 @@ const listOfItems = [
     },
     {
       name: "WORK",
-      url: "/work",
+      url: "work",
     },
     {
       name: "PROJECTS",
-      url: "/projects",
+      url: "projects",
     },
     {
       name: "CONTACT",
-      url: "/contact",
+      url: "contact",
     },
   ];
   

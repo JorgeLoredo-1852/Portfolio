@@ -9,6 +9,7 @@ export const List = [
         technologies: ["Swift", "Flask", "MySQL","Python"],
         img: "/thumbnails/caritapp.png",
         modalImg:"/modalImg/caritapp.png",
+        video:"/videos/caritapp.mp4"
     },
     {
         id:2,
@@ -21,6 +22,7 @@ export const List = [
         img: "/thumbnails/agents.png",
         modalImg:"/modalImg/agents.png",
         github: "https://github.com/JorgeLoredo-1852/Agentes",
+        video: "/videos/agents.mp4"
     },
     {
         id:3,
@@ -32,6 +34,7 @@ export const List = [
         technologies: ["ReactJS", "ThreeJS", "CSS"],
         img: "/thumbnails/portfolio.png",
         modalImg:"/modalImg/portfolio.png",
+        video:"/videos/Jgx.mp4"
     },
     { 
         id: 4,
@@ -43,7 +46,8 @@ export const List = [
         technologies: ["Java"],
         img: "/thumbnails/portilla.png",
         modalImg:"/modalImg/portilla.png",
-        github:"https://github.com/JorgeLoredo-1852/High-School-Projects"
+        github:"https://github.com/JorgeLoredo-1852/High-School-Projects",
+        video:"/videos/portilla.mp4"
     },
     {
         id: 5,
@@ -55,6 +59,7 @@ export const List = [
         technologies: ["Tensorflow","Python"],
         img: "/thumbnails/ml.png",
         modalImg:"/modalImg/ml.png",
+        video: "/videos/ML.mp4"
     },
     {
         id: 6,
@@ -66,7 +71,8 @@ export const List = [
         technologies: ["Fusion 360"],
         img: "/thumbnails/cars.png",
         modalImg:"/modalImg/cars.png",
-        link: "https://gallery.autodesk.com/projects/155725/maze-robot-solver"
+        link: "https://gallery.autodesk.com/projects/155725/maze-robot-solver",
+        video: "/videos/robot.mp4"
     },
     { 
         id: 7,
@@ -79,7 +85,8 @@ export const List = [
         img: "/thumbnails/simi.png",
         modalImg:"/modalImg/simi.png",
         github: "https://github.com/JorgeLoredo-1852/Website-1stProject",
-        link: "https://drsimi7.netlify.app/"
+        link: "https://drsimi7.netlify.app/",
+        video: "/videos/Simi.mp4"
     },
     { 
         id: 8,
@@ -91,7 +98,8 @@ export const List = [
         technologies: ["ReactJS", "Sass", "Redux"],
         img: "/thumbnails/covid.png",
         modalImg:"/modalImg/covid.png",
-        link: "https://conecta.tec.mx/es/noticias/monterrey/educacion/el-software-que-analiza-estudios-urbanos-para-cumplir-medidas-vs-covid?_hsmi=147996003&_hsenc=p2ANqtz-_7cAvOiumdQwPtBrJ9_JE2yOIYHzsrNFaJoJz82yxzUDAfCpttr6st43RsGd6INLGgnak37S7q6SJ0yjYCphcUpuFFvA"
+        link: "https://conecta.tec.mx/es/noticias/monterrey/educacion/el-software-que-analiza-estudios-urbanos-para-cumplir-medidas-vs-covid?_hsmi=147996003&_hsenc=p2ANqtz-_7cAvOiumdQwPtBrJ9_JE2yOIYHzsrNFaJoJz82yxzUDAfCpttr6st43RsGd6INLGgnak37S7q6SJ0yjYCphcUpuFFvA",
+        video: "/videos/covid.mp4"        
     },
     {
         id:9,
@@ -103,6 +111,7 @@ export const List = [
         technologies: ["Unity", "ReactJS", "NodeJS"],
         img: "/thumbnails/construccion.png",
         modalImg:"/modalImg/construccion.png",
+        video: "/videos/Ternium.mp4"
     },
     {
         id:10,
@@ -117,6 +126,7 @@ export const List = [
         link: "https://moonlight-digital-art-and-assest.gitbook.io/werewolves-100-profit-share-+-multichain-service/",
         youtube: "https://www.youtube.com/@moonlightnfts6613",
         twitter: "https://twitter.com/MoonlightNFTLab",
+        video: "/videos/moonlight.mp4"
     },
     {
         id:11,
@@ -128,5 +138,6 @@ export const List = [
         technologies: ["Python", "Figma"],
         img: "/thumbnails/banorte.png",
         modalImg:"/modalImg/banorte.png",
+        video: "/videos/hackmty.mp4"
     },
 ]

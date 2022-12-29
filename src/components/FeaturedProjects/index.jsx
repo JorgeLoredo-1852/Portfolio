@@ -26,9 +26,7 @@ import { List } from "./List"
 
 export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
 
-    const [video] = useState(
-        () => Object.assign(document.createElement('video'), { src: "/guayna.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
-    )
+    const [video, setVideo] = useState(() => Object.assign(document.createElement('video'), { src: "/videos/caritapp.mp4", crossOrigin: 'Anonymous', muted: true}))
 
     useEffect(() => {
         video.play()
@@ -915,6 +913,13 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
         }
     })
 
+    useEffect(() => {
+        if(!loadingPosCards){
+            let projectToOpen = List[locationCard1 - 1]
+            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous', muted: true}))
+        }
+    }, [loadingPosCards])
+
 
     const moveCardLeft = () => {
         if(!loadingPosCards){
@@ -951,12 +956,20 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
 
 
 
-                <CardModel rotation-x={-Math.PI/10} scale={downSm ? [160,160,160] : [140,140,140]} position={downSm ? [posGameBoy[0], posGameBoy[1], posGameBoy[2]] : posGameBoy}/>
-                
-                <mesh position={downSm ? [4.4, -1.1, 6.5]:[3.9, -0.9, 5.5]} rotation-x={-Math.PI/10} onClick={openModal}>
+                <CardModel rotation-x={-Math.PI/10} scale={downSm ? [140,140,140] : [140,140,140]} position={downSm ? [posGameBoy[0], posGameBoy[1] + 1, posGameBoy[2]] : posGameBoy}/>
+                <mesh castShadow receiveShadow rotation-x={-Math.PI/10} position={downSm ? [posGameBoy[0], posGameBoy[1] + 7.1, posGameBoy[2] + 4.9] : [posGameBoy[0], posGameBoy[1] + 6.1, posGameBoy[2] + 4.9]} scale={[6.3,5.7,0.5]} >
+                    <planeGeometry/>
+                    <meshBasicMaterial roughness={0.059}>
+                        <videoTexture  attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
+                    </meshBasicMaterial>
+                </mesh>
+
+
+                <mesh position={downSm ? [3.9, 0.1, 5.5]:[3.9, -0.9, 5.5]} rotation-x={-Math.PI/10} onClick={openModal}>
                     <circleGeometry args={[0.6,32,0,Math.PI * 2]}/>
                     <meshStandardMaterial color="#ffd500" opacity={0} transparent envMapIntensify={0.5}/>
                 </mesh>
+
 
                 <Disk9 rotation-x={-Math.PI/10}  position={posCard1} scale={[sizeCard1[0] / 3 * percentage, sizeCard1[1] / 3 * percentage, sizeCard1[2] / 3] }/>
                 <Disk10 rotation-x={-Math.PI/10}  position={posCard2} scale={[sizeCard2[0] / 3 * percentage, sizeCard2[1] / 3 * percentage, sizeCard2[2] / 3] }/>
@@ -971,9 +984,9 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 <Disk8 rotation-x={-Math.PI/10}  position={posCard11} scale={[sizeCard11[0] / 3 * percentage, sizeCard11[1] / 3 * percentage, sizeCard11[2] / 3] }/>
                 
 
-                <Arrow receiveShadow castShadow position={downSm ? [posGameBoy[0] - 2.5, posGameBoy[1] + 0.9, posGameBoy[2] + 8.2] :  [-6.5, -1, 4.5]} rotation-x={-Math.PI/10} onClick={moveCardRight} scale={downSm ? [0.7,0.7,0.7] : [1,1,1]}/>
-                <Arrow receiveShadow castShadow position={downSm ? [posGameBoy[0] + 2.5, posGameBoy[1] + 0.9, posGameBoy[2] + 8.2] :  [6.5, -1, 4.5]} rotation-z={Math.PI} rotation-x={-Math.PI/10} onClick={moveCardLeft} scale={downSm ? [0.7,0.7,0.7] : [1,1,1]}/>
-                <Arrow receiveShadow castShadow position={downSm ? [posGameBoy[0], posGameBoy[1] - 1.2, posGameBoy[2] + 8.9] : [6.5, -1, 4.5]} rotation-z={Math.PI / 2} rotation-x={-Math.PI/10} onClick={handleNextPage} scale={downSm ? [0.7,0.7,0.7] : [0,0,0]}/>
+                <Arrow receiveShadow castShadow position={downSm ? [posGameBoy[0] - 2, posGameBoy[1] + 1.7, posGameBoy[2] + 7.2] :  [-6.5, -1, 4.5]} rotation-x={-Math.PI/10} onClick={moveCardRight} scale={downSm ? [0.6,0.6,0.6] : [1,1,1]}/>
+                <Arrow receiveShadow castShadow position={downSm ? [posGameBoy[0] + 2, posGameBoy[1] + 1.7, posGameBoy[2] + 7.2] :  [6.5, -1, 4.5]} rotation-z={Math.PI} rotation-x={-Math.PI/10} onClick={moveCardLeft} scale={downSm ? [0.6,0.6,0.6] : [1,1,1]}/>
+                <Arrow receiveShadow castShadow position={downSm ? [posGameBoy[0], posGameBoy[1] - 2.3, posGameBoy[2] + 8.5] : [6.5, -1, 4.5]} rotation-z={Math.PI / 2} rotation-x={-Math.PI/10} onClick={handleNextPage} scale={downSm ? [0.6,0.6,0.6] : [0,0,0]}/>
 
 
 

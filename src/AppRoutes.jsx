@@ -1,15 +1,14 @@
-import { LandingPage, Projects } from './pages';
+import { Contact, LandingPage, Projects, Work } from './pages';
 import { createBrowserRouter, BrowserRouter, Router, Route, Routes } from "react-router-dom";
-import { Navbar, NewNav } from './components';
 
 export const AppRoutes = () => {
     return (
-      <BrowserRouter><NewNav/>
+      <BrowserRouter>
         <Routes>
-          <Route exact path= "/" element= {<><Projects /></>}></Route>
-          <Route path= "/projects" element= {<><LandingPage /></>}></Route>
-          <Route path= "/work" element= {<></>}></Route>
-          <Route path= "/contact" element= {<></>}></Route>
+          <Route path= "/" element= {<><LandingPage /></>}></Route>
+          <Route path= "projects" element= {<><Projects /></>}></Route>
+          <Route path= "work" element= {<><Work/></>}></Route>
+          <Route path= "contact" element= {<><Contact/></>}></Route>
         </Routes>
       </BrowserRouter>       
       )
