@@ -1,5 +1,4 @@
-import { NewNav } from "../components"
 
 export const Contact = () => {
-    return(<><NewNav/></>)
+    return(<div>Contact</div>)
 }

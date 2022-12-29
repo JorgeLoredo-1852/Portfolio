@@ -1,5 +1,4 @@
-import { NewNav } from "../components"
 
 export const Work = () => {
-    return(<><NewNav/></>)
+    return(<div>Work</div>)
 }

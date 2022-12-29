@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Tabs from "./tabs";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   const currentURL = window.location.href 
@@ -29,6 +29,13 @@ export const Navbar = () => {
 };
 
 export const NewNav = () => {
+  const [openNav, setOpenNav] = useState(false)
+
+  const onCheckedNav = () => {
+    setOpenNav(!openNav)
+  }
+
+
   return(
     <div className="navigation">
     <input type="checkbox" className="navigation__checkbox" id="navi-toggle"/>
@@ -44,12 +51,12 @@ export const NewNav = () => {
         {Tabs.map((tab) => {
           return (
             <li key={tab.name} className="navigation__item">
-            <Link
+            <NavLink
               className="navigation__link"
               to={tab.url}
             >
               <span>{tab.name}</span>
-            </Link></li>
+            </NavLink></li>
           );
         })}
         </ul>

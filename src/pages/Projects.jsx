@@ -34,8 +34,6 @@ export const Projects = () =>{
 
 
     return (
-        <div>
-        <NewNav/>
         <Grid container className='app container1' sx={{backgroundColor:"black"}} >
             <Grid item xs={12} sx = {{height: "100vh", width:"100%"}} className='section1'>
                 <div ref={ref} style = {{width:"100%"}} className='fullMinus1'>
@@ -54,7 +52,6 @@ export const Projects = () =>{
                 <ListProjects/>
             </Grid>
         </Grid>
-        </div>
     )
 }
 
