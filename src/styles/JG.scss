@@ -121,7 +121,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
+  position: absolute;
   top: 4rem;
   left: 4rem;
   z-index: 200;
@@ -144,7 +144,8 @@
   @include m.respond(tab-port){
     width: 3.4rem;
     height: 3.4rem;
-  }   
+  }
+
 }
 
 .navbar--item{
@@ -154,9 +155,14 @@
   margin: 0.3rem;
 }
 
-.linksNav{
+.linksNavLeft{
   animation-duration: 1s;
   animation-name: slidein;
+}
+
+.linksNavTop{
+  animation-duration: 1s;
+  animation-name: slideTop;
 }
 
 @keyframes slidein {
@@ -165,6 +171,14 @@
   50% { margin-left: 20px; }
   100% { margin-left: 0px; }
 }
+
+@keyframes slideTop {
+  0% { margin-top: -200px; }
+  50% { margin-top: -100px; }
+  50% { margin-top: 20px; }
+  100% { margin-top: 0px; }
+}
+
 
 .nav--link{
   transition: all 0.2s;

@@ -111,6 +111,7 @@ h1 {
 .section1{
   height: 100vh;
   scroll-snap-align: start;
+  position: relative;
 }
 
 .section2{

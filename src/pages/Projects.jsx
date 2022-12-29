@@ -1,15 +1,15 @@
 import { Grid } from "@mui/material"
-import { FeaturedProjects, ListProjects, NewNav } from '../components'
+import { FeaturedProjects, JGx, ListProjects, NewNav } from '../components'
 import { Canvas } from "@react-three/fiber"
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useInView } from "react-intersection-observer";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { List } from "../components/ListProjects/List";
 import { ModalProject } from "../components/ModalProject";
 
-export const Projects = () =>{
+export const Projects = ({setInView}) =>{
     const themeM = useTheme();
     const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
     const downMd = useMediaQuery(themeM.breakpoints.down('md'));
@@ -20,6 +20,10 @@ export const Projects = () =>{
     const refListPage = useRef(null)
 
     const { ref, inView } = useInView();
+
+    useEffect(()=>{
+        setInView(inView)
+    },[inView])
 
     const handleOpen = (project) => {
         setOpen(true);
@@ -34,8 +38,10 @@ export const Projects = () =>{
 
 
     return (
+        <>
         <Grid container className='app container1' sx={{backgroundColor:"black"}} >
             <Grid item xs={12} sx = {{height: "100vh", width:"100%"}} className='section1'>
+                {inView && <JGx/>}
                 <div ref={ref} style = {{width:"100%"}} className='fullMinus1'>
                 <ModalProject project={modalProject} open={open} onClose={handleClose}/>
                 <Canvas 
@@ -52,6 +58,7 @@ export const Projects = () =>{
                 <ListProjects/>
             </Grid>
         </Grid>
+        </>
     )
 }
 

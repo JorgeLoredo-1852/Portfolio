@@ -1,6 +1,18 @@
 export const List = [
     {
         id:1,
+        name: "Personal Portfolio",
+        date: "Dec 2022 - Jan 2023",
+        description: "A trip into my mind. Hope you enjoy it. Personal portfolio built with React, ThreeJS, tears and a lot of joy",
+        completeDescription: <><p>Personal portfolio built with React, ThreeJS and a lot of joy.</p><p style={{marginTop:"0.6rem"}}>I hope you enjoyed visiting this website !!! :))) </p></>,
+        tags: ["Frontend", "3D Modeling"],
+        technologies: ["ReactJS", "ThreeJS", "CSS"],
+        img: "/thumbnails/portfolio.png",
+        modalImg:"/modalImg/portfolio.png",
+        video:"/videos/Jgx.mp4"
+    },
+    {
+        id:2,
         name: "Caritapp iOS",
         date: "Sept 2022 - Oct 2023",
         description: "Developed (as a team) a mobile application for a local NGO to manage and enroll volunteers.",
@@ -12,7 +24,7 @@ export const List = [
         video:"/videos/caritapp.mp4"
     },
     {
-        id:2,
+        id:3,
         name: "Multiagent Systems",
         date: "Nov 2022",
         description: "Modeled (as a team) a roundabout and a warehouse with agents that took decisions given some rules.",
@@ -23,18 +35,6 @@ export const List = [
         modalImg:"/modalImg/agents.png",
         github: "https://github.com/JorgeLoredo-1852/Agentes",
         video: "/videos/agents.mp4"
-    },
-    {
-        id:3,
-        name: "Personal Portfolio",
-        date: "Dec 2022 - Jan 2023",
-        description: "A trip into my mind. Hope you enjoy it. Personal portfolio built with React, ThreeJS, tears and a lot of joy",
-        completeDescription: <><p>Personal portfolio built with React, ThreeJS and a lot of joy.</p><p style={{marginTop:"0.6rem"}}>I hope you enjoyed visiting this website !!! :))) </p></>,
-        tags: ["Frontend", "3D Modeling"],
-        technologies: ["ReactJS", "ThreeJS", "CSS"],
-        img: "/thumbnails/portfolio.png",
-        modalImg:"/modalImg/portfolio.png",
-        video:"/videos/Jgx.mp4"
     },
     { 
         id: 4,

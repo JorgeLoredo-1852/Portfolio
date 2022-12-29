@@ -974,9 +974,9 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 <Disk9 rotation-x={-Math.PI/10}  position={posCard1} scale={[sizeCard1[0] / 3 * percentage, sizeCard1[1] / 3 * percentage, sizeCard1[2] / 3] }/>
                 <Disk10 rotation-x={-Math.PI/10}  position={posCard2} scale={[sizeCard2[0] / 3 * percentage, sizeCard2[1] / 3 * percentage, sizeCard2[2] / 3] }/>
                 <Disk11 rotation-x={-Math.PI/10}  position={posCard3} scale={[sizeCard3[0] / 3 * percentage, sizeCard3[1] / 3 * percentage, sizeCard3[2] / 3] }/>
-                <Disk1 rotation-x={-Math.PI/10}  position={posCard4} scale={[sizeCard4[0] / 3 * percentage, sizeCard4[1] / 3 * percentage, sizeCard4[2] / 3] }/>
-                <Disk2 rotation-x={-Math.PI/10}  position={posCard5} scale={[sizeCard5[0] / 3 * percentage, sizeCard5[1] / 3 * percentage, sizeCard5[2] / 3] }/>
-                <Disk3 rotation-x={-Math.PI/10}  position={posCard6} scale={[sizeCard6[0] / 3 * percentage, sizeCard6[1] / 3 * percentage, sizeCard6[2] / 3] }/>
+                <Disk2 rotation-x={-Math.PI/10}  position={posCard4} scale={[sizeCard4[0] / 3 * percentage, sizeCard4[1] / 3 * percentage, sizeCard4[2] / 3] }/>
+                <Disk3 rotation-x={-Math.PI/10}  position={posCard5} scale={[sizeCard5[0] / 3 * percentage, sizeCard5[1] / 3 * percentage, sizeCard5[2] / 3] }/>
+                <Disk1 rotation-x={-Math.PI/10}  position={posCard6} scale={[sizeCard6[0] / 3 * percentage, sizeCard6[1] / 3 * percentage, sizeCard6[2] / 3] }/>
                 <Disk4 rotation-x={-Math.PI/10}  position={posCard7} scale={[sizeCard7[0] / 3 * percentage, sizeCard7[1] / 3 * percentage, sizeCard7[2] / 3] }/>
                 <Disk5 rotation-x={-Math.PI/10}  position={posCard8} scale={[sizeCard8[0] / 3 * percentage, sizeCard8[1] / 3 * percentage, sizeCard8[2] / 3] }/>
                 <Disk6 rotation-x={-Math.PI/10}  position={posCard9} scale={[sizeCard9[0] / 3 * percentage, sizeCard9[1] / 3 * percentage, sizeCard9[2] / 3] }/>

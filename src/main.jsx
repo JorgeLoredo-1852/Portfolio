@@ -9,6 +9,7 @@ import './styles/Card.scss'
 import './styles/Navigation.scss'
 import { BrowserRouter, useLocation, Route, Routes } from "react-router-dom";
 import { NewNav, JGx } from './components'
+import { App } from './App'
 
 
 
@@ -16,9 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-          <NewNav/>
-          <JGx/>
-        <AppRoutes />
+        <App/>
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>,

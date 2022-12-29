@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Tabs from "./tabs";
 import { Link, NavLink } from "react-router-dom";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export const Navbar = () => {
   const currentURL = window.location.href 
@@ -28,23 +30,26 @@ export const Navbar = () => {
   );
 };
 
-export const NewNav = () => {
+export const NewNav = ({inView3D}) => {
   const [openNav, setOpenNav] = useState(false)
+  const themeM = useTheme();
+  const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
+  const downXl = useMediaQuery(themeM.breakpoints.down('xl'));
+  const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
 
   const onCheckedNav = () => {
     setOpenNav(!openNav)
   }
 
-
   return(
     <div className="navigation">
     <input checked={openNav} onChange={onCheckedNav} type="checkbox" className="navigation__checkbox" id="navi-toggle"/>
 
-    <label htmlFor="navi-toggle" className="navigation__button">
+    <label htmlFor="navi-toggle" className={inView3D ? "navigation__button" : "navigation__button nav--bottom"}>
         <span className="navigation__icon">&nbsp;</span>
     </label>
-
-    <div className="navigation__background">&nbsp;</div>
+ 
+    <div className={inView3D ? "navigation__background" : "navigation__background nav--bottomBG"}>&nbsp;</div>
 
     <nav className="navigation__nav">
         <ul className="navigation__list">
