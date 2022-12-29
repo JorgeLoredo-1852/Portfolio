@@ -8,8 +8,8 @@ export const AppRoutes = () => {
       <BrowserRouter>
       <NewNav/>
         <Routes>
-          <Route path= "/" element= {<LandingPage />}></Route>
-          <Route path= "/projects" element= {<Projects />}></Route>
+          <Route exact path= "/" element= {<Projects />}></Route>
+          <Route path= "/projects" element= {<LandingPage />}></Route>
           <Route path= "/work" element= {<Work/>}></Route>
           <Route path= "/contact" element= {<Contact/>}></Route>
         </Routes>
