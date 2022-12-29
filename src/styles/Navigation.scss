@@ -3,35 +3,37 @@
 .navigation{
 
     &__checkbox{
-        display:block
+        display:none;
     }
 
     &__button{
         background-color: #3900BB;
-        height: 6rem;
-        width: 6rem;
+        height: 5rem;
+        width: 5rem;
         border-radius: 50%;
         position: fixed;
-        top: 5.5rem;
-        right: 5.5rem;
+        top: 4rem;
+        right: 4rem;
         z-index: 200;
         text-align: center;
         cursor: pointer;
 
         @include m.respond(tab-port){
-            top: 3.5rem;
-            right: 3.5rem;
+            top: 1.5rem;
+            right: 1rem;
+            height: 4rem;
+            width: 4rem;
         }  
     }
 
     &__background{
-        height: 5rem;
-        width: 5rem;
+        height: 4rem;
+        width: 4rem;
         background-image: radial-gradient(#3900BB,#1D0060);
         border-radius: 50%;
         position: fixed;
-        top: 6rem;
-        right: 6rem;
+        top: 4.5rem;
+        right: 4.5rem;
         z-index: 100;
         box-shadow: 0 1rem 3rem rgba(black, .2);
 
@@ -40,9 +42,11 @@
         //cubic-bezier(0.86, 0, 0.07,1)
 
         @include m.respond(tab-port){
-            top: 4rem;
-            right: 4rem;
-        } 
+            height: 3rem;
+            width: 3rem;
+            top: 2rem;
+            right: 1.5rem;
+        }  
     }
 
     &__nav{
@@ -102,7 +106,7 @@
 
     //FUNCTIONALITY
     &__checkbox:checked ~ &__background{
-        transform: scale(50);
+        transform: scale(60);
     }
 
     &__checkbox:checked ~ &__nav{
@@ -113,15 +117,23 @@
     //ICON
     &__icon{
         position: relative;
-        margin-top: 3rem;
+        margin-top: 2.5rem;
         transition: all .2s;
 
+        @include m.respond(tab-port){
+            margin-top: 2rem;
+        } 
+
         &,&::before,&::after{
-            width: 3rem;
+            width: 2.5rem;
             height: 2px;
             background-color: white;
             display: inline-block;
             transition: all .2s;
+
+            @include m.respond(tab-port){
+                width: 2rem;
+            } 
         }
 
         &::before,&::after{

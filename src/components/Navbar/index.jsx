@@ -38,7 +38,7 @@ export const NewNav = () => {
 
   return(
     <div className="navigation">
-    <input type="checkbox" className="navigation__checkbox" id="navi-toggle"/>
+    <input checked={openNav} onChange={onCheckedNav} type="checkbox" className="navigation__checkbox" id="navi-toggle"/>
 
     <label htmlFor="navi-toggle" className="navigation__button">
         <span className="navigation__icon">&nbsp;</span>
@@ -50,7 +50,7 @@ export const NewNav = () => {
         <ul className="navigation__list">
         {Tabs.map((tab) => {
           return (
-            <li key={tab.name} className="navigation__item">
+            <li key={tab.name} className="navigation__item" onClick={onCheckedNav}>
             <NavLink
               className="navigation__link"
               to={tab.url}
