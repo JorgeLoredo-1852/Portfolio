@@ -7,10 +7,10 @@ export const AppRoutes = ({setInView}) => {
 
     return (
         <Routes location={location} key={location.pathname}>
-          <Route path= "/projects" element= {<LandingPage />}></Route>
+          <Route path= "/projects" element= {<Projects setInView={setInView}/>}></Route>
           <Route path= "/work" element= {<Work/>}></Route>
           <Route path= "/contact" element= {<Contact/>}></Route>
-          <Route path= "*" element={<Projects setInView={setInView}/>} />
+          <Route path= "*" element={<LandingPage />} />
         </Routes>
       )
 }

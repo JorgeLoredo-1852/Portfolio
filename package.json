@@ -10,6 +10,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
@@ -31,7 +32,8 @@
     "react-spring": "^9.6.1",
     "react-three": "^0.9.7",
     "sass": "^1.57.1",
-    "three": "^0.147.0"
+    "three": "^0.147.0",
+    "yuka": "^0.7.8"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

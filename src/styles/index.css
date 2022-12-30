@@ -122,3 +122,88 @@ h1 {
 .fullMinus1{
   height: calc(100vh - 1px);
 }
+
+.contact{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 120;
+}
+
+.fadeOut{
+  position: absolute;
+  animation: fadeout 3s forwards;
+  z-index: 80;
+
+}
+
+.fadeOutBottom{
+  position: absolute;
+  animation: fadeoutBottom 3s forwards;
+  z-index: 80;
+}
+
+.minimize{
+  animation: minimize 3s forwards;
+}
+
+.minimizeSmall{
+  animation: minimizeSmall 3s forwards;
+}
+
+.displaynone{
+  display: none !important;   
+}
+
+@keyframes minimize {
+  0%{
+    width: 500px;
+    height: 400px;
+  }
+  100%{
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@keyframes minimizeSmall {
+  0%{
+    width: 300px;
+    height: 450px;
+  }
+  100%{
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@keyframes fadeout {
+  0%{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 1
+  }
+  100%{
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%,-50%);
+    opacity: 0
+  }
+}
+
+@keyframes fadeoutBottom {
+  0%{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 1
+  }
+  100%{
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0
+  }
+}
