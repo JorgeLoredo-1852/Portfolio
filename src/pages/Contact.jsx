@@ -65,7 +65,6 @@ export const Contact = () =>{
                 className='canvas' 
                 shadows
                 camera={{position: [0,30,60], fov:15}}
-                color={"#000000"}
                 style={{zIndex:100}}
             >
                 <Form3D submitted={submitted}/>

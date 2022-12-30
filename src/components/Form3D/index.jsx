@@ -50,14 +50,14 @@ export const Form3D = ({submitted}) => {
                 <Environment preset="forest" blur={0.5}/>
                 <group  position={[0, 0, 0]} rotation-x={earthChange}>
                     {/*<Text3D font={'/Inter_Bold.json'} rotation-x={-2*earthChange}>
-                        Mail Sent!!!
+                        MAIL SENT :)
                         <meshNormalMaterial />
     </Text3D>*/}
                     <Earth position={downMd ? [0,-20,0] : [-20,-20,0]}/>
                     <Rocket scale={10} position={rocketPos} rotation-z={downMd ? 0 : -Math.PI/4}/>
                     <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1} rotation-x={earthChange}/>
                 </group>
-                <color attach="background" args={['#000000']} />
+                {/*<color attach="background" args={['#000000']} />*/}
         </>
     )
 }
