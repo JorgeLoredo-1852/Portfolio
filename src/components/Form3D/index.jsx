@@ -16,11 +16,14 @@ export const Form3D = ({submitted}) => {
 
     const [earthChange, setEarthChange] = useState(downMd ? -Math.PI/4 : 0)
     const [rocketPos, setRocketPos] = useState(downMd ? [0,-8,0] : [-12,-9,0])
+    const [opacityText, setOpacityText] = useState(0)
+    const [scaleText, setScaleText] = useState(downMd ? 1 : 1.3)
 
     useEffect(()=>{
         if(!submitted){
             setEarthChange(downMd ? -Math.PI/4 : 0)
             setRocketPos(downMd ? [0,-8,0] : [-12,-9,0])  
+            setScaleText(downMd ? 1 : 1.3)  
         }
     },[downMd])
 
@@ -31,15 +34,21 @@ export const Form3D = ({submitted}) => {
                     setEarthChange(earthChange + 0.01)
                 } else {
                     setRocketPos([rocketPos[0], rocketPos[1] + 0.2, rocketPos[2]])
+                    if(opacityText < 1){
+                        setOpacityText(opacityText + 0.01)
+                    }
                 }
             } else {
                 if(earthChange < Math.PI/3){
                     setEarthChange(earthChange + 0.01)
                 } else {
                     setRocketPos([rocketPos[0] + 0.1, rocketPos[1] + 0.1, rocketPos[2]])
+                    if(opacityText < 1){
+                        setOpacityText(opacityText + 0.01)
+     //                   setScaleText(scaleText + 0.01)      
+                    }
                 }
             }
-
         }  
     })
     
@@ -49,10 +58,10 @@ export const Form3D = ({submitted}) => {
                 <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} enableDamping={false}></OrbitControls>
                 <Environment preset="forest" blur={0.5}/>
                 <group  position={[0, 0, 0]} rotation-x={earthChange}>
-                    {/*<Text3D font={'/Inter_Bold.json'}  rotation-x={-2*earthChange}>
-                        MAIL SENT :)
-                        <meshNormalMaterial />
-    </Text3D>*/}
+                <Text3D position={downMd ? [-4.5,3,0] : [-2,0,0.5]} letterSpacing={0.05} size={scaleText} font="/Inter_Bold.json" rotation-x={-(3/2)*earthChange}>
+                Email Sent!!!
+                <meshPhongMaterial color="white" opacity={opacityText} transparent />
+                </Text3D>
                     <Earth position={downMd ? [0,-20,0] : [-20,-20,0]}/>
                     <Rocket scale={10} position={rocketPos} rotation-z={downMd ? 0 : -Math.PI/4}/>
                     <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1} rotation-x={earthChange}/>
