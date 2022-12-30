@@ -60,7 +60,7 @@ export const Contact = () =>{
     }
   
     return (
-        <div style={{height:"100vh", width:"100vw", position:"relative"}}>
+        <div style={{height:"100vh", width:"100vw", position:"relative", backgroundColor:"black"}}>
             <Canvas 
                 className='canvas' 
                 shadows

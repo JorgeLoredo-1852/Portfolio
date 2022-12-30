@@ -41,15 +41,35 @@ export const NewNav = ({inView3D}) => {
     setOpenNav(!openNav)
   }
 
+  const classNameNav = () => {
+    const pathname = window.location.pathname
+    if(pathname == "/projects"){
+      return inView3D ? "navigation__button" : "navigation__button nav--bottom"
+    } else {
+      return "navigation__button"
+    }
+  }
+
+  const classNameBG = () => {
+    const pathname = window.location.pathname
+    if(pathname == "/projects"){
+      return inView3D ? "navigation__background" : "navigation__background nav--bottomBG"
+    } else {
+      return "navigation__background"
+    }
+  }
+  
+  classNameNav()
+
   return(
     <div className="navigation">
     <input checked={openNav} onChange={onCheckedNav} type="checkbox" className="navigation__checkbox" id="navi-toggle"/>
 
-    <label htmlFor="navi-toggle" className={inView3D ? "navigation__button" : "navigation__button nav--bottom"}>
+    <label htmlFor="navi-toggle" className={classNameNav()}>
         <span className="navigation__icon">&nbsp;</span>
     </label>
  
-    <div className={inView3D ? "navigation__background" : "navigation__background nav--bottomBG"}>&nbsp;</div>
+    <div className={classNameBG()}>&nbsp;</div>
 
     <nav className="navigation__nav">
         <ul className="navigation__list">
