@@ -45,7 +45,6 @@ export const Form3D = ({submitted}) => {
     
     return(
         <>
-        <color attach="background" args={['black']} />
             <ambientLight intensity={0.5} />
                 <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} enableDamping={false}></OrbitControls>
                 <Environment preset="forest" blur={0.5}/>
@@ -58,7 +57,7 @@ export const Form3D = ({submitted}) => {
                     <Rocket scale={10} position={rocketPos} rotation-z={downMd ? 0 : -Math.PI/4}/>
                     <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1} rotation-x={earthChange}/>
                 </group>
-                <Sky />
+                <color attach="background" args={['#000000']} />
         </>
     )
 }
