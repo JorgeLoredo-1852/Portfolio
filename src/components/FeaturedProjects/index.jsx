@@ -950,8 +950,7 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
 <spotLight position={[0, 0, 40]} angle={0.35} penumbra={1.5} intensity={1.5} castShadow shadow-mapSize-width={256} shadow-mapSize-height={256} />
 
 
-         <OrbitControls maxAzimuthAngle={Math.PI/6} minAzimuthAngle={-Math.PI/6} maxPolarAngle={Math.PI / 2 - Math.PI / 12} enableZoom={false} minPolarAngle={Math.PI / 2 - Math.PI / 12}></OrbitControls>
-
+         <OrbitControls enableZoom={false} enablePan={false} enableDamping={false} maxAzimuthAngle={Math.PI/6} minAzimuthAngle={-Math.PI/6} maxPolarAngle={Math.PI / 2 - Math.PI / 12} minPolarAngle={Math.PI / 2 - Math.PI / 12}></OrbitControls>
         <group  position={[0, -3, 0]}>
 
 
