@@ -49,7 +49,7 @@ export const Form3D = ({submitted}) => {
                 <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} enableDamping={false}></OrbitControls>
                 <Environment preset="forest" blur={0.5}/>
                 <group  position={[0, 0, 0]} rotation-x={earthChange}>
-                    {/*<Text3D font={'/Inter_Bold.json'} rotation-x={-2*earthChange}>
+                    {/*<Text3D font={'/Inter_Bold.json'}  rotation-x={-2*earthChange}>
                         MAIL SENT :)
                         <meshNormalMaterial />
     </Text3D>*/}
