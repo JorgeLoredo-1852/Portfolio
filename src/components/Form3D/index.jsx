@@ -15,14 +15,14 @@ export const Form3D = ({submitted}) => {
 
 
     const [earthChange, setEarthChange] = useState(downMd ? -Math.PI/4 : 0)
-    const [rocketPos, setRocketPos] = useState(downMd ? [0,-8,0] : [-12,-9,0])
+    const [rocketPos, setRocketPos] = useState(downMd ? [0,-7.4,0] : [-12,-9,0])
     const [opacityText, setOpacityText] = useState(0)
     const [scaleText, setScaleText] = useState(downMd ? 0.6 : 1.3)
 
     useEffect(()=>{
         if(!submitted){
             setEarthChange(downMd ? -Math.PI/4 : 0)
-            setRocketPos(downMd ? [0,-8,0] : [-12,-9,0])  
+            setRocketPos(downMd ? [0,-7.4,0] : [-12,-9,0])  
             setScaleText(downMd ? 0.6 : 1.3)  
         }
     },[downMd])
@@ -58,8 +58,12 @@ export const Form3D = ({submitted}) => {
                 <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} enableDamping={false}></OrbitControls>
                 <Environment preset="forest" blur={0.5}/>
                 <group  position={[0, 0, 0]} rotation-x={earthChange}>
-                <Text3D position={downMd ? [-2.8,3,0] : [-2,0,0.5]} letterSpacing={0.05} size={scaleText} font="/Inter_Bold.json" rotation-x={-(3/2)*earthChange}>
-                Email Sent!!!
+                <Text3D position={downMd ? [-2,4,0] : [-2,0,-1]} letterSpacing={0.05} size={scaleText} font="/Inter_Bold.json" rotation-x={-(3/2)*earthChange}>
+                Will reply
+                <meshPhongMaterial color="white" opacity={opacityText} transparent />
+                </Text3D>
+                <Text3D position={downMd ? [-1.2,2.6,0] : [-1.8,0,1]} letterSpacing={0.05} size={scaleText} font="/Inter_Bold.json" rotation-x={-(3/2)*earthChange}>
+                soon...
                 <meshPhongMaterial color="white" opacity={opacityText} transparent />
                 </Text3D>
                     <Earth position={downMd ? [0,-20,0] : [-20,-20,0]}/>
