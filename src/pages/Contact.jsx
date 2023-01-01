@@ -51,11 +51,12 @@ export const Contact = () =>{
       emailjs.sendForm('service_jg7abqb', 'template_iyit9sr', form.current, 'JgLTAy0eic29nE5Vv')
         .then((result) => {
             console.log(result.text);
+            setSubmitted(true)
             e.target.reset()
         }, (error) => {
             console.log(error.text);
         });
-        setSubmitted(true)
+
     };
 
     const minimizeClass=()=>{

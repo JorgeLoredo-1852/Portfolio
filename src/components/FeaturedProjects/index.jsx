@@ -114,8 +114,6 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
             if(locationCard1 == 1){
                 //ESTABA CARTA 11
                 if(movingLeft){
-                    console.log("BBBB")
-                    console.log(posCard6[0])
                     if(posCard6[0] > 0){
                         if(posCard1[0] > -26.2 + 0.1){
                             setPosCard1([posCard1[0] - 0.1 * speed , 4, 0])
@@ -150,8 +148,6 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                     }
                 } 
                 else {
-                    console.log("AAAAA")
-                    console.log(posCard6[0])
                     if(posCard6[0] < 0){
                         if(posCard2[0] < -21.4 - 0.1){
                             setPosCard2([posCard2[0] + 0.1 * speed , 4, 0])
