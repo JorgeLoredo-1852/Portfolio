@@ -26,7 +26,7 @@ import { List } from "./List"
 
 export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
 
-    const [video, setVideo] = useState(() => Object.assign(document.createElement('video'), { src: "/videos/caritapp.mp4", crossOrigin: 'Anonymous', muted: true}))
+    const [video, setVideo] = useState(() => Object.assign(document.createElement('video'), { src: "/videos/Jgx.mp4", crossOrigin: 'Anonymous', muted: true}))
 
     useEffect(() => {
         video.play()
@@ -918,33 +918,43 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
 
     useEffect(() => {
         if(!loadingPosCards){
-            let projectToOpen = List[locationCard1 - 1]
-            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous', muted: true}))
-        }
+            }
     }, [loadingPosCards])
 
 
     const moveCardLeft = () => {
         if(!loadingPosCards){
-                if (locationCard1 == 1){
+            let projectToOpen = 1
+
+            if (locationCard1 == 1){
                 setLocationCard1(11)
+                projectToOpen = List[10]
             } else {
                 setLocationCard1(locationCard1 - 1)
+                projectToOpen = List[locationCard1 - 2]
             }
             setMovingLeft(true)
             setloadingPosCards(true)
+
+            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous', muted: true}))
         }
     }
 
     const moveCardRight = () => {
         if(!loadingPosCards){
+            let projectToOpen = 1
             if (locationCard1 == 11){
                 setLocationCard1(1)
+                projectToOpen = List[0]
             } else {
                 setLocationCard1(locationCard1 + 1)
+                projectToOpen = List[locationCard1]
             }
             setMovingLeft(false)
             setloadingPosCards(true)
+
+            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous', muted: true}))
+        
         }
     }
 
