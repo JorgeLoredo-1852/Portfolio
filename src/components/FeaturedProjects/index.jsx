@@ -99,7 +99,7 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
             setSpeed(1.5)
         } else {
             setPercentage(1)
-            setSpeed(1.5)
+            setSpeed(1.4)
         }
     },[downSm])
 
@@ -114,6 +114,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
             if(locationCard1 == 1){
                 //ESTABA CARTA 11
                 if(movingLeft){
+                    console.log("BBBB")
+                    console.log(posCard6[0])
                     if(posCard6[0] > 0){
                         if(posCard1[0] > -26.2 + 0.1){
                             setPosCard1([posCard1[0] - 0.1 * speed , 4, 0])
@@ -148,16 +150,18 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                     }
                 } 
                 else {
+                    console.log("AAAAA")
+                    console.log(posCard6[0])
                     if(posCard6[0] < 0){
                         if(posCard2[0] < -21.4 - 0.1){
-                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 * speed , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 * speed , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 * speed , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 * speed , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 * speed , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 * speed , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 * speed , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 * speed , 4, 0])
                             //checkElevation(posCard2[0], "right");
                             if(posCard2[0] > - 23.8 - 0.1){
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3 * speed, posGameBoy[2]])
@@ -167,8 +171,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                                 setElevateGameBoy(false)
                             }
                         }
-                        setPosCard6([posCard6[0] + 0.1 , 4, 0])
-                        setPosCard7([posCard7[0] + 0.1 , 4, 0])
+                        setPosCard6([posCard6[0] + 0.1 * speed , 4, 0])
+                        setPosCard7([posCard7[0] + 0.1 * speed , 4, 0])
                         setSizeCard6([sizeCard6[0] + 0.064 * speed, sizeCard6[1] + 0.06 * speed,0.5])
                         setSizeCard7([sizeCard7[0] - 0.064 * speed, sizeCard7[1] - 0.05 * speed,0.5])
                     }
@@ -223,14 +227,14 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 else {
                     if(posCard5[0] < 0){
                         if(posCard1[0] < -21.4 - 0.1){
-                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
+                            setPosCard1([posCard1[0] + 0.1 * speed , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 * speed , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 * speed , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 * speed , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 * speed , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 * speed , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 * speed , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 * speed , 4, 0])
                             //checkElevation(posCard1[0], "right");
                             if(posCard1[0] > - 23.8 - 0.1){
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3 * speed, posGameBoy[2]])
@@ -240,8 +244,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                                 setElevateGameBoy(false)
                             }
                         }
-                        setPosCard5([posCard5[0] + 0.1 , 4, 0])
-                        setPosCard6([posCard6[0] + 0.1 , 4, 0])
+                        setPosCard5([posCard5[0] + 0.1 * speed , 4, 0])
+                        setPosCard6([posCard6[0] + 0.1 * speed , 4, 0])
                         setSizeCard5([sizeCard5[0] + 0.064 * speed, sizeCard5[1] + 0.06 * speed,0.5])
                         setSizeCard6([sizeCard6[0] - 0.064 * speed, sizeCard6[1] - 0.05 * speed,0.5])
                     }
@@ -297,14 +301,14 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 else {
                     if(posCard4[0] < 0){
                         if(posCard11[0] < -21.4 - 0.1){
-                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
+                            setPosCard1([posCard1[0] + 0.1 * speed , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 * speed , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 * speed , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 * speed , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 * speed , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 * speed , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 * speed , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 * speed , 4, 0])
                             //checkElevation(posCard11[0], "right");
                             if(posCard11[0] > - 23.8 - 0.1){
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3 * speed, posGameBoy[2]])
@@ -314,8 +318,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                                 setElevateGameBoy(false)
                             }
                         }
-                        setPosCard4([posCard4[0] + 0.1 , 4, 0])
-                        setPosCard5([posCard5[0] + 0.1 , 4, 0])
+                        setPosCard4([posCard4[0] + 0.1 * speed , 4, 0])
+                        setPosCard5([posCard5[0] + 0.1 * speed , 4, 0])
                         setSizeCard4([sizeCard4[0] + 0.064 * speed, sizeCard4[1] + 0.06 * speed,0.5])
                         setSizeCard5([sizeCard5[0] - 0.064 * speed, sizeCard5[1] - 0.05 * speed,0.5])
                     }
@@ -370,14 +374,14 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 else {
                     if(posCard3[0] < 0){
                         if(posCard10[0] < -21.4 - 0.1){
-                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
+                            setPosCard1([posCard1[0] + 0.1 * speed , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 * speed , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 * speed , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 * speed , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 * speed , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 * speed , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 * speed , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 * speed , 4, 0])
                             //checkElevation(posCard10[0], "right");
                             if(posCard10[0] > - 23.8 - 0.1){
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3 * speed, posGameBoy[2]])
@@ -387,8 +391,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                                 setElevateGameBoy(false)
                             }
                         }
-                        setPosCard3([posCard3[0] + 0.1 , 4, 0])
-                        setPosCard4([posCard4[0] + 0.1 , 4, 0])
+                        setPosCard3([posCard3[0] + 0.1 * speed , 4, 0])
+                        setPosCard4([posCard4[0] + 0.1 * speed , 4, 0])
                         setSizeCard3([sizeCard3[0] + 0.064 * speed, sizeCard3[1] + 0.06 * speed,0.5])
                         setSizeCard4([sizeCard4[0] - 0.064 * speed, sizeCard4[1] - 0.05 * speed,0.5])
                     }
@@ -443,14 +447,14 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 else {
                     if(posCard2[0] < 0){
                         if(posCard9[0] < -21.4 - 0.1){
-                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
+                            setPosCard1([posCard1[0] + 0.1 * speed , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 * speed , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 * speed , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 * speed , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 * speed , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 * speed , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 * speed , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 * speed , 4, 0])
                             //checkElevation(posCard9[0], "right");
                             if(posCard9[0] > - 23.8 - 0.1){
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3 * speed, posGameBoy[2]])
@@ -460,8 +464,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                                 setElevateGameBoy(false)
                             }
                         }
-                        setPosCard2([posCard2[0] + 0.1 , 4, 0])
-                        setPosCard3([posCard3[0] + 0.1 , 4, 0])
+                        setPosCard2([posCard2[0] + 0.1 * speed , 4, 0])
+                        setPosCard3([posCard3[0] + 0.1 * speed , 4, 0])
                         setSizeCard2([sizeCard2[0] + 0.064 * speed, sizeCard2[1] + 0.06 * speed,0.5])
                         setSizeCard3([sizeCard3[0] - 0.064 * speed, sizeCard3[1] - 0.05 * speed,0.5])
                     }
@@ -516,14 +520,14 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 else {
                     if(posCard1[0] < 0){
                         if(posCard8[0] < -21.4 - 0.1){
-                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 * speed , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 * speed , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 * speed , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 * speed , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 * speed , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 * speed , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 * speed , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 * speed , 4, 0])
                             //checkElevation(posCard8[0], "right");
                             if(posCard8[0] > - 23.8 - 0.1){
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3 * speed, posGameBoy[2]])
@@ -533,8 +537,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                                 setElevateGameBoy(false)
                             }
                         }
-                        setPosCard1([posCard1[0] + 0.1 , 4, 0])
-                        setPosCard2([posCard2[0] + 0.1 , 4, 0])
+                        setPosCard1([posCard1[0] + 0.1 * speed , 4, 0])
+                        setPosCard2([posCard2[0] + 0.1 * speed , 4, 0])
                         setSizeCard1([sizeCard1[0] + 0.064 * speed, sizeCard1[1] + 0.06 * speed,0.5])
                         setSizeCard2([sizeCard2[0] - 0.064 * speed, sizeCard2[1] - 0.05 * speed,0.5])
                     }
@@ -589,14 +593,14 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 else {
                     if(posCard11[0] < 0){
                         if(posCard7[0] < -21.4 - 0.1){
-                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 * speed , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 * speed , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 * speed , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 * speed , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 * speed , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 * speed , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 * speed , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 * speed , 4, 0])
                             //checkElevation(posCard7[0], "right");
                             if(posCard7[0] > - 23.8 - 0.1){
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3 * speed, posGameBoy[2]])
@@ -606,8 +610,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                                 setElevateGameBoy(false)
                             }
                         }
-                        setPosCard11([posCard11[0] + 0.1 , 4, 0])
-                        setPosCard1([posCard1[0] + 0.1 , 4, 0])
+                        setPosCard11([posCard11[0] + 0.1 * speed , 4, 0])
+                        setPosCard1([posCard1[0] + 0.1 * speed , 4, 0])
                         setSizeCard11([sizeCard11[0] + 0.064 * speed, sizeCard11[1] + 0.06 * speed,0.5])
                         setSizeCard1([sizeCard1[0] - 0.064 * speed, sizeCard1[1] - 0.05 * speed,0.5])
                     }
@@ -662,14 +666,14 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 else {
                     if(posCard10[0] < 0){
                         if(posCard6[0] < -21.4 - 0.1){
-                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
+                            setPosCard1([posCard1[0] + 0.1 * speed , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 * speed , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 * speed , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 * speed , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 * speed , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 * speed , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 * speed , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 * speed , 4, 0])
                             //checkElevation(posCard6[0], "right");
                             if(posCard6[0] > - 23.8 - 0.1){
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3 * speed, posGameBoy[2]])
@@ -679,8 +683,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                                 setElevateGameBoy(false)
                             }
                         }
-                        setPosCard10([posCard10[0] + 0.1 , 4, 0])
-                        setPosCard11([posCard11[0] + 0.1 , 4, 0])
+                        setPosCard10([posCard10[0] + 0.1 * speed , 4, 0])
+                        setPosCard11([posCard11[0] + 0.1 * speed , 4, 0])
                         setSizeCard10([sizeCard10[0] + 0.064 * speed, sizeCard10[1] + 0.06 * speed,0.5])
                         setSizeCard11([sizeCard11[0] - 0.064 * speed, sizeCard11[1] - 0.05 * speed,0.5])
                     }
@@ -735,14 +739,14 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 else {
                     if(posCard9[0] < 0){
                         if(posCard5[0] < -21.4 - 0.1){
-                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
-                            setPosCard8([posCard8[0] + 0.1 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
+                            setPosCard1([posCard1[0] + 0.1 * speed , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 * speed , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 * speed , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 * speed , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 * speed , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 * speed , 4, 0])
+                            setPosCard8([posCard8[0] + 0.1 * speed , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 * speed , 4, 0])
                             //checkElevation(posCard5[0], "right");
                             if(posCard5[0] > - 23.8 - 0.1){
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3 * speed, posGameBoy[2]])
@@ -752,8 +756,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                                 setElevateGameBoy(false)
                             }
                         }
-                        setPosCard9([posCard9[0] + 0.1 , 4, 0])
-                        setPosCard10([posCard10[0] + 0.1 , 4, 0])
+                        setPosCard9([posCard9[0] + 0.1 * speed , 4, 0])
+                        setPosCard10([posCard10[0] + 0.1 * speed , 4, 0])
                         setSizeCard9([sizeCard9[0] + 0.064 * speed, sizeCard9[1] + 0.06 * speed,0.5])
                         setSizeCard10([sizeCard10[0] - 0.064 * speed, sizeCard10[1] - 0.05 * speed,0.5])
                     }
@@ -808,14 +812,14 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 else {
                     if(posCard8[0] < 0){
                         if(posCard4[0] < -21.4 - 0.1){
-                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
-                            setPosCard2([posCard2[0] + 0.1 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
-                            setPosCard7([posCard7[0] + 0.1 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
+                            setPosCard1([posCard1[0] + 0.1 * speed , 4, 0])
+                            setPosCard2([posCard2[0] + 0.1 * speed , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 * speed , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 * speed , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 * speed , 4, 0])
+                            setPosCard7([posCard7[0] + 0.1 * speed , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 * speed , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 * speed , 4, 0])
                             //checkElevation(posCard4[0], "right");
                             if(posCard4[0] > - 23.8 - 0.1){
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3 * speed, posGameBoy[2]])
@@ -825,8 +829,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                                 setElevateGameBoy(false)
                             }
                         }
-                        setPosCard8([posCard8[0] + 0.1 , 4, 0])
-                        setPosCard9([posCard9[0] + 0.1 , 4, 0])
+                        setPosCard8([posCard8[0] + 0.1 * speed , 4, 0])
+                        setPosCard9([posCard9[0] + 0.1 * speed , 4, 0])
                         setSizeCard8([sizeCard8[0] + 0.064 * speed, sizeCard8[1] + 0.06 * speed,0.5])
                         setSizeCard9([sizeCard9[0] - 0.064 * speed, sizeCard9[1] - 0.05 * speed,0.5])
                     }
@@ -882,14 +886,14 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 else {
                     if(posCard7[0] < 0){
                         if(posCard3[0] < -21.4 - 0.1){
-                            setPosCard1([posCard1[0] + 0.1 , 4, 0])
-                            setPosCard3([posCard3[0] + 0.1 , 4, 0])
-                            setPosCard4([posCard4[0] + 0.1 , 4, 0])
-                            setPosCard5([posCard5[0] + 0.1 , 4, 0])
-                            setPosCard6([posCard6[0] + 0.1 , 4, 0])
-                            setPosCard9([posCard9[0] + 0.1 , 4, 0])
-                            setPosCard10([posCard10[0] + 0.1 , 4, 0])
-                            setPosCard11([posCard11[0] + 0.1 , 4, 0])
+                            setPosCard1([posCard1[0] + 0.1 * speed , 4, 0])
+                            setPosCard3([posCard3[0] + 0.1 * speed , 4, 0])
+                            setPosCard4([posCard4[0] + 0.1 * speed , 4, 0])
+                            setPosCard5([posCard5[0] + 0.1 * speed , 4, 0])
+                            setPosCard6([posCard6[0] + 0.1 * speed , 4, 0])
+                            setPosCard9([posCard9[0] + 0.1 * speed , 4, 0])
+                            setPosCard10([posCard10[0] + 0.1 * speed , 4, 0])
+                            setPosCard11([posCard11[0] + 0.1 * speed , 4, 0])
                             //checkElevation(posCard3[0], "right");
                             if(posCard3[0] > - 23.8 - 0.1){
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] + 0.3 * speed, posGameBoy[2]])
@@ -897,8 +901,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                                 setPosGameBoy([posGameBoy[0], posGameBoy[1] - 0.3 * speed, posGameBoy[2]])
                             }
                         }
-                        setPosCard7([posCard7[0] + 0.1 , 4, 0])
-                        setPosCard8([posCard8[0] + 0.1 , 4, 0])
+                        setPosCard7([posCard7[0] + 0.1 * speed , 4, 0])
+                        setPosCard8([posCard8[0] + 0.1 * speed , 4, 0])
                         setSizeCard7([sizeCard7[0] + 0.064 * speed, sizeCard7[1] + 0.06 * speed,0.5])
                         setSizeCard8([sizeCard8[0] - 0.064 * speed, sizeCard8[1] - 0.05 * speed,0.5])
                     }
