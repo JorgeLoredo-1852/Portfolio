@@ -48,13 +48,13 @@ export const Contact = () =>{
     const sendEmail = (e) => {
       e.preventDefault();
   
-      /*emailjs.sendForm('service_jg7abqb', 'template_iyit9sr', form.current, 'JgLTAy0eic29nE5Vv')
+      emailjs.sendForm('service_jg7abqb', 'template_iyit9sr', form.current, 'JgLTAy0eic29nE5Vv')
         .then((result) => {
             console.log(result.text);
             e.target.reset()
         }, (error) => {
             console.log(error.text);
-        });*/
+        });
         setSubmitted(true)
     };
 
