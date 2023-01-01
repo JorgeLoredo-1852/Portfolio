@@ -34,7 +34,7 @@ export const Home = () => {
                     <Box sx={{ height: "40%" }}>
                     </Box>
                     <Box sx={{ height: "60%", display:"flex", justifyContent:"flex-end", alignItems:"center", flexDirection: "column" }}>
-                        <div style={{backgroundColor:"black", height:"25rem", width:"20rem", borderRadius:"50px 50px 0px 0px"}}>
+                        <div style={{height:"25rem", width:"20rem", borderRadius:"50px 50px 0px 0px"}}>
                             <div className="eyes">
                                 <div className="eye">
                                     <div className="ball" ref={ballsRef}></div>
