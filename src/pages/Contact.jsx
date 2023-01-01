@@ -47,16 +47,20 @@ export const Contact = () =>{
 
     const sendEmail = (e) => {
       e.preventDefault();
-  
-      emailjs.sendForm('service_jg7abqb', 'template_iyit9sr', form.current, 'JgLTAy0eic29nE5Vv')
-        .then((result) => {
-            console.log(result.text);
-            setSubmitted(true)
-            e.target.reset()
-        }, (error) => {
-            console.log(error.text);
-        });
+      const a = e.target.user_name.value
+      const b = e.target.user_email.value
+      const c = e.target.message.value
 
+      if(a && b && c){
+        emailjs.sendForm('service_jg7abqb', 'template_iyit9sr', form.current, 'JgLTAy0eic29nE5Vv')
+            .then((result) => {
+                console.log(result.text);
+                setSubmitted(true)
+                e.target.reset()
+            }, (error) => {
+                console.log(error.text);
+        });
+      }
     };
 
     const minimizeClass=()=>{
