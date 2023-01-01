@@ -207,3 +207,15 @@ h1 {
     opacity: 0
   }
 }
+
+
+input[type="submit" i]{
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+input[type="submit" i]:hover{
+  transform: translateY(2px);
+}
