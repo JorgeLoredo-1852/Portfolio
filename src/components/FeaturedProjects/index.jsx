@@ -26,7 +26,7 @@ import { List } from "./List"
 
 export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
 
-    const [video, setVideo] = useState(() => Object.assign(document.createElement('video'), { src: "/videos/Jgx.mp4", crossOrigin: 'Anonymous', muted: true, play, playsInline: true}))
+    const [video, setVideo] = useState(() => Object.assign(document.createElement('video'), { src: "/videos/Jgx.mp4", crossOrigin: 'Anonymous', muted: true, playsInline: true}))
 
     useEffect(() => {
         video.play()
@@ -998,7 +998,7 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
 
                 <Arrow receiveShadow castShadow position={downSm ? [posGameBoy[0] - 2, posGameBoy[1] + 1.7, posGameBoy[2] + 7.2] :  [-6.5, -1, 4.5]} rotation-x={-Math.PI/10} onClick={moveCardRight} scale={downSm ? [0.6,0.6,0.6] : [1,1,1]}/>
                 <Arrow receiveShadow castShadow position={downSm ? [posGameBoy[0] + 2, posGameBoy[1] + 1.7, posGameBoy[2] + 7.2] :  [6.5, -1, 4.5]} rotation-z={Math.PI} rotation-x={-Math.PI/10} onClick={moveCardLeft} scale={downSm ? [0.6,0.6,0.6] : [1,1,1]}/>
-                <Arrow receiveShadow castShadow position={downSm ? [posGameBoy[0], posGameBoy[1] - 2.3, posGameBoy[2] + 8.5] : [6.5, -1, 4.5]} rotation-z={Math.PI / 2} rotation-x={-Math.PI/10} onClick={handleNextPage} scale={downSm ? [0.6,0.6,0.6] : [0,0,0]}/>
+                <Arrow receiveShadow castShadow position={downSm ? [posGameBoy[0], posGameBoy[1] - 2, posGameBoy[2] + 8.3] : [6.5, -1, 4.5]} rotation-z={Math.PI / 2} rotation-x={-Math.PI/10} onClick={handleNextPage} scale={downSm ? [0.6,0.6,0.6] : [0,0,0]}/>
 
 
 
