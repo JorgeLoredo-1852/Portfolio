@@ -58,11 +58,11 @@ export const Form3D = ({submitted}) => {
                 <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} enableDamping={false}></OrbitControls>
                 <Environment preset="forest" blur={0.5}/>
                 <group  position={[0, 0, 0]} rotation-x={earthChange}>
-                <Text3D position={downMd ? [-2,4,0] : [-2,0,-1]} letterSpacing={0.05} size={scaleText} font="/Inter_Bold.json" rotation-x={-(3/2)*earthChange}>
-                Will reply
+                <Text3D position={downMd ? [-3.5,4,0] : [-3,0,-0.5]} letterSpacing={0.05} size={scaleText} font="/Inter_Bold.json" rotation-x={-(3/2)*earthChange}>
+                Thanks, I'll reply
                 <meshPhongMaterial color="white" opacity={opacityText} transparent />
                 </Text3D>
-                <Text3D position={downMd ? [-1.2,2.6,0] : [-1.8,0,1]} letterSpacing={0.05} size={scaleText} font="/Inter_Bold.json" rotation-x={-(3/2)*earthChange}>
+                <Text3D position={downMd ? [-1.2,2.6,0] : [-2.8,0,1.5]} letterSpacing={0.05} size={scaleText} font="/Inter_Bold.json" rotation-x={-(3/2)*earthChange}>
                 soon...
                 <meshPhongMaterial color="white" opacity={opacityText} transparent />
                 </Text3D>
