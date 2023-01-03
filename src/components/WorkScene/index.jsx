@@ -6,6 +6,7 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { Debug, Physics, useBox, usePlane } from '@react-three/cannon'
 import { useEffect, useRef, useState, Suspense } from 'react'
 import { Model as FrameModel } from '../../models/ProfileAsteroid'
+import { Model as ReactModel} from '../../models/React'
 
 import { TextureLoader } from 'three/src/loaders/TextureLoader.js';
 
@@ -68,7 +69,9 @@ const WorkStation = () => {
     const [posRocket, setPosRocket] = useState([0,0,0])
     const [rotRocket, setRotRocket] = useState([0,0,0])
     const [hit, setHit] = useState(false)
-    
+    const [javascriptRotation, setJavascriptRotation] = useState([0,0,0])
+    const [javascriptPos, setJavascriptPos] = useState([0,-2,0])
+
     useFrame((state, delta) => {
         const offset = scroll.offset
         
@@ -80,9 +83,15 @@ const WorkStation = () => {
         state.camera.rotation.set(0,0,0)
         setRotRocket([0,0,-Math.PI * offset])
 
-        if(offset > 0.05){
+        if(offset > 0.05 && !hit){
             setHit(true)
+        } else if (offset < 0.15){
+            setJavascriptPos([0,-15 + offset*100,0])
+        } else {
+
         }
+
+        setJavascriptRotation([javascriptRotation[0], javascriptRotation[1], javascriptRotation[2]+0.002])
     })
 
 
@@ -149,7 +158,23 @@ const WorkStation = () => {
                         <Crate position={[-1.5, 3.5, 370]} hit={hit} urlImage={'/textures/10.png'}/>
                         <Crate position={[-2.5, 3.5, 370]} hit={hit} urlImage={'/textures/00.png'}/>
 
+                        {/*  ASTEROIDS  */}
+                        <Text3D position={[-11, 3, 310]} letterSpacing={0.1} size={2.5} font="/Inter_Bold.json">
+                            Technologies
+                            <meshStandardMaterial color="#fff" />
+                        </Text3D>
+                        <group rotation={javascriptRotation} position={javascriptPos}>
+
+                        
+                        <ReactModel  position={[0, 5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
+                        <ReactModel  position={[0, -5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
+                        <ReactModel  position={[4, 2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
+                        <ReactModel  position={[4, -2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
+                        <ReactModel  position={[-4, 2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
+                        <ReactModel  position={[-4, -2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
+                        </group>
                         <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1}/>
+
                     </group>
 
         </>
