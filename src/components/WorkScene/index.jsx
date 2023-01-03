@@ -5,7 +5,7 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 
 import { Debug, Physics, useBox, usePlane } from '@react-three/cannon'
 import { useEffect, useRef, useState, Suspense } from 'react'
-import { Model as FrameModel } from '../../models/CubesAsteroid'
+import { Model as FrameModel } from '../../models/ProfileAsteroid'
 
 import { TextureLoader } from 'three/src/loaders/TextureLoader.js';
 
@@ -13,7 +13,7 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader.js';
 export const WorkScene = () => {
     return(
         <>
-            <Environment preset="forest" blur={0.5}/>
+            <Environment preset="forest" blur={0.4}/>
             <group position={[0,0,0]}>
                 <ScrollControls pages={6}>
                     <Physics gravity={[0, -10, 0]}>
@@ -29,11 +29,11 @@ export const WorkScene = () => {
 }
 
 function Ground({ color, ...props }) {
-    const [ref] = usePlane(() => ({ ...props }), useRef(null))
+    const [ref] = usePlane(() => ({ type:"static", ...props }), useRef(null))
   
     return (
       <Plane args={[10, 10]} ref={ref}>
-        <meshStandardMaterial transparent envMapIntensify={0.5} opacity={0}/>
+        <meshPhongMaterial transparent envMapIntensify={0.5} opacity={0} wireframe={false}/>
       </Plane>
     )
   }
@@ -45,22 +45,22 @@ const Crate = ({position, hit, urlImage}) => {
     useEffect(()=>{
         if(hit == true){
             console.log(hit)
-            api.applyImpulse([0, 5, -20], [0, -2, 0])
+            api.applyImpulse([0, -5, -20], [0, -1, 0])
         }
     },[hit])
 
 
-    return (
+    return ( 
       <Box
         args={[1, 1, 1]}
         ref={ref}
       >      
         <Suspense fallback={null}>
-            <meshStandardMaterial roughness={0} metalness={0} map={texture_1} attachArray="material"  />
+            <meshStandardMaterial roughness={0.5} metalness={0} map={texture_1} attachArray="material"  />
         </Suspense>
       </Box>
     )
-  }
+  } 
 
 const WorkStation = () => {
     const scroll = useScroll()
@@ -80,7 +80,7 @@ const WorkStation = () => {
         state.camera.rotation.set(0,0,0)
         setRotRocket([0,0,-Math.PI * offset])
 
-        if(offset > 0.08){
+        if(offset > 0.05){
             setHit(true)
         }
     })
@@ -92,61 +92,62 @@ const WorkStation = () => {
                     <RocketModel rotation={[-Math.PI/2 + Math.PI / 20,0,0]} refa={refROT}/>
                     <group rotation={rotRocket}>
                         {/*<WorkModel position={[0,0,0]} rotation={[0,0,0]}/>*/}
-                        {!hit && <Ground position={[0, -3, 350]} rotation={[-Math.PI / 2, 0, 0]} />}
-                        <Ground  position={[-3, 2, 350]} rotation={[0, Math.PI/2, 0]} />
-                        <Ground  position={[3, 2, 350]} rotation={[0, - Math.PI/2, 0]} />
-                        <Ground position={[0, 4.1, 350]} rotation={[Math.PI/2,0, 0]} />
+                        {!hit && <Ground position={[0, -3, 365]} rotation={[-Math.PI / 2, 0, 0]} />}
+                        <FrameModel position={[0, -4.5, 370]} rotation={[0,Math.PI/2,0]} scale={5}/>
+                        <Ground  position={[-3, 2, 365]} rotation={[0, Math.PI/2, 0]} />
+                        <Ground  position={[3, 2, 365]} rotation={[0, - Math.PI/2, 0]} />
+                        <Ground position={[0, 4.1, 365]} rotation={[Math.PI/2,0, 0]} />
 
-                        <Crate position={[2.5, -2.5, 350]} hit={hit} urlImage={'/textures/56.png'}/>
-                        <Crate position={[1.5, -2.5, 350]} hit={hit} urlImage={'/textures/46.png'}/>
-                        <Crate position={[0.5, -2.5, 350]} hit={hit} urlImage={'/textures/36.png'}/>
-                        <Crate position={[-0.5, -2.5, 350]} hit={hit} urlImage={'/textures/26.png'}/>
-                        <Crate position={[-1.5, -2.5, 350]} hit={hit} urlImage={'/textures/16.png'}/>
-                        <Crate position={[-2.5, -2.5, 350]} hit={hit} urlImage={'/textures/06.png'}/>
+                        <Crate position={[2.5, -2.5, 370]} hit={hit} urlImage={'/textures/56.png'}/>
+                        <Crate position={[1.5, -2.5, 370]} hit={hit} urlImage={'/textures/46.png'}/>
+                        <Crate position={[0.5, -2.5, 370]} hit={hit} urlImage={'/textures/36.png'}/>
+                        <Crate position={[-0.5, -2.5, 370]} hit={hit} urlImage={'/textures/26.png'}/>
+                        <Crate position={[-1.5, -2.5, 370]} hit={hit} urlImage={'/textures/16.png'}/>
+                        <Crate position={[-2.5, -2.5, 370]} hit={hit} urlImage={'/textures/06.png'}/>
 
-                        <Crate position={[2.5, -1.5, 350]} hit={hit} urlImage={'/textures/55.png'}/>
-                        <Crate position={[1.5, -1.5, 350]} hit={hit} urlImage={'/textures/45.png'}/>
-                        <Crate position={[0.5, -1.5, 350]} hit={hit} urlImage={'/textures/35.png'}/>
-                        <Crate position={[-0.5, -1.5, 350]} hit={hit} urlImage={'/textures/25.png'}/>
-                        <Crate position={[-1.5, -1.5, 350]} hit={hit} urlImage={'/textures/15.png'}/>
-                        <Crate position={[-2.5, -1.5, 350]} hit={hit} urlImage={'/textures/05.png'}/>
+                        <Crate position={[2.5, -1.5, 370]} hit={hit} urlImage={'/textures/55.png'}/>
+                        <Crate position={[1.5, -1.5, 370]} hit={hit} urlImage={'/textures/45.png'}/>
+                        <Crate position={[0.5, -1.5, 370]} hit={hit} urlImage={'/textures/35.png'}/>
+                        <Crate position={[-0.5, -1.5, 370]} hit={hit} urlImage={'/textures/25.png'}/>
+                        <Crate position={[-1.5, -1.5, 370]} hit={hit} urlImage={'/textures/15.png'}/>
+                        <Crate position={[-2.5, -1.5, 370]} hit={hit} urlImage={'/textures/05.png'}/>
 
-                        <Crate position={[2.5, -0.5, 350]} hit={hit} urlImage={'/textures/54.png'}/>
-                        <Crate position={[1.5, -0.5, 350]} hit={hit} urlImage={'/textures/44.png'}/>
-                        <Crate position={[0.5, -0.5, 350]} hit={hit} urlImage={'/textures/34.png'}/>
-                        <Crate position={[-0.5, -0.5, 350]} hit={hit} urlImage={'/textures/24.png'}/>
-                        <Crate position={[-1.5, -0.5, 350]} hit={hit} urlImage={'/textures/14.png'}/>
-                        <Crate position={[-2.5, -0.5, 350]} hit={hit} urlImage={'/textures/04.png'}/>
+                        <Crate position={[2.5, -0.5, 370]} hit={hit} urlImage={'/textures/54.png'}/>
+                        <Crate position={[1.5, -0.5, 370]} hit={hit} urlImage={'/textures/44.png'}/>
+                        <Crate position={[0.5, -0.5, 370]} hit={hit} urlImage={'/textures/34.png'}/>
+                        <Crate position={[-0.5, -0.5, 370]} hit={hit} urlImage={'/textures/24.png'}/>
+                        <Crate position={[-1.5, -0.5, 370]} hit={hit} urlImage={'/textures/14.png'}/>
+                        <Crate position={[-2.5, -0.5, 370]} hit={hit} urlImage={'/textures/04.png'}/>
 
-                        <Crate position={[2.5, 0.5, 350]} hit={hit} urlImage={'/textures/53.png'}/>
-                        <Crate position={[1.5, 0.5, 350]} hit={hit} urlImage={'/textures/43.png'}/>
-                        <Crate position={[0.5, 0.5, 350]} hit={hit} urlImage={'/textures/33.png'}/>
-                        <Crate position={[-0.5, 0.5, 350]} hit={hit} urlImage={'/textures/23.png'}/>
-                        <Crate position={[-1.5, 0.5, 350]} hit={hit} urlImage={'/textures/13.png'}/>
-                        <Crate position={[-2.5, 0.5, 350]} hit={hit} urlImage={'/textures/03.png'}/>
+                        <Crate position={[2.5, 0.5, 370]} hit={hit} urlImage={'/textures/53.png'}/>
+                        <Crate position={[1.5, 0.5, 370]} hit={hit} urlImage={'/textures/43.png'}/>
+                        <Crate position={[0.5, 0.5, 370]} hit={hit} urlImage={'/textures/33.png'}/>
+                        <Crate position={[-0.5, 0.5, 370]} hit={hit} urlImage={'/textures/23.png'}/>
+                        <Crate position={[-1.5, 0.5, 370]} hit={hit} urlImage={'/textures/13.png'}/>
+                        <Crate position={[-2.5, 0.5, 370]} hit={hit} urlImage={'/textures/03.png'}/>
 
-                        <Crate position={[2.5, 1.5, 350]} hit={hit} urlImage={'/textures/52.png'}/>
-                        <Crate position={[1.5, 1.5, 350]} hit={hit} urlImage={'/textures/42.png'}/>
-                        <Crate position={[0.5, 1.5, 350]} hit={hit} urlImage={'/textures/32.png'}/>
-                        <Crate position={[-0.5, 1.5, 350]} hit={hit} urlImage={'/textures/22.png'}/>
-                        <Crate position={[-1.5, 1.5, 350]} hit={hit} urlImage={'/textures/12.png'}/>
-                        <Crate position={[-2.5, 1.5, 350]} hit={hit} urlImage={'/textures/02.png'}/>
-
-                        
-                        <Crate position={[2.5, 2.5, 350]} hit={hit} urlImage={'/textures/51.png'}/>
-                        <Crate position={[1.5, 2.5, 350]} hit={hit} urlImage={'/textures/41.png'}/>
-                        <Crate position={[0.5, 2.5, 350]} hit={hit} urlImage={'/textures/31.png'}/>
-                        <Crate position={[-0.5, 2.5, 350]} hit={hit} urlImage={'/textures/21.png'}/>
-                        <Crate position={[-1.5, 2.5, 350]} hit={hit} urlImage={'/textures/11.png'}/>
-                        <Crate position={[-2.5, 2.5, 350]} hit={hit} urlImage={'/textures/01.png'}/>
+                        <Crate position={[2.5, 1.5, 370]} hit={hit} urlImage={'/textures/52.png'}/>
+                        <Crate position={[1.5, 1.5, 370]} hit={hit} urlImage={'/textures/42.png'}/>
+                        <Crate position={[0.5, 1.5, 370]} hit={hit} urlImage={'/textures/32.png'}/>
+                        <Crate position={[-0.5, 1.5, 370]} hit={hit} urlImage={'/textures/22.png'}/>
+                        <Crate position={[-1.5, 1.5, 370]} hit={hit} urlImage={'/textures/12.png'}/>
+                        <Crate position={[-2.5, 1.5, 370]} hit={hit} urlImage={'/textures/02.png'}/>
 
                         
-                        <Crate position={[2.5, 3.5, 350]} hit={hit} urlImage={'/textures/50.png'}/>
-                        <Crate position={[1.5, 3.5, 350]} hit={hit} urlImage={'/textures/40.png'}/>
-                        <Crate position={[0.5, 3.5, 350]} hit={hit} urlImage={'/textures/30.png'}/>
-                        <Crate position={[-0.5, 3.5, 350]} hit={hit} urlImage={'/textures/20.png'}/>
-                        <Crate position={[-1.5, 3.5, 350]} hit={hit} urlImage={'/textures/10.png'}/>
-                        <Crate position={[-2.5, 3.5, 350]} hit={hit} urlImage={'/textures/00.png'}/>
+                        <Crate position={[2.5, 2.5, 370]} hit={hit} urlImage={'/textures/51.png'}/>
+                        <Crate position={[1.5, 2.5, 370]} hit={hit} urlImage={'/textures/41.png'}/>
+                        <Crate position={[0.5, 2.5, 370]} hit={hit} urlImage={'/textures/31.png'}/>
+                        <Crate position={[-0.5, 2.5, 370]} hit={hit} urlImage={'/textures/21.png'}/>
+                        <Crate position={[-1.5, 2.5, 370]} hit={hit} urlImage={'/textures/11.png'}/>
+                        <Crate position={[-2.5, 2.5, 370]} hit={hit} urlImage={'/textures/01.png'}/>
+
+                        
+                        <Crate position={[2.5, 3.5, 370]} hit={hit} urlImage={'/textures/50.png'}/>
+                        <Crate position={[1.5, 3.5, 370]} hit={hit} urlImage={'/textures/40.png'}/>
+                        <Crate position={[0.5, 3.5, 370]} hit={hit} urlImage={'/textures/30.png'}/>
+                        <Crate position={[-0.5, 3.5, 370]} hit={hit} urlImage={'/textures/20.png'}/>
+                        <Crate position={[-1.5, 3.5, 370]} hit={hit} urlImage={'/textures/10.png'}/>
+                        <Crate position={[-2.5, 3.5, 370]} hit={hit} urlImage={'/textures/00.png'}/>
 
                         <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1}/>
                     </group>
