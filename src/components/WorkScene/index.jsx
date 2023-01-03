@@ -1,10 +1,11 @@
 import { Environment, OrbitControls, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
 import { Model as WorkModel } from "../../models/Work"
-import { Model as RocketModel } from "../../models/Rocket"
+import { Model as RocketModel } from "../../models/RocketComponent"
 import { Canvas, useFrame } from '@react-three/fiber'
 
 import { Debug, Physics, useBox, usePlane } from '@react-three/cannon'
 import { useRef, useState } from 'react'
+import { Model as FrameModel } from '../../models/CubesAsteroid'
 
 export const WorkScene = () => {
     return(
@@ -30,27 +31,27 @@ function Ground({ color, ...props }) {
   
     return (
       <Plane args={[10, 10]} ref={ref}>
-        <meshStandardMaterial color={color} />
+        <meshStandardMaterial transparent envMapIntensify={0.5} opacity={0}/>
       </Plane>
     )
   }
 const Crate = ({position}) => {
-    const [ref, api] = useBox(() => ({ args: [2, 1, 1], mass: 1, position }), useRef(null))
+    const [ref, api] = useBox(() => ({ args: [1, 1, 1], mass: 1, position }), useRef(null))
     const scroll = useScroll()
     const [once, setOnce] = useState(true)
 
     useFrame((state, delta) => {
         const offset = scroll.offset
         
-        if(offset > 0.16 && once){
+        if(offset > 0.08 && once){
             setOnce(false)
-            api.applyImpulse([0, 5, 2], [0, -1, 0])
+            api.applyImpulse([0, 5, -20], [0, -1, 0])
         }
     })
 
     return (
       <Box
-        args={[2, 1, 1]}
+        args={[1, 1, 1]}
         ref={ref}
       >
         <meshNormalMaterial />
@@ -60,7 +61,7 @@ const Crate = ({position}) => {
 
 const WorkStation = () => {
     const scroll = useScroll()
-    
+    const refROT = useRef(null)
     const [posRocket, setPosRocket] = useState([0,0,0])
     const [rotRocket, setRotRocket] = useState([0,0,0])
     const [hit, setHit] = useState(false)
@@ -69,12 +70,14 @@ const WorkStation = () => {
         const offset = scroll.offset
         
         state.camera.position.set(0, 0, 400 - offset * 500)
+        refROT.current.position.y =  -0.4 
+        refROT.current.position.z = 400 - offset * 500 - 2
         setPosRocket([0, -0.4, 400 - offset * 500 - 2])
 
         state.camera.rotation.set(0,0,0)
         setRotRocket([0,0,-Math.PI * offset])
 
-        if(offset > 0.16){
+        if(offset > 0.08){
             setHit(true)
         }
     })
@@ -83,16 +86,64 @@ const WorkStation = () => {
     
     return (
         <>
-
-                    <RocketModel position={posRocket} rotation={[-Math.PI/2 + Math.PI / 20,0,0]}/>
+                    <RocketModel rotation={[-Math.PI/2 + Math.PI / 20,0,0]} refa={refROT}/>
                     <group rotation={rotRocket}>
                         {/*<WorkModel position={[0,0,0]} rotation={[0,0,0]}/>*/}
+                        {!hit && <Ground position={[0, -3, 350]} rotation={[-Math.PI / 2, 0, 0]} />}
+                        <Ground  position={[-3, 2, 350]} rotation={[0, Math.PI/2, 0]} />
+                        <Ground  position={[3, 2, 350]} rotation={[0, - Math.PI/2, 0]} />
+                        <Ground position={[0, 4.1, 350]} rotation={[Math.PI/2,0, 0]} />
+
+                        <Crate position={[2.5, -2.5, 350]} />
+                        <Crate position={[1.5, -2.5, 350]} />
+                        <Crate position={[0.5, -2.5, 350]} />
+                        <Crate position={[-0.5, -2.5, 350]} />
+                        <Crate position={[-1.5, -2.5, 350]} />
+                        <Crate position={[-2.5, -2.5, 350]} />
+
+                        <Crate position={[2.5, -1.5, 350]} />
+                        <Crate position={[1.5, -1.5, 350]} />
+                        <Crate position={[0.5, -1.5, 350]} />
+                        <Crate position={[-0.5, -1.5, 350]} />
+                        <Crate position={[-1.5, -1.5, 350]} />
+                        <Crate position={[-2.5, -1.5, 350]} />
+
+                        <Crate position={[2.5, -0.5, 350]} />
+                        <Crate position={[1.5, -0.5, 350]} />
+                        <Crate position={[0.5, -0.5, 350]} />
+                        <Crate position={[-0.5, -0.5, 350]} />
+                        <Crate position={[-1.5, -0.5, 350]} />
+                        <Crate position={[-2.5, -0.5, 350]} />
+
+                        <Crate position={[2.5, 0.5, 350]} />
+                        <Crate position={[1.5, 0.5, 350]} />
+                        <Crate position={[0.5, 0.5, 350]} />
+                        <Crate position={[-0.5, 0.5, 350]} />
+                        <Crate position={[-1.5, 0.5, 350]} />
+                        <Crate position={[-2.5, 0.5, 350]} />
+
+                        <Crate position={[2.5, 1.5, 350]} />
+                        <Crate position={[1.5, 1.5, 350]} />
+                        <Crate position={[0.5, 1.5, 350]} />
+                        <Crate position={[-0.5, 1.5, 350]} />
+                        <Crate position={[-1.5, 1.5, 350]} />
+                        <Crate position={[-2.5, 1.5, 350]} />
+
                         
-                        {!hit && <Ground color="grey" position={[0, -2, 0]} rotation={[-Math.PI / 2, 0, 0]} />}
-        
-                        <Crate position={[2, 0, 0]} />
-                        <Crate position={[0, 0, 0]} />
-                        <Crate position={[-2, 0, 0]} />
+                        <Crate position={[2.5, 2.5, 350]} />
+                        <Crate position={[1.5, 2.5, 350]} />
+                        <Crate position={[0.5, 2.5, 350]} />
+                        <Crate position={[-0.5, 2.5, 350]} />
+                        <Crate position={[-1.5, 2.5, 350]} />
+                        <Crate position={[-2.5, 2.5, 350]} />
+
+                        
+                        <Crate position={[2.5, 3.5, 350]} />
+                        <Crate position={[1.5, 3.5, 350]} />
+                        <Crate position={[0.5, 3.5, 350]} />
+                        <Crate position={[-0.5, 3.5, 350]} />
+                        <Crate position={[-1.5, 3.5, 350]} />
+                        <Crate position={[-2.5, 3.5, 350]} />
 
                         <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1}/>
                     </group>
