@@ -7,7 +7,7 @@ import { Debug, Physics, useBox, usePlane } from '@react-three/cannon'
 import { useEffect, useRef, useState, Suspense } from 'react'
 import { Model as FrameModel } from '../../models/ProfileAsteroid'
 import { Model as ReactModel} from '../../models/React'
-
+import {Model as Earth} from '../../models/EarthWork'
 import { TextureLoader } from 'three/src/loaders/TextureLoader.js';
 
 
@@ -226,16 +226,18 @@ const WorkStation = () => {
                         </group>
 
                         <group position={otherTech}>
-                            <ReactModel/>   {/*  Java  */}
-                            <ReactModel/>   {/*  C++  */}
-                            <ReactModel/>   {/*  Matlab  */}
-                            <ReactModel/>   {/*  PHP  */}
-                            <ReactModel/>   {/*  Laravel  */}
-                            <ReactModel/>   {/*  SWIFT  */}
-                            <ReactModel/>   {/*  Solidity  */}
-                            <ReactModel/>   {/*  Rust  */}
-                            <ReactModel/>   {/*  Unity  */}
+                            <ReactModel scale={[30,30,30]} rotation={[-Math.PI/2,0,0]}/>   {/*  Java  */}
+                               {/*  C++  */}
+                               {/*  Matlab  */}
+                              {/*  PHP  */}
+                               {/*  Laravel  */}
+                              {/*  SWIFT  */}
+                              {/*  Solidity  */}
+                              {/*  Rust  */}
+                               {/*  Unity  */}
                         </group>
+
+                        <Earth rotation={[0,Math.PI/2,0]}/>
 
 
                         <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1}/>
