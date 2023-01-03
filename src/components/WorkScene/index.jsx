@@ -69,8 +69,16 @@ const WorkStation = () => {
     const [posRocket, setPosRocket] = useState([0,0,0])
     const [rotRocket, setRotRocket] = useState([0,0,0])
     const [hit, setHit] = useState(false)
+
     const [javascriptRotation, setJavascriptRotation] = useState([0,0,0])
     const [javascriptPos, setJavascriptPos] = useState([0,-2,0])
+
+    const [dbPos, setDBPos] = useState([0,0,280])
+    const [pythonPos, setPythonPos] = useState([0,0,220])
+    const [extraTechPos, setExtraTechPos] = useState([0,0,250])
+    const [otherTech, setOtherTech] = useState([0,0,190])
+
+    const [mongoRot, setMongoRot] = useState([0,0,0])
 
     useFrame((state, delta) => {
         const offset = scroll.offset
@@ -87,11 +95,21 @@ const WorkStation = () => {
             setHit(true)
         } else if (offset < 0.15){
             setJavascriptPos([0,-15 + offset*100,0])
-        } else {
+            setDBPos([15 - offset*85,15 - offset*85,280])
+            setExtraTechPos([0,- 12 + offset*70,250])
+            setPythonPos([- 15 + offset*70,15 - offset*70,220])
+        } else if(offset < 0.30) {
+            setDBPos([15 - offset*85,15 - offset*85,280])
+            setExtraTechPos([0,- 12 + offset*70,250])
+            setPythonPos([- 15 + offset*70,15 - offset*70,220])
 
+            setOtherTech([ 30 - offset*90,-30 + offset*90,190])
         }
+        setOtherTech([30 - offset*90,-30 + offset*90,190])
 
-        setJavascriptRotation([javascriptRotation[0], javascriptRotation[1], javascriptRotation[2]+0.002])
+        setJavascriptRotation([0, 0, javascriptRotation[2]+0.002])
+        
+        setMongoRot([0, mongoRot[1] - 0.005, 0])
     })
 
 
@@ -164,15 +182,62 @@ const WorkStation = () => {
                             <meshStandardMaterial color="#fff" />
                         </Text3D>
                         <group rotation={javascriptRotation} position={javascriptPos}>
-
-                        
-                        <ReactModel  position={[0, 5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
-                        <ReactModel  position={[0, -5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
-                        <ReactModel  position={[4, 2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
-                        <ReactModel  position={[4, -2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
-                        <ReactModel  position={[-4, 2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
-                        <ReactModel  position={[-4, -2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/>
+                            <ReactModel  position={[0, 5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/> {/*  React  */}
+                            <ReactModel  position={[0, -5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/> {/*  Node  */}
+                            <ReactModel  position={[4, 2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/> {/*  Redux  */}
+                            <ReactModel  position={[4, -2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/> {/*  Tree.js  */}
+                            <ReactModel  position={[-4, 2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/> {/*  CSS  */}
+                            <ReactModel  position={[-4, -2.5, 320]} scale={2} rotation={[-Math.PI/2,0,0]}/> {/*  Material UI */}
                         </group>
+
+                        <group position={dbPos}>
+                            <ReactModel  scale={3} rotation={[-Math.PI/2,0,0]}/>   {/*  Databases  */}
+                            <group rotation={mongoRot}>
+                                <ReactModel position={[5,0,0]} scale={1.5} rotation={[-Math.PI/2,0,0]}/>   {/*  MongoDB  */}
+                            </group>
+                            <group rotation={[-Math.PI/2 - mongoRot[1],0,0]}>
+                                <ReactModel position={[0,5,0]} scale={1.5} rotation={[-Math.PI/2,0,0]} />   {/*  MySQL  */}
+                            </group>
+                            <group rotation={[0,0,Math.PI/4]}>
+                                <group rotation={[0,-Math.PI/2 + mongoRot[1],0]}>
+                                    <ReactModel position={[5,0,0]}  scale={1.5} rotation={[-Math.PI/2,0,0]}/>   {/*  GraphQL  */}
+                                </group>
+                            </group>
+                        </group>
+
+                        <group position={pythonPos}>
+                            <ReactModel scale={3} rotation={[-Math.PI/2,0,0]}/>   {/*  Python  */}
+                            <group rotation={mongoRot}>
+                                <ReactModel position={[5,0,0]} scale={1.5} rotation={[-Math.PI/2,0,0]}/>   {/*  Flask  */}
+                            </group>
+                            <group rotation={[-Math.PI/2 - mongoRot[1],0,0]}>
+                                <ReactModel position={[0,5,0]} scale={1.5} rotation={[-Math.PI/2,0,0]} />   {/*  Tensorflow  */}
+                            </group>
+                        </group>
+
+                        <group position={extraTechPos}>
+                            <ReactModel scale={3} rotation={[-Math.PI/2,0,0]}/>   {/*  Python  */}
+                            <group rotation={mongoRot}>
+                                <ReactModel position={[5,0,0]} scale={1.5} rotation={[-Math.PI/2,0,0]}/>   {/*  Flask  */}
+                            </group>
+                            <group rotation={[-Math.PI/2 - mongoRot[1],0,0]}>
+                                <ReactModel position={[0,5,0]} scale={1.5} rotation={[-Math.PI/2,0,0]} />   {/*  Tensorflow  */}
+                            </group>
+                        </group>
+
+                        <group position={otherTech}>
+                            <ReactModel/>   {/*  Java  */}
+                            <ReactModel/>   {/*  C++  */}
+                            <ReactModel/>   {/*  Matlab  */}
+                            <ReactModel/>   {/*  PHP  */}
+                            <ReactModel/>   {/*  Laravel  */}
+                            <ReactModel/>   {/*  SWIFT  */}
+                            <ReactModel/>   {/*  Solidity  */}
+                            <ReactModel/>   {/*  Rust  */}
+                            <ReactModel/>   {/*  Unity  */}
+                        </group>
+
+
                         <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1}/>
 
                     </group>
