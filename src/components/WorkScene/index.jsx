@@ -29,7 +29,7 @@ import { Model as D3s } from '../../models/technologies/3Ds'
 import { Model as Unity } from '../../models/technologies/Unity'
 import { Model as ThreeJS } from '../../models/technologies/Three'
 import { Model as Fusion } from '../../models/technologies/Fusion'
-import { Model as Spaceship } from '../../models/technologies/Spaceship'
+import { Model as Spaceship } from '../../models/technologies/spaceship'
 
 
 
