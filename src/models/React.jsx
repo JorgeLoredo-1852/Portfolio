@@ -11,7 +11,7 @@ export function Model(props) {
     <group {...props} dispose={null}>
       <group position={[-0.01, 1.02, -0.04]} scale={[1, 0.5, 1]}>
         <mesh
-          castShadow
+          castShadow 
           receiveShadow
           geometry={nodes.Cube012.geometry}
           material={materials.Main}

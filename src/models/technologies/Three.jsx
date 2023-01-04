@@ -6,32 +6,33 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/startAsteroid2.glb");
+  const { nodes, materials } = useGLTF("/3DTech/three.glb");
   return (
     <group {...props} dispose={null}>
-      <group scale={[1.86, 0.23, 1.2]}>
+      <group position={[0, 1.02, 0]} scale={[1, 0.5, 1]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube057.geometry}
+          geometry={nodes.Cube012.geometry}
           material={materials.Main}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube057_1.geometry}
-          material={materials.Edges}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube057_2.geometry}
+          geometry={nodes.Cube012_1.geometry}
           material={materials.Edges}
         />
       </group>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Curve.geometry}
+        material={materials["SVGMat.007"]}
+        position={[-0.43, 0.53, 0.59]}
+        scale={[32, 1, 32]}
+      />
     </group>
   );
 }
 
-useGLTF.preload("/startAsteroid2.glb");
-
+useGLTF.preload("/3DTech/three.glb");
