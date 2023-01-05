@@ -107,7 +107,7 @@ const WorkStation = () => {
     const [scaleSpaceship, setScaleSpaceShip] = useState(0)
     const [scaleEarth, setScaleEarth] = useState(0)
     const [rotationEarth, setRotationEarth] = useState(0)
-
+    const [posEarth, setPosEarth] = useState([0,0,20])
 
     useFrame((state, delta) => {
         const offset = scroll.offset
@@ -138,11 +138,12 @@ const WorkStation = () => {
         } else {
             setRotationEarth(Math.PI/2)
         }
+
                 // CAMBIAR
         setOtherTech([ -1, 60 - offset*170,0 + offset*400])
         setScaleSpaceShip(offset*2)
         setScaleEarth(offset*2)
-
+        setPosEarth([0,0,20 + offset * 100])
 
         setJavascriptRotation([0, 0, javascriptRotation[2]+0.002])
         
@@ -278,7 +279,14 @@ const WorkStation = () => {
                             <Spaceship scale={scaleSpaceship} rotation={[Math.PI/8,0,0]}/>
                         </group>
 
-                        <Earth scale={scaleEarth} position={[0,0,50]} rotation={[0,rotationEarth,0]}/>
+                        {/* WORK EXPERIENCE */}
+                        <group position={posEarth} rotation={[0,rotationEarth,0]} scale={scaleEarth}>
+                            <Text3D position={[-50,-5.5,0]} letterSpacing={0.1} rotation={[0,-Math.PI/2,Math.PI/2]} size={3} font="/Inter_Bold.json">
+                                Work
+                                <meshStandardMaterial color="#fff" />
+                            </Text3D>
+                            <Earth />
+                        </group>
 
 
                         <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1}/>

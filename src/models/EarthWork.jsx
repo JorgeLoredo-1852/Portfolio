@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/earthWork.glb");
+  const { nodes, materials } = useGLTF("/earthWork7.glb");
   return (
     <group {...props} dispose={null}>
       <group rotation={[1.44, 0.45, -0.17]} scale={5}>
@@ -22,9 +22,35 @@ export function Model(props) {
           geometry={nodes.Mesh_1.geometry}
           material={materials.lambert1}
         />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh_2.geometry}
+          material={materials["Material.004"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh_3.geometry}
+          material={materials["Material.004"]}
+        />
+      </group>
+      <group position={[28.56, 0, 0]} scale={[65.77, 12.1, 12.1]}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube_1.geometry}
+          material={materials.Material}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube_2.geometry}
+          material={materials.Material}
+        />
       </group>
     </group>
   );
 }
 
-useGLTF.preload("/earthWork.glb");
+useGLTF.preload("/earthWork7.glb");
