@@ -115,6 +115,8 @@ const WorkStation = () => {
     const [posWork3, setPosWork3] = useState([0,0,0])
     const [hideWorks, setHideWorks] = useState(true)
 
+    const [scaleAward, setScaleAward] = useState(0)
+    const [posAward, setPosAward] = useState([0,0,0])
 
     useFrame((state, delta) => {
         const offset = scroll.offset
@@ -140,12 +142,15 @@ const WorkStation = () => {
             setPythonPos([- 20 + offset*70,20 - offset*70,220])
         } else if (offset < 0.43) {
             setHideWorks(true)
+            setScaleAward(0)
         }
         else if(offset > 0.43) {
             setHideWorks(false)
             setPosWork1([-30,0,108 - offset*180])
             setPosWork2([30,0,-131 + offset*180])
-            setPosWork3([90,0,150 - offset*160])
+            setPosWork3([90,0,93 - offset*100])
+            setScaleAward(offset)
+            setPosAward([0,50 - 50*offset,-110*offset])
         }
 
         if(offset*4 < Math.PI/2){
@@ -310,15 +315,23 @@ const WorkStation = () => {
                                 </>
                             }
                         </group>
+                            
+                        <group position={posAward} scale={scaleAward}>
+                            <Text3D letterSpacing={0.1} position={[4.5,-4.5,-10]} rotation={[0,0,Math.PI]} size={1.6} font="/Inter_Bold.json">
+                                    Awards
+                                <meshStandardMaterial color="#fff" />
+                            </Text3D>
 
-                        {/*<Text3D position={[0,0,-110]} letterSpacing={0.1} rotation={[0,0,Math.PI]} size={3} font="/Inter_Bold.json">
-                                Awards
-                            <meshStandardMaterial color="#fff" />
-                        </Text3D>
-
-                        <RoundedBox scale={[12,7,1]} position={[0,0,-120]}>
-                            <meshStandardMaterial color="hotpink" />
-                        </RoundedBox>*/}
+                            <RoundedBox scale={[3,3,1]} position={[4,-1.5,-10]}>
+                                <meshStandardMaterial color="hotpink" />
+                            </RoundedBox>
+                            <RoundedBox scale={[3,3,1]} position={[-4,-1.5,-10]}>
+                                <meshStandardMaterial color="hotpink" />
+                            </RoundedBox>
+                            <RoundedBox scale={[3,3,1]} position={[0,0,-10]}>
+                                <meshStandardMaterial color="hotpink" />
+                            </RoundedBox>
+                        </group>
 
                         <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1}/>
 
