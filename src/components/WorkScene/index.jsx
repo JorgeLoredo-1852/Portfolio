@@ -146,9 +146,12 @@ const WorkStation = () => {
         }
         else if(offset > 0.43) {
             setHideWorks(false)
-            setPosWork1([-30,0,108 - offset*180])
+            setPosWork1([30,0,108.5 - offset*150])
+            setPosWork2([-30,0,-108 + offset*180])
+            setPosWork3([90,0,-93 + offset*100])
+            /*setPosWork1([-30,0,108 - offset*180])
             setPosWork2([30,0,-108.5 + offset*150])
-            setPosWork3([90,0,93 - offset*100])
+            setPosWork3([90,0,93 - offset*100])*/
             setScaleAward(offset)
             setPosAward([0,50 - 50*offset,-110*offset])
         }
@@ -309,9 +312,18 @@ const WorkStation = () => {
                             <Earth />
                             {
                                 hideWorks ? <></> : <>
+                                    <Pilar1 position={posWork2} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                    <Pilar1 position={posWork1} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                    <Pilar1 position={posWork3} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
+
+
+                                    {/*
+                                    
                                     <Pilar1 position={posWork1} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>
                                     <Pilar1 position={posWork2} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
                                     <Pilar1 position={posWork3} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>
+
+                                    */}
                                 </>
                             }
                         </group>
