@@ -147,7 +147,7 @@ const WorkStation = () => {
         else if(offset > 0.43) {
             setHideWorks(false)
             setPosWork1([-30,0,108 - offset*180])
-            setPosWork2([30,0,-131 + offset*180])
+            setPosWork2([30,0,-108.5 + offset*150])
             setPosWork3([90,0,93 - offset*100])
             setScaleAward(offset)
             setPosAward([0,50 - 50*offset,-110*offset])
