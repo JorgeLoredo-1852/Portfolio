@@ -31,6 +31,9 @@ import { Model as ThreeJS } from '../../models/technologies/Three'
 import { Model as Fusion } from '../../models/technologies/Fusion'
 import { Model as Spaceship } from '../../models/technologies/spaceship'
 import { Model as Pilar1 } from '../../models/Pilar1'
+import { Model as MedGlobal } from '../../models/pilars/MedGlobal'
+import { Model as Micronics } from '../../models/pilars/Micronics'
+import { Model as Vitale } from '../../models/pilars/Vitale'
 
 
 
@@ -312,11 +315,11 @@ const WorkStation = () => {
                             <Earth />
                             {
                                 hideWorks ? <></> : <>
-                                    <Pilar1 position={posWork2} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
-                                    <Pilar1 position={posWork1} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>
-                                    <Pilar1 position={posWork3} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                    <MedGlobal position={posWork2} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                    <Micronics position={posWork1} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                    <Vitale position={posWork3} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
 
-
+ 
                                     {/*
                                     
                                     <Pilar1 position={posWork1} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>

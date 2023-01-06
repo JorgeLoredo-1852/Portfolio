@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/medglobal1.glb");
+  const { nodes, materials } = useGLTF("/PilarMedglobal3.glb");
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -14,32 +14,32 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.MedGlobal_Group001.geometry}
         material={materials["Material.005"]}
-        position={[1.07, 15.61, 5.87]}
-        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
+        position={[1.07, 13.44, -5.75]}
+        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.MedGlobal_Group002.geometry}
         material={nodes.MedGlobal_Group002.material}
-        position={[1.07, 12.93, 0.25]}
-        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
+        position={[1.07, 15.4, 0.04]}
+        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.MedGlobal_Group003.geometry}
         material={nodes.MedGlobal_Group003.material}
-        position={[1.07, 37.25, 7.91]}
-        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
+        position={[1.07, 39.6, -7.85]}
+        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.MedGlobal_Group004.geometry}
         material={nodes.MedGlobal_Group004.material}
-        position={[1.07, 18.2, 6.77]}
-        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
+        position={[1.07, 10.78, -6.69]}
+        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
       />
       <group scale={[1, 40, 8]}>
         <mesh
@@ -68,12 +68,12 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.path19.geometry}
         material={materials["Material.003"]}
-        position={[1.62, 21.78, 5.32]}
-        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
+        position={[1.62, 34.57, -5.44]}
+        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
         scale={[1000, 1, 1000]}
       />
     </group>
   );
 }
 
-useGLTF.preload("/medglobal1.glb");
+useGLTF.preload("/PilarMedglobal3.glb");
