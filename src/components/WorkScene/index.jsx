@@ -30,6 +30,7 @@ import { Model as Unity } from '../../models/technologies/Unity'
 import { Model as ThreeJS } from '../../models/technologies/Three'
 import { Model as Fusion } from '../../models/technologies/Fusion'
 import { Model as Spaceship } from '../../models/technologies/spaceship'
+import { Model as Pilar1 } from '../../models/Pilar1'
 
 
 
@@ -107,7 +108,13 @@ const WorkStation = () => {
     const [scaleSpaceship, setScaleSpaceShip] = useState(0)
     const [scaleEarth, setScaleEarth] = useState(0)
     const [rotationEarth, setRotationEarth] = useState(0)
-    const [posEarth, setPosEarth] = useState([0,0,20])
+    const [posEarth, setPosEarth] = useState([0,0,0])
+
+    const [posWork1, setPosWork1] = useState([0,0,0])
+    const [posWork2, setPosWork2] = useState([0,0,0])
+    const [posWork3, setPosWork3] = useState([0,0,0])
+    const [hideWorks, setHideWorks] = useState(true)
+
 
     useFrame((state, delta) => {
         const offset = scroll.offset
@@ -131,6 +138,14 @@ const WorkStation = () => {
             setDBPos([15 - offset*85,15 - offset*85,280])
             setExtraTechPos([0,- 16 + offset*70,250])
             setPythonPos([- 20 + offset*70,20 - offset*70,220])
+        } else if (offset < 0.43) {
+            setHideWorks(true)
+        }
+        else if(offset > 0.43) {
+            setHideWorks(false)
+            setPosWork1([-30,0,108 - offset*180])
+            setPosWork2([30,0,-131 + offset*180])
+            setPosWork3([90,0,150 - offset*160])
         }
 
         if(offset*4 < Math.PI/2){
@@ -143,7 +158,8 @@ const WorkStation = () => {
         setOtherTech([ -1, 60 - offset*170,0 + offset*400])
         setScaleSpaceShip(offset*2)
         setScaleEarth(offset*2)
-        setPosEarth([0,0,20 + offset * 100])
+        setPosEarth([0,0,offset * 100])
+
 
         setJavascriptRotation([0, 0, javascriptRotation[2]+0.002])
         
@@ -281,13 +297,28 @@ const WorkStation = () => {
 
                         {/* WORK EXPERIENCE */}
                         <group position={posEarth} rotation={[0,rotationEarth,0]} scale={scaleEarth}>
-                            <Text3D position={[-50,-5.5,0]} letterSpacing={0.1} rotation={[0,-Math.PI/2,Math.PI/2]} size={3} font="/Inter_Bold.json">
+                            <Text3D position={[-60,-5.5,5]} letterSpacing={0.1} rotation={[0,-Math.PI/2,Math.PI/2]} size={3} font="/Inter_Bold.json">
                                 Work
                                 <meshStandardMaterial color="#fff" />
                             </Text3D>
                             <Earth />
+                            {
+                                hideWorks ? <></> : <>
+                                    <Pilar1 position={posWork1} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                    <Pilar1 position={posWork2} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                    <Pilar1 position={posWork3} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                </>
+                            }
                         </group>
 
+                        {/*<Text3D position={[0,0,-110]} letterSpacing={0.1} rotation={[0,0,Math.PI]} size={3} font="/Inter_Bold.json">
+                                Awards
+                            <meshStandardMaterial color="#fff" />
+                        </Text3D>
+
+                        <RoundedBox scale={[12,7,1]} position={[0,0,-120]}>
+                            <meshStandardMaterial color="hotpink" />
+                        </RoundedBox>*/}
 
                         <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1}/>
 
