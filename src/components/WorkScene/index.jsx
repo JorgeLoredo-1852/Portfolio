@@ -36,7 +36,8 @@ import { Model as Micronics } from '../../models/pilars/Micronics'
 import { Model as Vitale } from '../../models/pilars/Vitale'
 import { Model as StarCovid } from '../../models/Stars/StarCovid'
 import { Model as StarHack } from '../../models/Stars/StarHack'
-import { Model as StarBeca } from '../../models/Stars/StarBeca' 
+import { Model as StarBeca } from '../../models/Stars/StarBeca'
+import { Model as DownArrow } from '../../models/downArrow'
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -132,6 +133,7 @@ const WorkStation = () => {
     const [posAward, setPosAward] = useState([0,0,0])
 
     const [rotStar, setRotStar] = useState([0,0,Math.PI])
+    const [posArrow, setPosArrow] = useState(downMd ? 0.5 : 1)
 
     useFrame((state, delta) => {
         const offset = scroll.offset
@@ -185,6 +187,19 @@ const WorkStation = () => {
         setScaleEarth(offset*2)
         setPosEarth([0,0,offset * 100])
 
+        if(downMd){
+            setPosArrow(posArrow - 0.005)
+            if(posArrow < - 0.5){
+                setPosArrow(0.5)
+            }
+        } else {
+            setPosArrow(posArrow - 0.01)
+            if(posArrow < - 1){
+                setPosArrow(1)
+            } 
+        }
+
+
         if(downSm){
             setJavascriptRotation([0, 0, javascriptRotation[2]+0.004])
             setMongoRot([0, mongoRot[1] - 0.007, 0])            
@@ -192,6 +207,7 @@ const WorkStation = () => {
             setJavascriptRotation([0, 0, javascriptRotation[2]+0.002])
             setMongoRot([0, mongoRot[1] - 0.005, 0])
         }
+
     })
 
 
@@ -199,6 +215,13 @@ const WorkStation = () => {
     return (
         <>
                     <RocketModel rotation={[Math.PI/12,Math.PI,0]} scale={downMd ? 0.05 : 0.06} refa={refROT}/>
+                    <DownArrow position={ downMd ? [-1.5,posArrow -3,375] : [-5,posArrow + 1,375]} scale={downMd ? 0.3 : 1}/>
+                    <DownArrow position={ downMd ? [-1.5,posArrow -2.5,375] : [-5,posArrow +  0,375]} scale={downMd ? 0.3 : 1}/>
+                    <DownArrow position={ downMd ? [-1.5,posArrow -2,375] : [-5,posArrow - 1,375]} scale={downMd ? 0.3 : 1}/>
+                    <DownArrow position={ downMd ? [1.5,posArrow -3,375] : [5,posArrow + 1,375]} scale={downMd ? 0.3 : 1}/>
+                    <DownArrow position={ downMd ? [1.5,posArrow -2.5,375] : [5,posArrow +  0,375]} scale={downMd ? 0.3 : 1}/>
+                    <DownArrow position={ downMd ? [1.5,posArrow -2,375] : [5,posArrow - 1,375]} scale={downMd ? 0.3 : 1}/>
+
                     <group rotation={rotRocket}>
                         {/*<WorkModel position={[0,0,0]} rotation={[0,0,0]}/>*/}
                         {!hit && <Ground position={[0, -3, 365]} rotation={[-Math.PI / 2, 0, 0]} />}
