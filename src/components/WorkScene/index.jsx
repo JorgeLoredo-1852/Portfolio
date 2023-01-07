@@ -198,7 +198,7 @@ const WorkStation = () => {
     
     return (
         <>
-                    <RocketModel rotation={[Math.PI/12,Math.PI,0]} scale={downMd ? 0.045 : 0.06} refa={refROT}/>
+                    <RocketModel rotation={[Math.PI/12,Math.PI,0]} scale={downMd ? 0.05 : 0.06} refa={refROT}/>
                     <group rotation={rotRocket}>
                         {/*<WorkModel position={[0,0,0]} rotation={[0,0,0]}/>*/}
                         {!hit && <Ground position={[0, -3, 365]} rotation={[-Math.PI / 2, 0, 0]} />}
@@ -354,8 +354,8 @@ const WorkStation = () => {
                                 <meshStandardMaterial color="#fff" />
                             </Text3D>
                             <StarCovid position={downMd ? [0,-2.2,-10] : [4,-1.5,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
-                            <StarHack position={downMd ? [0,-0.2,-10] : [0,0,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
-                            <StarBeca position={downMd ? [0, 1.8, -10] : [-4,-1.5,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
+                            <StarHack position={downMd ? [0,-0.3,-10] : [0,0,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
+                            <StarBeca position={downMd ? [0, 1.6, -10] : [-4,-1.5,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
                             {/*<RoundedBox scale={[3,3,1]} position={[4,-1.5,-10]}>
                                 <meshStandardMaterial color="hotpink" />
                             </RoundedBox>
