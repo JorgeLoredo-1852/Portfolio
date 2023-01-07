@@ -133,7 +133,7 @@ const WorkStation = () => {
     const [posAward, setPosAward] = useState([0,0,0])
 
     const [rotStar, setRotStar] = useState([0,0,Math.PI])
-    const [posArrow, setPosArrow] = useState(downMd ? 0.5 : 1)
+    const [posArrow, setPosArrow] = useState(downMd ? -0.5 : 1)
 
     useFrame((state, delta) => {
         const offset = scroll.offset
@@ -188,9 +188,9 @@ const WorkStation = () => {
         setPosEarth([0,0,offset * 100])
 
         if(downMd){
-            setPosArrow(posArrow - 0.005)
-            if(posArrow < - 0.5){
-                setPosArrow(0.5)
+            setPosArrow(posArrow + 0.005)
+            if(posArrow > 0.5){
+                setPosArrow(-0.5)
             }
         } else {
             setPosArrow(posArrow - 0.01)
@@ -215,12 +215,12 @@ const WorkStation = () => {
     return (
         <>
                     <RocketModel rotation={[Math.PI/12,Math.PI,0]} scale={downMd ? 0.05 : 0.06} refa={refROT}/>
-                    <DownArrow position={ downMd ? [-1.5,posArrow -3,375] : [-5,posArrow + 1,375]} scale={downMd ? 0.3 : 1}/>
-                    <DownArrow position={ downMd ? [-1.5,posArrow -2.5,375] : [-5,posArrow +  0,375]} scale={downMd ? 0.3 : 1}/>
-                    <DownArrow position={ downMd ? [-1.5,posArrow -2,375] : [-5,posArrow - 1,375]} scale={downMd ? 0.3 : 1}/>
-                    <DownArrow position={ downMd ? [1.5,posArrow -3,375] : [5,posArrow + 1,375]} scale={downMd ? 0.3 : 1}/>
-                    <DownArrow position={ downMd ? [1.5,posArrow -2.5,375] : [5,posArrow +  0,375]} scale={downMd ? 0.3 : 1}/>
-                    <DownArrow position={ downMd ? [1.5,posArrow -2,375] : [5,posArrow - 1,375]} scale={downMd ? 0.3 : 1}/>
+                    <DownArrow position={ downMd ? [-1.5,posArrow -3,375] : [-5,posArrow + 1,375]} scale={downMd ? 0.3 : 1} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
+                    <DownArrow position={ downMd ? [-1.5,posArrow -2.5,375] : [-5,posArrow +  0,375]} scale={downMd ? 0.3 : 1} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
+                    <DownArrow position={ downMd ? [-1.5,posArrow -2,375] : [-5,posArrow - 1,375]} scale={downMd ? 0.3 : 1} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
+                    <DownArrow position={ downMd ? [1.5,posArrow -3,375] : [5,posArrow + 1,375]} scale={downMd ? 0.3 : 1} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
+                    <DownArrow position={ downMd ? [1.5,posArrow -2.5,375] : [5,posArrow +  0,375]} scale={downMd ? 0.3 : 1} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
+                    <DownArrow position={ downMd ? [1.5,posArrow -2,375] : [5,posArrow - 1,375]} scale={downMd ? 0.3 : 1} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
 
                     <group rotation={rotRocket}>
                         {/*<WorkModel position={[0,0,0]} rotation={[0,0,0]}/>*/}
