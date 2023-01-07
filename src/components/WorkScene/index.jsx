@@ -261,7 +261,7 @@ const WorkStation = () => {
                         <Crate position={[-2.5, 3.5, 370]} hit={hit} urlImage={'/textures/00.png'}/>
 
                         {/*  ASTEROIDS  */}
-                        <Text3D position={downMd ? [-5, 3, 310] : [-11, 3, 310]} letterSpacing={0.1} size={ downMd ? 1 : 2.5} font="/Inter_Bold.json">
+                        <Text3D position={downMd ? [-6, 3, 310] : [-11, 3, 310]} letterSpacing={0.1} size={ downMd ? 1.2 : 2.5} font="/Inter_Bold.json">
                             Technologies
                             <meshStandardMaterial color="#fff" />
                         </Text3D>
