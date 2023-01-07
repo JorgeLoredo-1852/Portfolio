@@ -34,7 +34,9 @@ import { Model as Pilar1 } from '../../models/Pilar1'
 import { Model as MedGlobal } from '../../models/pilars/MedGlobal'
 import { Model as Micronics } from '../../models/pilars/Micronics'
 import { Model as Vitale } from '../../models/pilars/Vitale'
-
+import { Model as StarCovid } from '../../models/Stars/StarCovid'
+import { Model as StarHack } from '../../models/Stars/StarHack'
+import { Model as StarBeca } from '../../models/Stars/StarBeca' 
 
 
 export const WorkScene = () => {
@@ -121,6 +123,12 @@ const WorkStation = () => {
     const [scaleAward, setScaleAward] = useState(0)
     const [posAward, setPosAward] = useState([0,0,0])
 
+    const [rotStar, setRotStar] = useState([0,0,Math.PI])
+
+    const openInNewTab = url => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      };
+
     useFrame((state, delta) => {
         const offset = scroll.offset
         
@@ -157,6 +165,8 @@ const WorkStation = () => {
             setPosWork3([90,0,93 - offset*100])*/
             setScaleAward(offset)
             setPosAward([0,50 - 50*offset,-110*offset])
+
+            setRotStar([0,offset*5*Math.PI,Math.PI])
         }
 
         if(offset*4 < Math.PI/2){
@@ -328,7 +338,7 @@ const WorkStation = () => {
 
                                     */}
                                 </>
-                            }
+                            } 
                         </group>
                             
                         <group position={posAward} scale={scaleAward}>
@@ -336,8 +346,10 @@ const WorkStation = () => {
                                     Awards
                                 <meshStandardMaterial color="#fff" />
                             </Text3D>
-
-                            <RoundedBox scale={[3,3,1]} position={[4,-1.5,-10]}>
+                            <StarCovid position={[4,-1.5,-10]} rotation={rotStar} scale={0.8}/>
+                            <StarHack position={[0,0,-10]} rotation={rotStar} scale={0.8}/>
+                            <StarBeca position={[-4,-1.5,-10]} rotation={rotStar} scale={0.8}/>
+                            {/*<RoundedBox scale={[3,3,1]} position={[4,-1.5,-10]}>
                                 <meshStandardMaterial color="hotpink" />
                             </RoundedBox>
                             <RoundedBox scale={[3,3,1]} position={[-4,-1.5,-10]}>
@@ -345,7 +357,7 @@ const WorkStation = () => {
                             </RoundedBox>
                             <RoundedBox scale={[3,3,1]} position={[0,0,-10]}>
                                 <meshStandardMaterial color="hotpink" />
-                            </RoundedBox>
+                        </RoundedBox>*/}
                         </group>
 
                         <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1}/>
