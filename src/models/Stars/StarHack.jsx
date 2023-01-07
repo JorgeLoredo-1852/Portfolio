@@ -14,7 +14,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Text.geometry}
         material={materials["Material.006"]}
-        position={[0, -0.43, -0.73]}
+        position={[0, -0.49, -0.73]}
         rotation={[Math.PI / 2, 0, Math.PI]}
       />
       <mesh
@@ -22,7 +22,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Text001.geometry}
         material={materials["Material.005"]}
-        position={[0.02, 0.09, -0.73]}
+        position={[0.02, 0.07, -0.73]}
         rotation={[Math.PI / 2, 0, Math.PI]}
       />
       <mesh
@@ -30,7 +30,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Text002.geometry}
         material={materials["Material.007"]}
-        position={[0, -0.81, -0.73]}
+        position={[0.01, -0.93, -0.73]}
         rotation={[Math.PI / 2, 0, Math.PI]}
       />
       <mesh

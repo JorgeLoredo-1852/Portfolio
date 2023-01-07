@@ -7,7 +7,7 @@ import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
   const { nodes, materials } = useGLTF("/starCovid.glb");
-  return ( 
+  return (
     <group {...props} dispose={null}>
       <mesh
         castShadow
@@ -30,7 +30,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Text002.geometry}
         material={materials["Material.007"]}
-        position={[0, -1.02, -0.73]}
+        position={[0.01, -1.11, -0.73]}
         rotation={[Math.PI / 2, 0, Math.PI]}
       />
       <mesh

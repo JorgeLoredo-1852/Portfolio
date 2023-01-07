@@ -188,7 +188,7 @@ const WorkStation = () => {
         setPosEarth([0,0,offset * 100])
 
         if(downMd){
-            setPosArrow(posArrow + 0.005)
+            setPosArrow(posArrow + 0.01)
             if(posArrow > 0.5){
                 setPosArrow(-0.5)
             }
