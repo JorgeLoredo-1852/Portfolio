@@ -38,6 +38,8 @@ import { Model as StarCovid } from '../../models/Stars/StarCovid'
 import { Model as StarHack } from '../../models/Stars/StarHack'
 import { Model as StarBeca } from '../../models/Stars/StarBeca' 
 
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export const WorkScene = () => {
     return(
@@ -94,6 +96,12 @@ const Crate = ({position, hit, urlImage}) => {
   } 
 
 const WorkStation = () => {
+
+    const themeM = useTheme();
+    const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
+    const downMd = useMediaQuery(themeM.breakpoints.down('md'));
+    const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
+
     const scroll = useScroll()
     const refROT = useRef(null)
     const [posRocket, setPosRocket] = useState([0,0,0])
@@ -124,10 +132,6 @@ const WorkStation = () => {
     const [posAward, setPosAward] = useState([0,0,0])
 
     const [rotStar, setRotStar] = useState([0,0,Math.PI])
-
-    const openInNewTab = url => {
-        window.open(url, '_blank', 'noopener,noreferrer');
-      };
 
     useFrame((state, delta) => {
         const offset = scroll.offset
@@ -181,10 +185,13 @@ const WorkStation = () => {
         setScaleEarth(offset*2)
         setPosEarth([0,0,offset * 100])
 
-
-        setJavascriptRotation([0, 0, javascriptRotation[2]+0.002])
-        
-        setMongoRot([0, mongoRot[1] - 0.005, 0])
+        if(downSm){
+            setJavascriptRotation([0, 0, javascriptRotation[2]+0.005])
+            setMongoRot([0, mongoRot[1] - 0.01, 0])            
+        } else {
+            setJavascriptRotation([0, 0, javascriptRotation[2]+0.002])
+            setMongoRot([0, mongoRot[1] - 0.005, 0])
+        }
     })
 
 
@@ -254,7 +261,7 @@ const WorkStation = () => {
                         <Crate position={[-2.5, 3.5, 370]} hit={hit} urlImage={'/textures/00.png'}/>
 
                         {/*  ASTEROIDS  */}
-                        <Text3D position={[-11, 3, 310]} letterSpacing={0.1} size={2.5} font="/Inter_Bold.json">
+                        <Text3D position={downMd ? [-5, 3, 310] : [-11, 3, 310]} letterSpacing={0.1} size={ downMd ? 1 : 2.5} font="/Inter_Bold.json">
                             Technologies
                             <meshStandardMaterial color="#fff" />
                         </Text3D>
@@ -342,13 +349,13 @@ const WorkStation = () => {
                         </group>
                             
                         <group position={posAward} scale={scaleAward}>
-                            <Text3D letterSpacing={0.1} position={[4.5,-4.5,-10]} rotation={[0,0,Math.PI]} size={1.6} font="/Inter_Bold.json">
+                            <Text3D letterSpacing={0.1} position={downMd ? [2.8, - 4.5, -10] : [4.5,-4.5,-10]} rotation={[0,0,Math.PI]} size={downMd ? 1 : 1.6} font="/Inter_Bold.json">
                                     Awards
                                 <meshStandardMaterial color="#fff" />
                             </Text3D>
-                            <StarCovid position={[4,-1.5,-10]} rotation={rotStar} scale={0.8}/>
-                            <StarHack position={[0,0,-10]} rotation={rotStar} scale={0.8}/>
-                            <StarBeca position={[-4,-1.5,-10]} rotation={rotStar} scale={0.8}/>
+                            <StarCovid position={downMd ? [0,-2.2,-10] : [4,-1.5,-10]} rotation={rotStar} scale={downMd ? 0.45 : 0.8}/>
+                            <StarHack position={downMd ? [0,0,-10] : [0,0,-10]} rotation={rotStar} scale={downMd ? 0.45 : 0.8}/>
+                            <StarBeca position={downMd ? [0, 2.2, -10] : [-4,-1.5,-10]} rotation={rotStar} scale={downMd ? 0.45 : 0.8}/>
                             {/*<RoundedBox scale={[3,3,1]} position={[4,-1.5,-10]}>
                                 <meshStandardMaterial color="hotpink" />
                             </RoundedBox>
