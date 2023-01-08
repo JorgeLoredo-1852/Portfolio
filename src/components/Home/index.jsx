@@ -5,7 +5,6 @@ import { useEffect, useState, useRef } from "react"
 import * as THREE from "three"
 import { Box } from "@mui/system"
 
-
 export const Home = () => {
     const ballsRef = useRef();
 
