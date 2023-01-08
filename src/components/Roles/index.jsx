@@ -44,7 +44,6 @@ export const RolesScene = () => {
     return (
     <>
             <ambientLight intensity={0.5} />
-            <OrbitControls enablePan={false} enableRotate={false} enableDamping={false} enableZoom={false}></OrbitControls>
             <Environment preset="forest" blur={0.5}/>
             <group position={[0,posScene,0]}>
                 <Arrow position={[8,0,2]} rotation={[0,0,Math.PI]} scale={0.6}/>
