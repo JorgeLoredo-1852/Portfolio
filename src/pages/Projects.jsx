@@ -43,15 +43,15 @@ export const Projects = ({setInView}) =>{
             <Grid item xs={12} sx = {{height: "100vh", width:"100%"}} className='section1'>
                 {inView && <JGx/>}
                 <div ref={ref} style = {{width:"100%"}} className='fullMinus1'>
-                <ModalProject project={modalProject} open={open} onClose={handleClose}/>
-                <Canvas 
-                    className='canvas' 
-                    shadows
-                    camera={{position: [0,30,60], fov:15}}
-                    gl={{ antialias: false }}
-                >
-                    {inView && <FeaturedProjects openModalFunc={handleOpen} handleNextPage = {handleNextPage}/>}
-                </Canvas>
+                    <ModalProject project={modalProject} open={open} onClose={handleClose}/>
+                    <Canvas 
+                        className='canvas' 
+                        shadows
+                        camera={{position: [0,30,60], fov:15}}
+                        gl={{ antialias: false }}
+                    >
+                        {inView && <FeaturedProjects openModalFunc={handleOpen} handleNextPage = {handleNextPage}/>}
+                    </Canvas>
                 </div>
             </Grid>
             <Grid item xs={12} className='section2' ref={refListPage}>

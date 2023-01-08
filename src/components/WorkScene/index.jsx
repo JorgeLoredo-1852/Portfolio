@@ -376,9 +376,9 @@ const WorkStation = () => {
                                     Awards
                                 <meshStandardMaterial color="#fff" />
                             </Text3D>
-                            <StarCovid position={downMd ? [0,-2.2,-10] : [4,-1.5,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
-                            <StarHack position={downMd ? [0,-0.3,-10] : [0,0,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
-                            <StarBeca position={downMd ? [0, 1.6, -10] : [-4,-1.5,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
+                            <StarCovid position={downMd ? [0,-2.2,-10] : [4,-1.2,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
+                            <StarHack position={downMd ? [0,-0.3,-10] : [0,0.2,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
+                            <StarBeca position={downMd ? [0, 1.6, -10] : [-4,-1.2,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
                             {/*<RoundedBox scale={[3,3,1]} position={[4,-1.5,-10]}>
                                 <meshStandardMaterial color="hotpink" />
                             </RoundedBox>
