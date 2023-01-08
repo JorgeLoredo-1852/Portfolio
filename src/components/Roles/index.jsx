@@ -75,12 +75,12 @@ export const RolesScene = () => {
         } else {
             if(offset < 0.3875){
                 setPosTetris1([0,6.5 - offset*100,0])
-                setPosTetris2([0,15.5 - offset*100,0])
-                setPosTetris3([0,24.5 - offset*100,0])
-                setPosTetris4([0,33.5 - offset*100,0])
-                setPosTetris5([0,42.5 - offset*100,0])
-                setPosTetris6([0,51.5 - offset*100,0])
-                setPosTetris7([0,60.5 - offset*100,0])
+                setPosTetris2([0,15.3 - offset*100,0])
+                setPosTetris3([0,24.1 - offset*100,0])
+                setPosTetris4([0,32.9 - offset*100,0])
+                setPosTetris5([0,41.5 - offset*100,0])
+                setPosTetris6([0,50.3 - offset*100,0])
+                setPosTetris7([0,59.1 - offset*100,0])
 
                 setScaleTetris1(2 - offset*4)
                 setScaleTetris2(2 - (offset - 0.0875)*4)
@@ -88,26 +88,34 @@ export const RolesScene = () => {
             } else if(offset < .475){
                 setPosTetris1([0,-32.2,0])
 
-                setPosTetris2([0,15.5 - offset*100,0])
-                setPosTetris3([0,24.5 - offset*100,0])
-                setPosTetris4([0,33.5 - offset*100,0])
-                setPosTetris5([0,42.5 - offset*100,0])
-                setPosTetris6([0,51.5 - offset*100,0])
-                setPosTetris7([0,60.5 - offset*100,0])
+                setPosTetris3([0,24.1 - offset*100,0])
+                setPosTetris4([0,32.9 - offset*100,0])
+                setPosTetris5([0,41.5 - offset*100,0])
+                setPosTetris6([0,50.3 - offset*100,0])
+                setPosTetris7([0,59.1 - offset*100,0])
 
                 setScaleTetris1(2 - 0.3875*4)
-                setScaleTetris2(2 - (offset - 0.0875)*4)
+
+
+                if(offset < 0.518){
+                    setPosTetris2([0,15.3 - offset*100,0])
+                    setScaleTetris2(2 - (offset - 0.0875)*4)
+                } else { 
+                    setPosTetris2([0,15.3 - offset*100,0])
+                    setScaleTetris2(2 - (offset - 0.0875)*4)
+                }
+
                 setScaleTetris3(2 - (offset - 0.0875 * 2)*4)
 
 
             } else if(offset < 0.5625){
                 setPosTetris2([0,-32.2,0])
 
-                setPosTetris3([0,24.5 - offset*100,0])
-                setPosTetris4([0,33.5 - offset*100,0])
-                setPosTetris5([0,42.5 - offset*100,0])
-                setPosTetris6([0,51.5 - offset*100,0])
-                setPosTetris7([0,60.5 - offset*100,0])
+                setPosTetris3([0,24.1 - offset*100,0])
+                setPosTetris4([0,32.9 - offset*100,0])
+                setPosTetris5([0,41.5 - offset*100,0])
+                setPosTetris6([0,50.3 - offset*100,0])
+                setPosTetris7([0,59.1 - offset*100,0])
 
                 setScaleTetris2(2 - 0.3875*4)
                 setScaleTetris3(2 - (offset - 0.0875 * 2)*4)
@@ -117,10 +125,10 @@ export const RolesScene = () => {
             } else if(offset < 0.65){
                 setPosTetris3([0,-32.2,0])
 
-                setPosTetris4([0,33.5 - offset*100,0])
-                setPosTetris5([0,42.5 - offset*100,0])
-                setPosTetris6([0,51.5 - offset*100,0])
-                setPosTetris7([0,60.5 - offset*100,0])
+                setPosTetris4([0,32.9 - offset*100,0])
+                setPosTetris5([0,41.5 - offset*100,0])
+                setPosTetris6([0,50.3 - offset*100,0])
+                setPosTetris7([0,59.1 - offset*100,0])
 
                 setScaleTetris3(2 - 0.3875*4)
                 setScaleTetris4(2 - (offset - 0.0875 * 3)*4)
@@ -129,9 +137,9 @@ export const RolesScene = () => {
             } else if(offset < 0.7375){
                 setPosTetris4([0,-32.2,0])
 
-                setPosTetris5([0,42.5 - offset*100,0])
-                setPosTetris6([0,51.5 - offset*100,0])
-                setPosTetris7([0,60.5 - offset*100,0])
+                setPosTetris5([0,41.5 - offset*100,0])
+                setPosTetris6([0,50.3 - offset*100,0])
+                setPosTetris7([0,59.1 - offset*100,0])
 
                 setScaleTetris4(2 - 0.3875*4)
                 setScaleTetris5(2 - (offset - 0.0875 * 4)*4)
@@ -140,8 +148,8 @@ export const RolesScene = () => {
             } else if(offset < 0.825){
                 setPosTetris5([0,-32.2,0])
 
-                setPosTetris6([0,51.5 - offset*100,0])
-                setPosTetris7([0,60.5 - offset*100,0])
+                setPosTetris6([0,50.3 - offset*100,0])
+                setPosTetris7([0,59.1 - offset*100,0])
 
                 setScaleTetris5(2 - 0.3875*4)
                 setScaleTetris6(2 - (offset - 0.0875 * 5)*4)
@@ -150,7 +158,7 @@ export const RolesScene = () => {
             } else if(offset < 0.9125){
                 setPosTetris6([0,-32.2,0])
 
-                setPosTetris7([0,60.5 - offset*100,0])
+                setPosTetris7([0,59.1 - offset*100,0])
                 
                 setScaleTetris6(2 - 0.3875*4)
                 setScaleTetris7(2 - (offset - 0.0875 * 6)*4)
@@ -179,7 +187,7 @@ export const RolesScene = () => {
                 setScaleTetris7((offset - 0.83) * 5.5)
 
                 setScaleCourses((offset - 0.84) * 5.5)
-                setPosPilar([0,-40 - (offset - 0.9125)*22, -0.5 + offset/2])
+                setPosPilar([0,-40 - (offset - 0.9125)*20, -0.5 + (offset - 0.9125)*12])
             }
         }
     })
