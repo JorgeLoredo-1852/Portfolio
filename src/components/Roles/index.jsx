@@ -45,24 +45,32 @@ export const RolesScene = () => {
     const scroll = useScroll()
     const [posScene, setPosScene] = useState(0)
     const [posTetris1, setPosTetris1] = useState([0,60,0])
-    const [posTetris2, setPosTetris2] = useState([0,60,0])
+    const [posTetris2, setPosTetris2] = useState([0,100,0])
     const [posTetris3, setPosTetris3] = useState([0,60,0])
     const [posTetris4, setPosTetris4] = useState([0,60,0])
     const [posTetris5, setPosTetris5] = useState([0,60,0])
     const [posTetris6, setPosTetris6] = useState([0,60,0])
     const [posTetris7, setPosTetris7] = useState([0,60,0])
 
-    const [scaleTetris1, setScaleTetris1] = useState(1)
-    const [scaleTetris2, setScaleTetris2] = useState(1)
-    const [scaleTetris3, setScaleTetris3] = useState(1)
-    const [scaleTetris4, setScaleTetris4] = useState(1)
-    const [scaleTetris5, setScaleTetris5] = useState(1)
-    const [scaleTetris6, setScaleTetris6] = useState(1)
-    const [scaleTetris7, setScaleTetris7] = useState(1)
+    const [scaleTetris1, setScaleTetris1] = useState(1.8)
+    const [scaleTetris2, setScaleTetris2] = useState(1.8)
+    const [scaleTetris3, setScaleTetris3] = useState(1.8)
+    const [scaleTetris4, setScaleTetris4] = useState(1.8)
+    const [scaleTetris5, setScaleTetris5] = useState(1.8)
+    const [scaleTetris6, setScaleTetris6] = useState(1.8)
+    const [scaleTetris7, setScaleTetris7] = useState(1.8)
 
-    const [rotCourses, setRotCourses] = useState([Math.PI/9,0,0])
-    const [posCourses, setPosCourses] = useState([0,0,-10])
-    const [scaleCourses, setScaleCourses] = useState(0.4)
+    const [rotTetris1, setRotTetris1] = useState([0,-Math.PI/2,0])
+    const [rotTetris2, setRotTetris2] = useState([0,-Math.PI/2,0])
+    const [rotTetris3, setRotTetris3] = useState([0,-Math.PI/2,0])
+    const [rotTetris4, setRotTetris4] = useState([0,-Math.PI/2,0])
+    const [rotTetris5, setRotTetris5] = useState([0,-Math.PI/2,0])
+    const [rotTetris6, setRotTetris6] = useState([0,-Math.PI/2,0])
+    const [rotTetris7, setRotTetris7] = useState([0,-Math.PI/2,0])
+
+    const [rotCourses, setRotCourses] = useState([0,0,0])
+    const [posCourses, setPosCourses] = useState([0,-15,-20])
+    const [scaleCourses, setScaleCourses] = useState(1)
     const [posPilar, setPosPilar] = useState([0,-40,-0.5])
 
 
@@ -70,131 +78,78 @@ export const RolesScene = () => {
         const offset = scroll.offset
         if(offset < 0.30){
             setPosScene(offset*90)
-            setPosTetris1([0,6.5 - offset*100,0])
-            setScaleTetris1(2 - offset*4)
+            setPosTetris1([0,60 - offset*280,0])
+            setRotTetris1([0,-Math.PI/2 - offset*32.4,offset*32.4])
+
+            setPosTetris2([0,80 - offset*280,0])
+        } else if (offset < 0.76){
+            setPosTetris1([0,60 - offset*280,0])
+            setRotTetris1([0,-Math.PI/2 - offset*32.4,offset*32.4])
+
+            setPosTetris2([0,80 - offset*280,0])
+            setRotTetris2([0,-Math.PI/2 - offset*32.4,offset*32.4])
+
+            setPosTetris3([0,105 - offset*280,0])
+            setRotTetris3([0,-Math.PI/2 - offset*32.4,offset*32.4])
+
+            setPosTetris4([0,125 - offset*280,0])
+            setRotTetris4([0,-Math.PI/2 - offset*32.4,offset*32.4])
+
+            setPosTetris5([0,145 - offset*280,0])
+            setRotTetris5([0,-Math.PI/2 - offset*32.4,offset*32.4])
+
+            setPosTetris6([0,165 - offset*280,0])
+            setRotTetris6([0,-Math.PI/2 - offset*32.4,offset*32.4])
+
+            setPosTetris7([0,188 - offset*280,0])
+            setRotTetris7([0,-Math.PI/2 - offset*32.4,offset*32.4])
+            
+            setPosCourses([0,-15,-20])
+
+        }  else if (offset < 0.9){
+            setRotTetris7([0,-Math.PI/2 - offset*32.4,offset*32.4])
+            setPosTetris7([((offset - 0.76) * 25),188 - 0.76*280,0])
+
+            setPosTetris1([-6,-70,0])
+            setRotTetris1([0,-Math.PI/2, 0])
+            
+            setPosTetris2([3,-73.6,0])
+            setRotTetris2([0,-Math.PI/2, 0])
+
+            setPosTetris3([4.8,-68.2,0])
+            setRotTetris3([0,-Math.PI/2, 0])
+
+            setPosTetris4([-0.6,-64.6,0])
+            setRotTetris4([0,-Math.PI/2, 0])
+
+            setPosTetris5([4.8,-62.8,0])
+            setRotTetris5([0,-Math.PI/2, 0])
+
+            setPosTetris6([-0.6,-59.2,0])
+            setRotTetris6([0,-Math.PI/2, 0])
+
+            setPosCourses([-1.5,-120 + offset*170,-20])
+
         } else {
-            if(offset < 0.3875){
-                setPosTetris1([0,6.5 - offset*100,0])
-                setPosTetris2([0,15.3 - offset*100,0])
-                setPosTetris3([0,24.1 - offset*100,0])
-                setPosTetris4([0,32.9 - offset*100,0])
-                setPosTetris5([0,41.5 - offset*100,0])
-                setPosTetris6([0,50.3 - offset*100,0])
-                setPosTetris7([0,59.1 - offset*100,0])
+            setRotTetris7([0,-Math.PI/2, 0])
+            setPosTetris7([3.3,-82.2+offset*62,250 - offset * 300])
 
-                setScaleTetris1(2 - offset*4)
-                setScaleTetris2(2 - (offset - 0.0875)*4)
+            //setPosCourses([-1.5,-120 + offset*170,270 - offset * 300])
+            setPosCourses([-1.5,-21 + offset*60,270 - offset * 300])
 
-            } else if(offset < .475){
-                setPosTetris1([0,-32.2,0])
+            //setScaleCourses(3.7 - offset * 3)
+            //setRotCourses([Math.PI/9 - ((Math.PI/9) * (offset - 0.9125) * 9), ((Math.PI) * (offset - 0.9125) * 11.5),0])
+            //setPosCourses([0,(offset - 0.9125) * 10 * 6,-10])
 
-                setPosTetris3([0,24.1 - offset*100,0])
-                setPosTetris4([0,32.9 - offset*100,0])
-                setPosTetris5([0,41.5 - offset*100,0])
-                setPosTetris6([0,50.3 - offset*100,0])
-                setPosTetris7([0,59.1 - offset*100,0])
-
-                setScaleTetris1(2 - 0.3875*4)
-
-
-                if(offset < 0.518){
-                    setPosTetris2([0,15.3 - offset*100,0])
-                    setScaleTetris2(2 - (offset - 0.0875)*4)
-                } else { 
-                    setPosTetris2([0,15.3 - offset*100,0])
-                    setScaleTetris2(2 - (offset - 0.0875)*4)
-                }
-
-                setScaleTetris3(2 - (offset - 0.0875 * 2)*4)
-
-
-            } else if(offset < 0.5625){
-                setPosTetris2([0,-32.2,0])
-
-                setPosTetris3([0,24.1 - offset*100,0])
-                setPosTetris4([0,32.9 - offset*100,0])
-                setPosTetris5([0,41.5 - offset*100,0])
-                setPosTetris6([0,50.3 - offset*100,0])
-                setPosTetris7([0,59.1 - offset*100,0])
-
-                setScaleTetris2(2 - 0.3875*4)
-                setScaleTetris3(2 - (offset - 0.0875 * 2)*4)
-                setScaleTetris4(2 - (offset - 0.0875 * 3)*4)
-
-
-            } else if(offset < 0.65){
-                setPosTetris3([0,-32.2,0])
-
-                setPosTetris4([0,32.9 - offset*100,0])
-                setPosTetris5([0,41.5 - offset*100,0])
-                setPosTetris6([0,50.3 - offset*100,0])
-                setPosTetris7([0,59.1 - offset*100,0])
-
-                setScaleTetris3(2 - 0.3875*4)
-                setScaleTetris4(2 - (offset - 0.0875 * 3)*4)
-                setScaleTetris5(2 - (offset - 0.0875 * 4)*4)
-
-            } else if(offset < 0.7375){
-                setPosTetris4([0,-32.2,0])
-
-                setPosTetris5([0,41.5 - offset*100,0])
-                setPosTetris6([0,50.3 - offset*100,0])
-                setPosTetris7([0,59.1 - offset*100,0])
-
-                setScaleTetris4(2 - 0.3875*4)
-                setScaleTetris5(2 - (offset - 0.0875 * 4)*4)
-                setScaleTetris6(2 - (offset - 0.0875 * 5)*4)
-
-            } else if(offset < 0.825){
-                setPosTetris5([0,-32.2,0])
-
-                setPosTetris6([0,50.3 - offset*100,0])
-                setPosTetris7([0,59.1 - offset*100,0])
-
-                setScaleTetris5(2 - 0.3875*4)
-                setScaleTetris6(2 - (offset - 0.0875 * 5)*4)
-                setScaleTetris7(2 - (offset - 0.0875 * 6)*4)
-
-            } else if(offset < 0.9125){
-                setPosTetris6([0,-32.2,0])
-
-                setPosTetris7([0,59.1 - offset*100,0])
-                
-                setScaleTetris6(2 - 0.3875*4)
-                setScaleTetris7(2 - (offset - 0.0875 * 6)*4)
-
-                setScaleTetris1(2 - 0.3875*4)
-                setScaleTetris2(2 - 0.3875*4)
-                setScaleTetris3(2 - 0.3875*4)
-                setScaleTetris4(2 - 0.3875*4)
-                setScaleTetris5(2 - 0.3875*4)
-                setPosPilar([0,-40,-0.5])
-                setScaleCourses(0.4)
-
-            } else {
-                setPosTetris7([0,-32.2,0])
-                setScaleTetris7(2 - 0.3875*4)
-
-                setRotCourses([Math.PI/9 - ((Math.PI/9) * (offset - 0.9125) * 9), ((Math.PI) * (offset - 0.9125) * 11.5),0])
-                setPosCourses([0,(offset - 0.9125) * 10 * 6,-10])
-
-                setScaleTetris1((offset - 0.83) * 5.5)
-                setScaleTetris2((offset - 0.83) * 5.5)
-                setScaleTetris3((offset - 0.83) * 5.5)
-                setScaleTetris4((offset - 0.83) * 5.5)
-                setScaleTetris5((offset - 0.83) * 5.5)
-                setScaleTetris6((offset - 0.83) * 5.5)
-                setScaleTetris7((offset - 0.83) * 5.5)
-
-                setScaleCourses((offset - 0.84) * 5.5)
-                setPosPilar([0,-40 - (offset - 0.9125)*20, -0.5 + (offset - 0.9125)*12])
-            }
+            //setScaleCourses((offset - 0.84) * 5.5)
+            //setPosPilar([0,-40 - (offset - 0.9125)*20, -0.5 + (offset - 0.9125)*12])
         }
     })
     return (
     <>
             <ambientLight intensity={0.5} />
             <Environment preset="forest" blur={0.5}/>
+            <OrbitControls/>
             <group position={[0,posScene,0]}>
                 <Arrow position={[8,0,2]} rotation={[0,0,Math.PI]} scale={0.6}/>
                 <Arrow position={[-8,0,2]} scale={0.6}/>
@@ -214,19 +169,21 @@ export const RolesScene = () => {
                     <torusGeometry args={[radiusPortal, 0.1, 20, 110, Math.PI * 2]}/>
                     <meshStandardMaterial color="yellow" envMapIntensify={0.5} opacity={0.1}/>
     </mesh>*/}
-                <group rotation={rotCourses} position={posCourses}>
-                    <Tetris1 position={posTetris1} rotation={[0,-Math.PI/2,0]} scale={scaleTetris1}/>
-                    <Tetris2 position={posTetris2} rotation={[0,-Math.PI/2,0]} scale={scaleTetris2}/>
-                    <Tetris3 position={posTetris3} rotation={[0,-Math.PI/2,0]} scale={scaleTetris3}/>
-                    <Tetris4 position={posTetris4} rotation={[0,-Math.PI/2,0]} scale={scaleTetris4}/>
-                    <Tetris5 position={posTetris5} rotation={[0,-Math.PI/2,0]} scale={scaleTetris5}/>
-                    <Tetris6 position={posTetris6} rotation={[0,-Math.PI/2,0]} scale={scaleTetris6}/>
-                    <Tetris7 position={posTetris7} rotation={[0,-Math.PI/2,0]} scale={scaleTetris7}/>
-                    <mesh position={[0, posPilar[1],posPilar[2]]}>
-                        <cylinderGeometry args={[scaleCourses*10, scaleCourses*10, 10, 64]}/>
-                        <meshStandardMaterial color="black" envMapIntensity={0.5} roughness={0.5} metalness={0}/>
-                </mesh>
-                </group>
+
+                <Tetris7 position={posTetris7} rotation={rotTetris7} scale={scaleTetris7}/>
+
+                    <group rotation={rotCourses} position={posCourses} scale={scaleCourses}>           
+                            <Tetris1 position={posTetris1} rotation={rotTetris1} scale={scaleTetris1}/>
+                            <Tetris2 position={posTetris2} rotation={rotTetris2} scale={scaleTetris2}/>
+                            <Tetris3 position={posTetris3} rotation={rotTetris3} scale={scaleTetris3}/>
+                            <Tetris4 position={posTetris4} rotation={rotTetris4} scale={scaleTetris4}/>
+                            <Tetris5 position={posTetris5} rotation={rotTetris5} scale={scaleTetris5}/>
+                            <Tetris6 position={posTetris6} rotation={rotTetris6} scale={scaleTetris6}/>
+                        {/*<mesh position={[0, posPilar[1],posPilar[2]]}>
+                            <cylinderGeometry args={[scaleCourses*10, scaleCourses*10, 10, 64]}/>
+                            <meshStandardMaterial color="black" envMapIntensity={0.5} roughness={0.5} metalness={0}/>
+    </mesh>*/}
+                    </group>
             </group>
     </>
     )

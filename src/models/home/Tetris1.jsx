@@ -14,7 +14,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Cube.geometry}
         material={materials.Material}
-        position={[0, -2, 4]}
+        position={[0, 0, 0]}
         scale={[1, 3, 1]}
       />
     </group>
