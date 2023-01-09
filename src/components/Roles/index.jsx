@@ -75,6 +75,8 @@ export const RolesScene = () => {
     const [hideTetrisLast, setHideTetrisLast] = useState(false)
     const [radiusPortal, setRadiusPortal] = useState(0)
 
+    const [elevatorPos, setElevatorPos] = useState([-6,-6,1])
+
 
     useFrame((state, delta) => {
         const offset = scroll.offset
@@ -86,7 +88,17 @@ export const RolesScene = () => {
             setPosTetris2([0,80 - offset*280,0])
             setRotTetris2([0,-Math.PI/2 - offset*32.4,offset*32.4])
 
-            setRadiusPortal(-30 + offset*150)
+            if(offset < 0.12){
+                setElevatorPos([-6, -6 -offset*40,1])
+            }
+            else if(offset > 0.12){
+                setElevatorPos([-6, -offset*90,1])
+            }
+            
+            if(offset > 0.2){
+                setRadiusPortal(-30 + offset*150)
+            }
+
         } else if (offset < 0.76){
             setPosTetris1([0,60 - offset*280,0])
             setRotTetris1([0,-Math.PI/2 - offset*32.4,offset*32.4])
@@ -112,6 +124,7 @@ export const RolesScene = () => {
             setPosCourses([0,-15,-20])
             setPosPortal([0, -21, -20])
 
+            setElevatorPos([-6, -0.3*90,1])
 
         }  else if (offset < 0.9){
             setRotTetris7([0,-Math.PI/2 - offset*40.2,offset*40.15])
@@ -139,7 +152,6 @@ export const RolesScene = () => {
             setHideTetrisLast(false)
 
             setPosPortal([0, -107.85713 + offset * 114.2857, -20])
-
         } else {
             setRotTetris7([0,-Math.PI/2, 0])
             setPosTetris7([4.8,-59.2,0])
@@ -156,6 +168,9 @@ export const RolesScene = () => {
 
             //setScaleCourses((offset - 0.84) * 5.5)
             //setPosPilar([0,-40 - (offset - 0.9125)*20, -0.5 + (offset - 0.9125)*12])
+
+            setElevatorPos([-6, 0 -  offset*30,1])
+
         }
     })
     return (
@@ -169,22 +184,40 @@ export const RolesScene = () => {
                     <boxGeometry/>
                     <meshStandardMaterial color="#4c00a3" envMapIntensify={0.5} opacity={0.1}/>
                 </mesh>
+
+
+                {/*  ELEVATOR  */}
+
+                <mesh receiveShadow castShadow scale={[1,1,1]} position={elevatorPos}>
+                    <boxGeometry/>
+                    <meshStandardMaterial color="white" envMapIntensify={0.5} />
+               </mesh>
+
+                {/*  SECOND SECTION  */}
+
+
                 <mesh receiveShadow castShadow scale={[22,16,1]} position={[0,-13.5,0]}>
                     <boxGeometry/>
                     <meshStandardMaterial color="#1D0060" envMapIntensify={0.5} opacity={0.1}/>
                </mesh>
-               {/*<mesh receiveShadow castShadow scale={[22,11,1]} position={[0,-27,0]}>
+
+
+                {/*  THIRD SECTION  */}
+
+                <mesh receiveShadow castShadow scale={[22,16,1]} position={[0,-29.5,0]}>
                     <boxGeometry/>
-                    <meshStandardMaterial color="#4c00a3" envMapIntensify={0.5} opacity={0.1}/>
-    </mesh>*/}
+                    <meshPhongMaterial color="#1D0060" opacity={0.2} transparent />
+               </mesh>
+
                 <mesh receiveShadow castShadow rotation-x={Math.PI/2 + Math.PI/80} position={posPortal}>
                     <torusGeometry args={[radiusPortal, 0.15, 20, 110, Math.PI * 2]}/>
                     <meshStandardMaterial color="yellow" envMapIntensify={0.5} opacity={0.1}/>
-    </mesh>
+                </mesh>
 
                     {!hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
 
                     <group rotation={rotCourses} position={posCourses} scale={scaleCourses}>           
+
                             <Tetris1 position={posTetris1} rotation={rotTetris1} scale={scaleTetris1}/>
                             <Tetris2 position={posTetris2} rotation={rotTetris2} scale={scaleTetris2}/>
                             <Tetris3 position={posTetris3} rotation={rotTetris3} scale={scaleTetris3}/>
