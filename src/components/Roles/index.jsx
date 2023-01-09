@@ -31,7 +31,7 @@ export const Roles = () => {
                     className='canvas' 
                     shadows
                     camera={{position: [0,0,40] , fov:15}}
-                    gl={{ antialias: false }}
+                    color={"#000000"}
                 >
                 <ScrollControls pages={6}>
                     <RolesScene/>
@@ -71,7 +71,9 @@ export const RolesScene = () => {
     const [rotCourses, setRotCourses] = useState([0,0,0])
     const [posCourses, setPosCourses] = useState([0,-15,-20])
     const [scaleCourses, setScaleCourses] = useState(1)
-    const [posPilar, setPosPilar] = useState([0,-40,-0.5])
+    const [posPortal, setPosPortal] = useState([0, -21, -20])
+    const [hideTetrisLast, setHideTetrisLast] = useState(false)
+    const [radiusPortal, setRadiusPortal] = useState(0)
 
 
     useFrame((state, delta) => {
@@ -82,6 +84,9 @@ export const RolesScene = () => {
             setRotTetris1([0,-Math.PI/2 - offset*32.4,offset*32.4])
 
             setPosTetris2([0,80 - offset*280,0])
+            setRotTetris2([0,-Math.PI/2 - offset*32.4,offset*32.4])
+
+            setRadiusPortal(-30 + offset*150)
         } else if (offset < 0.76){
             setPosTetris1([0,60 - offset*280,0])
             setRotTetris1([0,-Math.PI/2 - offset*32.4,offset*32.4])
@@ -101,14 +106,16 @@ export const RolesScene = () => {
             setPosTetris6([0,165 - offset*280,0])
             setRotTetris6([0,-Math.PI/2 - offset*32.4,offset*32.4])
 
-            setPosTetris7([0,188 - offset*280,0])
-            setRotTetris7([0,-Math.PI/2 - offset*32.4,offset*32.4])
+            setPosTetris7([0,186.5 - offset*280,-20])
+            setRotTetris7([0,-Math.PI/2 - offset*40.2,offset*40.15])
             
             setPosCourses([0,-15,-20])
+            setPosPortal([0, -21, -20])
+
 
         }  else if (offset < 0.9){
-            setRotTetris7([0,-Math.PI/2 - offset*32.4,offset*32.4])
-            setPosTetris7([((offset - 0.76) * 25),188 - 0.76*280,0])
+            setRotTetris7([0,-Math.PI/2 - offset*40.2,offset*40.15])
+            setPosTetris7([((offset - 0.76) * 24),186.5 - 0.76*280,-20])
 
             setPosTetris1([-6,-70,0])
             setRotTetris1([0,-Math.PI/2, 0])
@@ -129,14 +136,20 @@ export const RolesScene = () => {
             setRotTetris6([0,-Math.PI/2, 0])
 
             setPosCourses([-1.5,-120 + offset*170,-20])
+            setHideTetrisLast(false)
+
+            setPosPortal([0, -107.85713 + offset * 114.2857, -20])
 
         } else {
             setRotTetris7([0,-Math.PI/2, 0])
-            setPosTetris7([3.3,-82.2+offset*62,250 - offset * 300])
+            setPosTetris7([4.8,-59.2,0])
+            //setPosTetris7([3.3,-82.2+offset*62,250 - offset * 300])
+
+            setHideTetrisLast(true)
 
             //setPosCourses([-1.5,-120 + offset*170,270 - offset * 300])
-            setPosCourses([-1.5,-21 + offset*60,270 - offset * 300])
-
+            setPosCourses([-1.5,-21 + offset*60,250 - offset * 300])
+            setRotCourses([0,-18 * Math.PI + 20 * Math.PI * offset,0])
             //setScaleCourses(3.7 - offset * 3)
             //setRotCourses([Math.PI/9 - ((Math.PI/9) * (offset - 0.9125) * 9), ((Math.PI) * (offset - 0.9125) * 11.5),0])
             //setPosCourses([0,(offset - 0.9125) * 10 * 6,-10])
@@ -149,7 +162,6 @@ export const RolesScene = () => {
     <>
             <ambientLight intensity={0.5} />
             <Environment preset="forest" blur={0.5}/>
-            <OrbitControls/>
             <group position={[0,posScene,0]}>
                 <Arrow position={[8,0,2]} rotation={[0,0,Math.PI]} scale={0.6}/>
                 <Arrow position={[-8,0,2]} scale={0.6}/>
@@ -165,12 +177,12 @@ export const RolesScene = () => {
                     <boxGeometry/>
                     <meshStandardMaterial color="#4c00a3" envMapIntensify={0.5} opacity={0.1}/>
     </mesh>*/}
-                {/* <mesh receiveShadow castShadow rotation-x={Math.PI/2 + Math.PI/34} position={[0, -22.2, 0]}>
-                    <torusGeometry args={[radiusPortal, 0.1, 20, 110, Math.PI * 2]}/>
+                <mesh receiveShadow castShadow rotation-x={Math.PI/2 + Math.PI/80} position={posPortal}>
+                    <torusGeometry args={[radiusPortal, 0.15, 20, 110, Math.PI * 2]}/>
                     <meshStandardMaterial color="yellow" envMapIntensify={0.5} opacity={0.1}/>
-    </mesh>*/}
+    </mesh>
 
-                <Tetris7 position={posTetris7} rotation={rotTetris7} scale={scaleTetris7}/>
+                    {!hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
 
                     <group rotation={rotCourses} position={posCourses} scale={scaleCourses}>           
                             <Tetris1 position={posTetris1} rotation={rotTetris1} scale={scaleTetris1}/>
@@ -179,11 +191,13 @@ export const RolesScene = () => {
                             <Tetris4 position={posTetris4} rotation={rotTetris4} scale={scaleTetris4}/>
                             <Tetris5 position={posTetris5} rotation={rotTetris5} scale={scaleTetris5}/>
                             <Tetris6 position={posTetris6} rotation={rotTetris6} scale={scaleTetris6}/>
-                        {/*<mesh position={[0, posPilar[1],posPilar[2]]}>
-                            <cylinderGeometry args={[scaleCourses*10, scaleCourses*10, 10, 64]}/>
-                            <meshStandardMaterial color="black" envMapIntensity={0.5} roughness={0.5} metalness={0}/>
-    </mesh>*/}
+                            {hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
+                            <mesh position={[1.5,-80.5,0]}>
+                                <cylinderGeometry args={[16, 16, 10, 64]}/>
+                                <meshStandardMaterial color="black" envMapIntensity={0.5} roughness={0.3} metalness={0}/>
+                            </mesh>
                     </group>
+
             </group>
     </>
     )
