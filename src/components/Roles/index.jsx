@@ -16,6 +16,8 @@ import {Model as Tetris4} from "../../models/home/Tetris4"
 import {Model as Tetris5} from "../../models/home/Tetris5"
 import {Model as Tetris6} from "../../models/home/Tetris6"
 import {Model as Tetris7} from "../../models/home/Tetris7"
+import {Model as TetrisPlane} from "../../models/home/TetrisPlane"
+import {Model as TetrisMissingOne} from "../../models/home/TetrisPlane1"
 
 export const Roles = () => {
     //const { ref, inView } = useInView();
@@ -76,10 +78,13 @@ export const RolesScene = () => {
     const [radiusPortal, setRadiusPortal] = useState(0)
 
     const [elevatorPos, setElevatorPos] = useState([-6,-6,1])
+    const [rotPortal, setRotPortal] = useState([0,0,0])
 
 
     useFrame((state, delta) => {
         const offset = scroll.offset
+        setRotPortal([0,rotPortal[1] + 0.005,0])
+
         if(offset < 0.30){
             setPosScene(offset*90)
             setPosTetris1([0,60 - offset*280,0])
@@ -87,6 +92,7 @@ export const RolesScene = () => {
 
             setPosTetris2([0,80 - offset*280,0])
             setRotTetris2([0,-Math.PI/2 - offset*32.4,offset*32.4])
+
 
             if(offset < 0.12){
                 setElevatorPos([-6, -6 -offset*40,1])
@@ -208,26 +214,37 @@ export const RolesScene = () => {
                     <boxGeometry/>
                     <meshPhongMaterial color="#1D0060" opacity={0.2} transparent />
                </mesh>
+               <mesh receiveShadow castShadow scale={ [80,60,0.1]} position={[0,posPortal[1]+0.5,-30]} rotation={[Math.PI/2,0,0]}>
+                    <boxGeometry/>
+                    <meshPhongMaterial color="black" opacity={1} transparent />
+               </mesh>
 
-                <mesh receiveShadow castShadow rotation-x={Math.PI/2 + Math.PI/80} position={posPortal}>
+                <Portal position={[0,posPortal[1],-25]} scale={1} rotation={rotPortal}/>
+
+                {/*<mesh receiveShadow castShadow rotation-x={Math.PI/2 + Math.PI/80} position={posPortal}>
                     <torusGeometry args={[radiusPortal, 0.15, 20, 110, Math.PI * 2]}/>
                     <meshStandardMaterial color="yellow" envMapIntensify={0.5} opacity={0.1}/>
-                </mesh>
+    </mesh>*/}
 
                     {!hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
 
                     <group rotation={rotCourses} position={posCourses} scale={scaleCourses}>           
 
                             <Tetris1 position={posTetris1} rotation={rotTetris1} scale={scaleTetris1}/>
+                                {/*<TetrisPlane1 position={posTetris1} rotation={rotTetris1} scale={scaleTetris1}/>*/}
                             <Tetris2 position={posTetris2} rotation={rotTetris2} scale={scaleTetris2}/>
                             <Tetris3 position={posTetris3} rotation={rotTetris3} scale={scaleTetris3}/>
                             <Tetris4 position={posTetris4} rotation={rotTetris4} scale={scaleTetris4}/>
                             <Tetris5 position={posTetris5} rotation={rotTetris5} scale={scaleTetris5}/>
                             <Tetris6 position={posTetris6} rotation={rotTetris6} scale={scaleTetris6}/>
                             {hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
+                            {/*hideTetrisLast ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-4.1]} rotation={rotTetris7} scale={scaleTetris7}/> : <></> 3,6 */ }
+                            {hideTetrisLast  ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-0.41]} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
+                            {!hideTetrisLast && posTetris1[1] == -70 ? <TetrisMissingOne position={[posTetris1[0]+7.2,posTetris1[1]+3.6,posTetris1[2] - 0.41]} rotation={rotTetris1} scale={scaleTetris1}/> : <></>}
+                            
                             <mesh position={[1.5,-80.5,0]}>
                                 <cylinderGeometry args={[16, 16, 10, 64]}/>
-                                <meshStandardMaterial color="black" envMapIntensity={0.5} roughness={0.3} metalness={0}/>
+                                <meshStandardMaterial color="black" envMapIntensity={0.5} roughness={0} metalness={0}/>
                             </mesh>
                     </group>
 

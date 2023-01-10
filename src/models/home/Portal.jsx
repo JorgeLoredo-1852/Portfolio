@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/home/portal.glb");
+  const { nodes, materials } = useGLTF("/home/portalNew.glb");
   return (
     <group {...props} dispose={null}>
       <group rotation={[Math.PI / 2, 0, 0]} scale={1}>
@@ -14,12 +14,21 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Body2.geometry}
-          material={materials["Steel - Satin"]}
-          scale={1}
+          material={materials["Material.002"]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={1.5}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body3.geometry}
+          material={materials["Material.001"]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={1.5}
         />
       </group>
     </group>
   );
 }
 
-useGLTF.preload("/home/portal.glb");
+useGLTF.preload("/home/portalNew.glb");
