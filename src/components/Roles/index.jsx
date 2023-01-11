@@ -25,6 +25,9 @@ import {Model as Elevator} from "../../models/home/Elevator"
 import { Model as Person } from "../../models/home/Person"
 import { Model as TextPerson } from "../../models/home/TextPerson"
 
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 export const Roles = () => {
     //const { ref, inView } = useInView();
@@ -53,6 +56,10 @@ export const Roles = () => {
 
 export const RolesScene = () => {
     const scroll = useScroll()
+    const themeM = useTheme();
+    const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
+    const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
+
     const [posScene, setPosScene] = useState(0)
     const [posTetris1, setPosTetris1] = useState([0,60,0])
     const [posTetris2, setPosTetris2] = useState([0,100,0])
@@ -156,38 +163,38 @@ export const RolesScene = () => {
             setRotTetris7([0,-Math.PI/2 - offset*40.2,offset*40.15])
             setPosTetris7([((offset - 0.76) * 24),186.5 - 0.76*280,-20])
 
-            setPosTetris1([-6,-70,0])
+            setPosTetris1(downSm ? [-6,-109.5,0] : [-6,-70,0])
             setRotTetris1([0,-Math.PI/2, 0])
             
-            setPosTetris2([3,-73.6,0])
+            setPosTetris2(downSm ? [3,-113.1,0] : [3,-73.6,0])
             setRotTetris2([0,-Math.PI/2, 0])
 
-            setPosTetris3([4.8,-68.2,0])
+            setPosTetris3(downSm ? [4.8,-107.7,0] : [4.8,-68.2,0])
             setRotTetris3([0,-Math.PI/2, 0])
 
-            setPosTetris4([-0.6,-64.6,0])
+            setPosTetris4(downSm ? [-0.6,-104.1,0] : [-0.6,-64.6,0])
             setRotTetris4([0,-Math.PI/2, 0])
 
-            setPosTetris5([4.8,-62.8,0])
+            setPosTetris5(downSm ? [4.8,-102.3,0] : [4.8,-62.8,0])
             setRotTetris5([0,-Math.PI/2, 0])
 
-            setPosTetris6([-0.6,-59.2,0])
+            setPosTetris6(downSm ? [-0.6,-98.7,0] : [-0.6,-59.2,0])
             setRotTetris6([0,-Math.PI/2, 0])
 
-            setPosCourses([-1.5,-120 + offset*170,-20])
+            setPosCourses(downSm ? [-0.7,-120 + offset*170,-20] : [-1.5,-120 + offset*170,-20])
             setHideTetrisLast(false)
 
             setPosPortal([0, -107.85713 + offset * 114.2857, -20])
             setRailPos([-6,-51.6+ offset*30,1.8])
         } else {
             setRotTetris7([0,-Math.PI/2, 0])
-            setPosTetris7([4.8,-59.2,0])
+            setPosTetris7(downSm ? [4.8,-98.7,0] : [4.8,-59.2,0])
             //setPosTetris7([3.3,-82.2+offset*62,250 - offset * 300])
 
             setHideTetrisLast(true)
 
             //setPosCourses([-1.5,-120 + offset*170,270 - offset * 300])
-            setPosCourses([-1.5,-21 + offset*60,250 - offset * 300])
+            setPosCourses(downSm ? [-0.7,-21 + offset*60,250 - offset * 300] : [-1.5,-21 + offset*60,250 - offset * 300])
             setRotCourses([0,-18 * Math.PI + 20 * Math.PI * offset,0])
             //setScaleCourses(3.7 - offset * 3)
             //setRotCourses([Math.PI/9 - ((Math.PI/9) * (offset - 0.9125) * 9), ((Math.PI) * (offset - 0.9125) * 11.5),0])
@@ -238,11 +245,11 @@ export const RolesScene = () => {
                     </meshBasicMaterial>
                 </mesh>
 
-                <Portal position={[0,posPortal[1]-1.2,-25]} scale={0.3} rotation={rotPortal}/>
+                <Portal position={downSm ? [0,posPortal[1],-20] : [0,posPortal[1]-1.2,-25]} scale={downSm ? 0.13 : 0.3} rotation={rotPortal}/>
 
-                    {!hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
+                    {!hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={ downSm ? 1.8 * 0.6 : scaleTetris7}/> : <></>}
 
-                    <group rotation={rotCourses} position={posCourses} scale={scaleCourses}>           
+                    <group rotation={rotCourses} position={posCourses} scale={downSm ? 0.6 : 1}>           
 
                             <Tetris1 position={posTetris1} rotation={rotTetris1} scale={scaleTetris1}/>
                                 {/*<TetrisPlane1 position={posTetris1} rotation={rotTetris1} scale={scaleTetris1}/>*/}
@@ -254,10 +261,10 @@ export const RolesScene = () => {
                             {hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
                             {/*hideTetrisLast ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-4.1]} rotation={rotTetris7} scale={scaleTetris7}/> : <></> 3,6 */ }
                             {hideTetrisLast  ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-0.41]} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
-                            {!hideTetrisLast && posTetris1[1] == -70 ? <TetrisMissingOne position={[posTetris1[0]+7.2,posTetris1[1]+3.6,posTetris1[2] - 0.41]} rotation={rotTetris1} scale={scaleTetris1}/> : <></>}
-                            
-                            <mesh position={[1.5,-80.5,0]}>
-                                <cylinderGeometry args={[16, 16, 10, 64]}/>
+                            {!hideTetrisLast && posTetris1[1] <= -70 ? <TetrisMissingOne position={[posTetris1[0]+7.2,posTetris1[1]+3.6,posTetris1[2] - 0.41]} rotation={rotTetris1} scale={scaleTetris1}/> : <></>}
+
+                            <mesh position={downSm ? [1.5,-116.3,0]:[1.5,-80.5,0]}>
+                                <cylinderGeometry args={[16,16,downSm ? 3 :  10, 64]}/>
                                 <meshStandardMaterial color="#1D0060" envMapIntensity={0.5} roughness={0.3} metalness={0}/>
                             </mesh>
                     </group>
