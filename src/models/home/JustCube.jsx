@@ -6,20 +6,17 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/home/tetrisPlane.glb");
+  const { nodes, materials } = useGLTF("/home/justCube.glb");
   return (
     <group {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Plane001.geometry}
-        material={materials["Material.002"]}
-        position={[1.26, 0, 0]}
-        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
-        scale={[5, 1, 5]}
+        geometry={nodes.Cube.geometry}
+        material={materials["Material.001"]}
       />
     </group>
   );
 }
 
-useGLTF.preload("/home/tetrisPlane.glb");
+useGLTF.preload("/home/justCube.glb");

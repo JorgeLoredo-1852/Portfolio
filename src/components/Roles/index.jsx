@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { Environment, OrbitControls, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
+import { Environment, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
 import { useEffect, useState, useRef } from "react"
 import * as THREE from "three"
 import { useInView } from "react-intersection-observer";
@@ -18,6 +18,10 @@ import {Model as Tetris6} from "../../models/home/Tetris6"
 import {Model as Tetris7} from "../../models/home/Tetris7"
 import {Model as TetrisPlane} from "../../models/home/TetrisPlane"
 import {Model as TetrisMissingOne} from "../../models/home/TetrisPlane1"
+import {Model as CubeBG} from "../../models/home/JustCube"
+import {Model as Planet} from "../../models/Earth"
+
+
 
 export const Roles = () => {
     //const { ref, inView } = useInView();
@@ -34,6 +38,7 @@ export const Roles = () => {
                     shadows
                     camera={{position: [0,0,40] , fov:15}}
                     color={"#000000"}
+                    style={{zIndex:100}}
                 >
                 <ScrollControls pages={6}>
                     <RolesScene/>
@@ -79,11 +84,21 @@ export const RolesScene = () => {
 
     const [elevatorPos, setElevatorPos] = useState([-6,-6,1])
     const [rotPortal, setRotPortal] = useState([0,0,0])
+    const [rotPlanets, setRotPlanets] = useState([0,0,0])
+
+    const [video] = useState(
+        () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+    )
+
+    useEffect(() => {
+        video.play()
+    }, [video])
 
 
     useFrame((state, delta) => {
         const offset = scroll.offset
-        setRotPortal([0,rotPortal[1] + 0.005,0])
+        setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
+        setRotPlanets([0,rotPlanets[1] + 0.001,0])
 
         if(offset < 0.30){
             setPosScene(offset*90)
@@ -210,16 +225,37 @@ export const RolesScene = () => {
 
                 {/*  THIRD SECTION  */}
 
-                <mesh receiveShadow castShadow scale={[22,16,1]} position={[0,-29.5,0]}>
-                    <boxGeometry/>
-                    <meshPhongMaterial color="#1D0060" opacity={0.2} transparent />
-               </mesh>
-               <mesh receiveShadow castShadow scale={ [80,60,0.1]} position={[0,posPortal[1]+0.5,-30]} rotation={[Math.PI/2,0,0]}>
-                    <boxGeometry/>
-                    <meshPhongMaterial color="black" opacity={1} transparent />
-               </mesh>
+                <CubeBG position={[0,0,-200]} scale={[100,100,1]}/>
+                {/*<Sparkles  position={[0,posPortal[1]-10,-25]} color="#3900BB" count={200} scale={40} size={100} speed={2} />*/}
+                <mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
+                    <planeGeometry />
+                    <meshBasicMaterial>
+                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
+                    </meshBasicMaterial>
+                </mesh>
+                {/*<group position={[0,posPortal[1]-10,-25]} rotation={rotPlanets}>
+                    <Planet position={[0,2,-70]} scale={0.2}/>
+                    <Planet position={[0,2,70]} scale={0.2}/>
+                    <Planet position={[70,2,0]} scale={0.2}/>
+                    <Planet position={[-70,2,0]} scale={0.2}/>
+                    <Planet position={[50,2,-50]} scale={0.2}/>
+                    <Planet position={[50,2,50]} scale={0.2}/>
+                    <Planet position={[-50,2,50]} scale={0.2}/>
+                    <Planet position={[-50,2,-50]} scale={0.2}/>
+                </group>
 
-                <Portal position={[0,posPortal[1],-25]} scale={1} rotation={rotPortal}/>
+                <group position={[0,posPortal[1]-16,-25]} rotation={[0,rotPlanets[1] + Math.PI/8,0]}>
+                    <Planet position={[0,2,-70]} scale={0.2}/>
+                    <Planet position={[0,2,70]} scale={0.2}/>
+                    <Planet position={[70,2,0]} scale={0.2}/>
+                    <Planet position={[-70,2,0]} scale={0.2}/>
+                    <Planet position={[50,2,-50]} scale={0.2}/>
+                    <Planet position={[50,2,50]} scale={0.2}/>
+                    <Planet position={[-50,2,50]} scale={0.2}/>
+                    <Planet position={[-50,2,-50]} scale={0.2}/>
+    </group>*/}
+
+                <Portal position={[0,posPortal[1]-1.2,-25]} scale={0.3} rotation={rotPortal}/>
 
                 {/*<mesh receiveShadow castShadow rotation-x={Math.PI/2 + Math.PI/80} position={posPortal}>
                     <torusGeometry args={[radiusPortal, 0.15, 20, 110, Math.PI * 2]}/>
@@ -244,10 +280,9 @@ export const RolesScene = () => {
                             
                             <mesh position={[1.5,-80.5,0]}>
                                 <cylinderGeometry args={[16, 16, 10, 64]}/>
-                                <meshStandardMaterial color="black" envMapIntensity={0.5} roughness={0} metalness={0}/>
+                                <meshStandardMaterial color="#1D0060" envMapIntensity={0.5} roughness={0.3} metalness={0}/>
                             </mesh>
                     </group>
-
             </group>
     </>
     )

@@ -51,9 +51,7 @@ export const WorkScene = () => {
             <group position={[0,0,0]}>
                 <ScrollControls pages={6}>
                     <Physics gravity={[0, -10, 0]}>
-                        <Debug color="black" scale={1}>
-                            <WorkStation/>
-                        </Debug>
+                        <WorkStation/>
                     </Physics>
                 </ScrollControls>
             </group>
