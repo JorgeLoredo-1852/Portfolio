@@ -7,7 +7,7 @@ import React, { useRef, useEffect, useState } from "react"
 
 export function Model(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("/home/animation.glb");
+  const { nodes, materials, animations } = useGLTF("/home/waving.glb");
   const { ref, actions, names } = useAnimations(animations)
   useEffect(() => {
     // Reset and fade in animation after an index has been changed
@@ -20,8 +20,8 @@ export function Model(props) {
       <group name="Scene">
         <group
           name="low_poly_base_mesh"
-          position={[0.01, 0, 0.03]}
-          rotation={[-0.02, -0.09, 0.01]}
+          position={[0, 0, 0.04]}
+          rotation={[-0.03, 0.02, 0]}
         >
           <primitive object={nodes.spine} />
           <skinnedMesh
@@ -36,7 +36,8 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload("/home/animation.glb");
+useGLTF.preload("/home/waving.glb");
+
 
 
 /*
