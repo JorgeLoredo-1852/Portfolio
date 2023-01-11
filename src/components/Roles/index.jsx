@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { Environment, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
+import { Environment, useAnimations, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
 import { useEffect, useState, useRef } from "react"
 import * as THREE from "three"
 import { useInView } from "react-intersection-observer";
@@ -22,8 +22,7 @@ import {Model as CubeBG} from "../../models/home/JustCube"
 
 import {Model as Tardis} from "../../models/home/Tardis"
 import {Model as Elevator} from "../../models/home/Elevator"
-
-
+import { Model as Person } from "../../models/home/Person"
 
 export const Roles = () => {
     //const { ref, inView } = useInView();
@@ -216,7 +215,7 @@ export const RolesScene = () => {
 
                <Tardis receiveShadow castShadow scale={[0.7,0.7,0.7]} position={[-6, elevatorPos[1] + 0.25,1.4]}/>
                 <Elevator scale={0.7} position={[-6, railPos[1], 1.4]}/>
-
+                <Person scale={1.1} position={[-6, elevatorPos[1] -1.5,1.4]}/>
                 {/*  SECOND SECTION  */}
 
 
