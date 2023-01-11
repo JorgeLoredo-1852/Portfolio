@@ -19,7 +19,9 @@ import {Model as Tetris7} from "../../models/home/Tetris7"
 import {Model as TetrisPlane} from "../../models/home/TetrisPlane"
 import {Model as TetrisMissingOne} from "../../models/home/TetrisPlane1"
 import {Model as CubeBG} from "../../models/home/JustCube"
-import {Model as Planet} from "../../models/Earth"
+
+import {Model as Tardis} from "../../models/home/Tardis"
+import {Model as Elevator} from "../../models/home/Elevator"
 
 
 
@@ -82,7 +84,8 @@ export const RolesScene = () => {
     const [hideTetrisLast, setHideTetrisLast] = useState(false)
     const [radiusPortal, setRadiusPortal] = useState(0)
 
-    const [elevatorPos, setElevatorPos] = useState([-6,-6,1])
+    const [elevatorPos, setElevatorPos] = useState([-6,-6,1.5])
+    const [railPos, setRailPos] = useState([0,- 13 - 15.8,0])
     const [rotPortal, setRotPortal] = useState([0,0,0])
     const [rotPlanets, setRotPlanets] = useState([0,0,0])
 
@@ -146,6 +149,7 @@ export const RolesScene = () => {
             setPosPortal([0, -21, -20])
 
             setElevatorPos([-6, -0.3*90,1])
+            setRailPos([0,-28.8,0])
 
         }  else if (offset < 0.9){
             setRotTetris7([0,-Math.PI/2 - offset*40.2,offset*40.15])
@@ -173,6 +177,7 @@ export const RolesScene = () => {
             setHideTetrisLast(false)
 
             setPosPortal([0, -107.85713 + offset * 114.2857, -20])
+            setRailPos([-6,-51.6+ offset*30,1.8])
         } else {
             setRotTetris7([0,-Math.PI/2, 0])
             setPosTetris7([4.8,-59.2,0])
@@ -209,10 +214,8 @@ export const RolesScene = () => {
 
                 {/*  ELEVATOR  */}
 
-                <mesh receiveShadow castShadow scale={[1,1,1]} position={elevatorPos}>
-                    <boxGeometry/>
-                    <meshStandardMaterial color="white" envMapIntensify={0.5} />
-               </mesh>
+               <Tardis receiveShadow castShadow scale={[0.7,0.7,0.7]} position={[-6, elevatorPos[1] + 0.25,1.4]}/>
+                <Elevator scale={0.7} position={[-6, railPos[1], 1.4]}/>
 
                 {/*  SECOND SECTION  */}
 
@@ -226,41 +229,15 @@ export const RolesScene = () => {
                 {/*  THIRD SECTION  */}
 
                 <CubeBG position={[0,0,-200]} scale={[100,100,1]}/>
-                {/*<Sparkles  position={[0,posPortal[1]-10,-25]} color="#3900BB" count={200} scale={40} size={100} speed={2} />*/}
+                                                    {/*<Sparkles  position={[0,posPortal[1]-10,-25]} color="#3900BB" count={200} scale={40} size={100} speed={2} />*/}
                 <mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
                     <planeGeometry />
                     <meshBasicMaterial>
                         <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
                     </meshBasicMaterial>
                 </mesh>
-                {/*<group position={[0,posPortal[1]-10,-25]} rotation={rotPlanets}>
-                    <Planet position={[0,2,-70]} scale={0.2}/>
-                    <Planet position={[0,2,70]} scale={0.2}/>
-                    <Planet position={[70,2,0]} scale={0.2}/>
-                    <Planet position={[-70,2,0]} scale={0.2}/>
-                    <Planet position={[50,2,-50]} scale={0.2}/>
-                    <Planet position={[50,2,50]} scale={0.2}/>
-                    <Planet position={[-50,2,50]} scale={0.2}/>
-                    <Planet position={[-50,2,-50]} scale={0.2}/>
-                </group>
-
-                <group position={[0,posPortal[1]-16,-25]} rotation={[0,rotPlanets[1] + Math.PI/8,0]}>
-                    <Planet position={[0,2,-70]} scale={0.2}/>
-                    <Planet position={[0,2,70]} scale={0.2}/>
-                    <Planet position={[70,2,0]} scale={0.2}/>
-                    <Planet position={[-70,2,0]} scale={0.2}/>
-                    <Planet position={[50,2,-50]} scale={0.2}/>
-                    <Planet position={[50,2,50]} scale={0.2}/>
-                    <Planet position={[-50,2,50]} scale={0.2}/>
-                    <Planet position={[-50,2,-50]} scale={0.2}/>
-    </group>*/}
 
                 <Portal position={[0,posPortal[1]-1.2,-25]} scale={0.3} rotation={rotPortal}/>
-
-                {/*<mesh receiveShadow castShadow rotation-x={Math.PI/2 + Math.PI/80} position={posPortal}>
-                    <torusGeometry args={[radiusPortal, 0.15, 20, 110, Math.PI * 2]}/>
-                    <meshStandardMaterial color="yellow" envMapIntensify={0.5} opacity={0.1}/>
-    </mesh>*/}
 
                     {!hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
 
