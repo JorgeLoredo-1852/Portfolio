@@ -161,7 +161,7 @@ export const RolesScene = () => {
 
         }  else if (offset < 0.9){
             setRotTetris7([0,-Math.PI/2 - offset*40.2,offset*40.15])
-            setPosTetris7([((offset - 0.76) * 24),186.5 - 0.76*280,-20])
+            setPosTetris7(downSm ? [((offset - 0.76) * 16),186.5 - 0.76*280,-20] : [((offset - 0.76) * 24),186.5 - 0.76*280,-20])
 
             setPosTetris1(downSm ? [-6,-109.5,0] : [-6,-70,0])
             setRotTetris1([0,-Math.PI/2, 0])
@@ -194,7 +194,7 @@ export const RolesScene = () => {
             setHideTetrisLast(true)
 
             //setPosCourses([-1.5,-120 + offset*170,270 - offset * 300])
-            setPosCourses(downSm ? [-0.7,-21 + offset*60,250 - offset * 300] : [-1.5,-21 + offset*60,250 - offset * 300])
+            setPosCourses(downSm ? [-0.7,-3 + offset*40,250 - offset * 300] : [-1.5,-21 + offset*60,250 - offset * 300])
             setRotCourses([0,-18 * Math.PI + 20 * Math.PI * offset,0])
             //setScaleCourses(3.7 - offset * 3)
             //setRotCourses([Math.PI/9 - ((Math.PI/9) * (offset - 0.9125) * 9), ((Math.PI) * (offset - 0.9125) * 11.5),0])
