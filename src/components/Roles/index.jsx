@@ -23,7 +23,10 @@ import {Model as CubeBG} from "../../models/home/JustCube"
 import {Model as Tardis} from "../../models/home/Tardis"
 import {Model as Elevator} from "../../models/home/Elevator"
 import { Model as Person } from "../../models/home/Person"
-import { Model as TextPerson } from "../../models/home/TextPerson"
+import { Model as PersonSit } from "../../models/home/PersonSit"
+import { Model as PersonClap} from "../../models/home/SittingClap"
+import { Model as Pedestal } from "../../models/home/Pedestal"
+import { Model as PersonYell } from "../../models/home/Yell"
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -211,6 +214,7 @@ export const RolesScene = () => {
     <>
             <ambientLight intensity={0.5} />
             <Environment preset="forest" blur={0.5}/>
+            <OrbitControls/>
             <group position={[0,posScene,0]}>
                 <Arrow position={[8,0,2]} rotation={[0,0,Math.PI]} scale={0.6}/>
                 <Arrow position={[-8,0,2]} scale={0.6}/>
@@ -263,10 +267,11 @@ export const RolesScene = () => {
                             {hideTetrisLast  ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-0.41]} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
                             {!hideTetrisLast && posTetris1[1] <= -70 ? <TetrisMissingOne position={[posTetris1[0]+7.2,posTetris1[1]+3.6,posTetris1[2] - 0.41]} rotation={rotTetris1} scale={scaleTetris1}/> : <></>}
 
-                            <mesh position={downSm ? [1.5,-122.3,0]:[1.5,-80.5,0]}>
+                            {!downSm ? <></> : <><PersonClap scale={7.5} position={[0.7, -123.7,10]}/><PersonSit scale={7.2} position={[5, -120.2,8]}/><PersonYell scale={7.2} position={[-4, -120.2,8]}/></>}
+                            {downSm ? <Pedestal position={[1.5,-115,0]}/> : <mesh position={downSm ? [1.5,-122.3,0]:[1.5,-80.5,0]}>
                                 <cylinderGeometry args={[16,16,downSm ? 15 :  10, 64]}/>
                                 <meshStandardMaterial color="#1D0060" envMapIntensity={0.5} roughness={0.3} metalness={0}/>
-                            </mesh>
+                            </mesh>}
                     </group>
             </group>
     </>
