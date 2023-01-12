@@ -27,6 +27,7 @@ import { Model as PersonSit } from "../../models/home/PersonSit"
 import { Model as PersonClap} from "../../models/home/SittingClap"
 import { Model as Pedestal } from "../../models/home/Pedestal"
 import { Model as PersonYell } from "../../models/home/Yell"
+import { Model as Computer } from "../../models/home/Computer"
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -135,6 +136,8 @@ export const RolesScene = () => {
             }
 
         } else if (offset < 0.76){
+            setPosScene(0.3*90)
+            
             setPosTetris1([0,60 - offset*280,0])
             setRotTetris1([0,-Math.PI/2 - offset*32.4,offset*32.4])
 
@@ -226,15 +229,18 @@ export const RolesScene = () => {
                 {/*  ELEVATOR  */}
 
                 <Tardis receiveShadow castShadow scale={[0.7,0.7,0.7]} position={[-6, elevatorPos[1] + 0.25,1.4]}/>
-                <Elevator scale={0.7} position={[-6, railPos[1], 1.4]}/>
+                <Elevator scale={0.7} position={[-6, railPos[1]+15.95, 1.4]}/>
                 <Person scale={1.1} position={[-6, elevatorPos[1] -1.5,1.4]}/>
+
+                
                 {/*  SECOND SECTION  */}
 
+                <Computer position={[0,-24.7,0.5]}/>
 
-                <mesh receiveShadow castShadow scale={[22,16,1]} position={[0,-13.5,0]}>
+                {/*<mesh receiveShadow castShadow scale={[22,16,1]} position={[0,-13.5,0]}>
                     <boxGeometry/>
                     <meshStandardMaterial color="#1D0060" envMapIntensify={0.5} opacity={0.1}/>
-               </mesh>
+    </mesh>*/}
 
 
                 {/*  THIRD SECTION  */}
