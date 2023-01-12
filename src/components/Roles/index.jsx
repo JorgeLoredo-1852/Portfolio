@@ -263,8 +263,8 @@ export const RolesScene = () => {
                             {hideTetrisLast  ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-0.41]} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
                             {!hideTetrisLast && posTetris1[1] <= -70 ? <TetrisMissingOne position={[posTetris1[0]+7.2,posTetris1[1]+3.6,posTetris1[2] - 0.41]} rotation={rotTetris1} scale={scaleTetris1}/> : <></>}
 
-                            <mesh position={downSm ? [1.5,-116.3,0]:[1.5,-80.5,0]}>
-                                <cylinderGeometry args={[16,16,downSm ? 3 :  10, 64]}/>
+                            <mesh position={downSm ? [1.5,-122.3,0]:[1.5,-80.5,0]}>
+                                <cylinderGeometry args={[16,16,downSm ? 15 :  10, 64]}/>
                                 <meshStandardMaterial color="#1D0060" envMapIntensity={0.5} roughness={0.3} metalness={0}/>
                             </mesh>
                     </group>
