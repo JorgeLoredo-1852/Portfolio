@@ -214,7 +214,6 @@ export const RolesScene = () => {
     <>
             <ambientLight intensity={0.5} />
             <Environment preset="forest" blur={0.5}/>
-            <OrbitControls/>
             <group position={[0,posScene,0]}>
                 <Arrow position={[8,0,2]} rotation={[0,0,Math.PI]} scale={0.6}/>
                 <Arrow position={[-8,0,2]} scale={0.6}/>
