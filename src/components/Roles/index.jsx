@@ -99,7 +99,7 @@ export const RolesScene = () => {
     const [elevatorPos, setElevatorPos] = useState([-6,-6,1.5])
     const [railPos, setRailPos] = useState([0,- 13 - 15.8,0])
     const [rotPortal, setRotPortal] = useState([0,0,0])
-    const [rotPlanets, setRotPlanets] = useState([0,0,0])
+    const [posText, setPosText] = useState([-2.5, -27, 10])
 
     const [video] = useState(
         () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
@@ -113,7 +113,6 @@ export const RolesScene = () => {
     useFrame((state, delta) => {
         const offset = scroll.offset
         setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
-        setRotPlanets([0,rotPlanets[1] + 0.001,0])
 
         if(offset < 0.30){
             setPosScene(offset*90)
@@ -136,6 +135,7 @@ export const RolesScene = () => {
             }
 
         } else if (offset < 0.76){
+            setPosText([-2.5, -27 + (offset - 0.30)*89, 10])
             setPosScene(0.3*90)
             
             setPosTetris1([0,60 - offset*280,0])
@@ -256,6 +256,61 @@ export const RolesScene = () => {
 
                 <Portal position={downSm ? [0,posPortal[1],-20] : [0,posPortal[1]-1.2,-25]} scale={downSm ? 0.13 : 0.3} rotation={rotPortal}/>
 
+                <group position={posText}>
+                    <Text3D position={[0,-0.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Hi, my name is
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+                    <Text3D position={[0,-1.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Jorge Loredo...
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+
+                    <Text3D position={[0,-7.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Hi, my name is
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+                    <Text3D position={[0,-8.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Jorge Loredo...
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+
+                    <Text3D position={[0,-14.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Hi, my name is
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+                    <Text3D position={[0,-15.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Jorge Loredo...
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+
+                    <Text3D position={[0,-21.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Hi, my name is
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+                    <Text3D position={[0,-22.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Jorge Loredo...
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+
+                    <Text3D position={[0,-28.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Hi, my name is
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+                    <Text3D position={[0,-29.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Jorge Loredo...
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+
+                    <Text3D position={[0,-35.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Hi, my name is
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+                    <Text3D position={[0,-36.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                        Jorge Loredo...
+                        <meshStandardMaterial color="#fff" />
+                    </Text3D>
+                </group>
                     {!hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={ downSm ? 1.8 * 0.6 : scaleTetris7}/> : <></>}
 
                     <group rotation={rotCourses} position={posCourses} scale={downSm ? 0.6 : 1}>           
