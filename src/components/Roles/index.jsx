@@ -355,31 +355,41 @@ export const RolesScene = () => {
                             Software
                             <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
                         </Text3D>
-                        <Text3D height={0.25} position={[1.18,-8.6,0]} letterSpacing={0.009} size={0.5} font="/Inter_Bold.json">
+                        <Text3D height={0.25} position={[1.16,-8.6,0]} letterSpacing={0.009} size={0.5} font="/Inter_Bold.json">
                             Engineer
                             <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
                         </Text3D>
 
 
-
-
-                        <Text3D height={0.25} position={[0,-14.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                            who loves coding
+                        <Text3D height={0.25} position={[1.52,-14.1,0]} letterSpacing={0.009} size={0.35} font="/Inter_Bold.json">
+                            who loves
                             <meshPhongMaterial color="#fff" opacity={opacityText3} transparent />
                         </Text3D>
-                        <Text3D position={[0,-15.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                            and innovating.
+                        <Text3D position={[1.38,-14.8,0]} letterSpacing={0.009} size={0.35} font="/Inter_Bold.json">
+                            coding and
+                            <meshPhongMaterial color="#fff" opacity={opacityText3} transparent />
+                        </Text3D>
+                        <Text3D position={[1.38,-15.5,0]} letterSpacing={0.009} size={0.35} font="/Inter_Bold.json">
+                            innovating.
                             <meshPhongMaterial color="#fff" opacity={opacityText3} transparent />
                         </Text3D>
 
-                        <Text3D height={0.25} position={[0,-21.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+
+                        <Text3D height={0.25} position={[0,-21.1,0]} letterSpacing={0.009} size={0.35} font="/Inter_Bold.json">
                             I build websites
                             <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
                         </Text3D>
-                        <Text3D height={0.25} position={[0,-22.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        <Text3D height={0.25} position={[0,-22.3,0]} letterSpacing={0.009} size={0.35} font="/Inter_Bold.json">
                             and applications...
                             <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
                         </Text3D>
+
+
+
+
+
+
+
 
                         <Text3D height={0.25} position={[0,-28.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
                             from design to
@@ -417,7 +427,7 @@ export const RolesScene = () => {
                             {hideTetrisLast  ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-0.41]} rotation={rotTetris7} scale={1.8}/> : <></>}
                             {!hideTetrisLast && posTetris1[1] <= -70 ? <TetrisMissingOne position={[posTetris1[0]+7.2,posTetris1[1]+3.6,posTetris1[2] - 0.41]} rotation={rotTetris1} scale={1.8}/> : <></>}
 
-                            {!downSm ? <></> : <><PersonClap scale={7.5} position={[0.7, -123.7,10]}/><PersonSit scale={7.2} position={[5, -120.2,8]}/><PersonYell scale={7.2} position={[-4, -120.2,8]}/></>}
+                            {!downSm ? <></> : <><PersonClap scale={7.5} position={[1.2, -123.7,10]}/><PersonSit scale={7.2} position={[5.9, -120.2,8]}/><PersonYell scale={7.2} position={[-3.8, -120.2,8]}/></>}
                             {downSm ? <Pedestal position={[1.5,-115,0]}/> : <mesh position={downSm ? [1.5,-122.3,0]:[1.5,-80.5,0]}>
                                 <cylinderGeometry args={[16,16,downSm ? 15 :  10, 64]}/>
                                 <meshStandardMaterial color="#1D0060" envMapIntensity={0.5} roughness={0.3} metalness={0}/>
