@@ -375,12 +375,16 @@ export const RolesScene = () => {
                         </Text3D>
 
 
-                        <Text3D height={0.25} position={[0,-21.1,0]} letterSpacing={0.009} size={0.35} font="/Inter_Bold.json">
-                            I build websites
+                        <Text3D height={0.25} position={[2,-21.1,0]} letterSpacing={0.009} size={0.35} font="/Inter_Bold.json">
+                            I build
                             <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
                         </Text3D>
-                        <Text3D height={0.25} position={[0,-22.3,0]} letterSpacing={0.009} size={0.35} font="/Inter_Bold.json">
-                            and applications...
+                        <Text3D height={0.25} position={[1.1,-21.8,0]} letterSpacing={0.009} size={0.35} font="/Inter_Bold.json">
+                            websites and
+                            <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[1.25,-22.5,0]} letterSpacing={0.009} size={0.35} font="/Inter_Bold.json">
+                            applications
                             <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
                         </Text3D>
 
