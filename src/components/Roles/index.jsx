@@ -73,13 +73,12 @@ export const RolesScene = () => {
     const [posTetris6, setPosTetris6] = useState([0,60,0])
     const [posTetris7, setPosTetris7] = useState([0,60,0])
 
-    const [scaleTetris1, setScaleTetris1] = useState(1.8)
-    const [scaleTetris2, setScaleTetris2] = useState(1.8)
-    const [scaleTetris3, setScaleTetris3] = useState(1.8)
-    const [scaleTetris4, setScaleTetris4] = useState(1.8)
-    const [scaleTetris5, setScaleTetris5] = useState(1.8)
-    const [scaleTetris6, setScaleTetris6] = useState(1.8)
-    const [scaleTetris7, setScaleTetris7] = useState(1.8)
+    const [opacityText1, setOpacityText1] = useState(1)
+    const [opacityText2, setOpacityText2] = useState(1)
+    const [opacityText3, setOpacityText3] = useState(1)
+    const [opacityText4, setOpacityText4] = useState(1)
+    const [opacityText5, setOpacityText5] = useState(1)
+    const [opacityText6, setOpacityText6] = useState(1)
 
     const [rotTetris1, setRotTetris1] = useState([0,-Math.PI/2,0])
     const [rotTetris2, setRotTetris2] = useState([0,-Math.PI/2,0])
@@ -99,7 +98,7 @@ export const RolesScene = () => {
     const [elevatorPos, setElevatorPos] = useState([-6,-6,1.5])
     const [railPos, setRailPos] = useState([0,- 13 - 15.8,0])
     const [rotPortal, setRotPortal] = useState([0,0,0])
-    const [posText, setPosText] = useState([-2.5, -27, 10])
+    const [posText, setPosText] = useState([-2.75, -27, 10])
 
     const [video] = useState(
         () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
@@ -113,6 +112,20 @@ export const RolesScene = () => {
     useFrame((state, delta) => {
         const offset = scroll.offset
         setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
+        if(offset < 0.3365){
+            setOpacityText1(8.519 - offset*25.3164)
+        } else if(offset < 0.4155){
+            console.log(opacityText2)
+            setOpacityText2(10.516 - offset*25.3164)
+        } else if(offset < 0.4952){
+            setOpacityText3(12.516 - offset*25.3164)
+        } else if(offset < 0.5745){
+            setOpacityText4(14.516 - offset*25.3164)
+        } else if(offset < 0.6535){
+            setOpacityText5(16.516 - offset*25.3164)
+        } else if(offset < 0.733){
+            setOpacityText6(18.516 - offset*25.3164)
+        }
 
         if(offset < 0.30){
             setPosScene(offset*90)
@@ -135,7 +148,7 @@ export const RolesScene = () => {
             }
 
         } else if (offset < 0.76){
-            setPosText([-2.5, -27 + (offset - 0.30)*89, 10])
+            setPosText([-2.75, -27 + (offset - 0.30)*89, 10])
             setPosScene(0.3*90)
             
             setPosTetris1([0,60 - offset*280,0])
@@ -166,6 +179,10 @@ export const RolesScene = () => {
             setRailPos([0,-28.8,0])
 
         }  else if (offset < 0.9){
+
+            setPosText([-2.75, -27 + (offset - 0.30)*89, 10])
+
+
             setRotTetris7([0,-Math.PI/2 - offset*40.2,offset*40.15])
             setPosTetris7(downSm ? [((offset - 0.76) * 16),186.5 - 0.76*280,-20] : [((offset - 0.76) * 24),186.5 - 0.76*280,-20])
 
@@ -257,75 +274,75 @@ export const RolesScene = () => {
                 <Portal position={downSm ? [0,posPortal[1],-20] : [0,posPortal[1]-1.2,-25]} scale={downSm ? 0.13 : 0.3} rotation={rotPortal}/>
 
                 <group position={posText}>
-                    <Text3D position={[0,-0.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
+                    <Text3D height={0.25} position={[0,-0.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
                         Hi, my name is
-                        <meshStandardMaterial color="#fff" />
+                        <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
                     </Text3D>
-                    <Text3D position={[0,-1.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
-                        Jorge Loredo...
-                        <meshStandardMaterial color="#fff" />
+                    <Text3D height={0.25} position={[0,-1.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        Jorge Loredo.
+                        <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
                     </Text3D>
 
-                    <Text3D position={[0,-7.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
-                        Hi, my name is
-                        <meshStandardMaterial color="#fff" />
+                    <Text3D height={0.25} position={[0,-7.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        I'm an undergrad
+                        <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
                     </Text3D>
-                    <Text3D position={[0,-8.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
-                        Jorge Loredo...
-                        <meshStandardMaterial color="#fff" />
-                    </Text3D>
-
-                    <Text3D position={[0,-14.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
-                        Hi, my name is
-                        <meshStandardMaterial color="#fff" />
-                    </Text3D>
-                    <Text3D position={[0,-15.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
-                        Jorge Loredo...
-                        <meshStandardMaterial color="#fff" />
+                    <Text3D height={0.25} position={[0,-8.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        Software Engineer...
+                        <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
                     </Text3D>
 
-                    <Text3D position={[0,-21.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
-                        Hi, my name is
-                        <meshStandardMaterial color="#fff" />
+                    <Text3D height={0.25} position={[0,-14.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        who loves coding
+                        <meshPhongMaterial color="#fff" opacity={opacityText3} transparent />
                     </Text3D>
-                    <Text3D position={[0,-22.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
-                        Jorge Loredo...
-                        <meshStandardMaterial color="#fff" />
-                    </Text3D>
-
-                    <Text3D position={[0,-28.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
-                        Hi, my name is
-                        <meshStandardMaterial color="#fff" />
-                    </Text3D>
-                    <Text3D position={[0,-29.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
-                        Jorge Loredo...
-                        <meshStandardMaterial color="#fff" />
+                    <Text3D position={[0,-15.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        and innovating.
+                        <meshPhongMaterial color="#fff" opacity={opacityText3} transparent />
                     </Text3D>
 
-                    <Text3D position={[0,-35.1,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
-                        Hi, my name is
-                        <meshStandardMaterial color="#fff" />
+                    <Text3D height={0.25} position={[0,-21.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        I build websites
+                        <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
                     </Text3D>
-                    <Text3D position={[0,-36.3,0]} letterSpacing={0.009} size={0.7} font="/Inter_Bold.json">
-                        Jorge Loredo...
-                        <meshStandardMaterial color="#fff" />
+                    <Text3D height={0.25} position={[0,-22.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        and applications...
+                        <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
+                    </Text3D>
+
+                    <Text3D height={0.25} position={[0,-28.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        from design to
+                        <meshPhongMaterial color="#fff" opacity={opacityText5} transparent />
+                    </Text3D>
+                    <Text3D height={0.25} position={[0,-29.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        deploy.
+                        <meshPhongMaterial color="#fff" opacity={opacityText5} transparent />
+                    </Text3D>
+
+                    <Text3D height={0.25} position={[0,-35.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        Let's create
+                        <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
+                    </Text3D>
+                    <Text3D height={0.25} position={[0,-36.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        together.
+                        <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
                     </Text3D>
                 </group>
-                    {!hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={ downSm ? 1.8 * 0.6 : scaleTetris7}/> : <></>}
+                    {!hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={ downSm ? 1.8 * 0.6 : 1.8}/> : <></>}
 
                     <group rotation={rotCourses} position={posCourses} scale={downSm ? 0.6 : 1}>           
 
-                            <Tetris1 position={posTetris1} rotation={rotTetris1} scale={scaleTetris1}/>
-                                {/*<TetrisPlane1 position={posTetris1} rotation={rotTetris1} scale={scaleTetris1}/>*/}
-                            <Tetris2 position={posTetris2} rotation={rotTetris2} scale={scaleTetris2}/>
-                            <Tetris3 position={posTetris3} rotation={rotTetris3} scale={scaleTetris3}/>
-                            <Tetris4 position={posTetris4} rotation={rotTetris4} scale={scaleTetris4}/>
-                            <Tetris5 position={posTetris5} rotation={rotTetris5} scale={scaleTetris5}/>
-                            <Tetris6 position={posTetris6} rotation={rotTetris6} scale={scaleTetris6}/>
-                            {hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
+                            <Tetris1 position={posTetris1} rotation={rotTetris1} scale={1.8}/>
+                                {/*<TetrisPlane1 position={posTetris1} rotation={rotTetris1} scale={1.8}/>*/}
+                            <Tetris2 position={posTetris2} rotation={rotTetris2} scale={1.8}/>
+                            <Tetris3 position={posTetris3} rotation={rotTetris3} scale={1.8}/>
+                            <Tetris4 position={posTetris4} rotation={rotTetris4} scale={1.8}/>
+                            <Tetris5 position={posTetris5} rotation={rotTetris5} scale={1.8}/>
+                            <Tetris6 position={posTetris6} rotation={rotTetris6} scale={1.8}/>
+                            {hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={1.8}/> : <></>}
                             {/*hideTetrisLast ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-4.1]} rotation={rotTetris7} scale={scaleTetris7}/> : <></> 3,6 */ }
-                            {hideTetrisLast  ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-0.41]} rotation={rotTetris7} scale={scaleTetris7}/> : <></>}
-                            {!hideTetrisLast && posTetris1[1] <= -70 ? <TetrisMissingOne position={[posTetris1[0]+7.2,posTetris1[1]+3.6,posTetris1[2] - 0.41]} rotation={rotTetris1} scale={scaleTetris1}/> : <></>}
+                            {hideTetrisLast  ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-0.41]} rotation={rotTetris7} scale={1.8}/> : <></>}
+                            {!hideTetrisLast && posTetris1[1] <= -70 ? <TetrisMissingOne position={[posTetris1[0]+7.2,posTetris1[1]+3.6,posTetris1[2] - 0.41]} rotation={rotTetris1} scale={1.8}/> : <></>}
 
                             {!downSm ? <></> : <><PersonClap scale={7.5} position={[0.7, -123.7,10]}/><PersonSit scale={7.2} position={[5, -120.2,8]}/><PersonYell scale={7.2} position={[-4, -120.2,8]}/></>}
                             {downSm ? <Pedestal position={[1.5,-115,0]}/> : <mesh position={downSm ? [1.5,-122.3,0]:[1.5,-80.5,0]}>
