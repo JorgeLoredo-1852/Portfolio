@@ -401,15 +401,15 @@ export const RolesScene = () => {
 
 
 
-                        <Text3D height={0.25} position={[1.9,-35.1,0]} letterSpacing={0.009} size={0.45} font="/Inter_Bold.json">
+                        <Text3D height={0.25} position={[2,-35.2,0]} letterSpacing={0.009} size={0.4} font="/Inter_Bold.json">
                             Let's
                             <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
                         </Text3D>
-                        <Text3D height={0.25} position={[1.1,-36.1,0]} letterSpacing={0.009} size={0.75} font="/Inter_Bold.json">
-                            create
+                        <Text3D height={0.25} position={[1,-36.1,0]} letterSpacing={0.009} size={0.63} font="/Inter_Bold.json">
+                            develop
                             <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
                         </Text3D>
-                        <Text3D height={0.25} position={[1.35,-36.9,0]} letterSpacing={0.009} size={0.45} font="/Inter_Bold.json">
+                        <Text3D height={0.25} position={[1.5,-36.9,0]} letterSpacing={0.009} size={0.4} font="/Inter_Bold.json">
                             together.
                             <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
                         </Text3D>
