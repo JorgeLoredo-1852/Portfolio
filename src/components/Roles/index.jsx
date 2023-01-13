@@ -291,7 +291,7 @@ export const RolesScene = () => {
                             <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
                         </Text3D>
                         <Text3D height={0.25} position={[0,-8.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                            Software Engineer...
+                            Software Engineer
                             <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
                         </Text3D>
 
@@ -309,7 +309,7 @@ export const RolesScene = () => {
                             <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
                         </Text3D>
                         <Text3D height={0.25} position={[0,-22.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                            and applications...
+                            and applications
                             <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
                         </Text3D>
 
@@ -323,7 +323,7 @@ export const RolesScene = () => {
                         </Text3D>
 
                         <Text3D height={0.25} position={[0,-35.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                            Let's create
+                            Let's develop
                             <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
                         </Text3D>
                         <Text3D height={0.25} position={[0,-36.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
