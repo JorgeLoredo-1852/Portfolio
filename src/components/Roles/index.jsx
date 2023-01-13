@@ -30,6 +30,7 @@ import { Model as PersonYell } from "../../models/home/Yell"
 import { Model as PersonVictory } from "../../models/home/Victory"
 import { Model as Computer } from "../../models/home/Computer"
 import { Model as Disco } from "../../models/home/Disco"
+import {Model as Computer2} from "../..//models/home/Computer2"
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -284,7 +285,8 @@ export const RolesScene = () => {
                 
                 {/*  SECOND SECTION  */}
 
-                <Computer position={[0,-24.7,0.5]}/>
+                {/*<Computer position={[0,-24.7,0.5]}/>*/}
+                <Computer2 position={[9.45,-30.7,-3.05]}/>
                 <Disco position={posDisco1}/>
                 <Disco position={posDisco2}/>
                 <Disco position={posDisco3}/>
