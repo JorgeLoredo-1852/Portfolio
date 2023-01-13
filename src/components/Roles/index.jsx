@@ -27,6 +27,7 @@ import { Model as PersonSit } from "../../models/home/PersonSit"
 import { Model as PersonClap} from "../../models/home/SittingClap"
 import { Model as Pedestal } from "../../models/home/Pedestal"
 import { Model as PersonYell } from "../../models/home/Yell"
+import { Model as PersonVictory } from "../../models/home/Victory"
 import { Model as Computer } from "../../models/home/Computer"
 
 import { useTheme } from '@mui/material/styles';
@@ -128,6 +129,8 @@ export const RolesScene = () => {
         }
 
         if(offset < 0.30){
+
+            setPosText([-2.9, -27, 10])
             setPosScene(offset*90)
             setPosTetris1([0,60 - offset*280,0])
             setRotTetris1([0,-Math.PI/2 - offset*32.4,offset*32.4])
@@ -431,7 +434,7 @@ export const RolesScene = () => {
                             {hideTetrisLast  ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-0.41]} rotation={rotTetris7} scale={1.8}/> : <></>}
                             {!hideTetrisLast && posTetris1[1] <= -70 ? <TetrisMissingOne position={[posTetris1[0]+7.2,posTetris1[1]+3.6,posTetris1[2] - 0.41]} rotation={rotTetris1} scale={1.8}/> : <></>}
 
-                            {!downSm ? <></> : <><PersonClap scale={7.5} position={[1.2, -123.7,10]}/><PersonSit scale={7.2} position={[5.9, -120.2,8]}/><PersonYell scale={7.2} position={[-3.8, -120.2,8]}/></>}
+                            {!downSm ? <><PersonVictory scale={4} position={[13, -75.5,2]}/><PersonYell scale={4} position={[-4.8, -58.9,0.6]}/></> : <><PersonClap scale={7.5} position={[1.2, -123.7,10]}/><PersonSit scale={7.2} position={[5.9, -120.2,8]}/><PersonYell scale={7.2} position={[-3.8, -120.2,8]}/></>}
                             {downSm ? <Pedestal position={[1.5,-115,0]}/> : <mesh position={downSm ? [1.5,-122.3,0]:[1.5,-80.5,0]}>
                                 <cylinderGeometry args={[16,16,downSm ? 15 :  10, 64]}/>
                                 <meshStandardMaterial color="#1D0060" envMapIntensity={0.5} roughness={0.3} metalness={0}/>
