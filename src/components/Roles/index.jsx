@@ -62,6 +62,7 @@ export const RolesScene = () => {
     const scroll = useScroll()
     const themeM = useTheme();
     const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
+    const downMd = useMediaQuery(themeM.breakpoints.down('md'));
     const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
 
     const [posScene, setPosScene] = useState(0)
@@ -273,61 +274,126 @@ export const RolesScene = () => {
 
                 <Portal position={downSm ? [0,posPortal[1],-20] : [0,posPortal[1]-1.2,-25]} scale={downSm ? 0.13 : 0.3} rotation={rotPortal}/>
 
-                <group position={posText}>
-                    <Text3D height={0.25} position={[0,-0.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        Hi, my name is
-                        <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
-                    </Text3D>
-                    <Text3D height={0.25} position={[0,-1.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        Jorge Loredo.
-                        <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
-                    </Text3D>
+                { 
+                    !downMd ? 
+                    <group position={posText}>
+                        <Text3D height={0.25} position={[0,-0.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            Hi, my name is
+                            <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[0,-1.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            Jorge Loredo.
+                            <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
+                        </Text3D>
 
-                    <Text3D height={0.25} position={[0,-7.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        I'm an undergrad
-                        <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
-                    </Text3D>
-                    <Text3D height={0.25} position={[0,-8.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        Software Engineer...
-                        <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
-                    </Text3D>
+                        <Text3D height={0.25} position={[0,-7.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            I'm an undergrad
+                            <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[0,-8.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            Software Engineer...
+                            <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
+                        </Text3D>
 
-                    <Text3D height={0.25} position={[0,-14.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        who loves coding
-                        <meshPhongMaterial color="#fff" opacity={opacityText3} transparent />
-                    </Text3D>
-                    <Text3D position={[0,-15.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        and innovating.
-                        <meshPhongMaterial color="#fff" opacity={opacityText3} transparent />
-                    </Text3D>
+                        <Text3D height={0.25} position={[0,-14.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            who loves coding
+                            <meshPhongMaterial color="#fff" opacity={opacityText3} transparent />
+                        </Text3D>
+                        <Text3D position={[0,-15.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            and innovating.
+                            <meshPhongMaterial color="#fff" opacity={opacityText3} transparent />
+                        </Text3D>
 
-                    <Text3D height={0.25} position={[0,-21.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        I build websites
-                        <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
-                    </Text3D>
-                    <Text3D height={0.25} position={[0,-22.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        and applications...
-                        <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
-                    </Text3D>
+                        <Text3D height={0.25} position={[0,-21.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            I build websites
+                            <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[0,-22.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            and applications...
+                            <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
+                        </Text3D>
 
-                    <Text3D height={0.25} position={[0,-28.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        from design to
-                        <meshPhongMaterial color="#fff" opacity={opacityText5} transparent />
-                    </Text3D>
-                    <Text3D height={0.25} position={[0,-29.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        deploy.
-                        <meshPhongMaterial color="#fff" opacity={opacityText5} transparent />
-                    </Text3D>
+                        <Text3D height={0.25} position={[0,-28.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            from design to
+                            <meshPhongMaterial color="#fff" opacity={opacityText5} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[0,-29.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            deploy.
+                            <meshPhongMaterial color="#fff" opacity={opacityText5} transparent />
+                        </Text3D>
 
-                    <Text3D height={0.25} position={[0,-35.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        Let's create
-                        <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
-                    </Text3D>
-                    <Text3D height={0.25} position={[0,-36.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                        together.
-                        <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
-                    </Text3D>
-                </group>
+                        <Text3D height={0.25} position={[0,-35.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            Let's create
+                            <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[0,-36.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            together.
+                            <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
+                        </Text3D>
+                    </group> 
+                    : 
+                    <group position={posText}>
+                        <Text3D height={0.25} position={[2,0.9,0]} letterSpacing={0.009} size={0.4} font="/Inter_Bold.json">
+                            Hi, I'm
+                            <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[1.5,-0.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            Jorge
+                            <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[1.2,-1.2,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            Loredo
+                            <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
+                        </Text3D>
+
+
+                        <Text3D height={0.25} position={[0,-7.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            I'm an undergrad
+                            <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[0,-8.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            Software Engineer...
+                            <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
+                        </Text3D>
+
+                        <Text3D height={0.25} position={[0,-14.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            who loves coding
+                            <meshPhongMaterial color="#fff" opacity={opacityText3} transparent />
+                        </Text3D>
+                        <Text3D position={[0,-15.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            and innovating.
+                            <meshPhongMaterial color="#fff" opacity={opacityText3} transparent />
+                        </Text3D>
+
+                        <Text3D height={0.25} position={[0,-21.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            I build websites
+                            <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[0,-22.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            and applications...
+                            <meshPhongMaterial color="#fff" opacity={opacityText4} transparent />
+                        </Text3D>
+
+                        <Text3D height={0.25} position={[0,-28.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            from design to
+                            <meshPhongMaterial color="#fff" opacity={opacityText5} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[0,-29.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            deploy.
+                            <meshPhongMaterial color="#fff" opacity={opacityText5} transparent />
+                        </Text3D>
+
+                        <Text3D height={0.25} position={[0,-35.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            Let's create
+                            <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
+                        </Text3D>
+                        <Text3D height={0.25} position={[0,-36.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                            together.
+                            <meshPhongMaterial color="#fff" opacity={opacityText6} transparent />
+                        </Text3D>
+                    </group>
+                }
+                
                     {!hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={ downSm ? 1.8 * 0.6 : 1.8}/> : <></>}
 
                     <group rotation={rotCourses} position={posCourses} scale={downSm ? 0.6 : 1}>           
