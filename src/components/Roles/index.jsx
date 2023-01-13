@@ -333,28 +333,35 @@ export const RolesScene = () => {
                     </group> 
                     : 
                     <group position={posText}>
-                        <Text3D height={0.25} position={[2,0.9,0]} letterSpacing={0.009} size={0.4} font="/Inter_Bold.json">
+                        <Text3D height={0.25} position={[1.9,1.2,0]} letterSpacing={0.009} size={0.4} font="/Inter_Bold.json">
                             Hi, I'm
                             <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
                         </Text3D>
-                        <Text3D height={0.25} position={[1.5,-0.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        <Text3D height={0.25} position={[1.42,-0.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
                             Jorge
                             <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
                         </Text3D>
-                        <Text3D height={0.25} position={[1.2,-1.2,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        <Text3D height={0.25} position={[1.19,-1.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
                             Loredo
                             <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
                         </Text3D>
 
 
-                        <Text3D height={0.25} position={[0,-7.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
+                        <Text3D height={0.25} position={[1.25,-6.8,0]} letterSpacing={0.009} size={0.25} font="/Inter_Bold.json">
                             I'm an undergrad
                             <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
                         </Text3D>
-                        <Text3D height={0.25} position={[0,-8.3,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
-                            Software Engineer...
+                        <Text3D height={0.25} position={[1.15,-7.8,0]} letterSpacing={0.009} size={0.5} font="/Inter_Bold.json">
+                            Software
                             <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
                         </Text3D>
+                        <Text3D height={0.25} position={[1.18,-8.6,0]} letterSpacing={0.009} size={0.5} font="/Inter_Bold.json">
+                            Engineer
+                            <meshPhongMaterial color="#fff" opacity={opacityText2} transparent />
+                        </Text3D>
+
+
+
 
                         <Text3D height={0.25} position={[0,-14.1,0]} letterSpacing={0.009} size={0.65} font="/Inter_Bold.json">
                             who loves coding
