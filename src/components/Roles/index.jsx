@@ -29,6 +29,7 @@ import { Model as Pedestal } from "../../models/home/Pedestal"
 import { Model as PersonYell } from "../../models/home/Yell"
 import { Model as PersonVictory } from "../../models/home/Victory"
 import { Model as Computer } from "../../models/home/Computer"
+import { Model as Disco } from "../../models/home/Disco"
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -101,6 +102,12 @@ export const RolesScene = () => {
     const [railPos, setRailPos] = useState([0,- 13 - 15.8,0])
     const [rotPortal, setRotPortal] = useState([0,0,0])
     const [posText, setPosText] = useState([-2.9, -27, 10])
+    const [posDisco1, setPosDisco1] = useState([12,-12,-0.3])
+    const [posDisco2, setPosDisco2] = useState([26,-12,-0.3])
+    const [posDisco3, setPosDisco3] = useState([40,-12,-0.3])
+    const [posUSB1, setPosUSB1] = useState([12,-19.15,-0.3])
+    const [posUSB2, setPosUSB2] = useState([26,-19.15,-0.3])
+    const [posUSB3, setPosUSB3] = useState([40,-19.15,-0.3])
 
     const [video] = useState(
         () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
@@ -114,6 +121,28 @@ export const RolesScene = () => {
     useFrame((state, delta) => {
         const offset = scroll.offset
         setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
+        
+        if(offset > 0){
+            setPosDisco1([posDisco1[0] - 0.02, posDisco1[1], posDisco1[2]])
+            setPosDisco2([posDisco2[0] - 0.02, posDisco2[1], posDisco2[2]])
+            setPosDisco3([posDisco3[0] - 0.02, posDisco3[1], posDisco3[2]])
+            setPosUSB1([posUSB1[0] - 0.02, posUSB1[1], posUSB1[2]])
+            setPosUSB2([posUSB2[0] - 0.02, posUSB2[1], posUSB2[2]])
+            setPosUSB3([posUSB3[0] - 0.02, posUSB3[1], posUSB3[2]])
+            if(posDisco1[0] < -14){
+                setPosDisco1([28, posDisco1[1], posDisco1[2]])
+                setPosUSB1([28, posUSB1[1], posUSB1[2]])
+            } else if(posDisco2[0] < -14){
+                setPosDisco2([28, posDisco2[1], posDisco2[2]])
+                setPosUSB2([28, posUSB2[1], posUSB2[2]])
+            } else if(posDisco3[0] < -14){
+                setPosDisco3([28, posDisco3[1], posDisco3[2]])
+                setPosUSB3([28, posUSB3[1], posUSB3[2]])
+            }   
+        }
+
+        
+        
         if(offset < 0.3365){
             setOpacityText1(8.519 - offset*25.3164)
         } else if(offset < 0.4155){
@@ -256,6 +285,21 @@ export const RolesScene = () => {
                 {/*  SECOND SECTION  */}
 
                 <Computer position={[0,-24.7,0.5]}/>
+                <Disco position={posDisco1}/>
+                <Disco position={posDisco2}/>
+                <Disco position={posDisco3}/>
+                <mesh receiveShadow castShadow scale={[5,1.5,0.1]} position={posUSB1}>
+                    <boxGeometry/>
+                    <meshStandardMaterial color="white" envMapIntensify={0.5} />
+                </mesh>
+                <mesh receiveShadow castShadow scale={[5,1.5,0.1]} position={posUSB2}>
+                    <boxGeometry/>
+                    <meshStandardMaterial color="white" envMapIntensify={0.5} />
+                </mesh>
+                <mesh receiveShadow castShadow scale={[5,1.5,0.1]} position={posUSB3}>
+                    <boxGeometry/>
+                    <meshStandardMaterial color="white" envMapIntensify={0.5} />
+                </mesh>
 
                 {/*<mesh receiveShadow castShadow scale={[22,16,1]} position={[0,-13.5,0]}>
                     <boxGeometry/>
