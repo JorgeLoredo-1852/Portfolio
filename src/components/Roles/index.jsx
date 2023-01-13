@@ -99,7 +99,7 @@ export const RolesScene = () => {
     const [elevatorPos, setElevatorPos] = useState([-6,-6,1.5])
     const [railPos, setRailPos] = useState([0,- 13 - 15.8,0])
     const [rotPortal, setRotPortal] = useState([0,0,0])
-    const [posText, setPosText] = useState([-2.75, -27, 10])
+    const [posText, setPosText] = useState([-2.9, -27, 10])
 
     const [video] = useState(
         () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
@@ -116,7 +116,6 @@ export const RolesScene = () => {
         if(offset < 0.3365){
             setOpacityText1(8.519 - offset*25.3164)
         } else if(offset < 0.4155){
-            console.log(opacityText2)
             setOpacityText2(10.516 - offset*25.3164)
         } else if(offset < 0.4952){
             setOpacityText3(12.516 - offset*25.3164)
@@ -149,7 +148,7 @@ export const RolesScene = () => {
             }
 
         } else if (offset < 0.76){
-            setPosText([-2.75, -27 + (offset - 0.30)*89, 10])
+            setPosText([-2.9, -27 + (offset - 0.30)*89, 10])
             setPosScene(0.3*90)
             
             setPosTetris1([0,60 - offset*280,0])
@@ -332,7 +331,7 @@ export const RolesScene = () => {
                         </Text3D>
                     </group> 
                     : 
-                    <group position={posText}>
+                    <group position={[posText[0]+0.15, posText[1], posText[2]]}>
                         <Text3D height={0.25} position={[1.9,1.2,0]} letterSpacing={0.009} size={0.4} font="/Inter_Bold.json">
                             Hi, I'm
                             <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
