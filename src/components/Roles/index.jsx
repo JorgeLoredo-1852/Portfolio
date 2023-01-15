@@ -30,7 +30,8 @@ import { Model as PersonYell } from "../../models/home/Yell"
 import { Model as PersonVictory } from "../../models/home/Victory"
 import { Model as Computer } from "../../models/home/Computer"
 import { Model as Disco } from "../../models/home/Disco"
-import {Model as Computer2} from "../..//models/home/Computer2"
+import {Model as Disk1} from "../../models/home/Disk1"
+import {Model as Disk2} from "../../models/home/Disk2"
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -124,12 +125,12 @@ export const RolesScene = () => {
         setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
         
         if(offset > 0){
-            setPosDisco1([posDisco1[0] - 0.02, posDisco1[1], posDisco1[2]])
-            setPosDisco2([posDisco2[0] - 0.02, posDisco2[1], posDisco2[2]])
-            setPosDisco3([posDisco3[0] - 0.02, posDisco3[1], posDisco3[2]])
-            setPosUSB1([posUSB1[0] - 0.02, posUSB1[1], posUSB1[2]])
-            setPosUSB2([posUSB2[0] - 0.02, posUSB2[1], posUSB2[2]])
-            setPosUSB3([posUSB3[0] - 0.02, posUSB3[1], posUSB3[2]])
+            setPosDisco1([posDisco1[0] - 0.015, posDisco1[1], posDisco1[2]])
+            setPosDisco2([posDisco2[0] - 0.015, posDisco2[1], posDisco2[2]])
+            setPosDisco3([posDisco3[0] - 0.015, posDisco3[1], posDisco3[2]])
+            setPosUSB1([posUSB1[0] - 0.015, posUSB1[1], posUSB1[2]])
+            setPosUSB2([posUSB2[0] - 0.015, posUSB2[1], posUSB2[2]])
+            setPosUSB3([posUSB3[0] - 0.015, posUSB3[1], posUSB3[2]])
             if(posDisco1[0] < -14){
                 setPosDisco1([28, posDisco1[1], posDisco1[2]])
                 setPosUSB1([28, posUSB1[1], posUSB1[2]])
@@ -287,9 +288,9 @@ export const RolesScene = () => {
 
                 <Computer position={[0,-11.5,0.5]} scale={0.1}/>
                 {/*<Computer2 position={[9.45,-30.7,-3.05]}/>*/}
-                <Disco position={posDisco1}/>
-                <Disco position={posDisco2}/>
-                <Disco position={posDisco3}/>
+                <Disk1 position={posDisco1}/>
+                <Disk2 position={posDisco2}/>
+                <Disk1 position={posDisco3}/>
                 <mesh receiveShadow castShadow scale={[9.5,2.4,0.1]} position={posUSB1}>
                     <boxGeometry/>
                     <meshStandardMaterial color="white" envMapIntensify={0.5} />
