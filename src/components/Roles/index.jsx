@@ -285,8 +285,8 @@ export const RolesScene = () => {
                 
                 {/*  SECOND SECTION  */}
 
-                {/*<Computer position={[0,-24.7,0.5]}/>*/}
-                <Computer2 position={[9.45,-30.7,-3.05]}/>
+                <Computer position={[0,-11.5,0.5]} scale={0.1}/>
+                {/*<Computer2 position={[9.45,-30.7,-3.05]}/>*/}
                 <Disco position={posDisco1}/>
                 <Disco position={posDisco2}/>
                 <Disco position={posDisco3}/>
