@@ -103,12 +103,12 @@ export const RolesScene = () => {
     const [railPos, setRailPos] = useState([0,- 13 - 15.8,0])
     const [rotPortal, setRotPortal] = useState([0,0,0])
     const [posText, setPosText] = useState([-2.9, -27, 10])
-    const [posDisco1, setPosDisco1] = useState([12,-12,-0.3])
-    const [posDisco2, setPosDisco2] = useState([26,-12,-0.3])
-    const [posDisco3, setPosDisco3] = useState([40,-12,-0.3])
-    const [posUSB1, setPosUSB1] = useState([12,-19.15,-0.3])
-    const [posUSB2, setPosUSB2] = useState([26,-19.15,-0.3])
-    const [posUSB3, setPosUSB3] = useState([40,-19.15,-0.3])
+    const [posDisco1, setPosDisco1] = useState([12,-11.5,-0.3])
+    const [posDisco2, setPosDisco2] = useState([26,-11.5,-0.3])
+    const [posDisco3, setPosDisco3] = useState([40,-11.5,-0.3])
+    const [posUSB1, setPosUSB1] = useState([12,-19.3,-0.3])
+    const [posUSB2, setPosUSB2] = useState([26,-19.3,-0.3])
+    const [posUSB3, setPosUSB3] = useState([40,-19.3,-0.3])
 
     const [video] = useState(
         () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
@@ -290,15 +290,15 @@ export const RolesScene = () => {
                 <Disco position={posDisco1}/>
                 <Disco position={posDisco2}/>
                 <Disco position={posDisco3}/>
-                <mesh receiveShadow castShadow scale={[5,1.5,0.1]} position={posUSB1}>
+                <mesh receiveShadow castShadow scale={[9.5,2.4,0.1]} position={posUSB1}>
                     <boxGeometry/>
                     <meshStandardMaterial color="white" envMapIntensify={0.5} />
                 </mesh>
-                <mesh receiveShadow castShadow scale={[5,1.5,0.1]} position={posUSB2}>
+                <mesh receiveShadow castShadow scale={[9.5,2.4,0.1]} position={posUSB2}>
                     <boxGeometry/>
                     <meshStandardMaterial color="white" envMapIntensify={0.5} />
                 </mesh>
-                <mesh receiveShadow castShadow scale={[5,1.5,0.1]} position={posUSB3}>
+                <mesh receiveShadow castShadow scale={[9.5,2.4,0.1]} position={posUSB3}>
                     <boxGeometry/>
                     <meshStandardMaterial color="white" envMapIntensify={0.5} />
                 </mesh>
