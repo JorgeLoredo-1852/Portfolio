@@ -32,6 +32,7 @@ import { Model as Computer } from "../../models/home/Computer"
 import { Model as Disco } from "../../models/home/Disco"
 import {Model as Disk1} from "../../models/home/Disk1"
 import {Model as Disk2} from "../../models/home/Disk2"
+import {Model as Placa1} from "../../models/home/Placa1"
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -291,18 +292,23 @@ export const RolesScene = () => {
                 <Disk1 position={posDisco1}/>
                 <Disk2 position={posDisco2}/>
                 <Disk1 position={posDisco3}/>
-                <mesh receiveShadow castShadow scale={[9.5,2.4,0.1]} position={posUSB1}>
-                    <boxGeometry/>
-                    <meshStandardMaterial color="white" envMapIntensify={0.5} />
-                </mesh>
-                <mesh receiveShadow castShadow scale={[9.5,2.4,0.1]} position={posUSB2}>
-                    <boxGeometry/>
-                    <meshStandardMaterial color="white" envMapIntensify={0.5} />
-                </mesh>
-                <mesh receiveShadow castShadow scale={[9.5,2.4,0.1]} position={posUSB3}>
-                    <boxGeometry/>
-                    <meshStandardMaterial color="white" envMapIntensify={0.5} />
-                </mesh>
+
+                <Placa1  position={posUSB1}/>
+                    <Text3D height={0.25} position={[posUSB1[0]-2.9, posUSB1[1]-0.33,posUSB1[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
+                        Front End
+                        <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
+                    </Text3D>
+                <Placa1  position={posUSB2}/>
+                    <Text3D height={0.25} position={[posUSB2[0]-2.9, posUSB2[1]-0.33,posUSB2[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
+                        Back End
+                        <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
+                    </Text3D>
+                <Placa1  position={posUSB3}/>
+                    <Text3D height={0.25} position={[posUSB3[0]-3.85, posUSB3[1]-0.33,posUSB3[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
+                        UI/UX Design
+                        <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
+                    </Text3D>
+
 
                 {/*<mesh receiveShadow castShadow scale={[22,16,1]} position={[0,-13.5,0]}>
                     <boxGeometry/>
