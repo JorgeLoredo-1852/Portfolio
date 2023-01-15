@@ -206,6 +206,319 @@ export function Model(props) {
           />
         </group>
       </group>
+      <group rotation={[Math.PI / 2, 0, 0]} scale={1}>
+        <group
+          position={[-17.3, -26.13, 22.03]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[-10.94, -26.13, 22.03]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1002_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1002_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[-3.95, -26.13, 22.03]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1003_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1003_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[3.02, -26.13, 22.03]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1004_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1004_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[9.35, -26.13, 22.03]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1005_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1005_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[-17.09, -26.13, 36.41]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1011_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1011_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[-10.73, -26.13, 36.41]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1012_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1012_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[-3.74, -26.13, 36.41]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1013_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1013_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[3.23, -26.13, 36.41]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1014_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1014_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[9.56, -26.13, 36.41]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1015_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1015_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[-17.09, -26.13, 52.43]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1016_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1016_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[-10.73, -26.13, 52.43]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1017_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1017_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[-3.74, -26.13, 52.43]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1018_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1018_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[3.23, -26.13, 52.43]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1019_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1019_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+        <group
+          position={[9.56, -26.13, 52.43]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={10}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1020_1.geometry}
+            material={materials["Steel - Satin.002"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Body1020_2.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+      </group>
+      <group position={[4, 38, -30]} scale={0.2}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh.geometry}
+          material={materials["Material #27"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh_1.geometry}
+          material={materials["Material #28"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh_2.geometry}
+          material={materials["Material #29"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh_3.geometry}
+          material={materials["Material #30"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh_4.geometry}
+          material={materials["Material #30"]}
+        />
+      </group>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Plane.geometry}
+        material={materials["Material.005"]}
+        position={[34, 0, -23.8]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={11}
+      />
     </group>
   );
 }

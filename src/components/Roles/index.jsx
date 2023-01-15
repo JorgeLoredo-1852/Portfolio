@@ -36,7 +36,7 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 
-export const Roles = () => {
+export const Roles = () => { 
     //const { ref, inView } = useInView();
     //const [viewRoles, setViewRoles] = useState(true)
 
