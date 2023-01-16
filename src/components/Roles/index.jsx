@@ -126,12 +126,13 @@ export const RolesScene = () => {
         setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
         
         if(offset > 0){
-            setPosDisco1([posDisco1[0] - 0.018, posDisco1[1], posDisco1[2]])
-            setPosDisco2([posDisco2[0] - 0.018, posDisco2[1], posDisco2[2]])
-            setPosDisco3([posDisco3[0] - 0.018, posDisco3[1], posDisco3[2]])
-            setPosUSB1([posUSB1[0] - 0.018, posUSB1[1], posUSB1[2]])
-            setPosUSB2([posUSB2[0] - 0.018, posUSB2[1], posUSB2[2]])
-            setPosUSB3([posUSB3[0] - 0.018, posUSB3[1], posUSB3[2]])
+            const diff = downSm ? 0.03 : 0.018
+            setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
+            setPosDisco2([posDisco2[0] - diff, posDisco2[1], posDisco2[2]])
+            setPosDisco3([posDisco3[0] - diff, posDisco3[1], posDisco3[2]])
+            setPosUSB1([posUSB1[0] - diff, posUSB1[1], posUSB1[2]])
+            setPosUSB2([posUSB2[0] - diff, posUSB2[1], posUSB2[2]])
+            setPosUSB3([posUSB3[0] - diff, posUSB3[1], posUSB3[2]])
             if(posDisco1[0] < -14){
                 setPosDisco1([28, posDisco1[1], posDisco1[2]])
                 setPosUSB1([28, posUSB1[1], posUSB1[2]])
@@ -295,7 +296,7 @@ export const RolesScene = () => {
                 
                 {/*  SECOND SECTION  */}
 
-                <Computer position={[0,-11.5,0.5]} scale={0.1}/>
+                <Computer position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
                 {/*<Computer2 position={[9.45,-30.7,-3.05]}/>*/}
                 <Disk1 position={posDisco1}/>
                 <Disk2 position={posDisco2}/>
