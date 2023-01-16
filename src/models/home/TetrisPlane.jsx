@@ -13,7 +13,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane.geometry}
-        material={materials["Material.026"]}
+        material={materials["Material.001"]}
         position={[1.26, 0, 0]}
         rotation={[Math.PI / 2, 0, -Math.PI / 2]}
         scale={[5, 1, 5]}
