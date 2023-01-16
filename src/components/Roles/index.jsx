@@ -32,6 +32,7 @@ import { Model as Computer } from "../../models/home/Computer"
 import { Model as Disco } from "../../models/home/Disco"
 import {Model as Disk1} from "../../models/home/Disk1"
 import {Model as Disk2} from "../../models/home/Disk2"
+import {Model as Disk3} from "../../models/home/Disk3"
 import {Model as Placa1} from "../../models/home/Placa1"
 
 import { useTheme } from '@mui/material/styles';
@@ -300,7 +301,7 @@ export const RolesScene = () => {
                 {/*<Computer2 position={[9.45,-30.7,-3.05]}/>*/}
                 <Disk1 position={posDisco1}/>
                 <Disk2 position={posDisco2}/>
-                <Disk1 position={posDisco3}/>
+                <Disk3 position={posDisco3}/>
 
                 <Placa1  position={posUSB1}/>
                     <Text3D height={0.25} position={[posUSB1[0]-2.9, posUSB1[1]-0.33,posUSB1[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
