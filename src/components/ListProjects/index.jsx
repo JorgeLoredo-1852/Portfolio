@@ -17,6 +17,7 @@ import { CardList } from './CardList';
 import { Tag } from '../../organisms';
 import { ModalProject } from '../ModalProject';
 import { List } from './List';
+import { Courses } from '../Courses';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useTheme } from '@mui/material/styles';
@@ -66,6 +67,12 @@ export const ListProjects = () => {
     const [showAll, setShowAll] = useState(true)
     const [search, setSearch] = useState(null)
     const [notFound, setNotFound] = useState(false)
+    const [actualTab, setActualTab] = useState(0)
+
+    const changeTab = (tab) => {
+        setActualTab(tab)
+        setActiveTags({"Frontend":false,"Backend":false,"IOT":false,"Web 3.0":false,"Databases":false,"Unity":false,"Docs":false,"Competition":false,"3D Modeling":false,"Simulation":false, "Mobile":false})
+    }
  
     const handleOpen = (project) => {
         setOpen(true);
@@ -101,8 +108,25 @@ export const ListProjects = () => {
 
     return(
         <div style={{backgroundColor:"#110728", width: "100%", display:"flex", justifyContent:"center", paddingBottom:"3rem"}}>
-            <div style={{maxWidth: '1260px', width:"100%", minHeight:"100vh"}}>
-                <Grid container mt={3} spacing={1} sx={{padding:downLg ? "2rem" : "0.5rem"}}>
+            <div style={{maxWidth: '1200px', width:"100%", minHeight:"100vh", padding:downLg ? "2rem" : "0.5rem"}}>
+
+
+            <div className="report__tabs">
+                <div className={"report__tabs--tab"}>
+                    <span onClick={()=>changeTab(0)} className={actualTab === 0 ? "report__tabs--bg tab__active" : "report__tabs--bg"}>
+                        <p className="report__tabs--text">PROJECTS</p>
+                    </span>
+                </div>
+                <div className={"report__tabs--tab"}>
+                    <span onClick={()=>changeTab(1)} className={actualTab === 1 ? "report__tabs--bg tab__active" : "report__tabs--bg"}>
+                        <p className="report__tabs--text">EXTRAS</p>
+                    </span>
+                </div>
+            </div>
+
+            {
+                actualTab === 0 ? 
+                <Grid container mt={1} spacing={1}>
                     <Grid item xs={12}>
                         <Box
                                 component="form"
@@ -123,7 +147,7 @@ export const ListProjects = () => {
                                         <SearchIcon sx={{ color: "white", fontSize:"1.6rem" }} />
                                     </IconButton>
                                 </div>
-                           </Box>
+                        </Box>
                         <Grid container spacing={1} sx={{display: downSm ? "none" : "flex", marginTop:"0.5rem"}}>
                             {ListTags.map((e) => (<Tag text={e.name} key={e.name} changeActive = {activeItem} initialActive={search}/>))}
                         </Grid>
@@ -131,7 +155,10 @@ export const ListProjects = () => {
                     <Grid item xs={12} mt={4}>
                         <CardList key={"cardlist"} tags={activeTags} openFunc={handleOpen} showAll={showAll} search={search}/>
                     </Grid>
-                </Grid>
+                </Grid> : 
+                <Courses/>
+            }
+
             </div>
             <div>
                 <ModalProject project={detailProject} open={open} onClose={handleClose}/>

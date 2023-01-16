@@ -21,26 +21,22 @@ export const ListTags = [
     },
     {
         id:6,
-        name: "Unity"
-    },
-    {
-        id:7,
         name: "Docs"
     },
     {
-        id:8,
+        id:7,
         name: "Competition"
     },
     {
-        id:9,
+        id:8,
         name: "3D Modeling"
     },
     {
-        id:10,
+        id:9,
         name: "Simulation"
     },
     {
-        id:11,
+        id:10,
         name: "Mobile"
     }
 ]
