@@ -126,12 +126,12 @@ export const RolesScene = () => {
         setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
         
         if(offset > 0){
-            setPosDisco1([posDisco1[0] - 0.015, posDisco1[1], posDisco1[2]])
-            setPosDisco2([posDisco2[0] - 0.015, posDisco2[1], posDisco2[2]])
-            setPosDisco3([posDisco3[0] - 0.015, posDisco3[1], posDisco3[2]])
-            setPosUSB1([posUSB1[0] - 0.015, posUSB1[1], posUSB1[2]])
-            setPosUSB2([posUSB2[0] - 0.015, posUSB2[1], posUSB2[2]])
-            setPosUSB3([posUSB3[0] - 0.015, posUSB3[1], posUSB3[2]])
+            setPosDisco1([posDisco1[0] - 0.018, posDisco1[1], posDisco1[2]])
+            setPosDisco2([posDisco2[0] - 0.018, posDisco2[1], posDisco2[2]])
+            setPosDisco3([posDisco3[0] - 0.018, posDisco3[1], posDisco3[2]])
+            setPosUSB1([posUSB1[0] - 0.018, posUSB1[1], posUSB1[2]])
+            setPosUSB2([posUSB2[0] - 0.018, posUSB2[1], posUSB2[2]])
+            setPosUSB3([posUSB3[0] - 0.018, posUSB3[1], posUSB3[2]])
             if(posDisco1[0] < -14){
                 setPosDisco1([28, posDisco1[1], posDisco1[2]])
                 setPosUSB1([28, posUSB1[1], posUSB1[2]])
@@ -270,12 +270,20 @@ export const RolesScene = () => {
             <ambientLight intensity={0.5} />
             <Environment preset="forest" blur={0.5}/>
             <group position={[0,posScene,0]}>
-                <Arrow position={[8,0,2]} rotation={[0,0,Math.PI]} scale={0.6}/>
-                <Arrow position={[-8,0,2]} scale={0.6}/>
-                <mesh receiveShadow castShadow scale={[22,11,1]}>
+
+                {/*  FIRST SECTION  */}
+                <mesh receiveShadow castShadow scale={[50,0.5,30]} position={[0,-5.2,-12.5]}>
                     <boxGeometry/>
                     <meshStandardMaterial color="#4c00a3" envMapIntensify={0.5} opacity={0.1}/>
                 </mesh>
+                <mesh receiveShadow castShadow scale={[50,30,1]}  position={[0,5,-12.5]}>
+                    <boxGeometry/>
+                    <meshStandardMaterial color="#4c00a3" envMapIntensify={0.5} opacity={0.1}/>
+                </mesh>
+                <Text3D height={0.2}position={[-11,0,-8]} letterSpacing={0.009} size={2} font="/Inter_Bold.json">
+                        In PROGRESS...
+                        <meshPhongMaterial color="#fff" opacity={1} transparent />
+                    </Text3D>
 
 
                 {/*  ELEVATOR  */}
@@ -296,17 +304,17 @@ export const RolesScene = () => {
                 <Placa1  position={posUSB1}/>
                     <Text3D height={0.25} position={[posUSB1[0]-2.9, posUSB1[1]-0.33,posUSB1[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
                         Front End
-                        <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
+                        <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
                 <Placa1  position={posUSB2}/>
                     <Text3D height={0.25} position={[posUSB2[0]-2.9, posUSB2[1]-0.33,posUSB2[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
                         Back End
-                        <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
+                        <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
                 <Placa1  position={posUSB3}/>
                     <Text3D height={0.25} position={[posUSB3[0]-3.85, posUSB3[1]-0.33,posUSB3[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
                         UI/UX Design
-                        <meshPhongMaterial color="#fff" opacity={opacityText1} transparent />
+                        <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
 
 
