@@ -105,9 +105,9 @@ export const RolesScene = () => {
     const [railPos, setRailPos] = useState([0,- 13 - 15.8,0])
     const [rotPortal, setRotPortal] = useState([0,0,0])
     const [posText, setPosText] = useState([-2.9, -27, 10])
-    const [posDisco1, setPosDisco1] = useState([12,-11.5,-0.3])
-    const [posDisco2, setPosDisco2] = useState([26,-11.5,-0.3])
-    const [posDisco3, setPosDisco3] = useState([40,-11.5,-0.3])
+    const [posDisco1, setPosDisco1] = useState(downSm ? [4,-11.5,-0.3] : [12,-11.5,-0.3])
+    const [posDisco2, setPosDisco2] = useState(downSm ? [18,-11.5,-0.3] : [26,-11.5,-0.3])
+    const [posDisco3, setPosDisco3] = useState(downSm ? [32,-11.5,-0.3] : [40,-11.5,-0.3])
     const [posUSB1, setPosUSB1] = useState([12,-19.3,-0.3])
     const [posUSB2, setPosUSB2] = useState([26,-19.3,-0.3])
     const [posUSB3, setPosUSB3] = useState([40,-19.3,-0.3])
@@ -126,7 +126,7 @@ export const RolesScene = () => {
         setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
         
         if(offset > 0){
-            const diff = downSm ? 0.03 : 0.018
+            const diff = downSm ? 0.045 : 0.018
             setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
             setPosDisco2([posDisco2[0] - diff, posDisco2[1], posDisco2[2]])
             setPosDisco3([posDisco3[0] - diff, posDisco3[1], posDisco3[2]])
