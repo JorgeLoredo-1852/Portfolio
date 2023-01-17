@@ -5,9 +5,7 @@ import { useEffect, useState, useRef } from "react"
 import * as THREE from "three"
 import { useInView } from "react-intersection-observer";
 
-import {Model as Arrow} from '../../models/Arrow'
 import {Model as Portal} from '../../models/home/Portal'
-import {Model as Asteroid} from '../../models/React'
 
 import {Model as Tetris1} from "../../models/home/Tetris1"
 import {Model as Tetris2} from "../../models/home/Tetris2"
@@ -29,7 +27,6 @@ import { Model as Pedestal } from "../../models/home/Pedestal"
 import { Model as PersonYell } from "../../models/home/Yell"
 import { Model as PersonVictory } from "../../models/home/Victory"
 import { Model as Computer } from "../../models/home/Computer"
-import { Model as Disco } from "../../models/home/Disco"
 import {Model as Disk1} from "../../models/home/Disk1"
 import {Model as Disk2} from "../../models/home/Disk2"
 import {Model as Disk3} from "../../models/home/Disk3"
@@ -298,7 +295,6 @@ export const RolesScene = () => {
                 {/*  SECOND SECTION  */}
 
                 <Computer position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
-                {/*<Computer2 position={[9.45,-30.7,-3.05]}/>*/}
                 <Disk1 position={posDisco1}/>
                 <Disk2 position={posDisco2}/>
                 <Disk3 position={posDisco3}/>
@@ -486,14 +482,12 @@ export const RolesScene = () => {
                     <group rotation={rotCourses} position={posCourses} scale={downSm ? 0.6 : 1}>           
 
                             <Tetris1 position={posTetris1} rotation={rotTetris1} scale={1.8}/>
-                                {/*<TetrisPlane1 position={posTetris1} rotation={rotTetris1} scale={1.8}/>*/}
                             <Tetris2 position={posTetris2} rotation={rotTetris2} scale={1.8}/>
                             <Tetris3 position={posTetris3} rotation={rotTetris3} scale={1.8}/>
                             <Tetris4 position={posTetris4} rotation={rotTetris4} scale={1.8}/>
                             <Tetris5 position={posTetris5} rotation={rotTetris5} scale={1.8}/>
                             <Tetris6 position={posTetris6} rotation={rotTetris6} scale={1.8}/>
                             {hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={1.8}/> : <></>}
-                            {/*hideTetrisLast ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-4.1]} rotation={rotTetris7} scale={scaleTetris7}/> : <></> 3,6 */ }
                             {hideTetrisLast  ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-0.41]} rotation={rotTetris7} scale={1.8}/> : <></>}
                             {!hideTetrisLast && posTetris1[1] <= -70 ? <TetrisMissingOne position={[posTetris1[0]+7.2,posTetris1[1]+3.6,posTetris1[2] - 0.41]} rotation={rotTetris1} scale={1.8}/> : <></>}
 
