@@ -48,7 +48,7 @@ export const CardList = ({tags, openFunc, showAll, search}) => {
                     founded == 0 && search ? 
                         <Grid item xs={12} sx={{display:"flex",justifyContent:"center"}}>
                         <div style={{width:downMd ? "80%" : "50%",marginTop:"4rem", display:"flex", alignItems:"center", flexDirection: downSm ? "column" : "row"}}>
-                            <img src={"/icons/Group.svg"} style={{height:"5rem", width:"5rem",marginRight: downSm ? "0":"2rem", marginBottom: downSm ? "2rem":"0"}} loading="lazy"/>
+                            <img src={"/icons/Group.svg"} style={{height:"5rem", width:"5rem",marginRight: downSm ? "0":"2rem", marginBottom: downSm ? "2rem":"0"}}/>
                             <div style={{fontSize:downMd?"1.6rem":"2rem", lineHeight:"2.5rem", color:"#BBA9CE", textAlign:downSm?"center":"start"}}>Didn't find a project with that name, technology, date or description :(((</div>
                         </div> 
                         </Grid>

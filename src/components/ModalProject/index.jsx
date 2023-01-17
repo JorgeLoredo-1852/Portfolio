@@ -52,26 +52,26 @@ export const ModalProject = ({project, open, onClose}) => {
               <div style={{position:"relative"}}>
                 <div style={{display:"flex", justifyContent:"flex-end", alignItem:"center", position:"absolute", right:"0", top:"-2.5rem", height:"1.5rem"}}>
                   {
-                    project.twitter ? <a href={project.twitter} target="_blank" rel='nonereferrer'><img src={"/icons/twitter.svg"} style={{height:"1.8rem", width:"1.8rem",marginRight:"0.8rem"}} loading="lazy"/></a>:<></>
+                    project.twitter ? <a href={project.twitter} target="_blank" rel='nonereferrer'><img src={"/icons/twitter.svg"} style={{height:"1.8rem", width:"1.8rem",marginRight:"0.8rem"}}/></a>:<></>
                   }
                                     {
-                    project.youtube ? <a href={project.youtube} target="_blank" rel='nonereferrer'><img src={"/icons/youtube.svg"} style={{height:"2rem", width:"2rem",marginRight:"0.8rem", marginTop:"-0.1rem"}} loading="lazy"/></a>:<></>
+                    project.youtube ? <a href={project.youtube} target="_blank" rel='nonereferrer'><img src={"/icons/youtube.svg"} style={{height:"2rem", width:"2rem",marginRight:"0.8rem", marginTop:"-0.1rem"}}/></a>:<></>
                   }
                                     {
-                    project.github ? <a href={project.github} target="_blank" rel='nonereferrer'><img src={"/icons/github.svg"} style={{height:"1.8rem", width:"1.8rem",marginRight:"0.8rem", marginTop:"-0.1rem"}} loading="lazy"/></a>:<></>
+                    project.github ? <a href={project.github} target="_blank" rel='nonereferrer'><img src={"/icons/github.svg"} style={{height:"1.8rem", width:"1.8rem",marginRight:"0.8rem", marginTop:"-0.1rem"}}/></a>:<></>
                   }
                                     {
-                    project.link ? <a href={project.link} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.6rem", width:"1.6rem",marginRight:"0.8rem", marginTop:"0.1rem"}} loading="lazy"/></a>:<></>
+                    project.link ? <a href={project.link} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.6rem", width:"1.6rem",marginRight:"0.8rem", marginTop:"0.1rem"}}/></a>:<></>
                   }
                   {
-                    project.link2 ? <a href={project.link2} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.6rem", width:"1.6rem",marginRight:"0.8rem", marginTop:"0.1rem"}} loading="lazy"/></a>:<></>
+                    project.link2 ? <a href={project.link2} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.6rem", width:"1.6rem",marginRight:"0.8rem", marginTop:"0.1rem"}}/></a>:<></>
                   }
               </div>
               </div>
               <img
                     src={project.modalImg}
                     style={{padding:"0.5rem 0.5rem 0rem 0.5rem", maxWidth:"550px"}}
-                    loading="lazy"
+                  
               />
            </Box>
           </Grid>
@@ -79,11 +79,11 @@ export const ModalProject = ({project, open, onClose}) => {
             <Box sx={{fontSize:"2rem", fontWeight:"600",  display:"flex", justifyContent:"space-between",flexDirection: downSm ? "column-reverse" :""}}>
               <div style={{lineHeight:"2.3rem"}}>{project.name}</div>
                     <div style={{display: downLg ? "flex" : "none", justifyContent: downSm ? "flex-Start" : "flex-end", alignItem:"center", marginBottom: downSm ? "1rem" : ""}}>
-                    { project.twitter ? <a href={project.twitter} target="_blank" rel='nonereferrer'><img src={"/icons/twitter.svg"} style={{height:"1.6rem", width:"1.6rem",marginRight:"0.8rem"}} loading="lazy"/></a>:<></> }
-                    { project.youtube ? <a href={project.youtube} target="_blank" rel='nonereferrer'><img src={"/icons/youtube.svg"} style={{height:"1.8rem", width:"1.8rem",marginRight:"0.8rem"}} loading="lazy"/></a>:<></> }
-                    { project.github ? <a href={project.github} target="_blank" rel='nonereferrer'><img src={"/icons/github.svg"} style={{height:"1.7rem", width:"1.7rem",marginRight:"0.8rem"}} loading="lazy"/></a>:<></> }
-                    { project.link ? <a href={project.link} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.5rem", width:"1.5rem",marginRight:"0.8rem"}} loading="lazy"/></a>:<></> }
-                    { project.link2 ? <a href={project.link2} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.5rem", width:"1.5remm",marginRight:"0.8rem"}} loading="lazy"/></a>:<></> }
+                    { project.twitter ? <a href={project.twitter} target="_blank" rel='nonereferrer'><img src={"/icons/twitter.svg"} style={{height:"1.6rem", width:"1.6rem",marginRight:"0.8rem"}}/></a>:<></> }
+                    { project.youtube ? <a href={project.youtube} target="_blank" rel='nonereferrer'><img src={"/icons/youtube.svg"} style={{height:"1.8rem", width:"1.8rem",marginRight:"0.8rem"}}/></a>:<></> }
+                    { project.github ? <a href={project.github} target="_blank" rel='nonereferrer'><img src={"/icons/github.svg"} style={{height:"1.7rem", width:"1.7rem",marginRight:"0.8rem"}}/></a>:<></> }
+                    { project.link ? <a href={project.link} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.5rem", width:"1.5rem",marginRight:"0.8rem"}}/></a>:<></> }
+                    { project.link2 ? <a href={project.link2} target="_blank" rel='nonereferrer'><img src={"/icons/link.svg"} style={{height:"1.5rem", width:"1.5remm",marginRight:"0.8rem"}}/></a>:<></> }
                   </div> 
             </Box>
             <Box sx={{fontSize:"1.2rem", fontWeight:"400", color:"#F2E5FF", marginTop:"1rem"}}>
@@ -110,7 +110,7 @@ export const ModalProject = ({project, open, onClose}) => {
                                       key={`${project.name} ${t}`}
                     src={`/technologies/${t}.png`}
                     style={{height:"40px", width:"auto", marginRight:"1.5rem", marginTop:"1rem"}}
-                    loading="lazy"
+                  
                   />)) }
                   </div>
                 </div>
