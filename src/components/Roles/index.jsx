@@ -34,6 +34,7 @@ import {Model as Placa1} from "../../models/home/Placa1"
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { JGx } from "../JGx"
 
 
 export const Roles = () => { 
@@ -46,6 +47,7 @@ export const Roles = () => {
     //console.log(viewRoles)
     return(
         <div style={{width:"100%", height:"100vh"}}>
+            <JGx/>
             <Canvas 
                     className='canvas' 
                     shadows

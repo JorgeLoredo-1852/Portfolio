@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Form3D } from '../components'
+import { Form3D, JGx } from '../components'
 import { Container, Grid, InputAdornment, OutlinedInput, Typography, IconButton } from "@mui/material"
 import { Canvas, useFrame } from '@react-three/fiber'
 import emailjs from '@emailjs/browser';
@@ -87,6 +87,7 @@ export const Contact = () =>{
   
     return (
         <div style={{height:"100vh", width:"100vw", position:"relative", backgroundColor:"#000000"}}>
+            <JGx/>
             <Canvas 
                 className='canvas' 
                 shadows

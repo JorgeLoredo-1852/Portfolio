@@ -122,8 +122,8 @@
   align-items: center;
   justify-content: space-between;
   position: absolute;
-  top: 4rem;
-  left: 4rem;
+  top: 2rem;
+  left: 2rem;
   z-index: 200;
   border-radius: 50px;
   overflow: hidden;
@@ -136,14 +136,14 @@
 }
 
 .navbar--header{
-  width: 4rem;
-  height: 4rem;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 100%;
   margin: 5px;
 
   @include m.respond(tab-port){
-    width: 3.4rem;
-    height: 3.4rem;
+    width: 3.5rem;
+    height: 3.5rem;
   }
 
 }

@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material"
-import { WorkScene } from '../components'
+import { WorkScene, JGx } from '../components'
 import { Canvas } from "@react-three/fiber"
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -12,6 +12,7 @@ export const Work = () => {
     return(
 
     <div style={{width:"100vw", height:"100vh", backgroundColor:"#000"}} >
+        <JGx/>
         <Canvas 
             className='canvas' 
             shadows
