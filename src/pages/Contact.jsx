@@ -143,7 +143,7 @@ export const Contact = () =>{
                                     color='primary'
                                 />
                                 </ThemeProvider>
-                            </Grid>
+                            </Grid> 
                             <Grid item xs={12}>
                                 <input style={{padding: "0.5rem 1.5rem", color: "white", fontSize: "1.2rem", textDecoration: "none", textTransform: "uppercase", fontWeight: 500, width:"100%",  backgroundColor: "#3900BB", borderRadius:"3px", outline:"none"}} type="submit" value="Send" />
                             </Grid>
