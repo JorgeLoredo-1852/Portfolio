@@ -98,7 +98,7 @@ export const Contact = () =>{
             </Canvas>
             <div className={fadeOut()}>
                 <div style={{backgroundColor: "#1D0060" , width: downMd ? "300px" : "500px", height: downMd ? "420px":"380px"}} className={minimizeClass()}>
-                    <form ref={form} onSubmit={sendEmail} style={{display:"flex", flexDirection:"column"}}  className={submitted ? 'displaynone':''}>
+                    <form autocomplete="off" ref={form} onSubmit={sendEmail} style={{display:"flex", flexDirection:"column"}}  className={submitted ? 'displaynone':''}>
                         <Grid container sx={{padding:"2rem"}} columnSpacing={3} rowSpacing={downMd ? 2 : 3} >
                             <Grid item xs={12}><div style={{color:"white", fontSize:"2rem", fontWeight:"600"}}>Contact</div></Grid>
                             <Grid item xs={12} md={6} style={{position:"relative"}}>
