@@ -275,3 +275,26 @@
     background-position: 100%;
   }
   
+
+  /* width */
+::-webkit-scrollbar {
+  @media (min-width: 1200px) {
+    width: 8px;
+  }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @media (min-width: 1200px) {
+    background-color: #100036;
+  }
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @media (min-width: 1200px) {
+    background: #3900BB;
+    border-radius: 10px;
+  }
+
+}
