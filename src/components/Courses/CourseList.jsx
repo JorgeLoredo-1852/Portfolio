@@ -7,7 +7,7 @@ export const courseList = [
         platform:"Udemy",
         date:"March 2021",
         link:"https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/",
-        image:""
+        image: <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}><img src={"/tables/node.png"} style={{ width:"3rem", margin:0, padding:0}} loading="lazy"/></div>
     },
     {
         id:2,
@@ -17,7 +17,7 @@ export const courseList = [
         platform:"Udemy",
         date:"March 2021",
         link:"https://www.udemy.com/course/advanced-css-and-sass/",
-        image:""
+        image: <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}><img src={"/tables/css.png"} style={{ width:"3rem", margin:0, padding:0}} loading="lazy"/></div>
     },
     {
         id:3,
@@ -27,7 +27,8 @@ export const courseList = [
         platform:"Udemy",
         date:"Jan 2021",
         link:"https://www.udemy.com/course/advanced-css-and-sass/",
-        image: ""
+        image: <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}><img src={"/tables/reactCourse.png"} style={{ width:"3rem", margin:0, padding:0}} loading="lazy"/></div>
+
     },
     {
         id:8,
@@ -37,7 +38,7 @@ export const courseList = [
         platform:"Coursera",
         date:"Dec 2020",
         link:"https://mx.coursera.org/learn/html-css-javascript-for-web-developers",   
-        image:""
+        image: <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}><img src={"/tables/html.png"} style={{ width:"3rem", margin:0, padding:0}} loading="lazy"/></div>
     },
     {
         id:6,
@@ -47,7 +48,7 @@ export const courseList = [
         platform:"Coursera",
         date:"Sept 2020",
         link:"https://mx.coursera.org/specializations/tensorflow-data-and-deployment",   
-        image:""
+        image: <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}><img src={"/tables/deep.png"} style={{ width:"3rem", margin:0, padding:0}} loading="lazy"/></div>
     },
     {
         id:7,
@@ -57,7 +58,7 @@ export const courseList = [
         platform:"Coursera",
         date:"Sept 2020",
         link:"https://mx.coursera.org/professional-certificates/tensorflow-in-practice",   
-        image:""
+        image: <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}><img src={"/tables/deep.png"} style={{ width:"3rem", margin:0, padding:0}} loading="lazy"/></div>
     },
     {
         id:4,
@@ -67,7 +68,7 @@ export const courseList = [
         platform:"Coursera",
         date:"Aug 2020",
         link:"https://mx.coursera.org/specializations/deep-learning",  
-        image:"" 
+        image: <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}><img src={"/tables/deep.png"} style={{ width:"3rem", margin:0, padding:0}} loading="lazy"/></div>
     },
     {
         id:5,
@@ -77,7 +78,7 @@ export const courseList = [
         platform:"Coursera",
         date:"May 2020",
         link:"https://mx.coursera.org/specializations/python",   
-        image:""
+        image: <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}><img src={"/tables/Python.png"} style={{ width:"3rem", margin:0, padding:0}} loading="lazy"/></div>
     },
 
 ]
