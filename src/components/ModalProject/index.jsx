@@ -47,7 +47,7 @@ export const ModalProject = ({project, open, onClose}) => {
       >
         <Fade in={open}>
         <Grid container sx={style}>
-          <Grid item xs={0} lg={"auto"} sx={{backgroundColor:"#3900BB", display: downLg ? "none" : ""}}>
+          <Grid item xs={0} lg={"auto"} sx={{ backgroundColor:"#3900BB", display: downLg ? "none" : ""}}>
            <Box sx={{padding:"0", margin:"0", position:"relative"}}>
               <div style={{position:"relative"}}>
                 <div style={{display:"flex", justifyContent:"flex-end", alignItem:"center", position:"absolute", right:"0", top:"-2.5rem", height:"1.5rem"}}>
@@ -70,7 +70,7 @@ export const ModalProject = ({project, open, onClose}) => {
               </div>
               <img
                     src={project.modalImg}
-                    style={{padding:"0.5rem 0.5rem 0rem 0.5rem", maxWidth:"550px"}}
+                    style={{padding:"0.5rem 0.5rem 0rem 0.5rem", minWidth:"500px", minHeight:"200px", maxWidth:"520px"}}
                   
               />
            </Box>

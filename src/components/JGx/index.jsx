@@ -27,9 +27,9 @@ export const JGx = ({notHide = true}) => {
 
 
   return (
-    <div className={notHide ? "navbar" : "navbar navbar--hide"} style={{flexDirection:downSm ? "column" : "row"}}>
-        <div onClick={changeDisplay} style={{backgroundColor:"#3900BB", borderRadius:"100%", display:"flex", alignItems:"center", justifyContent:"center", zIndex:"210", cursor:"pointer"}} >
-            <img className="navbar--header" src={JGxLogo}/>
+    <div  className={notHide ? "navbar" : "navbar navbar--hide"} style={{flexDirection:downSm ? "column" : "row"}}>
+        <div onClick={changeDisplay} style={{cursor:downSm ? "unset" : "pointer", backgroundColor:"#3900BB", borderRadius:"100%", display:"flex", alignItems:"center", justifyContent:"center", zIndex:"210"}} >
+            <img className="navbar--header" style={{userSelect:"none"}} src={JGxLogo}/>
         </div>
         <div style={{ display:displayLinks ? "flex" : "none", flexDirection: downSm ? "column" : "row"}} className={downSm? "linksNavTop" : "linksNavLeft"}>
             <div style={{display: displayLinks ? "flex" : "none", backgroundColor:"#3900BB", borderRadius:"100%", alignItems:"center", justifyContent:"center", marginLeft: downSm ? "0" : "1rem", zIndex:"180", marginTop: downSm ? "1rem" : "0"}} className="nav--link">

@@ -65,8 +65,8 @@ export const NewNav = ({inView3D}) => {
     <div className="navigation">
     <input checked={openNav} onChange={onCheckedNav} type="checkbox" className="navigation__checkbox" id="navi-toggle"/>
 
-    <label htmlFor="navi-toggle" className={classNameNav()}>
-        <span className="navigation__icon">&nbsp;</span>
+    <label htmlFor="navi-toggle" className={classNameNav()} style={{cursor:downSm ? "unset" : "pointer"}}>
+        <span className="navigation__icon" >&nbsp;</span>
     </label>
  
     <div className={classNameBG()}>&nbsp;</div>
