@@ -106,12 +106,15 @@ export const ModalProject = ({project, open, onClose}) => {
               <Grid item xs={12}>
                 <div style={{overflow:"hidden", width:"100%", height:"63px"}}>
                   <div className='hideScroll'>
-                                      { project.technologies.map((t) => (<img
-                                      key={`${project.name} ${t}`}
-                    src={`/technologies/${t}.png`}
-                    style={{height:"40px", width:"auto", marginRight:"1.5rem", marginTop:"1rem"}}
+                                      { project.technologies.map((t) => {
+                                        
+                                      return (
+                                      <img 
+                                        key={`${project.name} ${t}`}
+                                        src={t === "C++" ? '/technologies/C.svg' : `/technologies/${t}.svg`}
+                                        style={{height:"40px", width:"auto", marginRight:"1.5rem", marginTop:"1rem"}}
                   
-                  />)) }
+                                      />)} ) }
                   </div>
                 </div>
               </Grid>

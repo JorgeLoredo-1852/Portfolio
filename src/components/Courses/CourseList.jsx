@@ -78,7 +78,7 @@ export const courseList = [
         platform:"Coursera",
         date:"May 2020",
         link:"https://mx.coursera.org/specializations/python",   
-        image: <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}><img src={"/tables/Python.png"} style={{ width:"3rem", margin:0, padding:0}}/></div>
+        image: <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}><img src={"/technologies/Python.svg"} style={{ width:"3rem", margin:0, padding:0}}/></div>
     },
 
 ]

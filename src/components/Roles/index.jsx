@@ -273,11 +273,11 @@ export const RolesScene = () => {
             <group position={[0,posScene,0]}>
 
                 {/*  FIRST SECTION  */}
-                <mesh receiveShadow castShadow scale={[50,0.5,30]} position={[0,-5.2,-12.5]}>
+                <mesh receiveShadow castShadow scale={[100,0.5,30]} position={[0,-5.2,-12.5]}>
                     <boxGeometry/>
                     <meshStandardMaterial color="#4c00a3" envMapIntensify={0.5} opacity={0.1}/>
                 </mesh>
-                <mesh receiveShadow castShadow scale={[50,30,1]}  position={[0,5,-12.5]}>
+                <mesh receiveShadow castShadow scale={[100,30,1]}  position={[0,5,-12.5]}>
                     <boxGeometry/>
                     <meshStandardMaterial color="#4c00a3" envMapIntensify={0.5} opacity={0.1}/>
                 </mesh>
@@ -326,7 +326,7 @@ export const RolesScene = () => {
 
                 {/*  THIRD SECTION  */}
 
-                <CubeBG position={[0,0,-200]} scale={[100,100,1]}/>
+                <CubeBG position={[0,0,-80]} scale={[200,200,1]}/>
                                                     {/*<Sparkles  position={[0,posPortal[1]-10,-25]} color="#3900BB" count={200} scale={40} size={100} speed={2} />*/}
                 <mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
                     <planeGeometry />
