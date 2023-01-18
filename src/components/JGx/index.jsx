@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-export const JGx = () => {
+export const JGx = ({notHide = true}) => {
     const themeM = useTheme();
 
     const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
@@ -17,9 +17,11 @@ export const JGx = () => {
         setDisplayLinks(!displayLinks)
     }
 
+    console.log(notHide)
+
 
   return (
-    <div className="navbar" style={{flexDirection:downSm ? "column" : "row"}}>
+    <div className={notHide ? "navbar" : "navbar navbar--hide"} style={{flexDirection:downSm ? "column" : "row"}}>
         <div onClick={changeDisplay} style={{backgroundColor:"#3900BB", borderRadius:"100%", display:"flex", alignItems:"center", justifyContent:"center", zIndex:"210", cursor:"pointer"}} >
             <img className="navbar--header" src="/icons/JG.png"/>
         </div>

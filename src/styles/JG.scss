@@ -121,19 +121,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: absolute;
+  position: fixed;
   top: 2rem;
   left: 2rem;
   z-index: 200;
   border-radius: 50px;
   overflow: hidden;
-
-  @include m.respond(tab-port){
-    position: absolute;
+    @include m.respond(tab-port){
+    position: fixed;
     top: 1.5rem;
     left: 1rem;
   }   
+  &--hide{
+    -webkit-animation: display-none-transition2 0.3s;
+    animation: display-none-transition2 0.3s;
+    opacity: 0;
+  }
+
+
 }
+
 
 .navbar--header{
   width: 4.5rem;
@@ -141,6 +148,12 @@
   border-radius: 100%;
   margin: 5px;
 
+          
+  @media (max-width: 1300px) {
+    width: 4rem;
+    height: 4rem;
+  }
+  
   @include m.respond(tab-port){
     width: 3.5rem;
     height: 3.5rem;
@@ -184,5 +197,28 @@
   transition: all 0.2s;
   &:hover{
     transform: translateY(3px);
+  }
+}
+
+
+
+@-webkit-keyframes display-none-transition2 {
+  0% {
+      opacity: 1;
+      
+  }
+  100% {
+    opacity: 0;
+
+  }
+}
+@keyframes display-none-transition2 {
+  0% {
+      opacity: 1;
+      
+  }
+  100% {
+    opacity: 0;
+
   }
 }
