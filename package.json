@@ -30,6 +30,7 @@
     "react-material-ui-carousel": "^3.4.2",
     "react-router": "^6.6.0",
     "react-router-dom": "^6.6.0",
+    "react-spinners": "^0.13.7",
     "react-spring": "^9.6.1",
     "react-three": "^0.9.7",
     "sass": "^1.57.1",

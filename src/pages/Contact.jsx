@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Form3D } from '../components'
+import { Form3D, JGx } from '../components'
 import { Container, Grid, InputAdornment, OutlinedInput, Typography, IconButton } from "@mui/material"
 import { Canvas, useFrame } from '@react-three/fiber'
 import emailjs from '@emailjs/browser';
@@ -87,6 +87,7 @@ export const Contact = () =>{
   
     return (
         <div style={{height:"100vh", width:"100vw", position:"relative", backgroundColor:"#000000"}}>
+            <JGx/>
             <Canvas 
                 className='canvas' 
                 shadows
@@ -98,7 +99,7 @@ export const Contact = () =>{
             </Canvas>
             <div className={fadeOut()}>
                 <div style={{backgroundColor: "#1D0060" , width: downMd ? "300px" : "500px", height: downMd ? "420px":"380px"}} className={minimizeClass()}>
-                    <form autocomplete="off" ref={form} onSubmit={sendEmail} style={{display:"flex", flexDirection:"column"}}  className={submitted ? 'displaynone':''}>
+                    <form autoComplete="off" ref={form} onSubmit={sendEmail} style={{display:"flex", flexDirection:"column"}}  className={submitted ? 'displaynone':''}>
                         <Grid container sx={{padding:"2rem"}} columnSpacing={3} rowSpacing={downMd ? 2 : 3} >
                             <Grid item xs={12}><div style={{color:"white", fontSize:"2rem", fontWeight:"600"}}>Contact</div></Grid>
                             <Grid item xs={12} md={6} style={{position:"relative"}}>
@@ -143,7 +144,7 @@ export const Contact = () =>{
                                     color='primary'
                                 />
                                 </ThemeProvider>
-                            </Grid>
+                            </Grid> 
                             <Grid item xs={12}>
                                 <input style={{padding: "0.5rem 1.5rem", color: "white", fontSize: "1.2rem", textDecoration: "none", textTransform: "uppercase", fontWeight: 500, width:"100%",  backgroundColor: "#3900BB", borderRadius:"3px", outline:"none"}} type="submit" value="Send" />
                             </Grid>

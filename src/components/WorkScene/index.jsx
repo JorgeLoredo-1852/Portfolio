@@ -1,5 +1,4 @@
 import { Environment, OrbitControls, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
-import { Model as WorkModel } from "../../models/Work"
 import { Model as RocketModel } from "../../models/Nave"
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 
@@ -9,7 +8,6 @@ import { useEffect, useRef, useState, Suspense } from 'react'
 import { TextureLoader } from 'three/src/loaders/TextureLoader.js';
 
 import { Model as FrameModel } from '../../models/ProfileAsteroid'
-import { Model as ReactModel} from '../../models/React'
 import {Model as Earth} from '../../models/EarthWork'
 import { Model as Java } from '../../models/technologies/java'
 import { Model as Python } from '../../models/technologies/python'
@@ -30,7 +28,6 @@ import { Model as Unity } from '../../models/technologies/Unity'
 import { Model as ThreeJS } from '../../models/technologies/Three'
 import { Model as Fusion } from '../../models/technologies/Fusion'
 import { Model as Spaceship } from '../../models/technologies/spaceship'
-import { Model as Pilar1 } from '../../models/Pilar1'
 import { Model as MedGlobal } from '../../models/pilars/MedGlobal'
 import { Model as Micronics } from '../../models/pilars/Micronics'
 import { Model as Vitale } from '../../models/pilars/Vitale'
@@ -76,7 +73,7 @@ const Crate = ({position, hit, urlImage}) => {
 
     useEffect(()=>{
         if(hit == true){
-            console.log(hit)
+            //console.log(hit)
             api.applyImpulse([0, -5, -20], [0, -1, 0])
         }
     },[hit])

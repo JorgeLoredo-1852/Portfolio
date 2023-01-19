@@ -1,13 +1,11 @@
 import { Grid } from "@mui/material"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { Environment, useAnimations, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
-import { useEffect, useState, useRef } from "react"
+import { Environment, useProgress, useAnimations, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
+import { useEffect, useState, useRef, Suspense } from "react"
 import * as THREE from "three"
 import { useInView } from "react-intersection-observer";
 
-import {Model as Arrow} from '../../models/Arrow'
 import {Model as Portal} from '../../models/home/Portal'
-import {Model as Asteroid} from '../../models/React'
 
 import {Model as Tetris1} from "../../models/home/Tetris1"
 import {Model as Tetris2} from "../../models/home/Tetris2"
@@ -29,7 +27,6 @@ import { Model as Pedestal } from "../../models/home/Pedestal"
 import { Model as PersonYell } from "../../models/home/Yell"
 import { Model as PersonVictory } from "../../models/home/Victory"
 import { Model as Computer } from "../../models/home/Computer"
-import { Model as Disco } from "../../models/home/Disco"
 import {Model as Disk1} from "../../models/home/Disk1"
 import {Model as Disk2} from "../../models/home/Disk2"
 import {Model as Disk3} from "../../models/home/Disk3"
@@ -37,6 +34,7 @@ import {Model as Placa1} from "../../models/home/Placa1"
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import {JGx, LoadingModels} from "../../components"
 
 
 export const Roles = () => { 
@@ -47,19 +45,53 @@ export const Roles = () => {
     //    setViewRoles(!viewRoles)
     //}, [inView])
     //console.log(viewRoles)
+    const { active, progress, errors, item, loaded, total } = useProgress()
+    const [chargeComplete, setChargeComplete] = useState(false)
+
+    useEffect(()=>{
+        if(progress == 100){
+            setChargeComplete(true)
+        }
+    }, [progress])
+
     return(
-        <div style={{width:"100%", height:"100vh"}}>
-            <Canvas 
+        <div style={{width:"100%", height:"100vh", backgroundColor:"black"}}>
+            <JGx/>
+            {
+                chargeComplete ? 
+                <Canvas 
                     className='canvas' 
                     shadows
                     camera={{position: [0,0,40] , fov:15}}
                     color={"#000000"}
                     style={{zIndex:100}}
                 >
-                <ScrollControls pages={6}>
-                    <RolesScene/>
-                </ScrollControls>
-            </Canvas>
+                    <Suspense fallback={null}>
+                        <ScrollControls pages={6}>
+                            <RolesScene/>
+                        </ScrollControls>
+                    </Suspense>
+                </Canvas> : 
+                <LoadingModels progress={progress}/>
+            }
+
+{/*
+                chargeComplete ? 
+                <Canvas 
+                    className='canvas' 
+                    shadows
+                    camera={{position: [0,0,40] , fov:15}}
+                    color={"#000000"}
+                    style={{zIndex:100}}
+                >
+                    <Suspense fallback={null}>
+                        <ScrollControls pages={6}>
+                            <RolesScene/>
+                        </ScrollControls>
+                    </Suspense>
+                </Canvas> : 
+                <LoadingModels progress={progress}/>*/
+            }
         </div>        
     )
 }
@@ -274,11 +306,11 @@ export const RolesScene = () => {
             <group position={[0,posScene,0]}>
 
                 {/*  FIRST SECTION  */}
-                <mesh receiveShadow castShadow scale={[50,0.5,30]} position={[0,-5.2,-12.5]}>
+                <mesh receiveShadow castShadow scale={[100,0.5,30]} position={[0,-5.2,-12.5]}>
                     <boxGeometry/>
                     <meshStandardMaterial color="#4c00a3" envMapIntensify={0.5} opacity={0.1}/>
                 </mesh>
-                <mesh receiveShadow castShadow scale={[50,30,1]}  position={[0,5,-12.5]}>
+                <mesh receiveShadow castShadow scale={[100,30,1]}  position={[0,5,-12.5]}>
                     <boxGeometry/>
                     <meshStandardMaterial color="#4c00a3" envMapIntensify={0.5} opacity={0.1}/>
                 </mesh>
@@ -298,7 +330,6 @@ export const RolesScene = () => {
                 {/*  SECOND SECTION  */}
 
                 <Computer position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
-                {/*<Computer2 position={[9.45,-30.7,-3.05]}/>*/}
                 <Disk1 position={posDisco1}/>
                 <Disk2 position={posDisco2}/>
                 <Disk3 position={posDisco3}/>
@@ -328,7 +359,7 @@ export const RolesScene = () => {
 
                 {/*  THIRD SECTION  */}
 
-                <CubeBG position={[0,0,-200]} scale={[100,100,1]}/>
+                <CubeBG position={[0,0,-80]} scale={[200,200,1]}/>
                                                     {/*<Sparkles  position={[0,posPortal[1]-10,-25]} color="#3900BB" count={200} scale={40} size={100} speed={2} />*/}
                 <mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
                     <planeGeometry />
@@ -486,14 +517,12 @@ export const RolesScene = () => {
                     <group rotation={rotCourses} position={posCourses} scale={downSm ? 0.6 : 1}>           
 
                             <Tetris1 position={posTetris1} rotation={rotTetris1} scale={1.8}/>
-                                {/*<TetrisPlane1 position={posTetris1} rotation={rotTetris1} scale={1.8}/>*/}
                             <Tetris2 position={posTetris2} rotation={rotTetris2} scale={1.8}/>
                             <Tetris3 position={posTetris3} rotation={rotTetris3} scale={1.8}/>
                             <Tetris4 position={posTetris4} rotation={rotTetris4} scale={1.8}/>
                             <Tetris5 position={posTetris5} rotation={rotTetris5} scale={1.8}/>
                             <Tetris6 position={posTetris6} rotation={rotTetris6} scale={1.8}/>
                             {hideTetrisLast ?  <Tetris7 position={posTetris7} rotation={rotTetris7} scale={1.8}/> : <></>}
-                            {/*hideTetrisLast ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-4.1]} rotation={rotTetris7} scale={scaleTetris7}/> : <></> 3,6 */ }
                             {hideTetrisLast  ?  <TetrisPlane position={[posTetris7[0]-3.6,posTetris7[1]-7.2,posTetris7[2]-0.41]} rotation={rotTetris7} scale={1.8}/> : <></>}
                             {!hideTetrisLast && posTetris1[1] <= -70 ? <TetrisMissingOne position={[posTetris1[0]+7.2,posTetris1[1]+3.6,posTetris1[2] - 0.41]} rotation={rotTetris1} scale={1.8}/> : <></>}
 

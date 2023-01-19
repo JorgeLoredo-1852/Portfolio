@@ -2240,6 +2240,11 @@ react-router@6.6.0, react-router@^6.6.0:
   dependencies:
     "@remix-run/router" "1.2.0"
 
+react-spinners@^0.13.7:
+  version "0.13.7"
+  resolved "https://registry.yarnpkg.com/react-spinners/-/react-spinners-0.13.7.tgz#0f423c415bfa56765ce9fb36ff604e52a92b37a9"
+  integrity sha512-mRamn56bfxWbGcacif5RT3UbeJaXi2AttjtPwSmomuv2IcxjpbfETCzdTvaQpNDk0E33ENJsStsQeKAZFuJcpA==
+
 react-spring@^9.6.1:
   version "9.6.1"
   resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-9.6.1.tgz#e715b2fa523c1a3acfdcf1aaa93e081620b8cc8e"

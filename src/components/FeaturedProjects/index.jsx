@@ -968,7 +968,7 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
 
 
 
-                <CardModel rotation-x={-Math.PI/10} scale={downSm ? [140,140,140] : [140,140,140]} position={downSm ? [posGameBoy[0], posGameBoy[1] + 1, posGameBoy[2]] : posGameBoy}/>
+                <CardModel rotation-x={-Math.PI/10} scale={downSm ? [140,140,140] : [140,140,140]} position={downSm ? [posGameBoy[0], posGameBoy[1] + 3, posGameBoy[2]+6] : [posGameBoy[0], posGameBoy[1] + 2, posGameBoy[2] + 6]}/>
                 <mesh castShadow receiveShadow rotation-x={-Math.PI/10} position={downSm ? [posGameBoy[0], posGameBoy[1] + 7.1, posGameBoy[2] + 4.9] : [posGameBoy[0], posGameBoy[1] + 6.1, posGameBoy[2] + 4.9]} scale={[6.3,5.7,0.5]} >
                     <planeGeometry/>
                     <meshBasicMaterial roughness={0.059}>

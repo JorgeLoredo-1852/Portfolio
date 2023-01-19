@@ -1,5 +1,7 @@
 import { Grid } from "@mui/material"
 import { FeaturedProjects, JGx, ListProjects, NewNav } from '../components'
+import { useProgress} from '@react-three/drei'
+
 import { Canvas } from "@react-three/fiber"
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -7,7 +9,7 @@ import { useInView } from "react-intersection-observer";
 
 import { useState, useRef, useEffect } from "react";
 import { List } from "../components/ListProjects/List";
-import { ModalProject } from "../components/ModalProject";
+import { ModalProject, LoadingModels } from "../components";
 
 export const Projects = ({setInView}) =>{
     const themeM = useTheme();
@@ -21,9 +23,22 @@ export const Projects = ({setInView}) =>{
 
     const { ref, inView } = useInView();
 
+    const { active, progress, errors, item, loaded, total } = useProgress()
+    const [chargeComplete, setChargeComplete] = useState(false)
+
     useEffect(()=>{
-        setInView(inView)
+        if(!inView && progress == 100){
+            setInView(false)
+        } else {
+            setInView(true)
+        }
     },[inView])
+
+    useEffect(()=>{
+        if(progress == 100){
+            setChargeComplete(true)
+        }
+    }, [progress])
 
     const handleOpen = (project) => {
         setOpen(true);
@@ -41,17 +56,22 @@ export const Projects = ({setInView}) =>{
         <>
         <Grid container className='app container1' sx={{backgroundColor:"black"}} >
             <Grid item xs={12} sx = {{height: "100vh", width:"100%"}} className='section1'>
-                {inView && <JGx/>}
+                <JGx notHide={inView} />
                 <div ref={ref} style = {{width:"100%"}} className='fullMinus1'>
                     <ModalProject project={modalProject} open={open} onClose={handleClose}/>
-                    <Canvas 
-                        className='canvas' 
-                        shadows
-                        camera={{position: [0,30,60], fov:15}}
-                        gl={{ antialias: false }}
-                    >
-                        {inView && <FeaturedProjects openModalFunc={handleOpen} handleNextPage = {handleNextPage}/>}
-                    </Canvas>
+
+                    {chargeComplete ? 
+                        <Canvas 
+                            className='canvas' 
+                            shadows
+                            camera={{position: [0,30,60], fov:15}}
+                            gl={{ antialias: false }}
+                        >
+                            {inView && <FeaturedProjects openModalFunc={handleOpen} handleNextPage = {handleNextPage}/>}
+                        </Canvas>
+                        : 
+                    <LoadingModels progress={progress}/>
+                }
                 </div>
             </Grid>
             <Grid item xs={12} className='section2' ref={refListPage}>
