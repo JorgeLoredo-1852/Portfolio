@@ -11,7 +11,7 @@ import { useState, useRef, useEffect } from "react";
 import { List } from "../components/ListProjects/List";
 import { ModalProject, LoadingModels } from "../components";
 
-export const Projects = ({setInView}) =>{
+export const Projects = ({setInView}) =>{  //a
     const themeM = useTheme();
     const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
     const downMd = useMediaQuery(themeM.breakpoints.down('md'));
