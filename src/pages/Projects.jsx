@@ -11,7 +11,7 @@ import { useState, useRef, useEffect } from "react";
 import { List } from "../components/ListProjects/List";
 import { ModalProject, LoadingModels } from "../components";
 
-export const Projects = ({setInView}) =>{  //a
+export const Projects = ({setInView}) =>{  
     const themeM = useTheme();
     const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
     const downMd = useMediaQuery(themeM.breakpoints.down('md'));
@@ -54,7 +54,7 @@ export const Projects = ({setInView}) =>{  //a
 
     return (
         <>
-        <Grid container className='app container1' sx={{backgroundColor:"black"}} >
+        <Grid container className='app container1' sx={{overflowX:"hidden", backgroundColor:"black"}} >
             <Grid item xs={12} sx = {{height: "100vh", width:"100%"}} className='section1'>
                 <JGx notHide={inView} />
                 <div ref={ref} style = {{width:"100%"}} className='fullMinus1'>

@@ -70,7 +70,7 @@ export const ModalProject = ({project, open, onClose}) => {
               </div>
               <img
                     src={project.modalImg}
-                    style={{padding:"0.5rem 0.5rem 0rem 0.5rem", minWidth:"500px", minHeight:"200px", maxWidth:"520px"}}
+                    style={{padding:"0.5rem 0.5rem 0rem 0.5rem", minHeight:"200px", width:"520px"}}
                   
               />
            </Box>
