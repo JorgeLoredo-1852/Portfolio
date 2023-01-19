@@ -6,7 +6,7 @@ import { Canvas } from '@react-three/fiber'
 export const LandingPage = () =>{
   
     return (
-        <div className='app'>
+        <div className='app' style={{backgroundColor:"#000000"}}>
             <Roles/>
         </div>
     )
