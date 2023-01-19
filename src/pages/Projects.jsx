@@ -27,7 +27,11 @@ export const Projects = ({setInView}) =>{
     const [chargeComplete, setChargeComplete] = useState(false)
 
     useEffect(()=>{
-        setInView(inView)
+        if(!inView && progress == 100){
+            setInView(false)
+        } else {
+            setInView(true)
+        }
     },[inView])
 
     useEffect(()=>{
