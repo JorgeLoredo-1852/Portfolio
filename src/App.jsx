@@ -5,7 +5,7 @@ import { AppRoutes } from './AppRoutes'
 
 export const App = () => {
 
-    const [inView3DProjects, setInView3DProjects] = useState(true)
+    const [inView3DProjects, setInView3DProjects] = useState(false)
 
     return(<>
         <NewNav inView3D = {inView3DProjects}/>
