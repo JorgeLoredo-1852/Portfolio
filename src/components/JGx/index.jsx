@@ -23,8 +23,6 @@ export const JGx = ({notHide = true}) => {
         setDisplayLinks(!displayLinks)
     }
 
-    console.log(notHide)
-
 
   return (
     <div  className={notHide ? "navbar" : "navbar navbar--hide"} style={{flexDirection:downSm ? "column" : "row"}}>

@@ -73,7 +73,7 @@ const Crate = ({position, hit, urlImage}) => {
 
     useEffect(()=>{
         if(hit == true){
-            console.log(hit)
+            //console.log(hit)
             api.applyImpulse([0, -5, -20], [0, -1, 0])
         }
     },[hit])

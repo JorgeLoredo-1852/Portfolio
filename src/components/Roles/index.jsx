@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { Environment, useAnimations, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
-import { useEffect, useState, useRef } from "react"
+import { Environment, useProgress, useAnimations, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
+import { useEffect, useState, useRef, Suspense } from "react"
 import * as THREE from "three"
 import { useInView } from "react-intersection-observer";
 
@@ -34,7 +34,7 @@ import {Model as Placa1} from "../../models/home/Placa1"
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { JGx } from "../JGx"
+import {JGx, LoadingModels} from "../../components"
 
 
 export const Roles = () => { 
@@ -45,20 +45,53 @@ export const Roles = () => {
     //    setViewRoles(!viewRoles)
     //}, [inView])
     //console.log(viewRoles)
+    const { active, progress, errors, item, loaded, total } = useProgress()
+    const [chargeComplete, setChargeComplete] = useState(false)
+
+    useEffect(()=>{
+        if(progress == 100){
+            setChargeComplete(true)
+        }
+    }, [progress])
+
     return(
         <div style={{width:"100%", height:"100vh"}}>
             <JGx/>
-            <Canvas 
+            {
+                chargeComplete ? 
+                <Canvas 
                     className='canvas' 
                     shadows
                     camera={{position: [0,0,40] , fov:15}}
                     color={"#000000"}
                     style={{zIndex:100}}
                 >
-                <ScrollControls pages={6}>
-                    <RolesScene/>
-                </ScrollControls>
-            </Canvas>
+                    <Suspense fallback={null}>
+                        <ScrollControls pages={6}>
+                            <RolesScene/>
+                        </ScrollControls>
+                    </Suspense>
+                </Canvas> : 
+                <LoadingModels progress={progress}/>
+            }
+
+{/*
+                chargeComplete ? 
+                <Canvas 
+                    className='canvas' 
+                    shadows
+                    camera={{position: [0,0,40] , fov:15}}
+                    color={"#000000"}
+                    style={{zIndex:100}}
+                >
+                    <Suspense fallback={null}>
+                        <ScrollControls pages={6}>
+                            <RolesScene/>
+                        </ScrollControls>
+                    </Suspense>
+                </Canvas> : 
+                <LoadingModels progress={progress}/>*/
+            }
         </div>        
     )
 }
