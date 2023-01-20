@@ -59,9 +59,9 @@ export const Projects = ({setInView}) =>{
                 <JGx notHide={inView} />
                 <div ref={ref} style = {{width:"100%"}} className='fullMinus1'>
                     <ModalProject project={modalProject} open={open} onClose={handleClose}/>
-
-                    {chargeComplete ? 
-                        <Canvas 
+                    {
+                        chargeComplete ? 
+                                                <Canvas 
                             className='canvas' 
                             shadows
                             camera={{position: [0,30,60], fov:15}}
@@ -69,9 +69,10 @@ export const Projects = ({setInView}) =>{
                         >
                             {inView && <FeaturedProjects openModalFunc={handleOpen} handleNextPage = {handleNextPage}/>}
                         </Canvas>
-                        : 
-                    <LoadingModels progress={progress}/>
-                }
+                        :
+                        <LoadingModels progress={progress}/>
+                    }
+
                 </div>
             </Grid>
             <Grid item xs={12} className='section2' ref={refListPage}>

@@ -14,22 +14,24 @@ import { useState, useRef, useEffect } from "react";
 
 export const Work = () => {
 
-    const { active, progress, errors, item, loaded, total } = useProgress()
+    //const { active, progress, errors, item, loaded, total } = useProgress()
     const [chargeComplete, setChargeComplete] = useState(false)
+    const [startAnimation, setStartAnimation] = useState(false)
 
     
-    useEffect(()=>{
+    /*useEffect(()=>{
         if(progress == 100){
-            setChargeComplete(true)
+            if(startAnimation){
+                setChargeComplete(true)
+            }
         }
-    }, [progress])
+    }, [progress, startAnimation])*/
 
     return(
 
     <div style={{width:"100vw", height:"100vh", backgroundColor:"#000000"}} >
         <JGx/>
-        {
-            chargeComplete ? 
+
                 <Canvas 
                     className='canvas' 
                     shadows
@@ -39,9 +41,7 @@ export const Work = () => {
                 >
                     <WorkScene/>
                 </Canvas> 
-            : 
-                <LoadingModels progress={progress}/>
-            }
+
     </div>
 
     )

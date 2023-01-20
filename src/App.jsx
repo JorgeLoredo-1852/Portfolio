@@ -1,6 +1,8 @@
-import { useState } from "react"
 import { NewNav, JGx } from './components'
 import { AppRoutes } from './AppRoutes'
+import { useProgress} from '@react-three/drei'
+import { useState, useRef, useEffect } from "react";
+import { LoadingModels } from './components';
 
 
 export const App = () => {
@@ -8,7 +10,9 @@ export const App = () => {
     const [inView3DProjects, setInView3DProjects] = useState(false)
 
     return(<>
-        <NewNav inView3D = {inView3DProjects}/>
+
+    <NewNav inView3D = {inView3DProjects}/>
         <AppRoutes setInView = {setInView3DProjects}/>
+        
     </>)
 }

@@ -48,7 +48,7 @@ export const Roles = () => {
     const { active, progress, errors, item, loaded, total } = useProgress()
     const [chargeComplete, setChargeComplete] = useState(false)
     
-
+    console.log(total)
     useEffect(()=>{
         if(progress == 100){
             setChargeComplete(true)
@@ -58,9 +58,15 @@ export const Roles = () => {
     return(
         <div style={{width:"100%", height:"100vh", backgroundColor:"black"}}>
             <JGx/>
-            {
-                chargeComplete ? 
-                <Canvas 
+                {
+                    chargeComplete ? 
+                    <LoadingModels progress={progress}/> : 
+                <LoadingModels progress={progress}/>
+}
+
+{/*
+                    chargeComplete ? 
+                    <Canvas 
                     className='canvas' 
                     shadows
                     camera={{position: [0,0,40] , fov:15}}
@@ -73,15 +79,9 @@ export const Roles = () => {
                         </ScrollControls>
                     </Suspense>
                 </Canvas> : 
-                <LoadingModels progress={progress}/>
-            }
+                <LoadingModels progress={progress}/>*/
+}
 
-{/*
-                chargeComplete ? 
-                <LoadingModels progress={progress}/>
- : 
-                <LoadingModels progress={progress}/>
-        */}
         </div>        
     )
 }
