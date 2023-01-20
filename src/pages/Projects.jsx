@@ -55,7 +55,7 @@ export const Projects = ({setInView}) =>{
     return (
         <>
         <Grid container className='app container1' sx={{overflowX:"hide", backgroundColor:"black"}} >
-            <Grid item xs={12} sx = {{height: "100vh", width:"100%"}} className='section1'>
+            <Grid item xs={12} sx = {{height: "100vh", width:"100%", overflow: "hidden"}} className='section1'>
                 <JGx notHide={inView} />
                 <div ref={ref} style = {{width:"100%",  overflow: "hidden"}} className='fullMinus1'>
                     <ModalProject project={modalProject} open={open} onClose={handleClose}/>
