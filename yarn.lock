@@ -2393,6 +2393,13 @@ react-use-measure@^2.1.1:
   dependencies:
     debounce "^1.2.1"
 
+react-use-scroll-snap@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-use-scroll-snap/-/react-use-scroll-snap-0.0.4.tgz#44d615c347ac53ebf40102f5a13f28dc64feddd3"
+  integrity sha512-IVnGldU13ZM5NkiBNudXFVsyDuF8u99zjYhGsy+fsS75CvcD//apT0Qn1YTEUQ/QDB21K8NPM8psFpTIKeay2Q==
+  dependencies:
+    tweezer.js "^1.5.0"
+
 react@^16.12.0:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
@@ -2502,6 +2509,11 @@ screen-space-reflections@2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/screen-space-reflections/-/screen-space-reflections-2.5.0.tgz#2a6ea982da96f9c35f34a361b2555439f9fbb1f6"
   integrity sha512-fWSDMhJS0xwD3LTxRRch7Lb9NzxsR66sCmtDmAA7i+OGnghUrBBsrha85ng7StnCBaLq/BKmZ97dLxWd1XgWdQ==
+
+scroll-snap@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/scroll-snap/-/scroll-snap-4.0.3.tgz#015ef1e2661249acfe99c673408a3710f74c7b3d"
+  integrity sha512-7am2JXqY/0jHN9+3b2zhZtm55NmzEQhZTXZBIdC/fVb6aVN5nonjbRpf+OghU9LhguJB+rq5ty9SmQcYzMvMxw==
 
 semver@^6.0.0, semver@^6.3.0:
   version "6.3.0"
@@ -2719,6 +2731,11 @@ tslib@^2.0.3, tslib@^2.1.0:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.1.tgz#0d0bfbaac2880b91e22df0768e55be9753a5b17e"
   integrity sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==
+
+tweezer.js@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/tweezer.js/-/tweezer.js-1.5.0.tgz#ca50ac5215022203fd3be4d28617e8e2305f5c0c"
+  integrity sha512-aSiJz7rGWNAQq7hjMK9ZYDuEawXupcCWgl3woQQSoDP2Oh8O4srWb/uO1PzzHIsrPEOqrjJ2sUb9FERfzuBabQ==
 
 typescript@^4.9.3:
   version "4.9.4"

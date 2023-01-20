@@ -114,7 +114,6 @@ h1 {
   height: 100vh;
   scroll-snap-align: start;
   overflow-y: scroll;
-
   position: relative;
 }
 
