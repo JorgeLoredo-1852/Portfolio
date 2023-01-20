@@ -56,8 +56,8 @@ export const Projects = ({setInView}) =>{
 
     return (
         <>
-        <Grid container className='app container1' sx={{overflowX:"hide", backgroundColor:"black"}} >
-            <Grid item xs={12} sx = {{height: "100vh", width:"100%", overflow: "hidden"}} className='section1'>
+        <div className='app container1' style={{overflowX:"hide", backgroundColor:"black"}} >
+            <div item xs={12} style = {{height: "100vh", width:"100%", overflow: "hidden"}} className='section1'>
                 <JGx notHide={inView} />
                 <div ref={ref} style = {{width:"100%",  overflow: "hidden"}} className='fullMinus1'>
                     <ModalProject project={modalProject} open={open} onClose={handleClose}/>
@@ -77,18 +77,18 @@ export const Projects = ({setInView}) =>{
                     }
 
                 </div>
-            </Grid>
-            <Grid item xs={12} className="section3">
+            </div>
+            <div item xs={12} className="section3">
                 
-                </Grid>    
-            <Grid item xs={12} className='section2' ref={refListPage}>
+                </div>    
+            <div item xs={12} className='section2' ref={refListPage}>
                 <ListProjects/>
-            </Grid> 
-            <Grid item xs={12} className="section3">
+            </div> 
+            <div item xs={12} className="section3">
                 
-                </Grid>      
+                </div>      
 
-        </Grid>
+        </div>
         </>
     )
 }
