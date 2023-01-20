@@ -108,7 +108,7 @@ export const ListProjects = () => {
 
     return(
         <div style={{backgroundColor:"#110728", width: "100%", display:"flex", justifyContent:"center", paddingBottom:"3rem"}}>
-            <div style={{maxWidth: '1200px', width:"100%", minHeight:"100vh", padding:downLg ? "2rem" : "0.5rem", marginTop:"2rem"}}>
+            <div style={{maxWidth: '1200px', width:"100%", minHeight:"100vh", padding:downLg ? "2rem" : "0.5rem"}}>
 
 
             <div className="report__tabs">
