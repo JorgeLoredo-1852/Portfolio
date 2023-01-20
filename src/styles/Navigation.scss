@@ -365,3 +365,35 @@
 
   }
 }
+
+.hideLoading{
+  transition: all 1s;
+  -webkit-animation: displayNone 2.0s forwards; /* for less modern browsers */
+  animation: displayNone 2.0s forwards;
+}
+
+
+@-webkit-keyframes displayNone {
+  0% {
+      opacity: 1;
+      z-index: 140;
+      
+  }
+  100% {
+    opacity: 0;
+    z-index: 95
+
+  }
+}
+@keyframes displayNone {
+  0% {
+      opacity: 1;
+      z-index: 140;
+
+  }
+  100% {
+    opacity: 0;
+    z-index: 95
+
+  }
+}

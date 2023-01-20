@@ -11,16 +11,16 @@ export const LoadingModels = ({progress}) => {
   const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
   
   var perfEntries = window.performance.getEntriesByType("navigation");
-  var showText = perfEntries[0].transferSize > 400 ? true : false;
+  var showText = perfEntries[0].transferSize > 900 ? true : false;
 
   const textFont = () => {
     if(downMd){
       if(downSm){
-        return "1rem"
+        return "1.4rem"
       }
-      return "1.4rem"
+      return "1.9rem"
     }
-    return "2rem"
+    return "2.4rem"
   }
   const textFont2 = () => {
     if(downMd){
@@ -36,18 +36,18 @@ export const LoadingModels = ({progress}) => {
       if(downSm){
         return "1rem"
       }
-      return "1.2rem"
+      return "1.3rem"
     }
-    return "1.4rem"
+    return "1.6rem"
   }
   const loaderSize = () => {
     if(downMd){
       if(downSm){
-        return 60
+        return 30
       }
-      return 80
+      return 35
     }
-    return 90
+    return 45
   }
 
     return (
@@ -55,17 +55,18 @@ export const LoadingModels = ({progress}) => {
         
         
         {showText ?  <div
+        className={progress == 100 ? "hideLoading" :""}
           style={{
-            display: "flex",
-            position:"relative",
+            position:"absolute",
+            display:"flex",
             flexDirection: "column",
             width: "100vw",
             height: "100vh",
             justifyContent: "center",
             alignItems: "center",
-            zIndex: 100,
+            zIndex: 110,
             background: "rgb(3,0,24)",
-            backgroundColor: "linear-gradient(90deg, rgba(2,0,15,1) 0%, rgba(18,0,57,1) 100%)",            overflow: "hidden"
+            background: "linear-gradient(0, rgba(2,0,15,1) 0%, rgba(57,0,187,1) 100%)",            overflow: "hidden"
           }}
         >
           <div style={{
@@ -76,20 +77,21 @@ export const LoadingModels = ({progress}) => {
             flexDirection:"column"
           }}>
 
-            <div style={{fontSize:textFont(),fontWeight:600, fontFamily:"Georgia, Helvetica, serif", lineHeight:"1.2", textAlign:"center", marginBottom:"3rem"}}>
-              "A great artist can come from anywhere." <br/> {downSm ? <br/> : <></>} – Anton Ego, Ratatouille
+            <div style={{fontSize:textFont(),fontWeight:600, fontFamily:"Copperplate Gothic Light, Helvetica, sans-serif", lineHeight:"1.6", textAlign:"center", marginBottom: downMd ? "2rem" : "3rem"}}>
+              "A great artist can come from anywhere." <br/> {downSm ? <br/> : <></>}  – Anton Ego, Ratatouille
             </div>
             
         
               <div 
                   style={{position:"relative", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                <div style={{marginBottom:"1rem"}}><WaveSpinner size={30} frontColor="#3900BB" backColor="#2e0099" loading={true} />
+                <div style={{marginBottom:"1rem"}}><WaveSpinner size={loaderSize()} color="#3900BB" loading={true} />
                 </div>
                 <div
                 style={{
-                  color: "#ffffff",
+                  color: "#c2c2c2",
                   fontSize: textFont3(),
                   lineHeight: "1.1",
+                  fontFamily:"Copperplate Gothic Light, Helvetica, sans-serif"
                     }}
                   >
                     {Math.round(progress * 10) / 10}%
