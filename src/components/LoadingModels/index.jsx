@@ -11,7 +11,7 @@ export const LoadingModels = ({progress}) => {
   const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
   
   var perfEntries = window.performance.getEntriesByType("navigation");
-  var showText = perfEntries[0].transferSize > 800 ? true : false;
+  var showText = perfEntries[0].transferSize > 700 ? true : false;
 console.log(perfEntries[0].transferSize)
   const textFont = () => {
     if(downMd){
