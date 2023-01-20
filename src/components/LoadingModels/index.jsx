@@ -1,4 +1,4 @@
-import { BarLoader, BounceLoader, MoonLoader, PuffLoader } from "react-spinners";
+import { BarLoader, BounceLoader, MoonLoader } from "react-spinners";
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { CubeSpinner, GooSpinner, PongSpinner, WaveSpinner } from "react-spinners-kit";
@@ -153,12 +153,12 @@ console.log(perfEntries[0].transferSize)
                   color: "#ffffff",
                   fontSize: textFont3(),
                   lineHeight: "1.1",
+                  marginBottom:"1rem"
                     }}
                   >
-                    {Math.round(progress * 10) / 10}%
+                    { downSm ? Math.round(progress) : Math.round(progress * 10) / 10}%
                 </div>
-                <div style={{                  position:"absolute",
-       }}>                <PuffLoader  size={160} height={4} width={100} color="#3900BB" />
+                <div >                <BarLoader height={4} width={100} color="#3900BB" />
 
                 </div>
                 </div>
