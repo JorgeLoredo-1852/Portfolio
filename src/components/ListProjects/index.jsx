@@ -108,7 +108,7 @@ export const ListProjects = () => {
 
     return(
         <div style={{backgroundColor:"#110728", width: "100%", display:"flex", justifyContent:"center", paddingBottom:"3rem"}}>
-            <div style={{maxWidth: '1200px', width:"100%", minHeight:"100vh", padding:downLg ? "2rem" : "0.5rem"}}>
+            <div style={{maxWidth: '1200px', width:"100%", minHeight:"100vh", padding:downLg ? "2rem" : "0.5rem", marginBottom:"1rem"}}>
 
 
             <div className="report__tabs">
@@ -121,7 +121,7 @@ export const ListProjects = () => {
                     <span onClick={()=>changeTab(1)} className={actualTab === 1 ? "report__tabs--bg tab__active" : "report__tabs--bg"}>
                         <p className="report__tabs--text">EXTRAS</p>
                     </span>
-                </div>
+                </div> 
             </div>
 
             {

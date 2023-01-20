@@ -54,31 +54,31 @@ export const NewNav = ({inView3D}) => {
   const classNameNav = () => {
     const pathname = window.location.pathname
     //console.log(!inView3D, progress)
-    if(pathname == "/projects"){
-      return !inView3D && progress == 100 ? "navigation__button nav--bottom" : "navigation__button"
-    } else {
-      return "navigation__button"
-    }
+    //if(pathname == "/projects"){
+    //  return !inView3D && progress == 100 ? "navigation__button nav--bottom" : "navigation__button"
+    //} else {
+    //  return "navigation__button"
+   // }
   }
 
   const classNameBG = () => {
-    const pathname = window.location.pathname
-    if(pathname == "/projects"){
-      return !inView3D && progress == 100 ? "navigation__background nav--bottomBG":"navigation__background"
-    } else {
-      return "navigation__background"
-    }
+    //const pathname = window.location.pathname
+    //if(pathname == "/projects"){
+    //  return !inView3D && progress == 100 ? "navigation__background nav--bottomBG":"navigation__background"
+    //} else {
+    //  return "navigation__background"
+    //}
   }
   
   return(
     <div className="navigation">
     <input checked={openNav} onChange={onCheckedNav} type="checkbox" className="navigation__checkbox" id="navi-toggle"/>
 
-    <label htmlFor="navi-toggle" className={classNameNav()} style={{cursor:downSm ? "unset" : "pointer"}}>
+    <label htmlFor="navi-toggle" className={"navigation__button"} style={{cursor:downSm ? "unset" : "pointer"}}>
         <span className="navigation__icon" >&nbsp;</span>
     </label>
  
-    <div className={classNameBG()}>&nbsp;</div>
+    <div className={"navigation__background"}>&nbsp;</div>
 
     <nav className="navigation__nav">
         <ul className="navigation__list">

@@ -111,7 +111,7 @@ function TableCourses() {
     window.open(link, '_blank', 'noopener,noreferrer');
   }
     return (
-      <TableContainer component={Paper} sx={{marginTop:"1rem", backgroundColor:"transparent"}}>
+      <TableContainer component={Paper}  mt={1} spacing={1} sx={{backgroundColor:"transparent"}}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <StyledTableRow>

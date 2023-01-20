@@ -11,7 +11,7 @@ export const App = () => {
 
     return(<>
 
-    <NewNav inView3D = {inView3DProjects}/>
+    <NewNav/>
         <AppRoutes setInView = {setInView3DProjects}/>
         
     </>)
