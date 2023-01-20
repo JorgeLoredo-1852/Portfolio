@@ -108,6 +108,8 @@ h1 {
   overflow-y: scroll;
   height: 100vh;
   scroll-behavior: smooth;
+  scroll-padding: 40px;
+
 }
 
 .section1{
@@ -127,9 +129,9 @@ h1 {
 }
 
 .section3{
-  height:40px;
+  width:5px;
   overflow-y: scroll;
-   scroll-snap-align: start;
+   scroll-snap-align: none;
    position: relative;
  
  }
