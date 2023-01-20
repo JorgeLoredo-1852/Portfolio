@@ -151,7 +151,7 @@ console.log(perfEntries[0].transferSize)
                 <div
                 style={{
                   color: "#ffffff",
-                  fontSize: textFont3(),
+                  fontSize: "1.4rem",
                   lineHeight: "1.1",
                   marginBottom:"1rem"
                     }}
