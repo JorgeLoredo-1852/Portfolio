@@ -78,10 +78,10 @@ export const Projects = ({setInView}) =>{
 
                 </div>
             </Grid>
-            <Grid item xs={12} className="section3">
+            <Grid item xs={12} className="section3" ref={refListPage}>
                 
                 </Grid>    
-            <Grid item xs={12} className='section2' ref={refListPage}>
+            <Grid item xs={12} className='section2'>
                 <ListProjects/>
             </Grid> 
             <Grid item xs={12} className="section3">
