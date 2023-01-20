@@ -47,6 +47,7 @@ export const Roles = () => {
     //console.log(viewRoles)
     const { active, progress, errors, item, loaded, total } = useProgress()
     const [chargeComplete, setChargeComplete] = useState(false)
+    
 
     useEffect(()=>{
         if(progress == 100){
@@ -77,21 +78,10 @@ export const Roles = () => {
 
 {/*
                 chargeComplete ? 
-                <Canvas 
-                    className='canvas' 
-                    shadows
-                    camera={{position: [0,0,40] , fov:15}}
-                    color={"#000000"}
-                    style={{zIndex:100}}
-                >
-                    <Suspense fallback={null}>
-                        <ScrollControls pages={6}>
-                            <RolesScene/>
-                        </ScrollControls>
-                    </Suspense>
-                </Canvas> : 
-                <LoadingModels progress={progress}/>*/
-            }
+                <LoadingModels progress={progress}/>
+ : 
+                <LoadingModels progress={progress}/>
+        */}
         </div>        
     )
 }
