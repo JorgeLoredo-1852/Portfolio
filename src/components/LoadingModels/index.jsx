@@ -1,4 +1,4 @@
-import { BarLoader, BounceLoader, MoonLoader } from "react-spinners";
+import { BarLoader, BounceLoader, MoonLoader, PuffLoader } from "react-spinners";
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { CubeSpinner, GooSpinner, PongSpinner, WaveSpinner } from "react-spinners-kit";
@@ -14,7 +14,7 @@ export const LoadingModels = ({progress}) => {
   
   var perfEntries = window.performance.getEntriesByType("navigation");
   var showText = perfEntries[0].transferSize > 700 ? true : false;
-//console.log(perfEntries[0].transferSize)
+console.log(perfEntries[0].transferSize)
 
   useEffect(()=>{
     if(progress == 100){
@@ -53,7 +53,7 @@ export const LoadingModels = ({progress}) => {
   const textFont3 = () => {
     if(downMd){
       if(downSm){
-        return "1rem"
+        return "1.1rem"
       }
       return "1.3rem"
     }
@@ -73,7 +73,7 @@ export const LoadingModels = ({progress}) => {
         
         
         {showText ?  <div
-        className={progress == 100 ? "hideLoading" :""}
+        //className={progress == 100 ? "hideLoading" :""}
           style={{
             position:"absolute",
             display:"flex",
@@ -92,7 +92,8 @@ export const LoadingModels = ({progress}) => {
             justifyContent:"center",
             alignItems:"center",
             flexDirection:"column",
-            overflow: "hidden"
+            overflow: "hidden",
+            padding: downSm ? "0 2rem" :"0"
           }}>
 
             <div style={{fontSize:textFont(),textTransform:"uppercase", fontWeight:500, fontFamily:"Bahnschrift, Helvetica, sans-serif", lineHeight:"1.6", textAlign:"center", marginBottom: downMd ? "2rem" : "1rem"}}>
@@ -152,12 +153,12 @@ export const LoadingModels = ({progress}) => {
                   color: "#ffffff",
                   fontSize: textFont3(),
                   lineHeight: "1.1",
-                  marginBottom:"1rem"
                     }}
                   >
                     {Math.round(progress * 10) / 10}%
                 </div>
-                <div >                <BarLoader height={4} width={100} color="#3900BB" />
+                <div style={{                  position:"absolute",
+       }}>                <PuffLoader  size={160} height={4} width={100} color="#3900BB" />
 
                 </div>
                 </div>

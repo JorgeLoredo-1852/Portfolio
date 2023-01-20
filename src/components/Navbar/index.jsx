@@ -53,7 +53,7 @@ export const NewNav = ({inView3D}) => {
 
   const classNameNav = () => {
     const pathname = window.location.pathname
-    console.log(!inView3D, progress)
+    //console.log(!inView3D, progress)
     if(pathname == "/projects"){
       return !inView3D && progress == 100 ? "navigation__button nav--bottom" : "navigation__button"
     } else {
