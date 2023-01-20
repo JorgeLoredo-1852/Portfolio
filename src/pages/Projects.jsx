@@ -25,6 +25,7 @@ export const Projects = ({setInView}) =>{
 
     const { active, progress, errors, item, loaded, total } = useProgress()
     const [chargeComplete, setChargeComplete] = useState(false)
+    
 
     useEffect(()=>{
         if(!inView && progress == 100){
@@ -51,6 +52,7 @@ export const Projects = ({setInView}) =>{
 
     const handleClose = () => setOpen(false);
 
+    console.log(inView)
 
     return (
         <>
@@ -68,6 +70,7 @@ export const Projects = ({setInView}) =>{
                             gl={{ antialias: false }}
                         >
                             {inView && <FeaturedProjects openModalFunc={handleOpen} handleNextPage = {handleNextPage}/>}
+                            
                         </Canvas>
                         :
                         <LoadingModels progress={progress}/>
@@ -77,7 +80,11 @@ export const Projects = ({setInView}) =>{
             </Grid>
             <Grid item xs={12} className='section2' ref={refListPage}>
                 <ListProjects/>
-            </Grid>
+            </Grid> 
+            <Grid item xs={12} className="section3">
+                
+                </Grid>      
+
         </Grid>
         </>
     )
