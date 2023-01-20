@@ -127,7 +127,7 @@ h1 {
 }
 
 .section3{
-  width:2vh;
+  width:5px;
   overflow-y: scroll;
    scroll-snap-align: start;
    position: relative;
