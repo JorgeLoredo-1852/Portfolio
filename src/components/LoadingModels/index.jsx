@@ -14,7 +14,7 @@ export const LoadingModels = ({progress}) => {
   
   var perfEntries = window.performance.getEntriesByType("navigation");
   var showText = perfEntries[0].transferSize > 700 ? true : false;
-console.log(perfEntries[0].transferSize)
+//console.log(perfEntries[0].transferSize)
 
   useEffect(()=>{
     if(progress == 100){
