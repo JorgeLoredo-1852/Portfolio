@@ -1,9 +1,10 @@
 import { Grid } from "@mui/material"
-import { Canvas, useFrame } from "@react-three/fiber"
-import { Environment, useProgress, useAnimations, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
+import { Environment, useGLTF, SpotLight, useDepthBuffer, useProgress, useAnimations, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
 import { useEffect, useState, useRef, Suspense } from "react"
 import * as THREE from "three"
 import { useInView } from "react-intersection-observer";
+
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 
 import {Model as Portal} from '../../models/home/Portal'
 
@@ -82,6 +83,17 @@ export const Roles = () => {
     )
 }
 
+function MovingSpot({ vec = new THREE.Vector3(), ...props }) {
+    const light = useRef()
+    const viewport = useThree((state) => state.viewport)
+    useFrame((state) => {
+      light.current.target.position.lerp(vec.set((state.mouse.x * viewport.width) / 2, (state.mouse.y * viewport.height) / 2, 0), 0.1)
+      light.current.target.updateMatrixWorld()
+    })
+    return <SpotLight castShadow ref={light} penumbra={0.5} distance={50} angle={0.3} attenuation={0} anglePower={1} intensity={5} {...props} />
+  }
+
+
 export const RolesScene = () => {
     const scroll = useScroll()
     const themeM = useTheme();
@@ -130,6 +142,7 @@ export const RolesScene = () => {
     const [posUSB1, setPosUSB1] = useState(downSm ? [4,-19.3,-0.3] : [12,-19.3,-0.3])
     const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [26,-19.3,-0.3])
     const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [40,-19.3,-0.3])
+    const [showDownLight, setShowDownLight] = useState(false)
 
     const [diff, setDiff] = useState(0.04)
 
@@ -196,6 +209,8 @@ export const RolesScene = () => {
 
         if(offset < 0.30){
 
+            setShowDownLight(false)
+
             setPosText([-2.9, -27, 10])
             setPosScene(offset*90)
             setPosTetris1([0,60 - offset*280,0])
@@ -217,6 +232,7 @@ export const RolesScene = () => {
             }
 
         } else if (offset < 0.76){
+            setShowDownLight(true)
             setPosText([-2.9, -27 + (offset - 0.30)*89, 10])
             setPosScene(0.3*90)
             
@@ -299,25 +315,34 @@ export const RolesScene = () => {
 
         }
     })
+
+    const depthBuffer = useDepthBuffer({ frames: 1 })
+
     return (
     <>
             <ambientLight intensity={0.5} />
             <Environment preset="forest" blur={0.5}/>
             <group position={[0,posScene,0]}>
 
+
+<MovingSpot depthBuffer={depthBuffer}  color="white" position={[10, 5, -5]} />
+            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[-10, 5, -5]} />
+            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[0, 0, 2]} />
+
                 {/*  FIRST SECTION  */}
-                <mesh receiveShadow castShadow scale={[100,0.5,30]} position={[0,-5.2,-12.5]}>
+
+                <mesh scale={[100,0.5,30]} position={[0,-5.2,-12.5]}>
                     <boxGeometry/>
-                    <meshStandardMaterial color="#4c00a3" envMapIntensify={0.5} opacity={0.1}/>
+                    <meshStandardMaterial color="#000000" roughness={1} metalness={0}/>
                 </mesh>
-                <mesh receiveShadow castShadow scale={[100,30,1]}  position={[0,5,-12.5]}>
+                <mesh  scale={[100,30,1]}  position={[0,5,-10]}>
                     <boxGeometry/>
-                    <meshStandardMaterial color="#4c00a3" envMapIntensify={0.5} opacity={0.1}/>
+                    <meshStandardMaterial color="#000000"   roughness={1}/>
                 </mesh>
-                <Text3D height={0.2}position={[-11,0,-8]} letterSpacing={0.009} size={2} font="/Inter_Bold.json">
+                {/*<Text3D height={0.2}position={[-11,0,-8]} letterSpacing={0.009} size={2} font="/Inter_Bold.json">
                         In PROGRESS...
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
-                    </Text3D>
+    </Text3D>*/}
 
 
                 {/*  ELEVATOR  */}
@@ -529,7 +554,7 @@ export const RolesScene = () => {
                             {!downSm ? <><PersonVictory scale={4} position={[13, -75.5,2]}/><PersonYell scale={4} position={[-4.8, -58.9,0.6]}/></> : <><PersonClap scale={7.5} position={[1.2, -123.7,10]}/><PersonSit scale={7.2} position={[5.9, -120.2,8]}/><PersonYell scale={7.2} position={[-3.8, -120.2,8]}/></>}
                             {downSm ? <Pedestal position={[1.5,-115,0]}/> : <mesh position={downSm ? [1.5,-122.3,0]:[1.5,-80.5,0]}>
                                 <cylinderGeometry args={[16,16,downSm ? 15 :  10, 64]}/>
-                                <meshStandardMaterial color="#1D0060" envMapIntensity={0.5} roughness={0.3} metalness={0}/>
+                                <meshStandardMaterial color="#1D0060" roughness={0.3} metalness={0}/>
                             </mesh>}
                     </group>
             </group>
