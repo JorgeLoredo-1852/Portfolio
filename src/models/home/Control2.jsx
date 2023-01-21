@@ -20,21 +20,42 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Body10.geometry}
+          geometry={nodes.Body13.geometry}
           material={materials["Steel - Satin"]}
           scale={10}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Body11.geometry}
+          geometry={nodes.Body14.geometry}
           material={materials["Steel - Satin"]}
           scale={10}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Body12.geometry}
+          geometry={nodes.Body16.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body17.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body18.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body19.geometry}
           material={materials["Steel - Satin"]}
           scale={10}
         />
@@ -42,6 +63,76 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Body2.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body20.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body21.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body22.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body23.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body24.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body25.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body26.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body27.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body28.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body29.geometry}
           material={materials["Steel - Satin"]}
           scale={10}
         />
@@ -69,25 +160,38 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Body7.geometry}
-          material={materials["Steel - Satin"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Body8.geometry}
           material={materials["Steel - Satin"]}
           scale={10}
         />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body9.geometry}
-          material={materials["Steel - Satin"]}
-          scale={10}
-        />
       </group>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Computer_Chair.geometry}
+        material={materials["Material.001"]}
+        position={[0, 0, -18]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+        scale={0.05}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Computer_Chair001.geometry}
+        material={materials["Material.001"]}
+        position={[-20, 0, -15]}
+        rotation={[Math.PI / 2, 0, 2.71]}
+        scale={0.05}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Computer_Chair002.geometry}
+        material={materials["Material.001"]}
+        position={[20, 0, -15]}
+        rotation={[Math.PI / 2, 0, -2.68]}
+        scale={0.05}
+      />
     </group>
   );
 }

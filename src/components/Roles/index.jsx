@@ -38,6 +38,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import {JGx, LoadingModels} from "../../components"
 import {Model as Control} from "../../models/home/Control"
 import {Model as Control2} from "../../models/home/Control2"
+import {Model as Compu1} from "../../models/home/Compu1"
+import {Model as Compu2} from "../../models/home/Compu2"
+import {Model as Compu3} from "../../models/home/Compu3"
 
 
 export const Roles = () => { 
@@ -327,15 +330,19 @@ export const RolesScene = () => {
             <group position={[0,posScene,0]}>
 
 {
-    downMd ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[10, 5, 2]} />
-            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[-10, 5, 2]} />
+    downMd ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[-5, 5, 4]} />
+            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[5, 5, 4]} />
             <MovingSpot depthBuffer={depthBuffer}  color="white" position={[0, 0, 6]} /></>
 }
 
 
                 {/*  FIRST SECTION  */}
 
-                <Control position={[0,-5,0]} scale={0.17}/>
+                <Control2 position={[0,-5,0]} scale={0.17}/>
+                <Compu1 scale={4.8} position={[0,-5,-3.5]} rotation={[0,Math.PI,0]}/>
+                <Compu2 scale={4.6} position={[-3.6,-5,-2.5]} rotation={[0,Math.PI + Math.PI/8,0]}/>
+                <Compu3 scale={4.8} position={[3.6,-5,-2.5]} rotation={[0,Math.PI - Math.PI/8,0]}/>
+
                 <mesh receiveShadow castShadow scale={[100,30,1]}  position={[0,5,-12.5]}>
                     <boxGeometry/>
                     <meshStandardMaterial color="#000000" envMapIntensify={0.5} opacity={0.1}/>
