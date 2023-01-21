@@ -20,7 +20,7 @@ export const Work = () => {
     
     useEffect(()=>{
         if(progress == 100){
-            setChargeComplete(true)
+                setChargeComplete(true)
         }
     }, [progress])
 
@@ -28,20 +28,30 @@ export const Work = () => {
 
     <div style={{width:"100vw", height:"100vh", backgroundColor:"#000000"}} >
         <JGx/>
-        {
-            chargeComplete ? 
-                <Canvas 
-                    className='canvas' 
-                    shadows
-                    camera={{position: [0,30,60], fov:20}}
-                    color={"#000000"}
-                    style={{zIndex:100}}
-                >
-                    <WorkScene/>
-                </Canvas> 
-            : 
-                <LoadingModels progress={progress}/>
-            }
+        <Canvas 
+                        className='canvas' 
+                        shadows
+                        camera={{position: [0,30,60], fov:20}}
+                        color={"#000000"}
+                        style={{zIndex:100}}
+                    >
+                        <WorkScene/>
+                    </Canvas> 
+        {/*
+                        chargeComplete ? 
+                        <Canvas 
+                        className='canvas' 
+                        shadows
+                        camera={{position: [0,30,60], fov:20}}
+                        color={"#000000"}
+                        style={{zIndex:100}}
+                    >
+                        <WorkScene/>
+                    </Canvas> 
+                        :
+                        <LoadingModels progress={progress}/>
+    */}
+
     </div>
 
     )

@@ -317,3 +317,85 @@
   }
 
 }
+
+.initButton{
+  -webkit-animation: showInitial 1.2s;
+  animation: showInitial 1.2s;
+
+  background-color: transparent;
+  border: 2px white solid;
+
+  transition: all 0.3s;
+
+  & > div {
+    color: white;
+  }
+
+  &:hover{
+    transform: translateY(3px);
+    background-color:#fff;
+    border:2px white solid;
+  }
+  &:hover > div{
+    color: #100036;
+  }
+}
+
+@-webkit-keyframes showInitial {
+  0% {
+      opacity: 0;
+      transform: translateY(50px);
+      
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+
+  }
+}
+@keyframes showInitial {
+  0% {
+      opacity: 0;
+      transform: translateY(50px);
+
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+
+  }
+}
+
+.hideLoading{
+  transition: all 1s;
+  -webkit-animation: 1.5s displayNone 1s forwards; /* for less modern browsers */
+  animation: 1.5s displayNone 1s forwards;
+}
+
+@-webkit-keyframes displayNone {
+  0% {
+    opacity: 1;
+    transform: translateY(-25vh);
+      
+  }
+  100% {
+    transform: translateY(-150vh);
+    opacity: 0.95;
+  }
+}
+@keyframes displayNone {
+  0% {
+    opacity: 1;
+
+    transform: translateY(-25vh);
+
+
+  }
+  100% {
+    transform: translateY(-150vh);
+    opacity: 0.95;
+
+
+  }
+}
+

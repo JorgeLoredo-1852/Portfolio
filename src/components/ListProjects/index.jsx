@@ -55,7 +55,7 @@ const style = {
   p: 4,
 };
 
-export const ListProjects = () => {
+export const ListProjects = ({handleNextPage}) => {
   const themeM = useTheme();
   const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
   const downMd = useMediaQuery(themeM.breakpoints.down('md'));
@@ -113,15 +113,15 @@ export const ListProjects = () => {
 
             <div className="report__tabs">
                 <div className={"report__tabs--tab"}>
-                    <span onClick={()=>changeTab(0)} className={actualTab === 0 ? "report__tabs--bg tab__active" : "report__tabs--bg"}>
+                    <span onClick={()=>{handleNextPage(); changeTab(0)}} className={actualTab === 0 ? "report__tabs--bg tab__active" : "report__tabs--bg"}>
                         <p className="report__tabs--text">PROJECTS</p>
                     </span>
                 </div>
                 <div className={"report__tabs--tab"}>
-                    <span onClick={()=>changeTab(1)} className={actualTab === 1 ? "report__tabs--bg tab__active" : "report__tabs--bg"}>
+                    <span onClick={()=>{handleNextPage(); changeTab(1)}} className={actualTab === 1 ? "report__tabs--bg tab__active" : "report__tabs--bg"}>
                         <p className="report__tabs--text">EXTRAS</p>
                     </span>
-                </div>
+                </div> 
             </div>
 
             {

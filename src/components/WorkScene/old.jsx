@@ -46,12 +46,11 @@ export const WorkScene = () => {
             <ambientLight intensity={0.3}/>
 
             <group position={[0,0,0]}>
-                <Suspense fallback={null}>
                 <ScrollControls pages={6}>
                     <Physics gravity={[0, -10, 0]}>
                         <WorkStation/>
                     </Physics>
-                </ScrollControls></Suspense>
+                </ScrollControls>
             </group>
             
         </>
@@ -285,55 +284,54 @@ const WorkStation = () => {
                             <meshStandardMaterial color="#fff" />
                         </Text3D>
                         <group rotation={javascriptRotation} position={javascriptPos}>
-                            <Java  position={[0, 5, 320]} scale={2} rotation={[-Math.PI/2,-Math.PI,0]}/>{/*  React  */}
-                            <Python  position={[0, -5, 320]} scale={2} rotation={[-Math.PI/2,-Math.PI,0]}/>{/*  Node  */}
-                            <C  position={[4, 2.5, 320]} scale={2} rotation={[-Math.PI/2,-Math.PI/2 - Math.PI/4,0]}/>{/*  Redux  */}
-                            <Swift  position={[4, -2.5, 320]} scale={2} rotation={[-Math.PI/2,-Math.PI/3,0]}/>{/*  Tree.js  */}
-                            <Matlab  position={[-4, 2.5, 320]} scale={2} rotation={[-Math.PI/2,Math.PI/3 + Math.PI/4,0]}/>{/*  CSS  */}
-                            <Php  position={[-4, -2.5, 320]} scale={2} rotation={[-Math.PI/2,Math.PI/4,0]}/>{/*  Material UI */}
+                            <Java  position={[0, 5, 320]} scale={2} rotation={[-Math.PI/2,-Math.PI,0]}/> {/*  React  */}
+                            <Python  position={[0, -5, 320]} scale={2} rotation={[-Math.PI/2,-Math.PI,0]}/> {/*  Node  */}
+                            <C  position={[4, 2.5, 320]} scale={2} rotation={[-Math.PI/2,-Math.PI/2 - Math.PI/4,0]}/> {/*  Redux  */}
+                            <Swift  position={[4, -2.5, 320]} scale={2} rotation={[-Math.PI/2,-Math.PI/3,0]}/> {/*  Tree.js  */}
+                            <Matlab  position={[-4, 2.5, 320]} scale={2} rotation={[-Math.PI/2,Math.PI/3 + Math.PI/4,0]}/> {/*  CSS  */}
+                            <Php  position={[-4, -2.5, 320]} scale={2} rotation={[-Math.PI/2,Math.PI/4,0]}/> {/*  Material UI */}
                         </group>
 
-                        <group position={dbPos}>
-                            <Js position={[0,0,-1.02]} scale={3} rotation={[-Math.PI/2,Math.PI - Math.PI/6,Math.PI]}/>{/*  Databases  */}
+                        {/*<group position={dbPos}>
+                            <Js position={[0,0,-1.02]} scale={3} rotation={[-Math.PI/2,Math.PI - Math.PI/6,Math.PI]}/>   
                             <group rotation={mongoRot}>
-                                <Nodejs position={[5,0,0]} scale={1.5} rotation={[Math.PI/2,-Math.PI/16,0]}/>{/*  MongoDB  */}
+                                <Nodejs position={[5,0,0]} scale={1.5} rotation={[Math.PI/2,-Math.PI/16,0]}/>   
                             </group>
                             <group rotation={[-Math.PI/2 - mongoRot[1],0,0]}>
-                                <ReactModel2 position={[0,5,0]} scale={1.5} rotation={[-Math.PI/2,0,0]} />{/*  MySQL  */}
+                                <ReactModel2 position={[0,5,0]} scale={1.5} rotation={[-Math.PI/2,0,0]} />  
                             </group>
                             <group rotation={[0,0,Math.PI/4]}>
                                 <group rotation={[0,-Math.PI/2 + mongoRot[1],0]}>
-                                    <Express position={[5,0,0]}  scale={1.5} rotation={[-Math.PI/2,Math.PI,Math.PI]}/>{/*  GraphQL  */}
+                                    <Express position={[5,0,0]}  scale={1.5} rotation={[-Math.PI/2,Math.PI,Math.PI]}/>   
                                 </group>
                             </group> 
                         </group>
 
                         <group position={pythonPos}>
-                        <D3s position={[0,0,-1.02]} scale={3} rotation={[-Math.PI/2,Math.PI - Math.PI/6,Math.PI]}/>{/*  Databases  */}
-                            <group rotation={mongoRot}>
-                                <ThreeJS position={[5,0,0]} scale={1.5} rotation={[Math.PI/2,-Math.PI/16,0]}/>{/*  MongoDB  */}
+                        <D3s position={[0,0,-1.02]} scale={3} rotation={[-Math.PI/2,Math.PI - Math.PI/6,Math.PI]}/>   
+                                <ThreeJS position={[5,0,0]} scale={1.5} rotation={[Math.PI/2,-Math.PI/16,0]}/>   
                             </group>
                             <group rotation={[-Math.PI/2 - mongoRot[1],0,0]}>
-                                <Unity position={[0,5,0]} scale={1.5} rotation={[-Math.PI/2,0,0]} />{/*  MySQL  */}
+                                <Unity position={[0,5,0]} scale={1.5} rotation={[-Math.PI/2,0,0]} />   
                             </group>
                             <group rotation={[0,0,Math.PI/4]}>
                                 <group rotation={[0,-Math.PI/2 + mongoRot[1],0]}>
-                                    <Fusion position={[5,0,0]}  scale={1.5} rotation={[-Math.PI/2,Math.PI,Math.PI]}/>{/*  GraphQL  */}
+                                    <Fusion position={[5,0,0]}  scale={1.5} rotation={[-Math.PI/2,Math.PI,Math.PI]}/>  
                                 </group>
                             </group> 
                         </group>
 
                         <group position={extraTechPos} rotation={[0,0,Math.PI/8]}>
-                            <DB position={[0,0,2.04]}  scale={3} rotation={[-Math.PI/2,Math.PI/2 + Math.PI/4,0]}/>{/*  Python  */}
+                            <DB position={[0,0,2.04]}  scale={3} rotation={[-Math.PI/2,Math.PI/2 + Math.PI/4,0]}/>   
                             <group rotation={mongoRot}>
-                                <Mongo position={[5,0,0]} scale={1.5} rotation={[Math.PI/2,-Math.PI/16,0]}/>{/*  Flask  */}
+                                <Mongo position={[5,0,0]} scale={1.5} rotation={[Math.PI/2,-Math.PI/16,0]}/>  
                             </group>
                             <group rotation={[-Math.PI/2 - mongoRot[1],0,0]}>
-                                <Graphql position={[0,5,0]} scale={1.5} rotation={[-Math.PI/2,0,0]} />{/*  Tensorflow  */}
+                                <Graphql position={[0,5,0]} scale={1.5} rotation={[-Math.PI/2,0,0]} />  
                             </group>
                             <group rotation={[0,0,Math.PI/4]}>
                                 <group rotation={[0,-Math.PI/2 + mongoRot[1],0]}>
-                                    <Mysql position={[4.5,0,0]}  scale={1.5} rotation={[-Math.PI/2,Math.PI,0]}/>{/*  GraphQL  */}
+                                    <Mysql position={[4.5,0,0]}  scale={1.5} rotation={[-Math.PI/2,Math.PI,0]}/>  
                                 </group>
                             </group> 
                         </group>
@@ -342,7 +340,7 @@ const WorkStation = () => {
                             <Spaceship scale={scaleSpaceship} rotation={[Math.PI/8,0,0]}/>
                         </group>
 
-                        {/* WORK EXPERIENCE */}
+                        { WORK EXPERIENCE }
                         <group position={posEarth} rotation={[0,rotationEarth,0]} scale={scaleEarth}>
                             <Text3D position={[-60,-5.5,5]} letterSpacing={0.1} rotation={[0,-Math.PI/2,Math.PI/2]} size={3} font="/Inter_Bold.json">
                                 Work
@@ -354,6 +352,7 @@ const WorkStation = () => {
                                     <MedGlobal position={posWork2} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
                                     <Micronics position={posWork1} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>
                                     <Vitale position={posWork3} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
+
                                 </>
                             } 
                         </group>
@@ -368,7 +367,7 @@ const WorkStation = () => {
                             <StarBeca position={downMd ? [0, 1.6, -10] : [-4,-1.2,-10]} rotation={rotStar} scale={downMd ? 0.40 : 0.8}/>
                         </group>
 
-                        <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1}/>
+                        <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1}/>*/}
 
                     </group>
 

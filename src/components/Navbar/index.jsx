@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Tabs from "./tabs";
 import { Link, NavLink } from "react-router-dom";
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { useProgress} from '@react-three/drei'
 
 export const Navbar = () => {
   const currentURL = window.location.href 
@@ -37,39 +38,47 @@ export const NewNav = ({inView3D}) => {
   const downXl = useMediaQuery(themeM.breakpoints.down('xl'));
   const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
 
+  const { active, progress, errors, item, loaded, total } = useProgress()
+  const [chargeComplete, setChargeComplete] = useState(false)
+  
+  useEffect(()=>{
+      if(progress == 100){
+          setChargeComplete(true)
+      }
+  }, [progress])
+
   const onCheckedNav = () => {
     setOpenNav(!openNav)
   }
 
   const classNameNav = () => {
     const pathname = window.location.pathname
-    if(pathname == "/projects"){
-      return inView3D ? "navigation__button" : "navigation__button nav--bottom"
-    } else {
-      return "navigation__button"
-    }
+    //console.log(!inView3D, progress)
+    //if(pathname == "/projects"){
+    //  return !inView3D && progress == 100 ? "navigation__button nav--bottom" : "navigation__button"
+    //} else {
+    //  return "navigation__button"
+   // }
   }
 
   const classNameBG = () => {
-    const pathname = window.location.pathname
-    if(pathname == "/projects"){
-      return inView3D ? "navigation__background" : "navigation__background nav--bottomBG"
-    } else {
-      return "navigation__background"
-    }
+    //const pathname = window.location.pathname
+    //if(pathname == "/projects"){
+    //  return !inView3D && progress == 100 ? "navigation__background nav--bottomBG":"navigation__background"
+    //} else {
+    //  return "navigation__background"
+    //}
   }
   
-  classNameNav()
-
   return(
     <div className="navigation">
     <input checked={openNav} onChange={onCheckedNav} type="checkbox" className="navigation__checkbox" id="navi-toggle"/>
 
-    <label htmlFor="navi-toggle" className={classNameNav()} style={{cursor:downSm ? "unset" : "pointer"}}>
+    <label htmlFor="navi-toggle" className={"navigation__button"} style={{cursor:downSm ? "unset" : "pointer"}}>
         <span className="navigation__icon" >&nbsp;</span>
     </label>
  
-    <div className={classNameBG()}>&nbsp;</div>
+    <div className={"navigation__background"}>&nbsp;</div>
 
     <nav className="navigation__nav">
         <ul className="navigation__list">

@@ -9,9 +9,11 @@ export function Model(props) {
   const { ref, actions, names } = useAnimations(animations)
   useEffect(() => {
     // Reset and fade in animation after an index has been changed
-    actions[names[0]].reset().fadeIn(0.5).play()
-    // In the clean-up phase, fade it out
-    return () => actions[names[0]].fadeOut(0.5)
+      actions[names[0]].reset().fadeIn(0.5).play()
+      // In the clean-up phase, fade it out
+
+      //return () => actions[names[0]].fadeOut(0.5)
+    
   }, [ actions, names])
   return (
     <group ref={ref} {...props} dispose={null}>

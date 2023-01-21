@@ -47,7 +47,7 @@ export const Roles = () => {
     //console.log(viewRoles)
     const { active, progress, errors, item, loaded, total } = useProgress()
     const [chargeComplete, setChargeComplete] = useState(false)
-
+    
     useEffect(()=>{
         if(progress == 100){
             setChargeComplete(true)
@@ -57,41 +57,27 @@ export const Roles = () => {
     return(
         <div style={{width:"100%", height:"100vh", backgroundColor:"black"}}>
             <JGx/>
-            {
-                chargeComplete ? 
-                <Canvas 
-                    className='canvas' 
-                    shadows
-                    camera={{position: [0,0,40] , fov:15}}
-                    color={"#000000"}
-                    style={{zIndex:100}}
-                >
-                    <Suspense fallback={null}>
-                        <ScrollControls pages={6}>
-                            <RolesScene/>
-                        </ScrollControls>
-                    </Suspense>
-                </Canvas> : 
-                <LoadingModels progress={progress}/>
-            }
-
-{/*
-                chargeComplete ? 
-                <Canvas 
-                    className='canvas' 
-                    shadows
-                    camera={{position: [0,0,40] , fov:15}}
-                    color={"#000000"}
-                    style={{zIndex:100}}
-                >
-                    <Suspense fallback={null}>
-                        <ScrollControls pages={6}>
-                            <RolesScene/>
-                        </ScrollControls>
-                    </Suspense>
-                </Canvas> : 
+                {/*
+                    chargeComplete ? 
+                    <LoadingModels progress={progress}/> : 
                 <LoadingModels progress={progress}/>*/
-            }
+}
+
+                    <Canvas 
+                    className='canvas' 
+                    shadows
+                    camera={{position: [0,0,40] , fov:15}}
+                    color={"#000000"}
+                    style={{zIndex:100}}
+                >
+                    <Suspense fallback={null}>
+                        <ScrollControls pages={6}>
+                            <RolesScene/>
+                        </ScrollControls>
+                    </Suspense>
+                </Canvas>
+
+
         </div>        
     )
 }
@@ -145,6 +131,8 @@ export const RolesScene = () => {
     const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [26,-19.3,-0.3])
     const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [40,-19.3,-0.3])
 
+    const [diff, setDiff] = useState(0.04)
+
     const [video] = useState(
         () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
     )
@@ -153,13 +141,25 @@ export const RolesScene = () => {
         video.play()
     }, [video])
 
+    useEffect(() => {
+        if(downSm) { 
+            setDiff(0.04)
+        }
+        else if(downLg){
+            setDiff(0.03)
+        } else {
+            setDiff(0.02)
+        }
+    }, [downSm, downLg])
+
 
     useFrame((state, delta) => {
         const offset = scroll.offset
         setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
         
         if(offset > 0){
-            const diff = downSm ? 0.04 : 0.018
+
+
             setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
             setPosDisco2([posDisco2[0] - diff, posDisco2[1], posDisco2[2]])
             setPosDisco3([posDisco3[0] - diff, posDisco3[1], posDisco3[2]])
