@@ -36,6 +36,8 @@ import {Model as Placa1} from "../../models/home/Placa1"
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {JGx, LoadingModels} from "../../components"
+import {Model as Control} from "../../models/home/Control"
+import {Model as Control2} from "../../models/home/Control2"
 
 
 export const Roles = () => { 
@@ -324,20 +326,24 @@ export const RolesScene = () => {
             <Environment preset="forest" blur={0.5}/>
             <group position={[0,posScene,0]}>
 
+{
+    downMd ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[10, 5, 2]} />
+            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[-10, 5, 2]} />
+            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[0, 0, 6]} /></>
+}
 
-<MovingSpot depthBuffer={depthBuffer}  color="white" position={[10, 5, -5]} />
-            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[-10, 5, -5]} />
-            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[0, 0, 2]} />
 
                 {/*  FIRST SECTION  */}
+
+                <Control position={[0,-5,0]} scale={0.17}/>
+                <mesh receiveShadow castShadow scale={[100,30,1]}  position={[0,5,-12.5]}>
+                    <boxGeometry/>
+                    <meshStandardMaterial color="#000000" envMapIntensify={0.5} opacity={0.1}/>
+                </mesh>
 
                 <mesh scale={[100,0.5,30]} position={[0,-5.2,-12.5]}>
                     <boxGeometry/>
                     <meshStandardMaterial color="#000000" roughness={1} metalness={0}/>
-                </mesh>
-                <mesh  scale={[100,30,1]}  position={[0,5,-10]}>
-                    <boxGeometry/>
-                    <meshStandardMaterial color="#000000"   roughness={1}/>
                 </mesh>
                 {/*<Text3D height={0.2}position={[-11,0,-8]} letterSpacing={0.009} size={2} font="/Inter_Bold.json">
                         In PROGRESS...
