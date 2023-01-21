@@ -34,7 +34,7 @@ export const LoadingModels = ({progress}) => {
             </div>
             <div style={{fontSize:downSm ? "1.6rem" : "2.2rem", fontWeight:400, marginBottom:"1rem", color:"#3900BB"}}>
               DEVELOPER
-            </div>
+            </div> 
             
             <div style={{marginBottom: downSm ? "0.7rem" : "1rem"}}>
               <BarLoader height={3} width={downSm ? 155 : 215} color="#3900BB" />
