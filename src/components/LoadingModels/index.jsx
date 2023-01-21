@@ -5,7 +5,7 @@ import { CubeSpinner, GooSpinner, PongSpinner, WaveSpinner } from "react-spinner
 import { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 
-import Profile from'../../assets/profile.png';
+import Profile from'../../assets/Profile.png';
 
 
 
