@@ -28,7 +28,16 @@ export const Work = () => {
 
     <div style={{width:"100vw", height:"100vh", backgroundColor:"#000000"}} >
         <JGx/>
-        {
+        <Canvas 
+                        className='canvas' 
+                        shadows
+                        camera={{position: [0,30,60], fov:20}}
+                        color={"#000000"}
+                        style={{zIndex:100}}
+                    >
+                        <WorkScene/>
+                    </Canvas> 
+        {/*
                         chargeComplete ? 
                         <Canvas 
                         className='canvas' 
@@ -41,7 +50,7 @@ export const Work = () => {
                     </Canvas> 
                         :
                         <LoadingModels progress={progress}/>
-                    }
+    */}
 
     </div>
 

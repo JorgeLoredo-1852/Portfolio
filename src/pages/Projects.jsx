@@ -30,8 +30,8 @@ export const Projects = ({setInView}) =>{
 
     const { ref, inView } = useInView();
 
-    const { active, progress, errors, item, loaded, total } = useProgress()
-    const [chargeComplete, setChargeComplete] = useState(false)
+    //const { active, progress, errors, item, loaded, total } = useProgress()
+    //const [chargeComplete, setChargeComplete] = useState(false)
 
     //const scrollRef = useRef(null);
     //useScrollSnap({ ref: scrollRef, duration: 1, delay: 0 });
@@ -71,7 +71,17 @@ export const Projects = ({setInView}) =>{
                 <JGx notHide={inView} />
                 <div ref={ref} style = {{width:"100%",  overflow: "hidden"}} className='fullMinus1'>
                     <ModalProject project={modalProject} open={open} onClose={handleClose}/>
-                    {
+  
+                    <Canvas 
+                            className='canvas' 
+                            shadows
+                            camera={{position: [0,30,60], fov:15}}
+                            gl={{ antialias: false }}
+                        >
+                            {inView && <FeaturedProjects openModalFunc={handleOpen} handleNextPage = {handleNextPage}/>}
+                            
+                        </Canvas>
+           {/*
                         chargeComplete ? 
                                                 <Canvas 
                             className='canvas' 
@@ -83,7 +93,7 @@ export const Projects = ({setInView}) =>{
                             
                         </Canvas>
                         :
-                        <LoadingModels progress={progress}/>
+                        <LoadingModels progress={progress}/>*/
                     }
 
                 </div>

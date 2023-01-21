@@ -63,8 +63,6 @@ export const Roles = () => {
                 <LoadingModels progress={progress}/>*/
 }
 
-{
-                    chargeComplete ? 
                     <Canvas 
                     className='canvas' 
                     shadows
@@ -77,9 +75,8 @@ export const Roles = () => {
                             <RolesScene/>
                         </ScrollControls>
                     </Suspense>
-                </Canvas> : 
-                <LoadingModels progress={progress}/>
-}
+                </Canvas>
+
 
         </div>        
     )
