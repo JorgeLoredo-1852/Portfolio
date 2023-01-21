@@ -30,8 +30,8 @@ export const Projects = ({setInView}) =>{
 
     const { ref, inView } = useInView();
 
-    //const { active, progress, errors, item, loaded, total } = useProgress()
-    //const [chargeComplete, setChargeComplete] = useState(false)
+    const { active, progress, errors, item, loaded, total } = useProgress()
+    const [chargeComplete, setChargeComplete] = useState(false)
 
     //const scrollRef = useRef(null);
     //useScrollSnap({ ref: scrollRef, duration: 1, delay: 0 });
