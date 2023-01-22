@@ -36,7 +36,6 @@ import {Model as Placa1} from "../../models/home/Placa1"
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {JGx, LoadingModels} from "../../components"
-import {Model as Control} from "../../models/home/Control"
 import {Model as Control2} from "../../models/home/Control2"
 import {Model as Compu1} from "../../models/home/Compu1"
 import {Model as Compu2} from "../../models/home/Compu2"
