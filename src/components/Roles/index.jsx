@@ -95,9 +95,8 @@ function MovingSpot({ vec = new THREE.Vector3(), ...props }) {
       light.current.target.position.lerp(vec.set((state.mouse.x * viewport.width) / 2, (state.mouse.y * viewport.height) / 2, 0), 0.1)
       light.current.target.updateMatrixWorld()
     })
-    return <SpotLight castShadow ref={light} penumbra={0.5} distance={50} angle={0.3} attenuation={0} anglePower={1} intensity={5} {...props} />
+    return <SpotLight castShadow ref={light} penumbra={0.5} distance={50} angle={0.3} attenuation={0} anglePower={1} intensity={3} {...props} />
   }
-
 
 export const RolesScene = () => {
     const scroll = useScroll()
@@ -330,14 +329,26 @@ export const RolesScene = () => {
             <group position={[0,posScene,0]}>
 
 {
-    downMd ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[-5, 5, 4]} />
-            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[5, 5, 4]} />
-            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[0, 0, 6]} /></>
+    downMd ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[-1, 0, 4]} />
+            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[1, 0, 4]} />
+            </>
+}
+
+{/*
+    downMd ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[-3, 0, 4]} />
+            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[3, 0, 4]} />
+            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[0, 0, 6]} /></>*/
 }
 
 
-                {/*  FIRST SECTION  */}
 
+                {/*  FIRST SECTION  */}
+                {/*<mesh receiveShadow castShadow  position={[0,5,-12.5]}>
+                    <sphereGeometry args={[20,18,15,0,1.2,1,0.7]}/>
+                    <meshBasicMaterial>
+                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
+                    </meshBasicMaterial>
+</mesh>*/}
                 <Control2 position={[0,-5,0]} scale={0.17}/>
                 <Compu1 scale={4.8} position={[0,-5,-3.5]} rotation={[0,Math.PI,0]}/>
                 <Compu2 scale={4.6} position={[-3.6,-5,-2.5]} rotation={[0,Math.PI + Math.PI/8,0]}/>
