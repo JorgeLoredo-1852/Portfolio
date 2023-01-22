@@ -17,152 +17,299 @@ export const Model = (props) => {
 }, [video])
   return (
     <group {...props} dispose={null}>
-      <group scale={1}>
+<group scale={1}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Body1001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body13001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body17001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body18001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body2001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body22001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body23001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body24001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body25001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body26001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body27001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body28001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body29001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body3001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body4001.geometry}
-          material={materials["Steel - Satin.001"]}
-          scale={10}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Body40.geometry}
+          geometry={nodes.Body1.geometry}
           material={materials["Steel - Satin"]}
           scale={10}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Body41.geometry}
+          geometry={nodes.Body13.geometry}
           material={materials["Steel - Satin"]}
           scale={10}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Body46.geometry}
+          geometry={nodes.Body17.geometry}
           material={materials["Steel - Satin"]}
           scale={10}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Body47.geometry}
+          geometry={nodes.Body18.geometry}
           material={materials["Steel - Satin"]}
           scale={10}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Body50.geometry}
+          geometry={nodes.Body2.geometry}
           material={materials["Steel - Satin"]}
           scale={10}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Body6001.geometry}
-          material={materials["Steel - Satin.001"]}
+          geometry={nodes.Body22.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body23.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body24.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body25.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body26.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body27.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body28.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body29.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body3.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body4.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body40001.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body41001.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body46001.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body47001.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body50001.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body51.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body52.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body53.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body54.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body55.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body56.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body57.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body58.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body59.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body6.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body60.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body61.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body63.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body64.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body65.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body66.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body67.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body68.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body69.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body70.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body71.geometry}
+          material={materials["Steel - Satin"]}
+          scale={10}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Body72.geometry}
+          material={materials["Steel - Satin"]}
           scale={10}
         />
       </group>
