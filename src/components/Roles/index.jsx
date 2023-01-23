@@ -396,7 +396,7 @@ export const RolesScene = () => {
                     </meshBasicMaterial>
 </mesh>*/}
 
-                <Portal position={downSm ? [0,posPortal[1],-20] : [0,posPortal[1]-1.2,-25]} scale={downSm ? 0.13 : 0.3} rotation={rotPortal}/>
+                {/*<Portal position={downSm ? [0,posPortal[1],-20] : [0,posPortal[1]-1.2,-25]} scale={downSm ? 0.13 : 0.3} rotation={rotPortal}/>*/}
 
                 { 
                     !downMd ? 
