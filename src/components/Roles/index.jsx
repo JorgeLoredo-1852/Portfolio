@@ -150,6 +150,8 @@ export const RolesScene = () => {
     const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [26,-19.3,-0.3])
     const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [40,-19.3,-0.3])
 
+    const [showLights, setShowLights] = useState(true)
+
     const [diff, setDiff] = useState(0.04)
 
     const [video] = useState(
@@ -160,16 +162,23 @@ export const RolesScene = () => {
         video.play()
     }, [video])
 
-    useEffect(() => {
-        if(downSm) { 
+    useEffect(()=>{
+        if(window.screen.width < 600){
+            setShowLights(false)
             setDiff(0.04)
-        }
-        else if(downLg){
+        } else if(window.screen.width > 600 & 1200 < window.screen.width) {
+            setShowLights(false)
+            setDiff(0.035)
+        } else if(window.screen.width > 1200 & window.screen.width < 1300){
+            setShowLights(false)
             setDiff(0.035)
         } else {
-            setDiff(0.025)
+            setShowLights(true)
+            setDiff(0.03)
         }
-    }, [downSm, downLg])
+    }, [window.screen.width])
+
+
 
 
     useFrame((state, delta) => {
@@ -314,11 +323,11 @@ export const RolesScene = () => {
             <Environment preset="forest" blur={0.5}/>
             <group position={[0,posScene,0]}>
 
-{/*
-    downMd ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[-1, 0, 4]} />
+{
+    showLights ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[-1, 0, 4]} />
             <MovingSpot depthBuffer={depthBuffer}  color="white" position={[1, 0, 4]} />
             </>
-    */}
+}
 
 
 
@@ -379,15 +388,9 @@ export const RolesScene = () => {
                     </Text3D>
 
 
-                {/*<mesh receiveShadow castShadow scale={[22,16,1]} position={[0,-13.5,0]}>
-                    <boxGeometry/>
-                    <meshStandardMaterial color="#1D0060" envMapIntensify={0.5} opacity={0.1}/>
-    </mesh>*/}
-
 
                 {/*  THIRD SECTION  */}
 
-                <CubeBG position={[0,0,-80]} scale={[200,200,1]}/>
                 <mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
                     <planeGeometry />
                     <meshBasicMaterial>
