@@ -10,8 +10,7 @@ export function Model(props) {
   return (
     <group {...props} dispose={null}>
       <mesh
-        castShadow
-        receiveShadow
+
         geometry={nodes.Plane.geometry}
         material={materials["Material.001"]}
         position={[1.26, 0, 0]}

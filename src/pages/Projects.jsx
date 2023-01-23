@@ -101,7 +101,7 @@ export const Projects = ({setInView}) =>{
             <Grid item xs={12} className="section3">
                 
                 </Grid>    
-            <Grid item xs={12} className='section2' ref={refListPage}>
+            <Grid item xs={12} className='section2' style={{overflow:"hidden"}} ref={refListPage}>
                 <ListProjects handleNextPage = {handleNextPage}/>
             </Grid> 
             <Grid item xs={12} className="section3">

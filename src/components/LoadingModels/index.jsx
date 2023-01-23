@@ -16,7 +16,7 @@ export const LoadingModels = ({progress}) => {
   const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
   const [classes, setClasses] = useState("")
   useEffect(()=>{
-    console.log(progress)
+    //console.log(progress)
     if(progress == 100){
       setClasses("hideLoading")
     }

@@ -72,7 +72,7 @@ function TableGroups() {
     window.open(link, '_blank', 'noopener,noreferrer');
   }
   return (
-    <TableContainer component={Paper} sx={{marginTop:"1rem", backgroundColor:"transparent"}}>
+    <TableContainer component={Paper} sx={{marginTop:"1rem", marginBottom:"1rem", backgroundColor:"transparent"}}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <StyledTableRow>

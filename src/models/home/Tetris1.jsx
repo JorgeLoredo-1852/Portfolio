@@ -8,10 +8,8 @@ import { useGLTF } from "@react-three/drei";
 export function Model(props) {
   const { nodes, materials } = useGLTF("/home/tetris1.glb");
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} >
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Cube.geometry}
         material={materials.Material}
         position={[0, 0, 0]}

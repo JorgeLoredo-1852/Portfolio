@@ -12,14 +12,12 @@ export function Model(props) {
       <group rotation={[Math.PI / 2, 0, 0]} scale={1}>
         <group scale={10}>
           <mesh
-            castShadow
-            receiveShadow
+
             geometry={nodes.Body1_1.geometry}
             material={materials["Steel - Satin"]}
           />
           <mesh
-            castShadow
-            receiveShadow
+
             geometry={nodes.Body1_2.geometry}
             material={materials["Material.001"]}
           />

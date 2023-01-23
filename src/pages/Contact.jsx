@@ -54,7 +54,7 @@ export const Contact = () =>{
       if(a && b && c){
         emailjs.sendForm('service_jg7abqb', 'template_iyit9sr', form.current, 'JgLTAy0eic29nE5Vv')
             .then((result) => {
-                console.log(result.text);
+                //console.log(result.text);
                 setSubmitted(true)
                 e.target.reset()
             }, (error) => {
