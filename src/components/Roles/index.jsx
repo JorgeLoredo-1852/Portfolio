@@ -195,21 +195,6 @@ export const RolesScene = () => {
             }   
         }
 
-        
-        
-        if(offset < 0.3365){
-            setOpacityText1(8.519 - offset*25.3164)
-        } else if(offset < 0.4155){
-            setOpacityText2(10.516 - offset*25.3164)
-        } else if(offset < 0.4952){
-            setOpacityText3(12.516 - offset*25.3164)
-        } else if(offset < 0.5745){
-            setOpacityText4(14.516 - offset*25.3164)
-        } else if(offset < 0.6535){
-            setOpacityText5(16.516 - offset*25.3164)
-        } else if(offset < 0.733){
-            setOpacityText6(18.516 - offset*25.3164)
-        }
 
         if(offset < 0.30){
 
@@ -229,7 +214,7 @@ export const RolesScene = () => {
                 setElevatorPos([-6, -offset*90,1])
             }
 
-        } else if (offset < 0.76){
+        } else if (offset > 0.3  && offset < 0.76){
                         setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
 
             setPosText([-2.9, -27 + (offset - 0.30)*89, 10])
@@ -262,7 +247,21 @@ export const RolesScene = () => {
             setElevatorPos([-6, -0.3*90,1])
             setRailPos([0,-28.8,0])
 
-        }  else if (offset < 0.9){
+            if(offset < 0.3365){
+                setOpacityText1(8.519 - offset*25.3164)
+            } else if(offset < 0.4155){
+                setOpacityText2(10.516 - offset*25.3164)
+            } else if(offset < 0.4952){
+                setOpacityText3(12.516 - offset*25.3164)
+            } else if(offset < 0.5745){
+                setOpacityText4(14.516 - offset*25.3164)
+            } else if(offset < 0.6535){
+                setOpacityText5(16.516 - offset*25.3164)
+            } else if(offset < 0.733){
+                setOpacityText6(18.516 - offset*25.3164)
+            }
+
+        }  else if (offset > 0.76 & offset < 0.9){
 
             setPosText([-2.75, -27 + (offset - 0.30)*89, 10])
 
