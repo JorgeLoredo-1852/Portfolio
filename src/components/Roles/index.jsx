@@ -358,7 +358,7 @@ export const RolesScene = () => {
                 
                 {/*  SECOND SECTION  */}
 
-                {/*<Computer position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>*/}
+                <Computer position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
                 <Disk1 position={posDisco1}/>
                 <Disk2 position={posDisco2}/>
                 <Disk3 position={posDisco3}/>
@@ -389,7 +389,6 @@ export const RolesScene = () => {
                 {/*  THIRD SECTION  */}
 
                 <CubeBG position={[0,0,-80]} scale={[200,200,1]}/>
-                                                    {/*<Sparkles  position={[0,posPortal[1]-10,-25]} color="#3900BB" count={200} scale={40} size={100} speed={2} />*/}
                 {/*<mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
                     <planeGeometry />
                     <meshBasicMaterial>
