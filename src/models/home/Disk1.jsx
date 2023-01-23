@@ -11,14 +11,16 @@ export function Model(props) {
     <group {...props} dispose={null} >
       <group rotation={[0,0,Math.PI/2]} position={[0,0,-0.3]} scale={0.1}>
         <mesh
-
+          castShadow
+          receiveShadow
           geometry={nodes.Body5.geometry}
           material={materials["Paint - Enamel Glossy (Grey)"]}
           scale={10}
         />
       </group>
       <mesh
-
+          castShadow
+          receiveShadow
         geometry={nodes.Plane.geometry}
         material={materials["Material.001"]}
         rotation={[Math.PI / 2, 0, 0]}
