@@ -469,15 +469,6 @@ export const Model = (props) => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.01}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Plane.geometry}
-        material={materials["Material.003"]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={[2.01, 1, 1]}
-      />
-
 
 
 
@@ -491,7 +482,7 @@ export const Model = (props) => {
           castShadow
           receiveShadow
           geometry={nodes.Cube001.geometry}
-          material={materials["Material.008"]}
+          material={materials["Steel - Satin"]}
         />
         <mesh
           castShadow
@@ -510,7 +501,7 @@ export const Model = (props) => {
           castShadow
           receiveShadow
           geometry={nodes.Cube002.geometry}
-          material={materials["Material.008"]}
+          material={materials["Steel - Satin"]}
         />
         <mesh
           castShadow
@@ -528,7 +519,7 @@ export const Model = (props) => {
           castShadow
           receiveShadow
           geometry={nodes.Cube003.geometry}
-          material={materials["Material.008"]}
+          material={materials["Steel - Satin"]}
         />
         <mesh
           castShadow
