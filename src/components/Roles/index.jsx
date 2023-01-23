@@ -388,12 +388,12 @@ export const RolesScene = () => {
                 {/*  THIRD SECTION  */}
 
                 <CubeBG position={[0,0,-80]} scale={[200,200,1]}/>
-                {/*<mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
+                <mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
                     <planeGeometry />
                     <meshBasicMaterial>
                         <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
                     </meshBasicMaterial>
-</mesh>*/}
+</mesh>
 
                 <Portal position={downSm ? [0,posPortal[1],-20] : [0,posPortal[1]-1.2,-25]} scale={downSm ? 0.13 : 0.3} rotation={rotPortal}/>
 
