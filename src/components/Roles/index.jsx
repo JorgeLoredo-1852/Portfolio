@@ -177,22 +177,22 @@ export const RolesScene = () => {
         if(offset > 0 && offset < 0.3){
 
 
-            //setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
-            //setPosDisco2([posDisco2[0] - diff, posDisco2[1], posDisco2[2]])
-            //setPosDisco3([posDisco3[0] - diff, posDisco3[1], posDisco3[2]])
-            //setPosUSB1([posUSB1[0] - diff, posUSB1[1], posUSB1[2]])
-            //setPosUSB2([posUSB2[0] - diff, posUSB2[1], posUSB2[2]])
-            //setPosUSB3([posUSB3[0] - diff, posUSB3[1], posUSB3[2]])
-            //if(posDisco1[0] < -14){
-                //setPosDisco1([28, posDisco1[1], posDisco1[2]])
-            //    setPosUSB1([28, posUSB1[1], posUSB1[2]])
-            //} else if(posDisco2[0] < -14){
-           //     setPosDisco2([28, posDisco2[1], posDisco2[2]])
-            //    setPosUSB2([28, posUSB2[1], posUSB2[2]])
-            //} else if(posDisco3[0] < -14){
-            //    setPosDisco3([28, posDisco3[1], posDisco3[2]])
-            //    setPosUSB3([28, posUSB3[1], posUSB3[2]])
-            //}   
+            setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
+            setPosDisco2([posDisco2[0] - diff, posDisco2[1], posDisco2[2]])
+            setPosDisco3([posDisco3[0] - diff, posDisco3[1], posDisco3[2]])
+            setPosUSB1([posUSB1[0] - diff, posUSB1[1], posUSB1[2]])
+            setPosUSB2([posUSB2[0] - diff, posUSB2[1], posUSB2[2]])
+            setPosUSB3([posUSB3[0] - diff, posUSB3[1], posUSB3[2]])
+            if(posDisco1[0] < -14){
+                setPosDisco1([28, posDisco1[1], posDisco1[2]])
+                setPosUSB1([28, posUSB1[1], posUSB1[2]])
+            } else if(posDisco2[0] < -14){
+                setPosDisco2([28, posDisco2[1], posDisco2[2]])
+                setPosUSB2([28, posUSB2[1], posUSB2[2]])
+            } else if(posDisco3[0] < -14){
+                setPosDisco3([28, posDisco3[1], posDisco3[2]])
+                setPosUSB3([28, posUSB3[1], posUSB3[2]])
+            }   
         }
 
         
@@ -321,21 +321,9 @@ export const RolesScene = () => {
             </>
 }
 
-{/*
-    downMd ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[-3, 0, 4]} />
-            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[3, 0, 4]} />
-            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[0, 0, 6]} /></>*/
-}
-
 
 
                 {/*  FIRST SECTION  */}
-                {/*<mesh receiveShadow castShadow  position={[0,5,-12.5]}>
-                    <sphereGeometry args={[20,18,15,0,1.2,1,0.7]}/>
-                    <meshBasicMaterial>
-                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
-                    </meshBasicMaterial>
-</mesh>*/}
                 <Control2 position={[0,-5,0]} scale={0.17}/>
                 <Compu1 scale={4.8} position={[0,-5,-3.5]} rotation={[0,Math.PI,0]}/>
                 <Compu2 scale={4.6} position={[-3.6,-5,-2.5]} rotation={[0,Math.PI + Math.PI/8,0]}/>
@@ -359,10 +347,6 @@ export const RolesScene = () => {
                     <boxGeometry/>
                     <meshStandardMaterial color="#000000" roughness={1} metalness={0}/>
                 </mesh>
-                {/*<Text3D height={0.2}position={[-11,0,-8]} letterSpacing={0.009} size={2} font="/Inter_Bold.json">
-                        In PROGRESS...
-                        <meshPhongMaterial color="#fff" opacity={1} transparent />
-    </Text3D>*/}
 
 
                 {/*  ELEVATOR  */}
@@ -374,7 +358,7 @@ export const RolesScene = () => {
                 
                 {/*  SECOND SECTION  */}
 
-                <Computer position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
+                {/*<Computer position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>*/}
                 <Disk1 position={posDisco1}/>
                 <Disk2 position={posDisco2}/>
                 <Disk3 position={posDisco3}/>
@@ -406,12 +390,12 @@ export const RolesScene = () => {
 
                 <CubeBG position={[0,0,-80]} scale={[200,200,1]}/>
                                                     {/*<Sparkles  position={[0,posPortal[1]-10,-25]} color="#3900BB" count={200} scale={40} size={100} speed={2} />*/}
-                <mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
+                {/*<mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
                     <planeGeometry />
                     <meshBasicMaterial>
                         <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
                     </meshBasicMaterial>
-                </mesh>
+</mesh>*/}
 
                 <Portal position={downSm ? [0,posPortal[1],-20] : [0,posPortal[1]-1.2,-25]} scale={downSm ? 0.13 : 0.3} rotation={rotPortal}/>
 
