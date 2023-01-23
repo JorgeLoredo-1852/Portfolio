@@ -150,7 +150,7 @@ export const RolesScene = () => {
     const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [26,-19.3,-0.3])
     const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [40,-19.3,-0.3])
 
-    const [showLights, setShowLights] = useState(true)
+    const [showLights, setShowLights] = useState(false)
 
     const [diff, setDiff] = useState(0.04)
 
@@ -163,20 +163,20 @@ export const RolesScene = () => {
     }, [video])
 
     useEffect(()=>{
-        if(window.screen.width < 600){
+        if(window.innerWidth < 600){
             setShowLights(false)
             setDiff(0.04)
-        } else if(window.screen.width > 600 & 1200 < window.screen.width) {
+        } else if(window.innerWidth > 600 & 1200 < window.innerWidth) {
             setShowLights(false)
             setDiff(0.035)
-        } else if(window.screen.width > 1200 & window.screen.width < 1300){
+        } else if(window.innerWidth > 1200 & window.innerWidth < 1300){
             setShowLights(false)
             setDiff(0.035)
         } else {
             setShowLights(true)
             setDiff(0.03)
         }
-    }, [window.screen.width])
+    }, [window.innerWidth])
 
 
 
@@ -359,29 +359,29 @@ export const RolesScene = () => {
 
                 {/*  ELEVATOR  */}
 
-                <Tardis receiveShadow castShadow scale={[0.7,0.7,0.7]} position={[-6, elevatorPos[1] + 0.25,1.4]}/>
-                <Elevator scale={0.7} position={[-6, railPos[1]+15.95, 1.4]}/>
-                <Person scale={1.1} position={[-6, elevatorPos[1] -1.5,1.4]}/>
+                <Tardis cast={showLights} scale={[0.7,0.7,0.7]} position={[-6, elevatorPos[1] + 0.25,1.4]}/>
+                <Elevator cast={showLights} scale={0.7} position={[-6, railPos[1]+15.95, 1.4]}/>
+                <Person cast={showLights} scale={1.1} position={[-6, elevatorPos[1] -1.5,1.4]}/>
 
                 
                 {/*  SECOND SECTION  */}
 
-                <Computer position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
-                <Disk1 position={posDisco1}/>
-                <Disk2 position={posDisco2}/>
-                <Disk3 position={posDisco3}/>
+                <Computer cast={showLights} position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
+                <Disk1 cast={showLights} position={posDisco1}/>
+                <Disk2 cast={showLights} position={posDisco2}/>
+                <Disk3 cast={showLights} position={posDisco3}/>
 
-                <Placa1  position={posUSB1}/>
+                <Placa1 cast={showLights} position={posUSB1}/>
                     <Text3D height={0.25} position={[posUSB1[0]-2.9, posUSB1[1]-0.33,posUSB1[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
                         Front End
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
-                <Placa1  position={posUSB2}/>
+                <Placa1 cast={showLights} position={posUSB2}/>
                     <Text3D height={0.25} position={[posUSB2[0]-2.9, posUSB2[1]-0.33,posUSB2[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
                         Back End
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
-                <Placa1  position={posUSB3}/>
+                <Placa1 cast={showLights} position={posUSB3}/>
                     <Text3D height={0.25} position={[posUSB3[0]-3.85, posUSB3[1]-0.33,posUSB3[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
                         UI/UX Design
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
