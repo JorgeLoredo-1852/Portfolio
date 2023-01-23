@@ -40,7 +40,13 @@ import {Model as Control2} from "../../models/home/Control2"
 import {Model as Compu1} from "../../models/home/Compu1"
 import {Model as Compu2} from "../../models/home/Compu2"
 import {Model as Compu3} from "../../models/home/Compu3"
-
+import {Model as Halo} from "../../models/home/Halo"
+import {Model as Clone} from "../../models/home/StarWars"
+import {Model as Ironman} from "../../models/home/Ironman"
+import {Model as Car} from "../../models/home/Car"
+import {Model as Nave} from "../../models/Rocket"
+import {Model as Earth} from "../../models/Earth"
+import {Model as Mario} from "../../models/home/Mario"
 
 export const Roles = () => { 
     //const { ref, inView } = useInView();
@@ -137,7 +143,7 @@ export const RolesScene = () => {
 
     const [elevatorPos, setElevatorPos] = useState([-6,-6,1.5])
     const [railPos, setRailPos] = useState([0,- 13 - 15.8,0])
-    const [rotPortal, setRotPortal] = useState([0,0,0])
+    const [rotPortal, setRotPortal] = useState([-Math.PI/2 -Math.PI/28,0,0])
     const [posText, setPosText] = useState([-2.9, -27, 10])
     const [posDisco1, setPosDisco1] = useState(downSm ? [4,-11.5,-0.3] : [12,-11.5,-0.3])
     const [posDisco2, setPosDisco2] = useState(downSm ? [18,-11.5,-0.3] : [26,-11.5,-0.3])
@@ -162,18 +168,16 @@ export const RolesScene = () => {
             setDiff(0.04)
         }
         else if(downLg){
-            setDiff(0.03)
+            setDiff(0.035)
         } else {
-            setDiff(0.02)
+            setDiff(0.025)
         }
     }, [downSm, downLg])
 
 
     useFrame((state, delta) => {
-        const offset = scroll.offset
-        setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
-        
-        if(offset > 0){
+        const offset = scroll.offset        
+        if(offset > 0 && offset < 0.3){
 
 
             setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
@@ -235,6 +239,8 @@ export const RolesScene = () => {
             }
 
         } else if (offset < 0.76){
+                        setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
+
             setShowDownLight(true)
             setPosText([-2.9, -27 + (offset - 0.30)*89, 10])
             setPosScene(0.3*90)
@@ -352,6 +358,15 @@ export const RolesScene = () => {
                 <Compu1 scale={4.8} position={[0,-5,-3.5]} rotation={[0,Math.PI,0]}/>
                 <Compu2 scale={4.6} position={[-3.6,-5,-2.5]} rotation={[0,Math.PI + Math.PI/8,0]}/>
                 <Compu3 scale={4.8} position={[3.6,-5,-2.5]} rotation={[0,Math.PI - Math.PI/8,0]}/>
+
+                <Halo scale={0.35} position={[9.2,-0.7,-3]} rotation={[0,-Math.PI/4,0]}/>
+                <Clone scale={0.055} position={[9.2,1.5,-3,5]} rotation={[0,-Math.PI/4,0]}/>
+                <Ironman scale={0.38} position={[9,3.7,-2.8]} rotation={[0,-Math.PI/4,0]}/>
+                <Car scale={0.8} position={[-9,4.3,-2]} rotation={[0,-Math.PI/4 + Math.PI/36,0]}/>
+                <Nave scale={2} position={[-9,1.3,-3.8]} rotation={[0,Math.PI,0]}/>
+                <Earth scale={0.04} position={[-9.8,1.8,-2.8]}/>
+                <Mario scale={0.04} position={[-9.8,-0.45,-2.8]} rotation={[0,3*Math.PI/4,0]}/>
+                
 
                 <mesh receiveShadow castShadow scale={[100,30,1]}  position={[0,5,-12.5]}>
                     <boxGeometry/>

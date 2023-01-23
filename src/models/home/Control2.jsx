@@ -319,11 +319,11 @@ export const Model = (props) => {
         receiveShadow
         geometry={nodes.Plane.geometry}
         rotation={[-Math.PI / 2, 0, Math.PI]}
-        position={[0,42,-46.8]}
+        position={[0,42,-46.7]}
         scale={[32.5, 11, 19]}>
                             <meshBasicMaterial metalness={0.1}>
                         <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
-                    </meshBasicMaterial>
+                        </meshBasicMaterial>
       </mesh>
 
       <mesh
@@ -335,7 +335,7 @@ export const Model = (props) => {
         scale={[8.3, 1, 8]}>
                             <meshBasicMaterial metalness={0.1}>
                         <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
-                    </meshBasicMaterial>
+                        </meshBasicMaterial>
       </mesh>
 
       <mesh
@@ -347,7 +347,7 @@ export const Model = (props) => {
         scale={[8.3, 1, 5.5]}>
                             <meshBasicMaterial metalness={0.1}>
                         <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
-                    </meshBasicMaterial>
+                        </meshBasicMaterial>
       </mesh>
 
       <mesh
@@ -359,7 +359,7 @@ export const Model = (props) => {
         scale={[8.3, 1, 8]}>
                             <meshBasicMaterial metalness={0.1}>
                         <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
-                    </meshBasicMaterial>
+                        </meshBasicMaterial>
       </mesh>
 
       <mesh
