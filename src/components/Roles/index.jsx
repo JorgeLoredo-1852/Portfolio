@@ -100,7 +100,7 @@ function MovingSpot({ vec = new THREE.Vector3(), ...props }) {
       light.current.target.position.lerp(vec.set((state.mouse.x * viewport.width) / 2, (state.mouse.y * viewport.height) / 2, 0), 0.1)
       light.current.target.updateMatrixWorld()
     })
-    return <SpotLight castShadow ref={light} penumbra={0.5} distance={50} angle={0.3} attenuation={0} anglePower={1} intensity={3} {...props} />
+    return <SpotLight castShadow ref={light} penumbra={0} distance={50} angle={0.3} attenuation={0} anglePower={1} intensity={4} {...props} />
   }
 
 export const RolesScene = () => {
@@ -162,10 +162,7 @@ export const RolesScene = () => {
         video.play()
     }, [video])
 
-console.log(showLights)
-
     useEffect(()=>{
-        console.log(window.innerWidth)
         if(window.innerWidth <= 600){
             setShowLights(true)
             setDiff(0.04)
@@ -173,11 +170,11 @@ console.log(showLights)
             setShowLights(true)
             setDiff(0.035)
         } else if(window.innerWidth > 1200 && window.innerWidth <= 1400){
-                        setShowLights(true)
+                        setShowLights(false)
             setDiff(0.035)
         } else if(window.innerWidth > 1400) {
             setShowLights(false)
-            setDiff(0.03)
+            setDiff(0.02)
         }
     }, [window.innerWidth])
 
@@ -327,8 +324,7 @@ console.log(showLights)
             <group position={[0,posScene,0]}>
 
 {
-    showLights ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[-1, 0, 4]} />
-            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[1, 0, 4]} />
+    showLights ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[0, 0, 4]} />
             </>
 }
 
