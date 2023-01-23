@@ -170,7 +170,7 @@ export const RolesScene = () => {
             setShowLights(true)
             setDiff(0.035)
         } else if(window.innerWidth > 1200 && window.innerWidth <= 1400){
-                        setShowLights(false)
+                        setShowLights(true)
             setDiff(0.035)
         } else if(window.innerWidth > 1400) {
             setShowLights(false)
@@ -346,12 +346,12 @@ export const RolesScene = () => {
                 
 
                 <mesh receiveShadow castShadow scale={[100,30,1]}  position={[0,5,-12.5]}>
-                    <boxGeometry/>
+                    <boxBufferGeometry/>
                     <meshStandardMaterial color="#000000" envMapIntensify={0.5} opacity={0.1}/>
                 </mesh>
 
-                <mesh scale={[100,0.5,30]} position={[0,-5.2,-12.5]}>
-                    <boxGeometry/>
+                <mesh receiveShadow castShadow scale={[100,0.5,30]} position={[0,-5.2,-12.5]}>
+                    <boxBufferGeometry/>
                     <meshStandardMaterial color="#000000" roughness={1} metalness={0}/>
                 </mesh>
 

@@ -42,14 +42,14 @@ export function Model(props) {
           material={materials["Material.010"]}
           scale={10}
         />
-        <mesh
+        {/*<mesh
                     castShadow 
                     receiveShadow 
           
           geometry={nodes.Body42.geometry}
           material={materials["Material.004"]}
           scale={10}
-        />
+  />
         <mesh
           
           castShadow 
@@ -81,7 +81,7 @@ export function Model(props) {
           geometry={nodes.Body46.geometry}
           material={materials["Material.004"]}
           scale={10}
-        />
+        />*/}
         <mesh
           
           castShadow 
@@ -167,7 +167,7 @@ export function Model(props) {
                     receiveShadow 
           
           geometry={nodes.Body60.geometry}
-          material={materials["Steel - Satin"]}
+          material={materials["Material.018"]}
           scale={10}
         />
         <mesh
@@ -175,7 +175,7 @@ export function Model(props) {
                     receiveShadow 
           
           geometry={nodes.Body61.geometry}
-          material={materials["Steel - Satin"]}
+          material={materials["Material.018"]}
           scale={10}
         />
         <mesh
@@ -573,6 +573,24 @@ export function Model(props) {
           material={materials["Material #30"]}
         />
       </group>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes["Untitled_design_(12)"].geometry}
+        material={materials["Untitled design (12)"]}
+        position={[88.5, 31, -34.5]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={38}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes["Untitled_design_(11)"].geometry}
+        material={materials["Untitled design (11)"]}
+        position={[88.5, -33.5, -34.5]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={43}
+      />
       <mesh
         
         castShadow 
