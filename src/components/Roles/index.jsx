@@ -174,7 +174,7 @@ export const RolesScene = () => {
 
     useFrame((state, delta) => {
         const offset = scroll.offset        
-        if(offset > 0 && offset < 0.3){
+        /*if(offset > 0 && offset < 0.3){
 
 
             setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
@@ -193,7 +193,7 @@ export const RolesScene = () => {
                 setPosDisco3([28, posDisco3[1], posDisco3[2]])
                 setPosUSB3([28, posUSB3[1], posUSB3[2]])
             }   
-        }
+        }*/
 
         
         
