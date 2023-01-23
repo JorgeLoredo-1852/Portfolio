@@ -359,11 +359,11 @@ export const RolesScene = () => {
                 {/*  SECOND SECTION  */}
 
                 <Computer position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
-                <Disk1 position={posDisco1}/>
+                {/*<Disk1 position={posDisco1}/>
                 <Disk2 position={posDisco2}/>
-                <Disk3 position={posDisco3}/>
+<Disk3 position={posDisco3}/>*/}
 
-                <Placa1  position={posUSB1}/>
+                {/*<Placa1  position={posUSB1}/>
                     <Text3D height={0.25} position={[posUSB1[0]-2.9, posUSB1[1]-0.33,posUSB1[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
                         Front End
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
@@ -377,7 +377,7 @@ export const RolesScene = () => {
                     <Text3D height={0.25} position={[posUSB3[0]-3.85, posUSB3[1]-0.33,posUSB3[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
                         UI/UX Design
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
-                    </Text3D>
+</Text3D>*/}
 
 
                 {/*<mesh receiveShadow castShadow scale={[22,16,1]} position={[0,-13.5,0]}>
