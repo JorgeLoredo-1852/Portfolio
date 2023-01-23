@@ -136,10 +136,8 @@ export const RolesScene = () => {
 
     const [rotCourses, setRotCourses] = useState([0,0,0])
     const [posCourses, setPosCourses] = useState([0,-15,-20])
-    const [scaleCourses, setScaleCourses] = useState(1)
     const [posPortal, setPosPortal] = useState([0, -21, -20])
     const [hideTetrisLast, setHideTetrisLast] = useState(false)
-    const [radiusPortal, setRadiusPortal] = useState(0)
 
     const [elevatorPos, setElevatorPos] = useState([-6,-6,1.5])
     const [railPos, setRailPos] = useState([0,- 13 - 15.8,0])
@@ -151,7 +149,6 @@ export const RolesScene = () => {
     const [posUSB1, setPosUSB1] = useState(downSm ? [4,-19.3,-0.3] : [12,-19.3,-0.3])
     const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [26,-19.3,-0.3])
     const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [40,-19.3,-0.3])
-    const [showDownLight, setShowDownLight] = useState(false)
 
     const [diff, setDiff] = useState(0.04)
 
@@ -180,22 +177,22 @@ export const RolesScene = () => {
         if(offset > 0 && offset < 0.3){
 
 
-            setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
-            setPosDisco2([posDisco2[0] - diff, posDisco2[1], posDisco2[2]])
-            setPosDisco3([posDisco3[0] - diff, posDisco3[1], posDisco3[2]])
-            setPosUSB1([posUSB1[0] - diff, posUSB1[1], posUSB1[2]])
-            setPosUSB2([posUSB2[0] - diff, posUSB2[1], posUSB2[2]])
-            setPosUSB3([posUSB3[0] - diff, posUSB3[1], posUSB3[2]])
-            if(posDisco1[0] < -14){
-                setPosDisco1([28, posDisco1[1], posDisco1[2]])
-                setPosUSB1([28, posUSB1[1], posUSB1[2]])
-            } else if(posDisco2[0] < -14){
-                setPosDisco2([28, posDisco2[1], posDisco2[2]])
-                setPosUSB2([28, posUSB2[1], posUSB2[2]])
-            } else if(posDisco3[0] < -14){
-                setPosDisco3([28, posDisco3[1], posDisco3[2]])
-                setPosUSB3([28, posUSB3[1], posUSB3[2]])
-            }   
+            //setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
+            //setPosDisco2([posDisco2[0] - diff, posDisco2[1], posDisco2[2]])
+            //setPosDisco3([posDisco3[0] - diff, posDisco3[1], posDisco3[2]])
+            //setPosUSB1([posUSB1[0] - diff, posUSB1[1], posUSB1[2]])
+            //setPosUSB2([posUSB2[0] - diff, posUSB2[1], posUSB2[2]])
+            //setPosUSB3([posUSB3[0] - diff, posUSB3[1], posUSB3[2]])
+            //if(posDisco1[0] < -14){
+                //setPosDisco1([28, posDisco1[1], posDisco1[2]])
+            //    setPosUSB1([28, posUSB1[1], posUSB1[2]])
+            //} else if(posDisco2[0] < -14){
+           //     setPosDisco2([28, posDisco2[1], posDisco2[2]])
+            //    setPosUSB2([28, posUSB2[1], posUSB2[2]])
+            //} else if(posDisco3[0] < -14){
+            //    setPosDisco3([28, posDisco3[1], posDisco3[2]])
+            //    setPosUSB3([28, posUSB3[1], posUSB3[2]])
+            //}   
         }
 
         
@@ -216,8 +213,6 @@ export const RolesScene = () => {
 
         if(offset < 0.30){
 
-            setShowDownLight(false)
-
             setPosText([-2.9, -27, 10])
             setPosScene(offset*90)
             setPosTetris1([0,60 - offset*280,0])
@@ -233,15 +228,10 @@ export const RolesScene = () => {
             else if(offset > 0.12){
                 setElevatorPos([-6, -offset*90,1])
             }
-            
-            if(offset > 0.2){
-                setRadiusPortal(-30 + offset*150)
-            }
 
         } else if (offset < 0.76){
                         setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
 
-            setShowDownLight(true)
             setPosText([-2.9, -27 + (offset - 0.30)*89, 10])
             setPosScene(0.3*90)
             
@@ -306,19 +296,11 @@ export const RolesScene = () => {
         } else {
             setRotTetris7([0,-Math.PI/2, 0])
             setPosTetris7(downSm ? [4.8,-98.7,0] : [4.8,-59.2,0])
-            //setPosTetris7([3.3,-82.2+offset*62,250 - offset * 300])
 
             setHideTetrisLast(true)
 
-            //setPosCourses([-1.5,-120 + offset*170,270 - offset * 300])
             setPosCourses(downSm ? [-0.7,-3 + offset*40,250 - offset * 300] : [-1.5,-21 + offset*60,250 - offset * 300])
             setRotCourses([0,-18 * Math.PI + 20 * Math.PI * offset,0])
-            //setScaleCourses(3.7 - offset * 3)
-            //setRotCourses([Math.PI/9 - ((Math.PI/9) * (offset - 0.9125) * 9), ((Math.PI) * (offset - 0.9125) * 11.5),0])
-            //setPosCourses([0,(offset - 0.9125) * 10 * 6,-10])
-
-            //setScaleCourses((offset - 0.84) * 5.5)
-            //setPosPilar([0,-40 - (offset - 0.9125)*20, -0.5 + (offset - 0.9125)*12])
 
             setElevatorPos([-6, 0 -  offset*30,1])
 

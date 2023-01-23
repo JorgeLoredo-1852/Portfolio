@@ -544,7 +544,7 @@ export const Model = (props) => {
         position={[0,42,-46.7]}
         scale={[32.5, 11, 19]}>
                             <meshBasicMaterial metalness={0.1}>
-                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
+                        {/*<videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/>*/}
                         </meshBasicMaterial>
       </mesh>
 
@@ -556,7 +556,7 @@ export const Model = (props) => {
         position={[42.3,31,-33.5]}
         scale={[8.3, 1, 8]}>
                             <meshBasicMaterial metalness={0.1}>
-                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
+                        {/*<videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/>*/}
                         </meshBasicMaterial>
       </mesh>
 
@@ -568,7 +568,7 @@ export const Model = (props) => {
         position={[42.3,48,-33.5]}
         scale={[8.3, 1, 5.5]}>
                             <meshBasicMaterial metalness={0.1}>
-                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
+                        {/*<videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/>*/}
                         </meshBasicMaterial>
       </mesh>
 
@@ -580,7 +580,7 @@ export const Model = (props) => {
         position={[-42.3,31,-33.5]}
         scale={[8.3, 1, 8]}>
                             <meshBasicMaterial metalness={0.1}>
-                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
+                        {/*<videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/>*/}
                         </meshBasicMaterial>
       </mesh>
 
@@ -592,8 +592,8 @@ export const Model = (props) => {
         position={[-42.3,48,-33.5]}
         scale={[8.3, 1, 5.5]}>
                             <meshBasicMaterial metalness={0.1}>
-                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
-                    </meshBasicMaterial>
+                        {/*<videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/>*/}
+                        </meshBasicMaterial>
       </mesh>
 
       <mesh
