@@ -144,11 +144,11 @@ export const RolesScene = () => {
     const [rotPortal, setRotPortal] = useState([-Math.PI/2 -Math.PI/28,0,0])
     const [posText, setPosText] = useState([-2.9, -27, 10])
     const [posDisco1, setPosDisco1] = useState(downSm ? [4,-11.5,-0.3] : [12,-11.5,-0.3])
-    const [posDisco2, setPosDisco2] = useState(downSm ? [16,-11.5,-0.3] : [24,-11.5,-0.3])
-    const [posDisco3, setPosDisco3] = useState(downSm ? [28,-11.5,-0.3] : [36,-11.5,-0.3])
-    const [posUSB1, setPosUSB1] = useState(downSm ? [4,-19.3,-0.3] : [12.3,-19.3,-0.3])
-    const [posUSB2, setPosUSB2] = useState(downSm ? [16,-19.3,-0.3] : [24.3,-19.3,-0.3])
-    const [posUSB3, setPosUSB3] = useState(downSm ? [28,-19.3,-0.3] : [36.3,-19.3,-0.3])
+    const [posDisco2, setPosDisco2] = useState(downSm ? [18,-11.5,-0.3] : [26,-11.5,-0.3])
+    const [posDisco3, setPosDisco3] = useState(downSm ? [32,-11.5,-0.3] : [40,-11.5,-0.3])
+    const [posUSB1, setPosUSB1] = useState(downSm ? [4,-19.3,-0.3] : [12,-19.3,-0.3])
+    const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [26,-19.3,-0.3])
+    const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [40,-19.3,-0.3])
 
     const [showLights, setShowLights] = useState(true)
 
@@ -171,10 +171,13 @@ export const RolesScene = () => {
             setDiff(0.028)
         } else if(window.screen.width > 1200 && window.screen.width <= 1400){
             setShowLights(true)
-            setDiff(0.023)
-        } else if(window.screen.width > 1400) {
+            setDiff(0.022)
+        } else if(window.screen.width > 1400 && window.screen.width <= 1800) {
             setShowLights(false)
-            setDiff(0.014)
+            setDiff(0.013)
+        } else if(window.screen.width > 1800) {
+            setShowLights(false)
+            setDiff(0.010)
         }
     }, [window.screen.width])
 
@@ -192,15 +195,15 @@ export const RolesScene = () => {
             setPosUSB1([posUSB1[0] - diff, posUSB1[1], posUSB1[2]])
             setPosUSB2([posUSB2[0] - diff, posUSB2[1], posUSB2[2]])
             setPosUSB3([posUSB3[0] - diff, posUSB3[1], posUSB3[2]])
-            if(posDisco1[0] < -12){
-                setPosDisco1([24, posDisco1[1], posDisco1[2]])
-                setPosUSB1([24.3, posUSB1[1], posUSB1[2]])
-            } else if(posDisco2[0] < -12){
-                setPosDisco2([24, posDisco2[1], posDisco2[2]])
-                setPosUSB2([24.3, posUSB2[1], posUSB2[2]])
-            } else if(posDisco3[0] < -12){
-                setPosDisco3([24, posDisco3[1], posDisco3[2]])
-                setPosUSB3([24.3, posUSB3[1], posUSB3[2]])
+            if(posDisco1[0] < -14){
+                setPosDisco1([28, posDisco1[1], posDisco1[2]])
+                setPosUSB1([28, posUSB1[1], posUSB1[2]])
+            } else if(posDisco2[0] < -14){
+                setPosDisco2([28, posDisco2[1], posDisco2[2]])
+                setPosUSB2([28, posUSB2[1], posUSB2[2]])
+            } else if(posDisco3[0] < -14){
+                setPosDisco3([28, posDisco3[1], posDisco3[2]])
+                setPosUSB3([28, posUSB3[1], posUSB3[2]])
             }   
         }
 
@@ -366,21 +369,21 @@ export const RolesScene = () => {
                 {/*  SECOND SECTION  */}
 
                 <Computer  cast={showLights} position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
-                <Disk1 scale={downSm ? 0.9 : 0.97} cast={showLights} position={posDisco1}/>
-                <Disk2 scale={downSm ? 0.9 : 0.97} cast={showLights} position={posDisco2}/>
-                <Disk3 scale={downSm ? 0.9 : 0.97} cast={showLights} position={posDisco3}/>
+                <Disk1 cast={showLights} position={posDisco1}/>
+                <Disk2 cast={showLights} position={posDisco2}/>
+                <Disk3 cast={showLights} position={posDisco3}/>
 
-                <Placa1 scale={downSm ? 0.9 : 0.95} cast={showLights} position={posUSB1}/>
+                <Placa1 cast={showLights} position={posUSB1}/>
                     <Text3D height={0.25} position={[posUSB1[0]-2.7, posUSB1[1]-0.33,posUSB1[2]-0.2]} letterSpacing={0.009} size={0.75} font="/Inter_Bold.json">
                         Front End
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
-                <Placa1 scale={downSm ? 0.9 : 0.95} cast={showLights} position={posUSB2}/>
+                <Placa1 cast={showLights} position={posUSB2}/>
                     <Text3D height={0.25} position={[posUSB2[0]-2.7, posUSB2[1]-0.33,posUSB2[2]-0.2]} letterSpacing={0.009} size={0.75} font="/Inter_Bold.json">
                         Back End
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
-                <Placa1 scale={downSm ? 0.9 : 0.95} cast={showLights} position={posUSB3}/>
+                <Placa1 cast={showLights} position={posUSB3}/>
                     <Text3D height={0.25} position={[posUSB3[0]-3.6, posUSB3[1]-0.33,posUSB3[2]-0.2]} letterSpacing={0.009} size={0.75} font="/Inter_Bold.json">
                         UI/UX Design
                         <meshPhongMaterial color="#fff" opacity={1} transparent />

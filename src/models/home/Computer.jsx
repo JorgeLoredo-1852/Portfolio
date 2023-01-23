@@ -167,7 +167,7 @@ export function Model(props) {
                     receiveShadow 
           
           geometry={nodes.Body60.geometry}
-          material={materials["Material.018"]}
+          material={materials["Material.007"]}
           scale={10}
         />
         <mesh
@@ -175,7 +175,7 @@ export function Model(props) {
                     receiveShadow 
           
           geometry={nodes.Body61.geometry}
-          material={materials["Material.018"]}
+          material={materials["Material.007"]}
           scale={10}
         />
         <mesh
