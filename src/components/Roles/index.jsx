@@ -150,7 +150,7 @@ export const RolesScene = () => {
     const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [26,-19.3,-0.3])
     const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [40,-19.3,-0.3])
 
-    const [showLights, setShowLights] = useState(false)
+    const [showLights, setShowLights] = useState(true)
 
     const [diff, setDiff] = useState(0.04)
 
@@ -162,18 +162,21 @@ export const RolesScene = () => {
         video.play()
     }, [video])
 
+console.log(showLights)
+
     useEffect(()=>{
-        if(window.innerWidth < 600){
-            setShowLights(false)
-            setDiff(0.04)
-        } else if(window.innerWidth > 600 & 1200 < window.innerWidth) {
-            setShowLights(false)
-            setDiff(0.035)
-        } else if(window.innerWidth > 1200 & window.innerWidth < 1300){
-            setShowLights(false)
-            setDiff(0.035)
-        } else {
+        console.log(window.innerWidth)
+        if(window.innerWidth <= 600){
             setShowLights(true)
+            setDiff(0.04)
+        } else if(window.innerWidth > 600 && 1200 >= window.innerWidth) {
+            setShowLights(true)
+            setDiff(0.035)
+        } else if(window.innerWidth > 1200 && window.innerWidth <= 1400){
+                        setShowLights(true)
+            setDiff(0.035)
+        } else if(window.innerWidth > 1400) {
+            setShowLights(false)
             setDiff(0.03)
         }
     }, [window.innerWidth])
