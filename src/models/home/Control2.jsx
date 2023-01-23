@@ -623,6 +623,26 @@ export const Model = (props) => {
         rotation={[Math.PI / 2, 0, -2.68]}
         scale={0.05}
       />
+      
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Electronics1.geometry}
+        material={materials["Electronics"]}
+        position={[-42.5, 7, -9.5]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={7}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Electronics1001.geometry}
+        material={materials["Electronics"]}
+        position={[42.5, 7, -9.45]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={7}
+      />
+
     </group>
   );
 }
