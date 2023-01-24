@@ -368,8 +368,8 @@
 
 .hideLoading{
   transition: all 1s;
-  -webkit-animation: 2s displayNone 1s forwards; /* for less modern browsers */
-  animation: 2s displayNone 1s forwards;
+  -webkit-animation: 2.5s displayNone 1s forwards; /* for less modern browsers */
+  animation: 2.5s displayNone 1s forwards;
 }
 
 @-webkit-keyframes displayNone {
@@ -406,9 +406,9 @@
   }
 }
 
-.photoInitial {
+.photoInitial { 
   opacity: 0;
-  animation: 0.5s showLoading 1s forwards;
+  animation: 1s showLoading 1s forwards;
 }
 
 .blobInitial{
