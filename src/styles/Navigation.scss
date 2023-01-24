@@ -368,8 +368,8 @@
 
 .hideLoading{
   transition: all 1s;
-  -webkit-animation: 2.5s displayNone 1s forwards; /* for less modern browsers */
-  animation: 2.5s displayNone 1s forwards;
+  -webkit-animation: 2s displayNone 1.5s forwards; /* for less modern browsers */
+  animation: 2s displayNone 1.5s forwards;
 }
 
 @-webkit-keyframes displayNone {

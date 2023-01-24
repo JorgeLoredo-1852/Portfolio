@@ -140,31 +140,16 @@ export const RolesScene = () => {
     const [railPos, setRailPos] = useState([0,- 13 - 15.8,0])
     const [rotPortal, setRotPortal] = useState([-Math.PI/2 -Math.PI/28,0,0])
     const [posText, setPosText] = useState([-2.9, -27, 10])
-
-
-
-
-    const [posDisco1, setPosDisco1] = useState(downSm ? [4,-11.5,-0.3] : [3.3,-11.5,-0.3])
-    const [posDisco2, setPosDisco2] = useState(downSm ? [18,-11.5,-0.3] : [15.3,-11.5,-0.3])
-    const [posDisco3, setPosDisco3] = useState(downSm ? [32,-11.5,-0.3] : [27.3,-11.5,-0.3])
-    const [posUSB1, setPosUSB1] = useState(downSm ? [4,-19.3,-0.3] : [3.3,-19.3,-0.3])
-    const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [15.3,-19.3,-0.3])
-    const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [27.3,-19.3,-0.3])
-
-
-
-
+    const [posDisco1, setPosDisco1] = useState(downSm ? [4,-11.5,-0.3] : [12,-11.5,-0.3])
+    const [posDisco2, setPosDisco2] = useState(downSm ? [18,-11.5,-0.3] : [26,-11.5,-0.3])
+    const [posDisco3, setPosDisco3] = useState(downSm ? [32,-11.5,-0.3] : [40,-11.5,-0.3])
+    const [posUSB1, setPosUSB1] = useState(downSm ? [4,-19.3,-0.3] : [12,-19.3,-0.3])
+    const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [26,-19.3,-0.3])
+    const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [40,-19.3,-0.3])
 
     const [showLights, setShowLights] = useState(true)
 
     const [diff, setDiff] = useState(0.04)
-    const [moving, setMoving] = useState(false)
-    const [movingDirection, setMovingDirection] = useState("Left")
-    const [currDisk, setCurrDisk] = useState(1)
-
-    const [movingUSB, setMovingUSB] = useState(false)
-    const [currUSB, setCurrUSB] = useState(1)
-    const [movingDirectionUSB, setMovingDirectionUSB] = useState("Left")
 
     const [video] = useState(
         () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
@@ -189,7 +174,7 @@ export const RolesScene = () => {
             setDiff(0.013)
         } else if(window.screen.width > 1800) {
             setShowLights(false)
-            setDiff(0.02)
+            setDiff(0.010)
         }
     }, [window.screen.width])
 
@@ -199,111 +184,24 @@ export const RolesScene = () => {
     useFrame((state, delta) => {
         const offset = scroll.offset        
         if(offset > 0 && offset < 0.3){
-            if(moving){
-                if(movingDirection === "Left"){
-                    if(currDisk == 1){
-                        if(posDisco1[0] >= 3.3 ) {
-                            setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
-                        } else {
-                            setPosDisco1([3.3,-11.5,-0.3])
-                            setPosDisco2([15.3,-11.5,-0.3])
-                            setPosDisco3([27.3,-11.5,-0.3])
-                            setMoving(false)
-                        }
-                    } else if (currDisk == 2){
-                        if(posDisco2[0] >= 3.3 ) {
-                            setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
-                        } else {
-                            setPosDisco1([27.3,-11.5,-0.3])
-                            setPosDisco2([3.3,-11.5,-0.3])
-                            setPosDisco3([15.3,-11.5,-0.3])
-                            setMoving(false)
-                        }
-                    } else if (currDisk == 3) {
-                        if(posDisco3[0] >= 3.3 ) {
-                            setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
-                        } else {
-                            setPosDisco1([15.3,-11.5,-0.3])
-                            setPosDisco2([27.3,-11.5,-0.3])
-                            setPosDisco3([3.3,-11.5,-0.3])
-                            setMoving(false)
-                        }
-                    }
-                } else if (movingDirection === "Right"){
-                    if(currDisk == 1){
-                        if(posDisco2[0] == 3.3){
-                            setPosDisco1([-9.3,-11.5,-0.3]) 
-                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])           
-                        } else if(posDisco1[0] <= 3.3 ) {
 
-                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])                   
-                        } else {
 
-                            setPosDisco1([3.3,-11.5,-0.3])
-                            setPosDisco2([15.3,-11.5,-0.3])
-                            setPosDisco3([27.3,-11.5,-0.3])
-                            setMoving(false)
-                        }
-                    } else if (currDisk == 2){
-                        if(posDisco3[0] == 3.3){
-                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([-9.3,-11.5,-0.3]) 
-                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])   
-                        } else if(posDisco2[0] <= 3.3 ) {
-                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])                   
-                        } else {
-                            setPosDisco1([27.3,-11.5,-0.3])
-                            setPosDisco2([3.3,-11.5,-0.3])
-                            setPosDisco3([15.3,-11.5,-0.3])
-                            setMoving(false)
-                        }
-                    } else if (currDisk == 3) {
-                        if(posDisco1[0] == 3.3){
-                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([-9.3,-11.5,-0.3]) 
-                        } else if(posDisco3[0] <= 3.3 ) {
-                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])                   
-                        } else {
-                            setPosDisco1([15.3,-11.5,-0.3])
-                            setPosDisco2([27.3,-11.5,-0.3])
-                            setPosDisco3([3.3,-11.5,-0.3])
-                            setMoving(false)
-                        }
-                    }
-                }
-            }
             //setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
             //setPosDisco2([posDisco2[0] - diff, posDisco2[1], posDisco2[2]])
             //setPosDisco3([posDisco3[0] - diff, posDisco3[1], posDisco3[2]])
             //setPosUSB1([posUSB1[0] - diff, posUSB1[1], posUSB1[2]])
             //setPosUSB2([posUSB2[0] - diff, posUSB2[1], posUSB2[2]])
             //setPosUSB3([posUSB3[0] - diff, posUSB3[1], posUSB3[2]])
-            //if(posUSB1[0] < -14){
-              // setPosDisco1([28, posDisco1[1], posDisco1[2]])
+            //if(posDisco1[0] < -14){
+            //   setPosDisco1([28, posDisco1[1], posDisco1[2]])
             //    setPosUSB1([28, posUSB1[1], posUSB1[2]])
-            //} else if(posUSB2[0] < -14){
-              //  setPosDisco2([28, posDisco2[1], posDisco2[2]])
+            //} else if(posDisco2[0] < -14){
+            //    setPosDisco2([28, posDisco2[1], posDisco2[2]])
             //    setPosUSB2([28, posUSB2[1], posUSB2[2]])
-            //} else if(posUSB3[0] < -14){
-              //  setPosDisco3([28, posDisco3[1], posDisco3[2]])
+            //} else if(posDisco3[0] < -14){
+            //    setPosDisco3([28, posDisco3[1], posDisco3[2]])
             //    setPosUSB3([28, posUSB3[1], posUSB3[2]])
-            //}
-           
-            
+            //}   
         }
 
 
@@ -419,35 +317,6 @@ export const RolesScene = () => {
 
     const depthBuffer = useDepthBuffer({ frames: 1 })
 
-    const moveRight = () => {
-        console.log(currDisk)
-        if(!moving){
-            if(currDisk == 1){
-                setCurrDisk(3)
-            } else if(currDisk == 2){
-                setCurrDisk(1)
-            } else if (currDisk == 3){
-                setCurrDisk(2)
-            }        
-            setMoving(true)
-            setMovingDirection("Right")
-        }
-    }
-    const moveLeft = () => {
-        if(!moving){
-            if(currDisk == 1){
-                setCurrDisk(2)
-            } else if(currDisk == 2){
-                console.log("aAAAAA")
-                setCurrDisk(3)
-            } else if (currDisk == 3){
-                setCurrDisk(1)
-            }
-            setMoving(true)
-            setMovingDirection("Left")
-        }
-    }
-
     return (
     <>
             <ambientLight intensity={0.5} />
@@ -479,12 +348,12 @@ export const RolesScene = () => {
                 
 
                 <mesh receiveShadow castShadow scale={[100,30,1]}  position={[0,5,-12.5]}>
-                    <boxGeometry/>
+                    <boxBufferGeometry/>
                     <meshStandardMaterial color="#000000" envMapIntensify={0.5} opacity={0.1}/>
                 </mesh>
 
                 <mesh receiveShadow castShadow scale={[100,0.5,30]} position={[0,-5.2,-12.5]}>
-                    <boxGeometry/>
+                    <boxBufferGeometry/>
                     <meshStandardMaterial color="#000000" roughness={1} metalness={0}/>
                 </mesh>
 
@@ -498,15 +367,11 @@ export const RolesScene = () => {
                 
                 {/*  SECOND SECTION  */}
 
-                <Arrow scale={0.5} onClick={moveRight} position={[-1.9,-11.45,0]}/>
-                <Arrow scale={0.5} onClick={moveLeft} rotation={[0,0,Math.PI]} position={[8.5,-11.45,0]}/>
-                {/*<Arrow scale={0.5} onClick={moveLeftUSB} position={[0,-19,0]}/>
-                <Arrow scale={0.5} onClick={moveRightUSB} rotation={[0,0,Math.PI]} position={[8,-19,0]}/>*/}
 
                 <Computer  cast={showLights} position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
-                <Disk1 scale={0.95} cast={showLights} position={posDisco1}/>
-                <Disk2 scale={0.95} cast={showLights} position={posDisco2}/>
-                <Disk3 scale={0.95} cast={showLights} position={posDisco3}/>
+                <Disk1 cast={showLights} position={posDisco1}/>
+                <Disk2 cast={showLights} position={posDisco2}/>
+                <Disk3 cast={showLights} position={posDisco3}/>
 
                 <Placa1 cast={showLights} position={posUSB1}/>
                     <Text3D height={0.25} position={[posUSB1[0]-2.7, posUSB1[1]-0.33,posUSB1[2]-0.2]} letterSpacing={0.009} size={0.75} font="/Inter_Bold.json">
