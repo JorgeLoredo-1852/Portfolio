@@ -35,7 +35,7 @@ import {Model as Placa1} from "../../models/home/Placa1"
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import {JGx, LoadingModels} from "../../components"
+import {JGx} from "../../components"
 import {Model as Control2} from "../../models/home/Control2"
 import {Model as Compu1} from "../../models/home/Compu1"
 import {Model as Compu2} from "../../models/home/Compu2"
@@ -68,11 +68,6 @@ export const Roles = () => {
     return(
         <div style={{width:"100%", height:"100vh", backgroundColor:"black"}}>
             <JGx/>
-                {/*
-                    chargeComplete ? 
-                    <LoadingModels progress={progress}/> : 
-                <LoadingModels progress={progress}/>*/
-}
 
                     <Canvas 
                     className='canvas' 
