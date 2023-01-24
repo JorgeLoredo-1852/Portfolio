@@ -48,7 +48,7 @@ import {Model as Nave} from "../../models/Rocket"
 import {Model as Earth} from "../../models/Earth"
 import {Model as Mario} from "../../models/home/Mario"
 
-import {Model as Arrow} from "../../models/Arrow"
+import {Model as Arrow} from "../../models/ArrowPurple"
 
 export const Roles = () => { 
     //const { ref, inView } = useInView();
@@ -144,9 +144,9 @@ export const RolesScene = () => {
 
 
 
-    const [posDisco1, setPosDisco1] = useState(downSm ? [4,-11.5,-0.3] : [3.3,-11.5,-0.3])
-    const [posDisco2, setPosDisco2] = useState(downSm ? [18,-11.5,-0.3] : [15.3,-11.5,-0.3])
-    const [posDisco3, setPosDisco3] = useState(downSm ? [32,-11.5,-0.3] : [27.3,-11.5,-0.3])
+    const [posDisco1, setPosDisco1] = useState(downMd ? [4,-11.5,-0.3] : [3.3,-11.5,-0.3])
+    const [posDisco2, setPosDisco2] = useState(downMd ? [18,-11.5,-0.3] : [15.3,-11.5,-0.3])
+    const [posDisco3, setPosDisco3] = useState(downMd ? [32,-11.5,-0.3] : [27.3,-11.5,-0.3])
     const [posUSB1, setPosUSB1] = useState(downSm ? [4,-19.3,-0.3] : [3.3,-19.3,-0.3])
     const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [15.3,-19.3,-0.3])
     const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [27.3,-19.3,-0.3])
@@ -189,7 +189,7 @@ export const RolesScene = () => {
             setDiff(0.013)
         } else if(window.screen.width > 1800) {
             setShowLights(false)
-            setDiff(0.02)
+            setDiff(0.008)
         }
     }, [window.screen.width])
 
@@ -202,7 +202,7 @@ export const RolesScene = () => {
             if(moving){
                 if(movingDirection === "Left"){
                     if(currDisk == 1){
-                        if(posDisco1[0] >= 3.3 ) {
+                        if(posDisco1[0] >= 3.3 + diff*10 ) {
                             setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
                             setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
                             setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
@@ -213,7 +213,7 @@ export const RolesScene = () => {
                             setMoving(false)
                         }
                     } else if (currDisk == 2){
-                        if(posDisco2[0] >= 3.3 ) {
+                        if(posDisco2[0] >= 3.3 + diff*10) {
                             setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
                             setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
                             setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
@@ -224,7 +224,7 @@ export const RolesScene = () => {
                             setMoving(false)
                         }
                     } else if (currDisk == 3) {
-                        if(posDisco3[0] >= 3.3 ) {
+                        if(posDisco3[0] >= 3.3 + diff*10) {
                             setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
                             setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
                             setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
@@ -286,22 +286,20 @@ export const RolesScene = () => {
                     }
                 }
             }
-            //setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
-            //setPosDisco2([posDisco2[0] - diff, posDisco2[1], posDisco2[2]])
-            //setPosDisco3([posDisco3[0] - diff, posDisco3[1], posDisco3[2]])
-            //setPosUSB1([posUSB1[0] - diff, posUSB1[1], posUSB1[2]])
-            //setPosUSB2([posUSB2[0] - diff, posUSB2[1], posUSB2[2]])
-            //setPosUSB3([posUSB3[0] - diff, posUSB3[1], posUSB3[2]])
-            //if(posUSB1[0] < -14){
-              // setPosDisco1([28, posDisco1[1], posDisco1[2]])
-            //    setPosUSB1([28, posUSB1[1], posUSB1[2]])
-            //} else if(posUSB2[0] < -14){
-              //  setPosDisco2([28, posDisco2[1], posDisco2[2]])
-            //    setPosUSB2([28, posUSB2[1], posUSB2[2]])
-            //} else if(posUSB3[0] < -14){
-              //  setPosDisco3([28, posDisco3[1], posDisco3[2]])
-            //    setPosUSB3([28, posUSB3[1], posUSB3[2]])
-            //}
+
+            setPosUSB1([posUSB1[0] - diff*1.5, posUSB1[1], posUSB1[2]])
+            setPosUSB2([posUSB2[0] - diff*1.5, posUSB2[1], posUSB2[2]])
+            setPosUSB3([posUSB3[0] - diff*1.5, posUSB3[1], posUSB3[2]])
+            if(posUSB1[0] < -12){
+              //setPosDisco1([28, posDisco1[1], posDisco1[2]])
+                setPosUSB1([24, posUSB1[1], posUSB1[2]])
+            } else if(posUSB2[0] < -12){
+                //setPosDisco2([28, posDisco2[1], posDisco2[2]])
+                setPosUSB2([24, posUSB2[1], posUSB2[2]])
+            } else if(posUSB3[0] < -12){
+                //setPosDisco3([28, posDisco3[1], posDisco3[2]])
+                setPosUSB3([24, posUSB3[1], posUSB3[2]])
+            }
            
             
         }
@@ -448,6 +446,32 @@ export const RolesScene = () => {
         }
     }
 
+    const getPositionLeftArrow = () => {
+        if(downSm){
+            return [-1.8,-11.45,0]
+        }
+        if(downMd){
+            return [-3.5,-11.45,0]
+        }
+        if(downLg){
+            return [-0.2,-11.45,0]
+        }
+        return [-1.9,-11.45,0]
+    }
+
+    const getPositionRightArrow = () => {
+        if(downSm){
+            return [1.8,-11.45,0]
+        }
+        if(downMd){
+            return [3.5,-11.45,0]
+        }
+        if(downLg){
+            return [6.8,-11.45,0]
+        }
+        return [8.5,-11.45,0]
+    }
+
     return (
     <>
             <ambientLight intensity={0.5} />
@@ -491,35 +515,36 @@ export const RolesScene = () => {
 
                 {/*  ELEVATOR  */}
 
-                <Tardis cast={showLights} scale={[0.7,0.7,0.7]} position={[-6, elevatorPos[1] + 0.25,1.4]}/>
-                <Elevator cast={showLights} scale={0.7} position={[-6, railPos[1]+15.95, 1.4]}/>
-                <Person cast={showLights} scale={1.1} position={[-6, elevatorPos[1] -1.5,1.4]}/>
+                <Tardis cast={showLights} scale={[0.7,0.7,0.7]} position={downMd ? [-20,0,0] : [-6, elevatorPos[1] + 0.25,1.4]}/>
+                <Elevator cast={showLights} scale={0.7} position={downMd ? [-20,0,0] :[-6, railPos[1]+15.95, 1.4]}/>
+                <Person cast={showLights} scale={1.1} position={downMd ? [-20,0,0] :[-6, elevatorPos[1] -1.5,1.4]}/>
 
                 
                 {/*  SECOND SECTION  */}
 
-                <Arrow scale={0.5} onClick={moveRight} position={[-1.9,-11.45,0]}/>
-                <Arrow scale={0.5} onClick={moveLeft} rotation={[0,0,Math.PI]} position={[8.5,-11.45,0]}/>
+                <Arrow scale={downLg ? 0.43: 0.5} onClick={moveRight} position={getPositionLeftArrow()}/>
+                <Arrow scale={ downLg ? 0.43:0.5} onClick={moveLeft} rotation={[0,0,Math.PI]} position={ getPositionRightArrow()}/>
                 {/*<Arrow scale={0.5} onClick={moveLeftUSB} position={[0,-19,0]}/>
                 <Arrow scale={0.5} onClick={moveRightUSB} rotation={[0,0,Math.PI]} position={[8,-19,0]}/>*/}
 
-                <Computer  cast={showLights} position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
-                <Disk1 scale={0.95} cast={showLights} position={posDisco1}/>
-                <Disk2 scale={0.95} cast={showLights} position={posDisco2}/>
-                <Disk3 scale={0.95} cast={showLights} position={posDisco3}/>
+                <Computer  cast={showLights} position={downMd ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
+                <Disk1 scale={downSm ? 0.8 : 0.95} cast={showLights} position={downMd ? [posDisco1[0] - 3.3, posDisco1[1], posDisco1[2]] : posDisco1}/>
+                <Disk2 scale={downSm ? 0.8 : 0.95} cast={showLights} position={downMd ? [posDisco2[0] - 3.3, posDisco2[1], posDisco2[2]] : posDisco2}/>
+                <Disk3 scale={downSm ? 0.8 : 0.95} cast={showLights} position={downMd ? [posDisco3[0] - 3.3, posDisco3[1], posDisco3[2]] : posDisco3}/>
 
-                <Placa1 cast={showLights} position={posUSB1}/>
-                    <Text3D height={0.25} position={[posUSB1[0]-2.7, posUSB1[1]-0.33,posUSB1[2]-0.2]} letterSpacing={0.009} size={0.75} font="/Inter_Bold.json">
+                
+                <Placa1 scale={0.9} cast={showLights} position={posUSB1}/>
+                    <Text3D height={0.25} position={[posUSB1[0]-2.5, posUSB1[1]-0.3,posUSB1[2]-0.2]} letterSpacing={0.009} size={0.70} font="/Inter_Bold.json">
                         Front End
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
-                <Placa1 cast={showLights} position={posUSB2}/>
-                    <Text3D height={0.25} position={[posUSB2[0]-2.7, posUSB2[1]-0.33,posUSB2[2]-0.2]} letterSpacing={0.009} size={0.75} font="/Inter_Bold.json">
+                <Placa1 scale={0.9} cast={showLights} position={posUSB2}/>
+                    <Text3D height={0.25} position={[posUSB2[0]-2.5, posUSB2[1]-0.3,posUSB2[2]-0.2]} letterSpacing={0.009} size={0.70} font="/Inter_Bold.json">
                         Back End
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
-                <Placa1 cast={showLights} position={posUSB3}/>
-                    <Text3D height={0.25} position={[posUSB3[0]-3.6, posUSB3[1]-0.33,posUSB3[2]-0.2]} letterSpacing={0.009} size={0.75} font="/Inter_Bold.json">
+                <Placa1 scale={0.9} cast={showLights} position={posUSB3}/>
+                    <Text3D height={0.25} position={[posUSB3[0]-3.4, posUSB3[1]-0.30,posUSB3[2]-0.2]} letterSpacing={0.009} size={0.70} font="/Inter_Bold.json">
                         UI/UX Design
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
