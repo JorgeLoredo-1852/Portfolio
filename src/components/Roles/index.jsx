@@ -144,12 +144,12 @@ export const RolesScene = () => {
 
 
 
-    const [posDisco1, setPosDisco1] = useState(downMd ? [4,-11.5,-0.3] : [3.3,-11.5,-0.3])
-    const [posDisco2, setPosDisco2] = useState(downMd ? [18,-11.5,-0.3] : [15.3,-11.5,-0.3])
-    const [posDisco3, setPosDisco3] = useState(downMd ? [32,-11.5,-0.3] : [27.3,-11.5,-0.3])
-    const [posUSB1, setPosUSB1] = useState(downSm ? [4,-19.3,-0.3] : [3.3,-19.3,-0.3])
-    const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [15.3,-19.3,-0.3])
-    const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [27.3,-19.3,-0.3])
+    const [posDisco1, setPosDisco1] = useState(downMd ? [3.3,-11.5,-0.3] : [3.3,-11.5,-0.3])
+    const [posDisco2, setPosDisco2] = useState(downMd ? [15.3,-11.5,-0.3] : [15.3,-11.5,-0.3])
+    const [posDisco3, setPosDisco3] = useState(downMd ? [27.3,-11.5,-0.3] : [27.3,-11.5,-0.3])
+    const [posUSB1, setPosUSB1] = useState(downSm ? [3.3,-19.3,-0.3] : [3.3,-19.3,-0.3])
+    const [posUSB2, setPosUSB2] = useState(downSm ? [15.3,-19.3,-0.3] : [15.3,-19.3,-0.3])
+    const [posUSB3, setPosUSB3] = useState(downSm ? [27.3,-19.3,-0.3] : [27.3,-19.3,-0.3])
 
 
 

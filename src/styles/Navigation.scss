@@ -368,41 +368,28 @@
 
 .hideLoading{
   transition: all 1s;
-  -webkit-animation: 2s displayNone 1.5s forwards; /* for less modern browsers */
-  animation: 2s displayNone 1.5s forwards;
+  -webkit-animation: 2s displayNone 2s forwards; /* for less modern browsers */
+  animation: 2s displayNone 2s forwards;
 }
 
 @-webkit-keyframes displayNone {
   0% {
-    opacity: 1;
     transform: translateY(-10vh);
-    
-  }
-  95% {
-    transform: translateY(-120vh);
-    opacity: 0.95;
   }
   100% {
     transform: translateY(-130vh);
-    display: none;
-    opacity: 0;
-
   }
+
 }
 @keyframes displayNone {
   0% {
-    opacity: 1;
     transform: translateY(-10vh);
-  }
-  95% {
-    transform: translateY(-120vh);
-    opacity: 0.95;
 
   }
   100% {
     transform: translateY(-130vh);
-    display: none;
-    opacity: 0;
+
+
   }
 }
 

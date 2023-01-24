@@ -17,7 +17,7 @@ export const App = () => {
     useEffect(()=>{
         if(progress == 100){
             setChargeComplete(true)
-            const timer = setTimeout(() => {setHideLoading(true)}, 3000);
+            const timer = setTimeout(() => {setHideLoading(true)}, 4000);
             return () => clearTimeout(timer);
         }
     },[progress])
