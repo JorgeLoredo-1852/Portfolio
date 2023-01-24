@@ -28,7 +28,7 @@ export const LoadingModels = ({progress}) => {
       {downMd ? 
        <>
       <Grid item xs={12} sx={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }}>
-          <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+          <div style={{display:"flex", justifyContent:"center", alignItems:"center", height:"25rem"}}>
               <img className="photoInitial" src={Profile} style={{width: downSm ? "19rem" : "25rem", zIndex:"100", paddingBottom:"1rem"}} alt="Profile Picture"/>
               <div className="blobInitial" style={{width: downSm ? "20rem" : "26rem",position:"absolute", paddingLeft:"1rem"}}>
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
