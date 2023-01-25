@@ -9,19 +9,19 @@ import * as THREE from "three"
 export const Model = (props) => {
   const { nodes, materials } = useGLTF("/home/control2.glb");
   const [video1] = useState(
-      () => Object.assign(document.createElement('video'), { src: "/screens/Neon2.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+      () => Object.assign(document.createElement('video'), { src: "/screens/Neon2.mp4", crossOrigin: 'Anonymous', loop: true, playsinline:true, muted: true, })
   )
   const [video2] = useState(
-    () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+    () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true, playsinline:true, muted: true})
 )
 const [video3] = useState(
-  () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+  () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true, playsinline:true, muted: true})
 )
 const [video4] = useState(
-  () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+  () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true,playsinline:true, muted: true})
 )
 const [video5] = useState(
-  () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+  () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true,playsinline:true, muted: true})
 )
  
   useEffect(() => {

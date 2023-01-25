@@ -167,7 +167,7 @@ export const RolesScene = () => {
     const [movingDirectionUSB, setMovingDirectionUSB] = useState("Left")
 
     const [video] = useState(
-        () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+        () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, playsInline:true, muted: true})
     )
 
     useEffect(() => {
