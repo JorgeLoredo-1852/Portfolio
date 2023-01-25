@@ -167,7 +167,7 @@ export const RolesScene = () => {
     const [movingDirectionUSB, setMovingDirectionUSB] = useState("Left")
 
     const [video] = useState(
-        () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, playsInline:true, muted: true})
+        () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
     )
 
     useEffect(() => {
@@ -487,7 +487,7 @@ export const RolesScene = () => {
 
                 {/*  FIRST SECTION  */}
 
-
+                    
                 <Control2 position={[0,-5,0]} scale={0.17}/>
                 <Compu1 scale={4.8} position={[0,-5,-3.5]} rotation={[0,Math.PI,0]}/>
                 <Compu2 scale={4.6} position={[-3.6,-5,-2.5]} rotation={[0,Math.PI + Math.PI/8,0]}/>

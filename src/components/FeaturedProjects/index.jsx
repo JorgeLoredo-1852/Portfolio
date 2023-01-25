@@ -26,7 +26,7 @@ import { List } from "./List"
 
 export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
 
-    const [video, setVideo] = useState(() => Object.assign(document.createElement('video'), { src: "/videos/Jgx.mp4", crossOrigin: 'Anonymous', muted: true, playsInline: true}))
+    const [video, setVideo] = useState(() => Object.assign(document.createElement('video'), { src: "/videos/Jgx.mp4", crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
 
     useEffect(() => {
         video.play()
@@ -936,7 +936,7 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
             setMovingLeft(true)
             setloadingPosCards(true)
 
-            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous', muted: true}))
+            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous',playsInLine:true, muted: true}))
         }
     }
 
@@ -953,7 +953,7 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
             setMovingLeft(false)
             setloadingPosCards(true)
 
-            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous', muted: true}))
+            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous', playsInLine:true, muted: true}))
         
         }
     }

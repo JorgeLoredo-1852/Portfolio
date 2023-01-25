@@ -159,7 +159,7 @@ export const Scene1 = () => {
     })
 
     const [video] = useState(
-        () => Object.assign(document.createElement('video'), { src: "/guayna.mp4", crossOrigin: 'Anonymous', loop: true, playsInline:true,muted: true})
+        () => Object.assign(document.createElement('video'), { src: "/guayna.mp4", crossOrigin: 'Anonymous', loop: true, playsInLine:true,muted: true})
     )
 
     useEffect(() => {
