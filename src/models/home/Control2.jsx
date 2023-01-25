@@ -16,7 +16,7 @@ const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
 
 
   const { nodes, materials } = useGLTF("/home/control2.glb");
-  const [video1, setVideo1] = useState(() => Object.assign(document.createElement('video'), { src: "/screens/Neon2.mp4", crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
+  const [video1, setVideo1] = useState(() => Object.assign(document.createElement('video'), { src: "/screens/Neon2.mp4",  loop: true, crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
 
   const [video2] = useState(
     () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
@@ -33,9 +33,9 @@ const [video5] = useState(
 
 useEffect(()=>{
   if(downSm){
-    setVideo1(() => Object.assign(document.createElement('video'), { src: "/screens/TronDown2.mp4", crossOrigin: 'Anonymous', playsInLine:true, muted: true}))
+    setVideo1(() => Object.assign(document.createElement('video'), { src: "/screens/TronDown2.mp4", crossOrigin: 'Anonymous',  loop: true, playsInLine:true, muted: true}))
   } else {
-    setVideo1(() => Object.assign(document.createElement('video'), { src: "/screens/Neon2.mp4", crossOrigin: 'Anonymous', playsInLine:true, muted: true}))
+    setVideo1(() => Object.assign(document.createElement('video'), { src: "/screens/Neon2.mp4", crossOrigin: 'Anonymous',  loop: true, playsInLine:true, muted: true}))
   }
 }, [downSm])
 
