@@ -21,7 +21,7 @@ export const App = () => {
             return () => clearTimeout(timer);
         }
     },[progress])
-
+ 
     return(<>
     {!hideLoading ? <LoadingModels progress={progress}/> : <></>}
         <NewNav/>
