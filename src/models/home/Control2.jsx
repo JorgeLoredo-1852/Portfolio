@@ -8,13 +8,39 @@ import * as THREE from "three"
 
 export const Model = (props) => {
   const { nodes, materials } = useGLTF("/home/control2.glb");
-  const [video] = useState(
-      () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+  const [video1] = useState(
+      () => Object.assign(document.createElement('video'), { src: "/screens/Neon2.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
   )
-
+  const [video2] = useState(
+    () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+)
+const [video3] = useState(
+  () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+)
+const [video4] = useState(
+  () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+)
+const [video5] = useState(
+  () => Object.assign(document.createElement('video'), { src: "/screens/TronSmall.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+)
+ 
   useEffect(() => {
-      video.play()
-}, [video])
+      video1.play()
+}, [video1])
+useEffect(() => {
+  video2.play()
+}, [video2])
+useEffect(() => {
+  video3.play()
+}, [video3])
+useEffect(() => {
+  video4.play()
+}, [video4])
+useEffect(() => {
+  video5.play()
+}, [video5])
+
+
   return (
     <group {...props} dispose={null}>
 <group scale={1}>
@@ -544,7 +570,7 @@ export const Model = (props) => {
         position={[0,42,-46.7]}
         scale={[32.5, 11, 19]}>
                             <meshBasicMaterial metalness={0.1}>
-                        {/*<videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/>*/}
+                        <videoTexture attach="map" args={[video1]} encoding={THREE.sRGBEncoding}/>
                         </meshBasicMaterial>
       </mesh>
 
@@ -556,7 +582,7 @@ export const Model = (props) => {
         position={[42.3,31,-33.5]}
         scale={[8.3, 1, 8]}>
                             <meshBasicMaterial metalness={0.1}>
-                        {/*<videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/>*/}
+                        <videoTexture attach="map" args={[video2]} encoding={THREE.sRGBEncoding}/>
                         </meshBasicMaterial>
       </mesh>
 
@@ -568,7 +594,7 @@ export const Model = (props) => {
         position={[42.3,48,-33.5]}
         scale={[8.3, 1, 5.5]}>
                             <meshBasicMaterial metalness={0.1}>
-                        {/*<videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/>*/}
+                        <videoTexture attach="map" args={[video3]} encoding={THREE.sRGBEncoding}/>
                         </meshBasicMaterial>
       </mesh>
 
@@ -580,7 +606,7 @@ export const Model = (props) => {
         position={[-42.3,31,-33.5]}
         scale={[8.3, 1, 8]}>
                             <meshBasicMaterial metalness={0.1}>
-                        {/*<videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/>*/}
+                        <videoTexture attach="map" args={[video4]} encoding={THREE.sRGBEncoding}/>
                         </meshBasicMaterial>
       </mesh>
 
@@ -591,8 +617,8 @@ export const Model = (props) => {
         rotation={[-Math.PI / 2, 0, Math.PI + Math.PI/5 - Math.PI/90]}
         position={[-42.3,48,-33.5]}
         scale={[8.3, 1, 5.5]}>
-                            <meshBasicMaterial metalness={0.1}>
-                        {/*<videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/>*/}
+                            <meshBasicMaterial  metalness={0.1}>
+                        <videoTexture attach="map" args={[video5]} encoding={THREE.sRGBEncoding}/>
                         </meshBasicMaterial>
       </mesh>
 

@@ -183,13 +183,13 @@ export const RolesScene = () => {
             setDiff(0.028)
         } else if(window.screen.width > 1200 && window.screen.width <= 1400){
             setShowLights(true)
-            setDiff(0.022)
+            setDiff(0.024)
         } else if(window.screen.width > 1400 && window.screen.width <= 1800) {
             setShowLights(false)
-            setDiff(0.013)
+            setDiff(0.018)
         } else if(window.screen.width > 1800) {
             setShowLights(false)
-            setDiff(0.008)
+            setDiff(0.012)
         }
     }, [window.screen.width])
 
