@@ -15,7 +15,7 @@ export function Model(props) {
           castShadow = {props.cast}
           receiveShadow = {props.cast}
           geometry={nodes.Body1001.geometry}
-          material={materials["Material.002"]}
+          material={materials["Material.005"]}
           rotation={[-Math.PI / 2, 0, 0]}
           scale={1}
         />

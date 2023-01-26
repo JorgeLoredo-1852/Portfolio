@@ -13,30 +13,29 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube012.geometry}
-          material={materials.Main}
+          geometry={nodes.Cube013.geometry}
+          material={materials["Main.009"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube012_1.geometry}
-          material={materials.Edges}
+          geometry={nodes.Cube013_1.geometry}
+          material={materials["Edges.009"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube012_2.geometry}
-          material={materials["Material.001"]}
+          geometry={nodes.Cube013_2.geometry}
+          material={materials["Material.045"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube012_3.geometry}
-          material={materials["Material.002"]}
+          geometry={nodes.Cube013_3.geometry}
+          material={materials["Material.046"]}
         />
       </group>
     </group>
   );
 }
-
 useGLTF.preload("/3DTech/java.glb");

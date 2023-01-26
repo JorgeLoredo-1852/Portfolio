@@ -13,21 +13,21 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube012.geometry}
-          material={materials.Main}
+          geometry={nodes.Cube014.geometry}
+          material={materials["Main.010"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube012_1.geometry}
-          material={materials.Edges}
+          geometry={nodes.Cube014_1.geometry}
+          material={materials["Edges.010"]}
         />
       </group>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Curve.geometry}
-        material={materials["SVGMat.004"]}
+        material={materials["SVGMat.026"]}
         position={[-0.51, 0.53, 0.61]}
         scale={[23, 1, 23]}
       />

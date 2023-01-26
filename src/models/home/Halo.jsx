@@ -14,13 +14,13 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.ODST_Print_1.geometry}
-          material={materials["Material.001"]}
+          material={materials["Material.009"]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.ODST_Print_2.geometry}
-          material={materials["Material.002"]}
+          material={materials["Material.010"]}
         />
       </group>
     </group>

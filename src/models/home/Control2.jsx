@@ -15,7 +15,7 @@ const downXl = useMediaQuery(themeM.breakpoints.down('xl'));
 const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
   
 
-  const { nodes, materials } = useGLTF("/home/control2.glb");
+  const { nodes, materials } = useGLTF("/home/control3.glb");
   const [video1, setVideo1] = useState(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4", width:"100%", autoplay:true,  loop: true,  crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
 
   const [video2] = useState(
@@ -687,4 +687,4 @@ useEffect(()=>{
   );
 }
 
-useGLTF.preload("/home/control2.glb");
+useGLTF.preload("/home/control3.glb");
