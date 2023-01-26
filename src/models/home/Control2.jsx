@@ -27,14 +27,21 @@ const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
 
   const { nodes, materials } = useGLTF("/home/control2.glb"); 
   
+
+/*  const [video1, setVideo1] = useState(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4", width:"100%", autoplay:true,  loop: true,  crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
   const [video2] = useState(
     () => Object.assign(document.createElement('video'), { src: "/screens/Sonic2.mp4", width:"100%", autoplay:true, crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
 )
 const [video3] = useState(
   () => Object.assign(document.createElement('video'), { src: "/screens/Dinosaur2.mp4", width:"100%", autoplay:true, crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
 )
-/*  const [video1, setVideo1] = useState(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4", width:"100%", autoplay:true,  loop: true,  crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
 
+useEffect(()=>{
+  video2.play()
+  },[video2])
+  useEffect(()=>{
+    video3.play()
+    },[video3])
 
 
 const [video4] = useState(
@@ -51,13 +58,6 @@ useEffect(()=>{
     setVideo1(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4", width:"100%", autoplay:true,  loop: true,  crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
   }
 }, [downSm])*/
-
-useEffect(()=>{
-  video2.play()
-  },[video2])
-  useEffect(()=>{
-    video3.play()
-    },[video3])
 
     /*
 useEffect(()=>{
@@ -617,9 +617,13 @@ video1.play()
         rotation={[-Math.PI / 2, 0, Math.PI-Math.PI/5 + Math.PI/90]}
         position={[42.3,31,-33.5]}
         scale={[8.3, 1, 8]}>
-                            <meshBasicMaterial metalness={0.1}>
+
+<Suspense fallback={<FallbackMaterial url="/Profile.png" />}>
+        <VideoMaterial url="/screens/Sonic2.mp4" />
+      </Suspense>
+                           {/* <meshBasicMaterial metalness={0.1}>
                         <videoTexture attach="map" args={[video2]} encoding={THREE.sRGBEncoding}/>
-                        </meshBasicMaterial>
+                      </meshBasicMaterial>*/}
       </mesh>
 
       <mesh
@@ -629,9 +633,14 @@ video1.play()
         rotation={[-Math.PI / 2, 0, Math.PI-Math.PI/5 + Math.PI/90]}
         position={[42.3,48,-33.5]}
         scale={[8.3, 1, 5.5]}>
-                            <meshBasicMaterial metalness={0.1}>
+
+<Suspense fallback={<FallbackMaterial url="/Profile.png" />}>
+        <VideoMaterial url="/screens/Dinosaur2.mp4" />
+      </Suspense>
+
+                            {/*<meshBasicMaterial metalness={0.1}>
                         <videoTexture attach="map" args={[video3]} encoding={THREE.sRGBEncoding}/>
-                        </meshBasicMaterial>
+                    </meshBasicMaterial>*/}
       </mesh>
 
       <mesh
@@ -641,9 +650,13 @@ video1.play()
         rotation={[-Math.PI / 2, 0, Math.PI + Math.PI/5 - Math.PI/90]}
         position={[-42.3,31,-33.5]}
         scale={[8.3, 1, 8]}>
-                            <meshBasicMaterial metalness={0.1}>
-                        {/*<videoTexture attach="map" args={[video4]} encoding={THREE.sRGBEncoding}/>*/}
-                        </meshBasicMaterial>
+
+<Suspense fallback={<FallbackMaterial url="/Profile.png" />}>
+        <VideoMaterial url="/screens/Samus2.mp4" />
+      </Suspense>
+                         {/*   <meshBasicMaterial metalness={0.1}>
+                        <videoTexture attach="map" args={[video4]} encoding={THREE.sRGBEncoding}/>
+                        </meshBasicMaterial>*/}
       </mesh>
 
       <mesh
@@ -653,9 +666,13 @@ video1.play()
         rotation={[-Math.PI / 2, 0, Math.PI + Math.PI/5 - Math.PI/90]}
         position={[-42.3,48,-33.5]}
         scale={[8.3, 1, 5.5]}>
-                            <meshBasicMaterial  metalness={0.1}>
-                        {/*<videoTexture attach="map" args={[video5]} encoding={THREE.sRGBEncoding}/>*/}
-                        </meshBasicMaterial>
+
+<Suspense fallback={<FallbackMaterial url="/Profile.png" />}>
+        <VideoMaterial url="/screens/Dragonite4.mp4" />
+      </Suspense>
+                         {/*   <meshBasicMaterial  metalness={0.1}>
+                        <videoTexture attach="map" args={[video5]} encoding={THREE.sRGBEncoding}/>
+                        </meshBasicMaterial>*/}
       </mesh>
 
       <mesh
