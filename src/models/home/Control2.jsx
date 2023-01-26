@@ -25,7 +25,25 @@ export const Model = (props) => {
   const themeM = useTheme();
   const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
 const downXl = useMediaQuery(themeM.breakpoints.down('xl'));
+
 const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
+
+const [placeholderURL, setPlaceholderURL] = useState("/imgPlaceholder/Neon3.png")
+const [mainURL, setMainURL] = useState("/screens/Neon3.mp4")
+
+useEffect(()=>{
+  //console.log(locationCard1)
+  if(downSm){
+    setMainURL("/screens/TronDown3.mp4")
+    setPlaceholderURL("/imgPlaceholder/TronDown3.png")
+  } else {
+    setMainURL("/screens/Neon3.mp4")
+    setPlaceholderURL("/imgPlaceholder/Neon3.png") 
+  }
+
+
+},[downSm])
+
   const { nodes, materials } = useGLTF("/home/control3.glb");
 
   /*
@@ -596,8 +614,8 @@ useEffect(()=>{
         rotation={[-Math.PI / 2, 0, Math.PI]}
         position={[0,42,-46.7]}
         scale={[32.5, 11, 19]}>
-          <Suspense fallback={<FallbackMaterial url="/imgPlaceholder/Neon3.png" />}>
-        <VideoMaterial url="/screens/Neon3.mp4" />
+          <Suspense fallback={<FallbackMaterial url={placeholderURL} />}>
+        <VideoMaterial url={mainURL} />
       </Suspense>
                             {/*<meshBasicMaterial  metalness={0.1}>
                         <videoTexture attach="map" args={[video1]} encoding={THREE.sRGBEncoding}/>
