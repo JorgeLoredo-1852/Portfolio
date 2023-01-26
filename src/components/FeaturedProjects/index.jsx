@@ -24,7 +24,7 @@ import {Model as Disk11} from '../../models/Disk11';
 import { List } from "./List"
 
 function VideoMaterial({ url }) {
-    const texture = useVideoTexture(url)
+    const texture = useVideoTexture(url, {loop:false})
     return <meshBasicMaterial map={texture} toneMapped={false} />
   }
   
