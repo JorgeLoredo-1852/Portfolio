@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material"
-import { Environment, useGLTF, SpotLight, useDepthBuffer, useProgress, useAnimations, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
+import { Environment,useVideoTexture, useTexture, useGLTF, SpotLight, useDepthBuffer, useProgress, useAnimations, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
 import { useEffect, useState, useRef, Suspense } from "react"
 import * as THREE from "three"
 import { useInView } from "react-intersection-observer";
@@ -100,6 +100,17 @@ function MovingSpot({ vec = new THREE.Vector3(), ...props }) {
     return <SpotLight castShadow ref={light} penumbra={0} distance={50} angle={0.3} attenuation={0} anglePower={1} intensity={4} {...props} />
   }
 
+  function VideoMaterial({ url }) {
+    const texture = useVideoTexture(url)
+    return <meshBasicMaterial map={texture} toneMapped={false} />
+  }
+  
+  function FallbackMaterial({ url }) {
+    const texture = useTexture(url)
+    return <meshBasicMaterial map={texture} toneMapped={false} />
+  }
+  
+
 export const RolesScene = () => {
     const scroll = useScroll()
     const themeM = useTheme();
@@ -166,13 +177,13 @@ export const RolesScene = () => {
     const [currUSB, setCurrUSB] = useState(1)
     const [movingDirectionUSB, setMovingDirectionUSB] = useState("Left")
 
-    const [video] = useState(
+    /*const [video] = useState(
         () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
     )
 
     useEffect(() => {
         video.play()
-    }, [video])
+    }, [video])*/
 
     useEffect(()=>{
         if(window.screen.width <= 600){
@@ -555,9 +566,9 @@ export const RolesScene = () => {
 
             <mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
                     <planeGeometry />
-                    <meshBasicMaterial>
-                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
-                    </meshBasicMaterial>
+                    <Suspense fallback={<FallbackMaterial url="/imgPlaceholder/Matrix.png" />}>
+                        <VideoMaterial url="/home/matrix.mp4" />
+                    </Suspense>
             </mesh>
 
                 <Portal position={downSm ? [0,posPortal[1],-20] : [0,posPortal[1]-1.2,-25]} scale={downSm ? 0.13 : 0.3} rotation={rotPortal}/>
