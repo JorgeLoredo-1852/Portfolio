@@ -58,7 +58,7 @@ export const Projects = ({setInView}) =>{
 
     const handleClose = () => setOpen(false);
 
-    //console.log(inView)
+    console.log(inView)
 
     return (
         <>

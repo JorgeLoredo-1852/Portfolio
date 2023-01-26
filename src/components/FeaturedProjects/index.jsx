@@ -24,7 +24,7 @@ import {Model as Disk11} from '../../models/Disk11';
 import { List } from "./List"
 
 function VideoMaterial({ url }) {
-    const texture = useVideoTexture(url, {loop:false})
+    const texture = useVideoTexture(url)
     return <meshBasicMaterial map={texture} toneMapped={false} />
   }
   
@@ -36,14 +36,11 @@ function VideoMaterial({ url }) {
  
 export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
 
-    //const [video, setVideo] = useState(() => Object.assign(document.createElement('video'), { src: "/videos/Jgx.mp4", crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
-
-    //useEffect(() => {
-    //    video.play()
-    //}, [video])
-
-    const [videoURL, setVideoURL] = useState("/videos/Jgx.mp4")
-    const [videoPlaceholder, setVideoPlaceholder] = useState("/imgPlaceholder/Jgx.png")
+    const [video, setVideo] = useState(() => Object.assign(document.createElement('video'), { src: "/videos/Jgx.mp4", crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
+    const [videoImg, setVideoImg] = useState("/imgPlaceholder/Jgx.png")
+    useEffect(() => {
+        video.play()
+    }, [video])
 
     const themeM = useTheme();
     const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
@@ -949,9 +946,9 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
             setMovingLeft(true)
             setloadingPosCards(true)
 
-            setVideoURL(projectToOpen.video)
-            console.log(`/imgPlaceholder/${videoURL.substring(videoURL.lastIndexOf('/') + 1, videoURL.length - 4)}.png`)
-            setVideoPlaceholder(`/imgPlaceholder/${videoURL.substring(videoURL.lastIndexOf('/') + 1, videoURL.length - 4)}.png`)
+            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous',playsInLine:true, muted: true}))
+            setVideoImg(`/imgPlaceholder/${projectToOpen.video.substring(projectToOpen.video.lastIndexOf('/') + 1, projectToOpen.video.length - 4)}.png`)
+
         }
     }
 
@@ -967,12 +964,11 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
             }
             setMovingLeft(false)
             setloadingPosCards(true)
-            setVideoURL(projectToOpen.video)     
-            console.log(`/imgPlaceholder/${videoURL.substring(videoURL.lastIndexOf('/') + 1, videoURL.length - 4)}.png`)
-            setVideoPlaceholder(`/imgPlaceholder/${videoURL.substring(videoURL.lastIndexOf('/') + 1, videoURL.length - 4)}.png`)
+
+            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous', playsInLine:true, muted: true}))
+            setVideoImg(`/imgPlaceholder/${projectToOpen.video.substring(projectToOpen.video.lastIndexOf('/') + 1, projectToOpen.video.length - 4)}.png`)
         }
     }
-
 
     return (
     <>
@@ -987,9 +983,12 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 <CardModel rotation-x={-Math.PI/10} scale={downSm ? [140,140,140] : [140,140,140]} position={downSm ? [posGameBoy[0], posGameBoy[1] + 3, posGameBoy[2]+6] : [posGameBoy[0], posGameBoy[1] + 2, posGameBoy[2] + 6]}/>
                 <mesh castShadow receiveShadow rotation-x={-Math.PI/10} position={downSm ? [posGameBoy[0], posGameBoy[1] + 7.1, posGameBoy[2] + 4.9] : [posGameBoy[0], posGameBoy[1] + 6.1, posGameBoy[2] + 4.9]} scale={[6.3,5.7,0.5]} >
                     <planeGeometry/>
-                    <Suspense fallback={<FallbackMaterial url={videoPlaceholder} />}>
-                        <VideoMaterial url={videoURL} />
+                    <Suspense fallback={<FallbackMaterial url={videoImg} />}>
+                    <meshBasicMaterial roughness={0.059}>
+                        <videoTexture  attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
+                    </meshBasicMaterial>
                     </Suspense>
+
                 </mesh>
 
 
