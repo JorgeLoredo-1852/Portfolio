@@ -16,45 +16,44 @@ const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
 
 
   const { nodes, materials } = useGLTF("/home/control2.glb");
-  const [video1, setVideo1] = useState(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4",  loop: true, crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
+  const [video1, setVideo1] = useState(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4", width:"100%", autoplay:true,  loop: true,  crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
 
   const [video2] = useState(
-    () => Object.assign(document.createElement('video'), { src: "/screens/Sonic2.mp4", crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
+    () => Object.assign(document.createElement('video'), { src: "/screens/Sonic2.mp4", width:"100%", autoplay:true, crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
 )
 const [video3] = useState(
-  () => Object.assign(document.createElement('video'), { src: "/screens/Dinosaur2.mp4", crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
+  () => Object.assign(document.createElement('video'), { src: "/screens/Dinosaur2.mp4", width:"100%", autoplay:true, crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
 )
 const [video4] = useState(
-  () => Object.assign(document.createElement('video'), { src: "/screens/Samus2.mp4", crossOrigin: 'Anonymous', loop: true,playsInLine:true, muted: true})
+  () => Object.assign(document.createElement('video'), { src: "/screens/Samus2.mp4", width:"100%", autoplay:true, crossOrigin: 'Anonymous', loop: true,playsInLine:true, muted: true})
 ) 
 const [video5] = useState(
-  () => Object.assign(document.createElement('video'), { src: "/screens/Dragonite4.mp4", crossOrigin: 'Anonymous', loop: true,playsInLine:true, muted: true})
+  () => Object.assign(document.createElement('video'), { src: "/screens/Dragonite4.mp4", width:"100%", autoplay:true, crossOrigin: 'Anonymous', loop: true,playsInLine:true, muted: true})
 )
 
 useEffect(()=>{
   if(downSm){
-    setVideo1(() => Object.assign(document.createElement('video'), { src: "/screens/TronDown3.mp4", crossOrigin: 'Anonymous',  loop: true, playsInLine:true, muted: true}))
+    setVideo1(() => Object.assign(document.createElement('video'), { src: "/screens/TronDown3.mp4", width:"100%", autoplay:true,  loop: true,  crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
   } else {
-    setVideo1(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4", crossOrigin: 'Anonymous',  loop: true, playsInLine:true, muted: true}))
+    setVideo1(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4", width:"100%", autoplay:true,  loop: true,  crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
   }
 }, [downSm])
 
-  useEffect(() => {
-      video1.play()
-}, [video1])
-useEffect(() => {
+useEffect(()=>{
+video1.play()
+},[video1])
+useEffect(()=>{
   video2.play()
-}, [video2])
-useEffect(() => {
-  video3.play()
-}, [video3])
-useEffect(() => {
-  video4.play()
-}, [video4])
-useEffect(() => {
-  video5.play()
-}, [video5])
-
+  },[video2])
+  useEffect(()=>{
+    video3.play()
+    },[video3])
+    useEffect(()=>{
+      video4.play()
+      },[video4])
+      useEffect(()=>{
+        video5.play()
+        },[video5])
 
   return (
     <group {...props} dispose={null}>
