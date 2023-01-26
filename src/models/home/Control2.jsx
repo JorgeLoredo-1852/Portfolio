@@ -10,7 +10,7 @@ import { useGLTF, useAspect, useVideoTexture, useTexture } from '@react-three/dr
 
 function VideoMaterial({ url }) {
   const texture = useVideoTexture(url)
-  return <meshBasicMaterial map={texture} toneMapped={false} />
+  return <meshBasicMaterial map={texture} toneMapped={false} props={{loop:"false"}}/>
 }
 
 function FallbackMaterial({ url }) {
@@ -602,7 +602,7 @@ video1.play()
         
         
         <Suspense fallback={<FallbackMaterial url="/Profile.png" />}>
-        <VideoMaterial url="/screens/Neon3.mp4" />
+        <VideoMaterial url="/screens/Neon4.mp4" />
       </Suspense>
                          {/*   <meshBasicMaterial  metalness={0.1}>
                         <videoTexture attach="map" args={[video1]} encoding={THREE.sRGBEncoding}/>
