@@ -429,7 +429,7 @@ export const RolesScene = () => {
     const depthBuffer = useDepthBuffer({ frames: 1 })
 
     const moveRight = () => {
-        console.log(currDisk)
+        //console.log(currDisk)
         if(!moving){
             if(currDisk == 1){
                 setCurrDisk(3)
@@ -447,7 +447,7 @@ export const RolesScene = () => {
             if(currDisk == 1){
                 setCurrDisk(2)
             } else if(currDisk == 2){
-                console.log("aAAAAA")
+                //console.log("aAAAAA")
                 setCurrDisk(3)
             } else if (currDisk == 3){
                 setCurrDisk(1)
