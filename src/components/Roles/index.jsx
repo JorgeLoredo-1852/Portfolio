@@ -478,9 +478,9 @@ export const RolesScene = () => {
             <Environment preset="forest" blur={0.5}/>
             <group position={[0,posScene,0]}>
 
-{
+{/*
     showLights ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[0, 0, 4]} />
-            </>
+            </>*/
 }
 
 
