@@ -13,26 +13,26 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube012.geometry}
-          material={materials.Main}
+          geometry={nodes.Cube007_1.geometry}
+          material={materials["Main.004"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube012_1.geometry}
-          material={materials.Edges}
+          geometry={nodes.Cube007_2.geometry}
+          material={materials["Edges.004"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube012_2.geometry}
-          material={materials["Material.001"]}
+          geometry={nodes.Cube007_3.geometry}
+          material={materials["Material.039"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube012_3.geometry}
-          material={materials["Material.002"]}
+          geometry={nodes.Cube007_4.geometry}
+          material={materials["Material.040"]}
         />
       </group>
     </group>

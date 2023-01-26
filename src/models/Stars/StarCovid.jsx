@@ -13,48 +13,48 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Text.geometry}
-        material={materials["Material.006"]}
+        material={materials["Material.009"]}
         position={[0, -0.71, -0.73]}
-        rotation={[Math.PI / 2, 0, Math.PI]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Text001.geometry}
-        material={materials["Material.005"]}
-        position={[0.02, 0.21, -0.73]}
-        rotation={[Math.PI / 2, 0, Math.PI]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Text002.geometry}
-        material={materials["Material.007"]}
-        position={[0.01, -1.11, -0.73]}
-        rotation={[Math.PI / 2, 0, Math.PI]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Text003.geometry}
-        material={materials["Material.008"]}
-        position={[0, 0.71, -0.73]}
         rotation={[Math.PI / 2, 0, Math.PI]}
       />
       <group rotation={[1.48, 0, 0]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube003.geometry}
-          material={materials["Material.002"]}
+          geometry={nodes.Cube001.geometry}
+          material={materials["Material.003"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube003_1.geometry}
-          material={materials["Material.001"]}
+          geometry={nodes.Cube001_1.geometry}
+          material={materials["Material.004"]}
         />
       </group>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Text001.geometry}
+        material={materials["Material.010"]}
+        position={[0.02, 0.21, -0.73]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Text003.geometry}
+        material={materials["Material.012"]}
+        position={[0, 0.71, -0.73]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Text002.geometry}
+        material={materials["Material.011"]}
+        position={[0.01, -1.11, -0.73]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      />
     </group>
   );
 }

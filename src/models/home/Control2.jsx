@@ -13,7 +13,7 @@ export const Model = (props) => {
   const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
 const downXl = useMediaQuery(themeM.breakpoints.down('xl'));
 const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
-
+  
 
   const { nodes, materials } = useGLTF("/home/control2.glb");
   const [video1, setVideo1] = useState(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4", width:"100%", autoplay:true,  loop: true,  crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
