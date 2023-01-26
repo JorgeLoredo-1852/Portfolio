@@ -9,7 +9,7 @@ export function Model(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/home/mariobros.glb");
   const { actions } = useAnimations(animations, group);
-  return (
+  return ( 
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <mesh

@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { Environment, OrbitControls, Stars, GizmoHelper, GizmoViewport, RoundedBox } from '@react-three/drei'
-import { useEffect, useState, useRef } from "react"
+import { Environment,useVideoTexture, useTexture, OrbitControls, Stars, GizmoHelper, GizmoViewport, RoundedBox } from '@react-three/drei'
+import { useEffect, useState, useRef, Suspense } from "react"
 import * as THREE from "three"
 import { Box } from "@mui/system"
 import { useTheme } from '@mui/material/styles';
@@ -23,11 +23,22 @@ import {Model as Disk11} from '../../models/Disk11';
 
 import { List } from "./List"
 
-
+function VideoMaterial({ url }) {
+    const texture = useVideoTexture(url, {loop:false})
+    return <meshBasicMaterial map={texture} toneMapped={false} />
+  }
+  
+  function FallbackMaterial({ url }) {
+    const texture = useTexture(url)
+    return <meshBasicMaterial map={texture} toneMapped={false} />
+  }
+  
+ 
 export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
 
-    const [video, setVideo] = useState(() => Object.assign(document.createElement('video'), { src: "/videos/Jgx.mp4", crossOrigin: 'Anonymous', muted: true, playsInline: true}))
-
+    const [video, setVideo] = useState(() => Object.assign(document.createElement('video'), { src: "/videos/Jgx.mp4", crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
+    const [videoImg, setVideoImg] = useState("/imgPlaceholder/Jgx.png")
+    const [videoURL, setVideoURL] = useState("/videos/Jgx.mp4") 
     useEffect(() => {
         video.play()
     }, [video])
@@ -936,7 +947,11 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
             setMovingLeft(true)
             setloadingPosCards(true)
 
-            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous', muted: true}))
+            
+            //setVideoURL(projectToOpen.video)
+            //setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous',playsInLine:true, muted: true}))
+            //setVideoImg(`/imgPlaceholder/${projectToOpen.video.substring(projectToOpen.video.lastIndexOf('/') + 1, projectToOpen.video.length - 4)}.png`)
+
         }
     }
 
@@ -952,11 +967,21 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
             }
             setMovingLeft(false)
             setloadingPosCards(true)
-
-            setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous', muted: true}))
-        
+ 
+            
+            //setVideoURL(projectToOpen.video)
+            //setVideo(() => Object.assign(document.createElement('video'), { src: projectToOpen.video, crossOrigin: 'Anonymous', playsInLine:true, muted: true}))
+            //setVideoImg(`/imgPlaceholder/${projectToOpen.video.substring(projectToOpen.video.lastIndexOf('/') + 1, projectToOpen.video.length - 4)}.png`)
         }
     }
+
+    useEffect(()=>{
+        //console.log(locationCard1)
+        const vid = List[locationCard1 - 1].video
+        setVideoURL(vid)
+        setVideoImg(`/imgPlaceholder/${vid.substring(vid.lastIndexOf('/') + 1, vid.length - 4)}.png`)
+
+    },[locationCard1])
 
     return (
     <>
@@ -971,9 +996,8 @@ export const FeaturedProjects = ({openModalFunc, handleNextPage}) => {
                 <CardModel rotation-x={-Math.PI/10} scale={downSm ? [140,140,140] : [140,140,140]} position={downSm ? [posGameBoy[0], posGameBoy[1] + 3, posGameBoy[2]+6] : [posGameBoy[0], posGameBoy[1] + 2, posGameBoy[2] + 6]}/>
                 <mesh castShadow receiveShadow rotation-x={-Math.PI/10} position={downSm ? [posGameBoy[0], posGameBoy[1] + 7.1, posGameBoy[2] + 4.9] : [posGameBoy[0], posGameBoy[1] + 6.1, posGameBoy[2] + 4.9]} scale={[6.3,5.7,0.5]} >
                     <planeGeometry/>
-                    <meshBasicMaterial roughness={0.059}>
-                        <videoTexture  attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
-                    </meshBasicMaterial>
+                    <Suspense fallback={<FallbackMaterial url={videoImg} />}>
+                    <VideoMaterial url={videoURL} /></Suspense>
                 </mesh>
 
 

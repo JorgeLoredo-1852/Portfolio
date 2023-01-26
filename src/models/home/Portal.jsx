@@ -19,7 +19,7 @@ export function Model(props) {
           <mesh
 
             geometry={nodes.Body1_2.geometry}
-            material={materials["Material.001"]}
+            material={materials["Material.008"]}
           />
         </group>
       </group>

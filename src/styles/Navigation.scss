@@ -298,7 +298,7 @@
   /* width */
 ::-webkit-scrollbar {
   @media (min-width: 1200px) {
-    width: 8px;
+    width: 5px;
   }
 }
 
@@ -368,34 +368,48 @@
 
 .hideLoading{
   transition: all 1s;
-  -webkit-animation: 1.5s displayNone 1s forwards; /* for less modern browsers */
-  animation: 1.5s displayNone 1s forwards;
+  -webkit-animation: 2s displayNone 2s forwards; /* for less modern browsers */
+  animation: 2s displayNone 2s forwards;
 }
 
 @-webkit-keyframes displayNone {
   0% {
-    opacity: 1;
-    transform: translateY(-25vh);
-      
+    transform: translateY(-10vh);
   }
   100% {
-    transform: translateY(-150vh);
-    opacity: 0.95;
+    transform: translateY(-130vh);
   }
+
 }
 @keyframes displayNone {
   0% {
-    opacity: 1;
-
-    transform: translateY(-25vh);
-
+    transform: translateY(-10vh);
 
   }
   100% {
-    transform: translateY(-150vh);
-    opacity: 0.95;
+    transform: translateY(-130vh);
 
 
   }
 }
 
+.photoInitial { 
+  opacity: 0;
+  animation: 1s showLoading 1s forwards;
+}
+
+.blobInitial{
+  opacity: 0;
+  animation: showLoading 1s forwards;
+}
+
+@keyframes showLoading {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

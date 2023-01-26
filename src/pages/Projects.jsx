@@ -9,11 +9,7 @@ import { useInView } from "react-intersection-observer";
 
 import { useState, useRef,createRef, useEffect } from "react";
 import { List } from "../components/ListProjects/List";
-import { ModalProject, LoadingModels } from "../components";
-
-import useScrollSnap from 'react-use-scroll-snap';
-import ScrollSnap from 'scroll-snap'
-
+import { ModalProject } from "../components";
 
 export const Projects = ({setInView}) =>{  
     const themeM = useTheme();
@@ -81,21 +77,6 @@ export const Projects = ({setInView}) =>{
                             {inView && <FeaturedProjects openModalFunc={handleOpen} handleNextPage = {handleNextPage}/>}
                             
                         </Canvas>
-           {/*
-                        chargeComplete ? 
-                                                <Canvas 
-                            className='canvas' 
-                            shadows
-                            camera={{position: [0,30,60], fov:15}}
-                            gl={{ antialias: false }}
-                        >
-                            {inView && <FeaturedProjects openModalFunc={handleOpen} handleNextPage = {handleNextPage}/>}
-                            
-                        </Canvas>
-                        :
-                        <LoadingModels progress={progress}/>*/
-                    }
-
                 </div>
             </Grid>
             <Grid item xs={12} className="section3">

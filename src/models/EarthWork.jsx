@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/earthWork15.glb");
+  const { nodes, materials } = useGLTF("/earthWork.glb");
   return ( 
     <group {...props} dispose={null}>
       <group rotation={[1.44, 0.45, -0.17]} scale={5}>
@@ -53,5 +53,5 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload("/earthWork15.glb");
+useGLTF.preload("/earthWork.glb");
 

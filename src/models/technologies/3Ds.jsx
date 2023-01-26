@@ -9,6 +9,14 @@ export function Model(props) {
   const { nodes, materials } = useGLTF("/3DTech/3Ds.glb");
   return (
     <group {...props} dispose={null}>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Curve.geometry}
+        material={materials["SVGMat.005"]}
+        position={[-0.57, 0.53, 0.59]}
+        scale={[30, 1, 30]}
+      />
       <group position={[0, 1.02, 0]} scale={[1, 0.5, 1]}>
         <mesh
           castShadow
@@ -23,14 +31,6 @@ export function Model(props) {
           material={materials.Edges}
         />
       </group>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Curve.geometry}
-        material={materials["SVGMat.005"]}
-        position={[-0.57, 0.53, 0.59]}
-        scale={[30, 1, 30]}
-      />
     </group>
   );
 }

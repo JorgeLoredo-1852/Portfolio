@@ -13,48 +13,48 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Text.geometry}
-        material={materials["Material.006"]}
+        material={materials["Material.015"]}
         position={[0, -0.49, -0.73]}
         rotation={[Math.PI / 2, 0, Math.PI]}
       />
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Text001.geometry}
-        material={materials["Material.005"]}
-        position={[0.02, 0.07, -0.73]}
-        rotation={[Math.PI / 2, 0, Math.PI]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Text002.geometry}
-        material={materials["Material.007"]}
+        material={materials["Material.017"]}
         position={[0.01, -0.93, -0.73]}
-        rotation={[Math.PI / 2, 0, Math.PI]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Text003.geometry}
-        material={materials["Material.008"]}
-        position={[0, 0.58, -0.73]}
         rotation={[Math.PI / 2, 0, Math.PI]}
       />
       <group rotation={[1.48, 0, 0]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube003.geometry}
-          material={materials["Material.002"]}
+          geometry={nodes.Cube002_1.geometry}
+          material={materials["Material.013"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube003_1.geometry}
-          material={materials["Material.001"]}
+          geometry={nodes.Cube002_2.geometry}
+          material={materials["Material.014"]}
         />
       </group>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Text003.geometry}
+        material={materials["Material.018"]}
+        position={[0, 0.58, -0.73]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Text001.geometry}
+        material={materials["Material.016"]}
+        position={[0.02, 0.07, -0.73]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      />
     </group>
   );
 }

@@ -6,8 +6,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useInView } from "react-intersection-observer";
 import { useProgress} from '@react-three/drei'
 
-import { LoadingModels } from "../components";
-
 
 import { useState, useRef, useEffect } from "react";
 
@@ -37,20 +35,6 @@ export const Work = () => {
                     >
                         <WorkScene/>
                     </Canvas> 
-        {/*
-                        chargeComplete ? 
-                        <Canvas 
-                        className='canvas' 
-                        shadows
-                        camera={{position: [0,30,60], fov:20}}
-                        color={"#000000"}
-                        style={{zIndex:100}}
-                    >
-                        <WorkScene/>
-                    </Canvas> 
-                        :
-                        <LoadingModels progress={progress}/>
-    */}
 
     </div>
 

@@ -11,20 +11,24 @@ export function Model(props) {
     <group {...props} dispose={null}>
       <group rotation={[Math.PI / 2, 0, 0]} scale={0.65}>
         <mesh
+                  castShadow = {props.cast}
+                  receiveShadow = {props.cast}
           geometry={nodes.Body1.geometry}
           material={materials["Material.006"]}
           rotation={[Math.PI / 2, 0, 0]}
           scale={1}
         />
         <mesh
-
+          castShadow = {props.cast}
+          receiveShadow = {props.cast}
           geometry={nodes.Body2.geometry}
           material={materials["Material.007"]}
           rotation={[Math.PI / 2, 0, 0]}
           scale={1}
         />
         <mesh
-
+          castShadow = {props.cast}
+          receiveShadow = {props.cast}
           geometry={nodes.Body4.geometry}
           material={materials["Material.008"]}
           rotation={[Math.PI / 2, 0, 0]}

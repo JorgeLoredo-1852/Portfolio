@@ -177,7 +177,7 @@ export const RolesScene = () => {
 
                 setRotCourses([Math.PI/9 - ((Math.PI/9) * (offset - 0.9125) * 9), ((Math.PI) * (offset - 0.9125) * 11.5),0])
                 setPosCourses([0,(offset - 0.9125) * 10 * 6,-10])
-
+ 
                 setScaleTetris1((offset - 0.83) * 5.5)
                 setScaleTetris2((offset - 0.83) * 5.5)
                 setScaleTetris3((offset - 0.83) * 5.5)

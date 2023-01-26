@@ -73,7 +73,7 @@ export function Model(props) {
                 castShadow
                 receiveShadow
                 geometry={nodes.Object_8.geometry}
-                material={materials["Material.001"]}
+                material={materials["Material.002"]}
               />
             </group>
           </group>

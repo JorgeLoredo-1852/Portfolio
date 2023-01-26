@@ -11,12 +11,15 @@ export function Model(props) {
     <group {...props} dispose={null}>
       <group position={[0.1,7.25,-0.4]} scale={0.1}>
         <mesh 
+                  castShadow = {props.cast}
+                  receiveShadow = {props.cast}
           geometry={nodes.Body11.geometry}
           material={materials["Material.001"]}
           scale={10}
         />
         <mesh
-
+          castShadow = {props.cast}
+          receiveShadow = {props.cast}
           geometry={nodes.Body12.geometry}
           material={materials["Steel - Satin"]}
           scale={10}

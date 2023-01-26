@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material"
-import { Environment, useGLTF, SpotLight, useDepthBuffer, useProgress, useAnimations, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
+import { Environment,useVideoTexture, useTexture, useGLTF, SpotLight, useDepthBuffer, useProgress, useAnimations, OrbitControls, Sparkles, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera, ScrollControls, useScroll, Box, Plane } from '@react-three/drei'
 import { useEffect, useState, useRef, Suspense } from "react"
 import * as THREE from "three"
 import { useInView } from "react-intersection-observer";
@@ -35,7 +35,7 @@ import {Model as Placa1} from "../../models/home/Placa1"
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import {JGx, LoadingModels} from "../../components"
+import {JGx} from "../../components"
 import {Model as Control2} from "../../models/home/Control2"
 import {Model as Compu1} from "../../models/home/Compu1"
 import {Model as Compu2} from "../../models/home/Compu2"
@@ -47,6 +47,8 @@ import {Model as Car} from "../../models/home/Car"
 import {Model as Nave} from "../../models/Rocket"
 import {Model as Earth} from "../../models/Earth"
 import {Model as Mario} from "../../models/home/Mario"
+
+import {Model as Arrow} from "../../models/ArrowPurple"
 
 export const Roles = () => { 
     //const { ref, inView } = useInView();
@@ -68,11 +70,6 @@ export const Roles = () => {
     return(
         <div style={{width:"100%", height:"100vh", backgroundColor:"black"}}>
             <JGx/>
-                {/*
-                    chargeComplete ? 
-                    <LoadingModels progress={progress}/> : 
-                <LoadingModels progress={progress}/>*/
-}
 
                     <Canvas 
                     className='canvas' 
@@ -100,8 +97,19 @@ function MovingSpot({ vec = new THREE.Vector3(), ...props }) {
       light.current.target.position.lerp(vec.set((state.mouse.x * viewport.width) / 2, (state.mouse.y * viewport.height) / 2, 0), 0.1)
       light.current.target.updateMatrixWorld()
     })
-    return <SpotLight castShadow ref={light} penumbra={0.5} distance={50} angle={0.3} attenuation={0} anglePower={1} intensity={3} {...props} />
+    return <SpotLight castShadow ref={light} penumbra={0} distance={50} angle={0.3} attenuation={0} anglePower={1} intensity={4} {...props} />
   }
+
+  function VideoMaterial({ url }) {
+    const texture = useVideoTexture(url)
+    return <meshBasicMaterial map={texture} toneMapped={false} />
+  }
+  
+  function FallbackMaterial({ url }) {
+    const texture = useTexture(url)
+    return <meshBasicMaterial map={texture} toneMapped={false} />
+  }
+  
 
 export const RolesScene = () => {
     const scroll = useScroll()
@@ -136,87 +144,179 @@ export const RolesScene = () => {
 
     const [rotCourses, setRotCourses] = useState([0,0,0])
     const [posCourses, setPosCourses] = useState([0,-15,-20])
-    const [scaleCourses, setScaleCourses] = useState(1)
     const [posPortal, setPosPortal] = useState([0, -21, -20])
     const [hideTetrisLast, setHideTetrisLast] = useState(false)
-    const [radiusPortal, setRadiusPortal] = useState(0)
 
     const [elevatorPos, setElevatorPos] = useState([-6,-6,1.5])
     const [railPos, setRailPos] = useState([0,- 13 - 15.8,0])
     const [rotPortal, setRotPortal] = useState([-Math.PI/2 -Math.PI/28,0,0])
     const [posText, setPosText] = useState([-2.9, -27, 10])
-    const [posDisco1, setPosDisco1] = useState(downSm ? [4,-11.5,-0.3] : [12,-11.5,-0.3])
-    const [posDisco2, setPosDisco2] = useState(downSm ? [18,-11.5,-0.3] : [26,-11.5,-0.3])
-    const [posDisco3, setPosDisco3] = useState(downSm ? [32,-11.5,-0.3] : [40,-11.5,-0.3])
-    const [posUSB1, setPosUSB1] = useState(downSm ? [4,-19.3,-0.3] : [12,-19.3,-0.3])
-    const [posUSB2, setPosUSB2] = useState(downSm ? [18,-19.3,-0.3] : [26,-19.3,-0.3])
-    const [posUSB3, setPosUSB3] = useState(downSm ? [32,-19.3,-0.3] : [40,-19.3,-0.3])
-    const [showDownLight, setShowDownLight] = useState(false)
+
+
+
+
+    const [posDisco1, setPosDisco1] = useState(downMd ? [3.3,-11.5,-0.3] : [3.3,-11.5,-0.3])
+    const [posDisco2, setPosDisco2] = useState(downMd ? [15.3,-11.5,-0.3] : [15.3,-11.5,-0.3])
+    const [posDisco3, setPosDisco3] = useState(downMd ? [27.3,-11.5,-0.3] : [27.3,-11.5,-0.3])
+    const [posUSB1, setPosUSB1] = useState(downSm ? [3.3,-19.3,-0.3] : [3.3,-19.3,-0.3])
+    const [posUSB2, setPosUSB2] = useState(downSm ? [15.3,-19.3,-0.3] : [15.3,-19.3,-0.3])
+    const [posUSB3, setPosUSB3] = useState(downSm ? [27.3,-19.3,-0.3] : [27.3,-19.3,-0.3])
+
+
+
+
+
+    const [showLights, setShowLights] = useState(true)
 
     const [diff, setDiff] = useState(0.04)
+    const [moving, setMoving] = useState(false)
+    const [movingDirection, setMovingDirection] = useState("Left")
+    const [currDisk, setCurrDisk] = useState(1)
 
-    const [video] = useState(
-        () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, muted: true})
+    const [movingUSB, setMovingUSB] = useState(false)
+    const [currUSB, setCurrUSB] = useState(1)
+    const [movingDirectionUSB, setMovingDirectionUSB] = useState("Left")
+
+    /*const [video] = useState(
+        () => Object.assign(document.createElement('video'), { src: "/home/matrix.mp4", crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
     )
 
     useEffect(() => {
         video.play()
-    }, [video])
+    }, [video])*/
 
-    useEffect(() => {
-        if(downSm) { 
-            setDiff(0.04)
+    useEffect(()=>{
+        if(window.screen.width <= 600){
+            setShowLights(true)
+            setDiff(0.032)
+        } else if(window.screen.width > 600 && 1200 >= window.screen.width) {
+            setShowLights(true)
+            setDiff(0.028)
+        } else if(window.screen.width > 1200 && window.screen.width <= 1400){
+            setShowLights(true)
+            setDiff(0.024)
+        } else if(window.screen.width > 1400 && window.screen.width <= 1800) {
+            setShowLights(false)
+            setDiff(0.018)
+        } else if(window.screen.width > 1800) {
+            setShowLights(false)
+            setDiff(0.012)
         }
-        else if(downLg){
-            setDiff(0.035)
-        } else {
-            setDiff(0.025)
-        }
-    }, [downSm, downLg])
+    }, [window.screen.width])
+
+
 
 
     useFrame((state, delta) => {
         const offset = scroll.offset        
         if(offset > 0 && offset < 0.3){
+            if(moving){
+                if(movingDirection === "Left"){
+                    if(currDisk == 1){
+                        if(posDisco1[0] >= 3.3 + diff*10 ) {
+                            setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
+                        } else {
+                            setPosDisco1([3.3,-11.5,-0.3])
+                            setPosDisco2([15.3,-11.5,-0.3])
+                            setPosDisco3([27.3,-11.5,-0.3])
+                            setMoving(false)
+                        }
+                    } else if (currDisk == 2){
+                        if(posDisco2[0] >= 3.3 + diff*10) {
+                            setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
+                        } else {
+                            setPosDisco1([27.3,-11.5,-0.3])
+                            setPosDisco2([3.3,-11.5,-0.3])
+                            setPosDisco3([15.3,-11.5,-0.3])
+                            setMoving(false)
+                        }
+                    } else if (currDisk == 3) {
+                        if(posDisco3[0] >= 3.3 + diff*10) {
+                            setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
+                        } else {
+                            setPosDisco1([15.3,-11.5,-0.3])
+                            setPosDisco2([27.3,-11.5,-0.3])
+                            setPosDisco3([3.3,-11.5,-0.3])
+                            setMoving(false)
+                        }
+                    }
+                } else if (movingDirection === "Right"){
+                    if(currDisk == 1){
+                        if(posDisco2[0] == 3.3){
+                            setPosDisco1([-9.3,-11.5,-0.3]) 
+                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])           
+                        } else if(posDisco1[0] <= 3.3 ) {
 
+                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])                   
+                        } else {
 
-            setPosDisco1([ posDisco1[0] - diff, posDisco1[1], posDisco1[2]])
-            setPosDisco2([posDisco2[0] - diff, posDisco2[1], posDisco2[2]])
-            setPosDisco3([posDisco3[0] - diff, posDisco3[1], posDisco3[2]])
-            setPosUSB1([posUSB1[0] - diff, posUSB1[1], posUSB1[2]])
-            setPosUSB2([posUSB2[0] - diff, posUSB2[1], posUSB2[2]])
-            setPosUSB3([posUSB3[0] - diff, posUSB3[1], posUSB3[2]])
-            if(posDisco1[0] < -14){
-                setPosDisco1([28, posDisco1[1], posDisco1[2]])
-                setPosUSB1([28, posUSB1[1], posUSB1[2]])
-            } else if(posDisco2[0] < -14){
-                setPosDisco2([28, posDisco2[1], posDisco2[2]])
-                setPosUSB2([28, posUSB2[1], posUSB2[2]])
-            } else if(posDisco3[0] < -14){
-                setPosDisco3([28, posDisco3[1], posDisco3[2]])
-                setPosUSB3([28, posUSB3[1], posUSB3[2]])
-            }   
+                            setPosDisco1([3.3,-11.5,-0.3])
+                            setPosDisco2([15.3,-11.5,-0.3])
+                            setPosDisco3([27.3,-11.5,-0.3])
+                            setMoving(false)
+                        }
+                    } else if (currDisk == 2){
+                        if(posDisco3[0] == 3.3){
+                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([-9.3,-11.5,-0.3]) 
+                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])   
+                        } else if(posDisco2[0] <= 3.3 ) {
+                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])                   
+                        } else {
+                            setPosDisco1([27.3,-11.5,-0.3])
+                            setPosDisco2([3.3,-11.5,-0.3])
+                            setPosDisco3([15.3,-11.5,-0.3])
+                            setMoving(false)
+                        }
+                    } else if (currDisk == 3) {
+                        if(posDisco1[0] == 3.3){
+                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([-9.3,-11.5,-0.3]) 
+                        } else if(posDisco3[0] <= 3.3 ) {
+                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])                   
+                        } else {
+                            setPosDisco1([15.3,-11.5,-0.3])
+                            setPosDisco2([27.3,-11.5,-0.3])
+                            setPosDisco3([3.3,-11.5,-0.3])
+                            setMoving(false)
+                        }
+                    }
+                }
+            }
+
+            setPosUSB1([posUSB1[0] - diff*1.5, posUSB1[1], posUSB1[2]])
+            setPosUSB2([posUSB2[0] - diff*1.5, posUSB2[1], posUSB2[2]])
+            setPosUSB3([posUSB3[0] - diff*1.5, posUSB3[1], posUSB3[2]])
+            if(posUSB1[0] < -12){
+              //setPosDisco1([28, posDisco1[1], posDisco1[2]])
+                setPosUSB1([24, posUSB1[1], posUSB1[2]])
+            } else if(posUSB2[0] < -12){
+                //setPosDisco2([28, posDisco2[1], posDisco2[2]])
+                setPosUSB2([24, posUSB2[1], posUSB2[2]])
+            } else if(posUSB3[0] < -12){
+                //setPosDisco3([28, posDisco3[1], posDisco3[2]])
+                setPosUSB3([24, posUSB3[1], posUSB3[2]])
+            }
+           
+            
         }
 
-        
-        
-        if(offset < 0.3365){
-            setOpacityText1(8.519 - offset*25.3164)
-        } else if(offset < 0.4155){
-            setOpacityText2(10.516 - offset*25.3164)
-        } else if(offset < 0.4952){
-            setOpacityText3(12.516 - offset*25.3164)
-        } else if(offset < 0.5745){
-            setOpacityText4(14.516 - offset*25.3164)
-        } else if(offset < 0.6535){
-            setOpacityText5(16.516 - offset*25.3164)
-        } else if(offset < 0.733){
-            setOpacityText6(18.516 - offset*25.3164)
-        }
 
         if(offset < 0.30){
-
-            setShowDownLight(false)
 
             setPosText([-2.9, -27, 10])
             setPosScene(offset*90)
@@ -233,15 +333,10 @@ export const RolesScene = () => {
             else if(offset > 0.12){
                 setElevatorPos([-6, -offset*90,1])
             }
-            
-            if(offset > 0.2){
-                setRadiusPortal(-30 + offset*150)
-            }
 
-        } else if (offset < 0.76){
+        } else if (offset > 0.3  && offset < 0.76){
                         setRotPortal([-Math.PI/2 -Math.PI/28,0,rotPortal[2] + 0.005])
 
-            setShowDownLight(true)
             setPosText([-2.9, -27 + (offset - 0.30)*89, 10])
             setPosScene(0.3*90)
             
@@ -272,7 +367,21 @@ export const RolesScene = () => {
             setElevatorPos([-6, -0.3*90,1])
             setRailPos([0,-28.8,0])
 
-        }  else if (offset < 0.9){
+            if(offset < 0.3365){
+                setOpacityText1(8.519 - offset*25.3164)
+            } else if(offset < 0.4155){
+                setOpacityText2(10.516 - offset*25.3164)
+            } else if(offset < 0.4952){
+                setOpacityText3(12.516 - offset*25.3164)
+            } else if(offset < 0.5745){
+                setOpacityText4(14.516 - offset*25.3164)
+            } else if(offset < 0.6535){
+                setOpacityText5(16.516 - offset*25.3164)
+            } else if(offset < 0.733){
+                setOpacityText6(18.516 - offset*25.3164)
+            }
+
+        }  else if (offset > 0.76 & offset < 0.9){
 
             setPosText([-2.75, -27 + (offset - 0.30)*89, 10])
 
@@ -306,19 +415,11 @@ export const RolesScene = () => {
         } else {
             setRotTetris7([0,-Math.PI/2, 0])
             setPosTetris7(downSm ? [4.8,-98.7,0] : [4.8,-59.2,0])
-            //setPosTetris7([3.3,-82.2+offset*62,250 - offset * 300])
 
             setHideTetrisLast(true)
 
-            //setPosCourses([-1.5,-120 + offset*170,270 - offset * 300])
             setPosCourses(downSm ? [-0.7,-3 + offset*40,250 - offset * 300] : [-1.5,-21 + offset*60,250 - offset * 300])
             setRotCourses([0,-18 * Math.PI + 20 * Math.PI * offset,0])
-            //setScaleCourses(3.7 - offset * 3)
-            //setRotCourses([Math.PI/9 - ((Math.PI/9) * (offset - 0.9125) * 9), ((Math.PI) * (offset - 0.9125) * 11.5),0])
-            //setPosCourses([0,(offset - 0.9125) * 10 * 6,-10])
-
-            //setScaleCourses((offset - 0.84) * 5.5)
-            //setPosPilar([0,-40 - (offset - 0.9125)*20, -0.5 + (offset - 0.9125)*12])
 
             setElevatorPos([-6, 0 -  offset*30,1])
 
@@ -327,6 +428,61 @@ export const RolesScene = () => {
 
     const depthBuffer = useDepthBuffer({ frames: 1 })
 
+    const moveRight = () => {
+        //console.log(currDisk)
+        if(!moving){
+            if(currDisk == 1){
+                setCurrDisk(3)
+            } else if(currDisk == 2){
+                setCurrDisk(1)
+            } else if (currDisk == 3){
+                setCurrDisk(2)
+            }        
+            setMoving(true)
+            setMovingDirection("Right")
+        }
+    }
+    const moveLeft = () => {
+        if(!moving){
+            if(currDisk == 1){
+                setCurrDisk(2)
+            } else if(currDisk == 2){
+                //console.log("aAAAAA")
+                setCurrDisk(3)
+            } else if (currDisk == 3){
+                setCurrDisk(1)
+            }
+            setMoving(true)
+            setMovingDirection("Left")
+        }
+    }
+
+    const getPositionLeftArrow = () => {
+        if(downSm){
+            return [-1.8,-11.45,0]
+        }
+        if(downMd){
+            return [-3.5,-11.45,0]
+        }
+        if(downLg){
+            return [-0.2,-11.45,0]
+        }
+        return [-1.9,-11.45,0]
+    }
+
+    const getPositionRightArrow = () => {
+        if(downSm){
+            return [1.8,-11.45,0]
+        }
+        if(downMd){
+            return [3.5,-11.45,0]
+        }
+        if(downLg){
+            return [6.8,-11.45,0]
+        }
+        return [8.5,-11.45,0]
+    }
+
     return (
     <>
             <ambientLight intensity={0.5} />
@@ -334,26 +490,15 @@ export const RolesScene = () => {
             <group position={[0,posScene,0]}>
 
 {
-    downMd ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[-1, 0, 4]} />
-            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[1, 0, 4]} />
+    showLights ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[0, 0, 4]} />
             </>
-}
-
-{/*
-    downMd ? <></> : <><MovingSpot depthBuffer={depthBuffer}  color="white" position={[-3, 0, 4]} />
-            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[3, 0, 4]} />
-            <MovingSpot depthBuffer={depthBuffer}  color="white" position={[0, 0, 6]} /></>*/
 }
 
 
 
                 {/*  FIRST SECTION  */}
-                {/*<mesh receiveShadow castShadow  position={[0,5,-12.5]}>
-                    <sphereGeometry args={[20,18,15,0,1.2,1,0.7]}/>
-                    <meshBasicMaterial>
-                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
-                    </meshBasicMaterial>
-</mesh>*/}
+
+                    
                 <Control2 position={[0,-5,0]} scale={0.17}/>
                 <Compu1 scale={4.8} position={[0,-5,-3.5]} rotation={[0,Math.PI,0]}/>
                 <Compu2 scale={4.6} position={[-3.6,-5,-2.5]} rotation={[0,Math.PI + Math.PI/8,0]}/>
@@ -373,63 +518,58 @@ export const RolesScene = () => {
                     <meshStandardMaterial color="#000000" envMapIntensify={0.5} opacity={0.1}/>
                 </mesh>
 
-                <mesh scale={[100,0.5,30]} position={[0,-5.2,-12.5]}>
+                <mesh receiveShadow castShadow scale={[100,0.5,30]} position={[0,-5.2,-12.5]}>
                     <boxGeometry/>
                     <meshStandardMaterial color="#000000" roughness={1} metalness={0}/>
                 </mesh>
-                {/*<Text3D height={0.2}position={[-11,0,-8]} letterSpacing={0.009} size={2} font="/Inter_Bold.json">
-                        In PROGRESS...
-                        <meshPhongMaterial color="#fff" opacity={1} transparent />
-    </Text3D>*/}
 
 
                 {/*  ELEVATOR  */}
 
-                <Tardis receiveShadow castShadow scale={[0.7,0.7,0.7]} position={[-6, elevatorPos[1] + 0.25,1.4]}/>
-                <Elevator scale={0.7} position={[-6, railPos[1]+15.95, 1.4]}/>
-                <Person scale={1.1} position={[-6, elevatorPos[1] -1.5,1.4]}/>
+                <Tardis cast={showLights} scale={[0.7,0.7,0.7]} position={downMd ? [-20,0,0] : [-6, elevatorPos[1] + 0.25,1.4]}/>
+                <Elevator cast={showLights} scale={0.7} position={downMd ? [-20,0,0] :[-6, railPos[1]+15.95, 1.4]}/>
+                <Person cast={showLights} scale={1.1} position={downMd ? [-20,0,0] :[-6, elevatorPos[1] -1.5,1.4]}/>
 
                 
                 {/*  SECOND SECTION  */}
 
-                <Computer position={downSm ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
-                <Disk1 position={posDisco1}/>
-                <Disk2 position={posDisco2}/>
-                <Disk3 position={posDisco3}/>
+                <Arrow scale={downLg ? 0.43: 0.5} onClick={moveRight} position={getPositionLeftArrow()}/>
+                <Arrow scale={ downLg ? 0.43:0.5} onClick={moveLeft} rotation={[0,0,Math.PI]} position={ getPositionRightArrow()}/>
+                {/*<Arrow scale={0.5} onClick={moveLeftUSB} position={[0,-19,0]}/>
+                <Arrow scale={0.5} onClick={moveRightUSB} rotation={[0,0,Math.PI]} position={[8,-19,0]}/>*/}
 
-                <Placa1  position={posUSB1}/>
-                    <Text3D height={0.25} position={[posUSB1[0]-2.9, posUSB1[1]-0.33,posUSB1[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
+                <Computer  cast={showLights} position={downMd ? [-3.4,-11.5,0.5] : [0,-11.5,0.5]} scale={0.1}/>
+                <Disk1 scale={downSm ? 0.8 : 0.95} cast={showLights} position={downMd ? [posDisco1[0] - 3.3, posDisco1[1], posDisco1[2]] : posDisco1}/>
+                <Disk2 scale={downSm ? 0.8 : 0.95} cast={showLights} position={downMd ? [posDisco2[0] - 3.3, posDisco2[1], posDisco2[2]] : posDisco2}/>
+                <Disk3 scale={downSm ? 0.8 : 0.95} cast={showLights} position={downMd ? [posDisco3[0] - 3.3, posDisco3[1], posDisco3[2]] : posDisco3}/>
+
+                
+                <Placa1 scale={0.9} cast={showLights} position={posUSB1}/>
+                    <Text3D height={0.25} position={[posUSB1[0]-2.5, posUSB1[1]-0.3,posUSB1[2]-0.2]} letterSpacing={0.009} size={0.70} font="/Inter_Bold.json">
                         Front End
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
-                <Placa1  position={posUSB2}/>
-                    <Text3D height={0.25} position={[posUSB2[0]-2.9, posUSB2[1]-0.33,posUSB2[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
+                <Placa1 scale={0.9} cast={showLights} position={posUSB2}/>
+                    <Text3D height={0.25} position={[posUSB2[0]-2.5, posUSB2[1]-0.3,posUSB2[2]-0.2]} letterSpacing={0.009} size={0.70} font="/Inter_Bold.json">
                         Back End
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
-                <Placa1  position={posUSB3}/>
-                    <Text3D height={0.25} position={[posUSB3[0]-3.85, posUSB3[1]-0.33,posUSB3[2]-0.2]} letterSpacing={0.009} size={0.8} font="/Inter_Bold.json">
+                <Placa1 scale={0.9} cast={showLights} position={posUSB3}/>
+                    <Text3D height={0.25} position={[posUSB3[0]-3.4, posUSB3[1]-0.30,posUSB3[2]-0.2]} letterSpacing={0.009} size={0.70} font="/Inter_Bold.json">
                         UI/UX Design
                         <meshPhongMaterial color="#fff" opacity={1} transparent />
                     </Text3D>
 
 
-                {/*<mesh receiveShadow castShadow scale={[22,16,1]} position={[0,-13.5,0]}>
-                    <boxGeometry/>
-                    <meshStandardMaterial color="#1D0060" envMapIntensify={0.5} opacity={0.1}/>
-    </mesh>*/}
-
 
                 {/*  THIRD SECTION  */}
 
-                <CubeBG position={[0,0,-80]} scale={[200,200,1]}/>
-                                                    {/*<Sparkles  position={[0,posPortal[1]-10,-25]} color="#3900BB" count={200} scale={40} size={100} speed={2} />*/}
-                <mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
+            <mesh castShadow receiveShadow position={[0,posPortal[1]-12,-70]} scale={[70,50,1]}>
                     <planeGeometry />
-                    <meshBasicMaterial>
-                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding}/> 
-                    </meshBasicMaterial>
-                </mesh>
+                    <Suspense fallback={<FallbackMaterial url="/imgPlaceholder/Matrix.png" />}>
+                        <VideoMaterial url="/home/matrix.mp4" />
+                    </Suspense>
+            </mesh>
 
                 <Portal position={downSm ? [0,posPortal[1],-20] : [0,posPortal[1]-1.2,-25]} scale={downSm ? 0.13 : 0.3} rotation={rotPortal}/>
 
