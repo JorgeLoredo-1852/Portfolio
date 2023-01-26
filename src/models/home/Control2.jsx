@@ -30,12 +30,13 @@ const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
   const [video2] = useState(
     () => Object.assign(document.createElement('video'), { src: "/screens/Sonic2.mp4", width:"100%", autoplay:true, crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
 )
-/*  const [video1, setVideo1] = useState(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4", width:"100%", autoplay:true,  loop: true,  crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
-
-
 const [video3] = useState(
   () => Object.assign(document.createElement('video'), { src: "/screens/Dinosaur2.mp4", width:"100%", autoplay:true, crossOrigin: 'Anonymous', loop: true, playsInLine:true, muted: true})
 )
+/*  const [video1, setVideo1] = useState(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4", width:"100%", autoplay:true,  loop: true,  crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
+
+
+
 const [video4] = useState(
   () => Object.assign(document.createElement('video'), { src: "/screens/Samus2.mp4", width:"100%", autoplay:true, crossOrigin: 'Anonymous', loop: true,playsInLine:true, muted: true})
 ) 
@@ -49,17 +50,20 @@ useEffect(()=>{
   } else {
     setVideo1(() => Object.assign(document.createElement('video'), { src: "/screens/Neon3.mp4", width:"100%", autoplay:true,  loop: true,  crossOrigin: 'Anonymous', muted: true, playsInLine: true}))
   }
-}, [downSm])
+}, [downSm])*/
 
-useEffect(()=>{
-video1.play()
-},[video1])
 useEffect(()=>{
   video2.play()
   },[video2])
   useEffect(()=>{
     video3.play()
     },[video3])
+
+    /*
+useEffect(()=>{
+video1.play()
+},[video1])
+
     useEffect(()=>{
       video4.play()
       },[video4])
@@ -626,7 +630,7 @@ useEffect(()=>{
         position={[42.3,48,-33.5]}
         scale={[8.3, 1, 5.5]}>
                             <meshBasicMaterial metalness={0.1}>
-                        {/*<videoTexture attach="map" args={[video3]} encoding={THREE.sRGBEncoding}/>*/}
+                        <videoTexture attach="map" args={[video3]} encoding={THREE.sRGBEncoding}/>
                         </meshBasicMaterial>
       </mesh>
 
