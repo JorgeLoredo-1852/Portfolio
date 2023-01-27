@@ -73,6 +73,7 @@ export const Projects = ({setInView}) =>{
                             shadows
                             camera={{position: [0,30,60], fov:15}}
                             gl={{ antialias: false }}
+                            dpr={[0.8,1]}
                         >
                             {inView && <FeaturedProjects openModalFunc={handleOpen} handleNextPage = {handleNextPage}/>}
                             

@@ -32,6 +32,8 @@ export const Work = () => {
                         camera={{position: [0,30,60], fov:20}}
                         color={"#000000"}
                         style={{zIndex:100}}
+                        dpr={[0.8,1]}
+
                     >
                         <WorkScene/>
                     </Canvas> 

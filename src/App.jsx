@@ -8,6 +8,8 @@ import { useLocation } from 'react-router';
 
 export const App = () => {
 
+    
+
     const [inView3DProjects, setInView3DProjects] = useState(false)
     
     const { active, progress, errors, item, loaded, total } = useProgress()
