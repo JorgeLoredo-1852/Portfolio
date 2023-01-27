@@ -8,6 +8,8 @@ import Instagram from '../../assets/icons/Instagram.png';
 import Linkedin from '../../assets/icons/Linkedin.png';
 import Github from '../../assets/icons/Github.png';
 import Download from '../../assets/icons/Download.png';
+import { useLocation } from 'react-router';
+
  
 export const JGx = ({notHide = true}) => {
     const themeM = useTheme();
@@ -17,7 +19,11 @@ export const JGx = ({notHide = true}) => {
     const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
 
 
-    const [displayLinks, setDisplayLinks] = useState(false)
+    const [displayLinks, setDisplayLinks] = useState(window.innerWidth < 1300 ? false : true)
+    const [hideClass, setHideClass] = useState("navbar")
+
+    const location = useLocation();
+
     
     const changeDisplay = () => {
         setDisplayLinks(!displayLinks)
@@ -37,9 +43,29 @@ export const JGx = ({notHide = true}) => {
         })
     }
 
+    useEffect(()=>{
+        if(location.pathname == "/projects"){
+            if(downSm){
+                setDisplayLinks(false)
+            }
+            if(!notHide){
+                setHideClass("navbar navbar--hide")
+            } else {
+                setHideClass("navbar")    
+            }
+        }
+        else {
+            if(downSm){
+                setDisplayLinks(false)
+            }
+            setHideClass("navbar")
+        }
+    },[location.pathname, notHide])
+
+
 
   return (
-    <div  className={notHide ? "navbar" : "navbar navbar--hide"} style={{flexDirection:downSm ? "column" : "row"}}>
+    <div  className={hideClass} style={{flexDirection:downSm ? "column" : "row"}}>
         <div onClick={changeDisplay} style={{cursor:downSm ? "unset" : "pointer", backgroundColor:"#3900BB", borderRadius:"100%", display:"flex", alignItems:"center", justifyContent:"center", zIndex:"210"}} >
             <img className="navbar--header" style={{userSelect:"none"}} src={JGxLogo}/>
         </div>
@@ -49,9 +75,8 @@ export const JGx = ({notHide = true}) => {
                     <img className="navbar--item" src={Download}/>
                 </div>
             </div> 
-            
             <div style={{display: displayLinks ? "flex" : "none", backgroundColor:"#3900BB", borderRadius:"100%", alignItems:"center", justifyContent:"center", marginLeft: downSm ? "0" : "1rem", zIndex:"180", marginTop: downSm ? "1rem" : "0"}} className="nav--link">
-                <a href={"https://twitter.com/JGxFazciste"} target="_blank" rel='nonereferrer' style={{width:"4.1rem", height:"4.1rem"}}>
+                <a href={"https://twitter.com/JGx_Dev"} target="_blank" rel='nonereferrer' style={{width:"4.1rem", height:"4.1rem"}}>
                     <img className="navbar--item" src={Twitter}/>
                 </a>
             </div>
