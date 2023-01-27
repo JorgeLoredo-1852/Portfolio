@@ -19,7 +19,7 @@ export const JGx = ({notHide = true}) => {
     const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
 
 
-    const [displayLinks, setDisplayLinks] = useState(downLg ? false : true)
+    const [displayLinks, setDisplayLinks] = useState(window.innerWidth < 1300 ? false : true)
     const [hideClass, setHideClass] = useState("navbar")
 
     const location = useLocation();
