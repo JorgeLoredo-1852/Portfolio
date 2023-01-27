@@ -209,7 +209,7 @@ export const RolesScene = () => {
 
     useFrame((state, delta) => {
         const offset = scroll.offset        
-        if(offset > 0 && offset < 0.3){
+        if(offset >= 0 && offset < 0.3){
             if(moving){
                 if(movingDirection === "Left"){
                     if(currDisk == 1){
@@ -502,7 +502,7 @@ export const RolesScene = () => {
                 <Control2 position={[0,-5,0]} scale={0.17}/>
                 <Compu1 scale={4.8} position={[0,-5,-3.5]} rotation={[0,Math.PI,0]}/>
                 <Compu2 scale={4.6} position={[-3.6,-5,-2.5]} rotation={[0,Math.PI + Math.PI/8,0]}/>
-                <Compu3 scale={4.8} position={[3.6,-5,-2.5]} rotation={[0,Math.PI - Math.PI/8,0]}/>
+<Compu3 scale={4.8} position={[3.6,-5,-2.5]} rotation={[0,Math.PI - Math.PI/8,0]}/>
 
                 <Halo scale={0.35} position={[9.2,-0.7,-3]} rotation={[0,-Math.PI/4,0]}/>
                 <Clone scale={0.055} position={[9.2,1.5,-3,5]} rotation={[0,-Math.PI/4,0]}/>
