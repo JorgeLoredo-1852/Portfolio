@@ -599,7 +599,7 @@ export function Model(props) {
         material={materials["Material.005"]}
         position={[34, 0, -23.8]}
         rotation={[Math.PI / 2, 0, 0]}
-        scale={9.5}
+        scale={11}
       />
     </group>
   );
