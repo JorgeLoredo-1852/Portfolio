@@ -8,8 +8,10 @@ import Instagram from '../../assets/icons/Instagram.png';
 import Linkedin from '../../assets/icons/Linkedin.png';
 import Github from '../../assets/icons/Github.png';
 import Download from '../../assets/icons/Download.png';
+
+import {useReactPath} from '../../utils/pathHook';
  
-export const JGx = ({notHide = true}) => {
+export const JGx = ({notHide = true, renderClass}) => {
     const themeM = useTheme();
 
     const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
@@ -17,7 +19,11 @@ export const JGx = ({notHide = true}) => {
     const downSm = useMediaQuery(themeM.breakpoints.down('sm'));
 
 
-    const [displayLinks, setDisplayLinks] = useState(false)
+    const [displayLinks, setDisplayLinks] = useState(downLg ? false : true)
+    const [hideClass, setHideClass] = useState("navbar")
+
+    const path = useReactPath();
+
     
     const changeDisplay = () => {
         setDisplayLinks(!displayLinks)
@@ -37,9 +43,25 @@ export const JGx = ({notHide = true}) => {
         })
     }
 
+    useEffect(()=>{
+        const pathname = window.location.pathname
+        //console.log(path)
+        if(path == "/projects"){
+            if(!notHide){
+                setHideClass("navbar navbar--hide")
+            } else {
+                setHideClass("navbar")    
+            }
+        }
+        else {
+            setHideClass("navbar")
+        }
+    },[path, notHide])
+
+
 
   return (
-    <div  className={notHide ? "navbar" : "navbar navbar--hide"} style={{flexDirection:downSm ? "column" : "row"}}>
+    <div  className={renderClass} style={{flexDirection:downSm ? "column" : "row"}}>
         <div onClick={changeDisplay} style={{cursor:downSm ? "unset" : "pointer", backgroundColor:"#3900BB", borderRadius:"100%", display:"flex", alignItems:"center", justifyContent:"center", zIndex:"210"}} >
             <img className="navbar--header" style={{userSelect:"none"}} src={JGxLogo}/>
         </div>

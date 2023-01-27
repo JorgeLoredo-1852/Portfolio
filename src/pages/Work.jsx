@@ -25,7 +25,7 @@ export const Work = () => {
     return(
 
     <div style={{width:"100vw", height:"100vh", backgroundColor:"#000000"}} >
-        <JGx/>
+        {/*<JGx/>*/}
         <Canvas 
                         className='canvas' 
                         shadows

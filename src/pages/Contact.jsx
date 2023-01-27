@@ -87,7 +87,7 @@ export const Contact = () =>{
 
     return (
         <div style={{height:"100vh", width:"100vw", position:"relative", backgroundColor:"#000000"}}>
-            <JGx/>
+            {/*<JGx/>*/}
             <Canvas 
                 className='canvas' 
                 shadows
