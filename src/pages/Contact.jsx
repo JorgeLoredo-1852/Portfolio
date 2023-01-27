@@ -23,7 +23,7 @@ const theme = createTheme({
     },
     palette: {
       primary: {
-        main: '#E7C300',
+        main: "#3900BB",
         darker: '#053e85',
       },
       neutral: {
@@ -84,7 +84,7 @@ export const Contact = () =>{
         }
         return 'contact'
     }
-  
+
     return (
         <div style={{height:"100vh", width:"100vw", position:"relative", backgroundColor:"#000000"}}>
             <JGx/>
@@ -105,7 +105,7 @@ export const Contact = () =>{
                             <Grid item xs={12} md={6} style={{position:"relative"}}>
                                 <ThemeProvider theme={theme}>
                                 <OutlinedInput
-                                    sx={{width:"100%", backgroundColor:"#3900BB", input: {color:"white"}}} 
+                                    sx={{width:"100%", backgroundColor:"#3900BB", input: {color:"white"}, paddingRight:"2rem"}} 
                                     id="outlined-adornment-weight"
                                     aria-describedby="outlined-weight-helper-text"
                                     placeholder='Name'
@@ -120,7 +120,7 @@ export const Contact = () =>{
                             <Grid item xs={12} md={6} style={{position:"relative"}}>
                                 <ThemeProvider theme={theme}>
                                 <OutlinedInput
-                                    sx={{width:"100%", backgroundColor:"#3900BB", input: {color:"white"}}} 
+                                    sx={{width:"100%", backgroundColor:"#3900BB", paddingRight:"2rem", input: {color:"white"}}} 
                                     id="outlined-adornment-weight"
                                     aria-describedby="outlined-weight-helper-text"
                                     placeholder='Email'
@@ -134,16 +134,18 @@ export const Contact = () =>{
                                 </div>
                             </Grid>
                             <Grid item xs={12}>
-                            <ThemeProvider theme={theme}>
-                            <OutlinedInput
-                                    sx={{width:"100%", height:"8rem", alignItems:"start", backgroundColor:"#3900BB", input: {color:"white"}} }
-                                    id="outlined-adornment-weight"
-                                    aria-describedby="outlined-weight-helper-text"
-                                    placeholder='Message'
-                                    name="message"
-                                    color='primary'
-                                />
-                                </ThemeProvider>
+                                <ThemeProvider theme={theme}>
+                                <OutlinedInput
+                                        sx={{overflowY:"scroll" ,width:"100%", height:"8rem", alignItems:"start", backgroundColor:"#3900BB", color:"white", outline:"0", input: {outline:"3px solid black", color:"white"}} }
+                                        id="outlined-adornment-weight"
+                                        placeholder='Message'
+                                        name="message"
+                                        color='primary'
+
+                                        
+                                        multiline={true}
+                                    />
+                                    </ThemeProvider>
                             </Grid> 
                             <Grid item xs={12}>
                                 <input style={{padding: "0.5rem 1.5rem", color: "white", fontSize: "1.2rem", textDecoration: "none", textTransform: "uppercase", fontWeight: 500, width:"100%",  backgroundColor: "#3900BB", borderRadius:"3px", outline:"none"}} type="submit" value="Send" />
