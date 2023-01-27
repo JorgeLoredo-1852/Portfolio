@@ -8,10 +8,10 @@ import Instagram from '../../assets/icons/Instagram.png';
 import Linkedin from '../../assets/icons/Linkedin.png';
 import Github from '../../assets/icons/Github.png';
 import Download from '../../assets/icons/Download.png';
+import { useLocation } from 'react-router';
 
-import {useReactPath} from '../../utils/pathHook';
  
-export const JGx = ({notHide = true, renderClass}) => {
+export const JGx = ({notHide = true}) => {
     const themeM = useTheme();
 
     const downLg = useMediaQuery(themeM.breakpoints.down('lg'));
@@ -22,7 +22,7 @@ export const JGx = ({notHide = true, renderClass}) => {
     const [displayLinks, setDisplayLinks] = useState(downLg ? false : true)
     const [hideClass, setHideClass] = useState("navbar")
 
-    const path = useReactPath();
+    const location = useLocation();
 
     
     const changeDisplay = () => {
@@ -44,9 +44,10 @@ export const JGx = ({notHide = true, renderClass}) => {
     }
 
     useEffect(()=>{
-        const pathname = window.location.pathname
-        //console.log(path)
-        if(path == "/projects"){
+        if(location.pathname == "/projects"){
+            if(downSm){
+                setDisplayLinks(false)
+            }
             if(!notHide){
                 setHideClass("navbar navbar--hide")
             } else {
@@ -54,14 +55,17 @@ export const JGx = ({notHide = true, renderClass}) => {
             }
         }
         else {
+            if(downSm){
+                setDisplayLinks(false)
+            }
             setHideClass("navbar")
         }
-    },[path, notHide])
+    },[location.pathname, notHide])
 
 
 
   return (
-    <div  className={renderClass} style={{flexDirection:downSm ? "column" : "row"}}>
+    <div  className={hideClass} style={{flexDirection:downSm ? "column" : "row"}}>
         <div onClick={changeDisplay} style={{cursor:downSm ? "unset" : "pointer", backgroundColor:"#3900BB", borderRadius:"100%", display:"flex", alignItems:"center", justifyContent:"center", zIndex:"210"}} >
             <img className="navbar--header" style={{userSelect:"none"}} src={JGxLogo}/>
         </div>
@@ -71,9 +75,8 @@ export const JGx = ({notHide = true, renderClass}) => {
                     <img className="navbar--item" src={Download}/>
                 </div>
             </div> 
-            
             <div style={{display: displayLinks ? "flex" : "none", backgroundColor:"#3900BB", borderRadius:"100%", alignItems:"center", justifyContent:"center", marginLeft: downSm ? "0" : "1rem", zIndex:"180", marginTop: downSm ? "1rem" : "0"}} className="nav--link">
-                <a href={"https://twitter.com/JGxFazciste"} target="_blank" rel='nonereferrer' style={{width:"4.1rem", height:"4.1rem"}}>
+                <a href={"https://twitter.com/JGx_Dev"} target="_blank" rel='nonereferrer' style={{width:"4.1rem", height:"4.1rem"}}>
                     <img className="navbar--item" src={Twitter}/>
                 </a>
             </div>

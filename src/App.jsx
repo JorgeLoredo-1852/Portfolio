@@ -44,7 +44,7 @@ export const App = () => {
  
     return(<>
     {!hideLoading ? <LoadingModels progress={progress}/> : <></>}
-    <JGx notHide={inView3DProjects} renderClass={hideClass}/>
+    <JGx notHide={inView3DProjects}/>
         <NewNav/>
         <AppRoutes setInView = {setInView3DProjects}/>
         
