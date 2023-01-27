@@ -37,6 +37,7 @@
     "react-use-scroll-snap": "^0.0.4",
     "sass": "^1.57.1",
     "scroll-snap": "^4.0.3",
+    "stats.js": "^0.17.0",
     "three": "^0.147.0",
     "yuka": "^0.7.8"
   },

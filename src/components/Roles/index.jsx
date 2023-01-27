@@ -61,6 +61,7 @@ export const Roles = () => {
     const { active, progress, errors, item, loaded, total } = useProgress()
     const [chargeComplete, setChargeComplete] = useState(false)
     
+    
     useEffect(()=>{
         if(progress == 100){
             setChargeComplete(true)
@@ -77,7 +78,10 @@ export const Roles = () => {
                     camera={{position: [0,0,40] , fov:15}}
                     color={"#000000"}
                     style={{zIndex:100}}
+                    dpr={[0.8,1]}
+
                 >
+
                     <Suspense fallback={null}>
                         <ScrollControls pages={6}>
                             <RolesScene/>
@@ -213,10 +217,10 @@ export const RolesScene = () => {
             if(moving){
                 if(movingDirection === "Left"){
                     if(currDisk == 1){
-                        if(posDisco1[0] >= 3.3 + diff*10 ) {
-                            setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
+                        if(posDisco1[0] >= 3.3 + diff*9 ) {
+                            setPosDisco1([posDisco1[0] - diff*9, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] - diff*9, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] - diff*9, posDisco3[1], posDisco3[2]])                   
                         } else {
                             setPosDisco1([3.3,-11.5,-0.3])
                             setPosDisco2([15.3,-11.5,-0.3])
@@ -224,10 +228,10 @@ export const RolesScene = () => {
                             setMoving(false)
                         }
                     } else if (currDisk == 2){
-                        if(posDisco2[0] >= 3.3 + diff*10) {
-                            setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
+                        if(posDisco2[0] >= 3.3 + diff*9) {
+                            setPosDisco1([posDisco1[0] - diff*9, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] - diff*9, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] - diff*9, posDisco3[1], posDisco3[2]])                   
                         } else {
                             setPosDisco1([27.3,-11.5,-0.3])
                             setPosDisco2([3.3,-11.5,-0.3])
@@ -235,10 +239,10 @@ export const RolesScene = () => {
                             setMoving(false)
                         }
                     } else if (currDisk == 3) {
-                        if(posDisco3[0] >= 3.3 + diff*10) {
-                            setPosDisco1([posDisco1[0] - diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] - diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] - diff*10, posDisco3[1], posDisco3[2]])                   
+                        if(posDisco3[0] >= 3.3 + diff*9) {
+                            setPosDisco1([posDisco1[0] - diff*9, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] - diff*9, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] - diff*9, posDisco3[1], posDisco3[2]])                   
                         } else {
                             setPosDisco1([15.3,-11.5,-0.3])
                             setPosDisco2([27.3,-11.5,-0.3])
@@ -250,13 +254,13 @@ export const RolesScene = () => {
                     if(currDisk == 1){
                         if(posDisco2[0] == 3.3){
                             setPosDisco1([-9.3,-11.5,-0.3]) 
-                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])           
+                            setPosDisco2([posDisco2[0] + diff*9, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] + diff*9, posDisco3[1], posDisco3[2]])           
                         } else if(posDisco1[0] <= 3.3 ) {
 
-                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])                   
+                            setPosDisco1([posDisco1[0] + diff*9, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] + diff*9, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] + diff*9, posDisco3[1], posDisco3[2]])                   
                         } else {
 
                             setPosDisco1([3.3,-11.5,-0.3])
@@ -266,13 +270,13 @@ export const RolesScene = () => {
                         }
                     } else if (currDisk == 2){
                         if(posDisco3[0] == 3.3){
-                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
+                            setPosDisco1([posDisco1[0] + diff*9, posDisco1[1], posDisco1[2]])
                             setPosDisco2([-9.3,-11.5,-0.3]) 
-                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])   
+                            setPosDisco3([posDisco3[0] + diff*9, posDisco3[1], posDisco3[2]])   
                         } else if(posDisco2[0] <= 3.3 ) {
-                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])                   
+                            setPosDisco1([posDisco1[0] + diff*9, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] + diff*9, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] + diff*9, posDisco3[1], posDisco3[2]])                   
                         } else {
                             setPosDisco1([27.3,-11.5,-0.3])
                             setPosDisco2([3.3,-11.5,-0.3])
@@ -281,13 +285,13 @@ export const RolesScene = () => {
                         }
                     } else if (currDisk == 3) {
                         if(posDisco1[0] == 3.3){
-                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
+                            setPosDisco1([posDisco1[0] + diff*9, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] + diff*9, posDisco2[1], posDisco2[2]])
                             setPosDisco3([-9.3,-11.5,-0.3]) 
                         } else if(posDisco3[0] <= 3.3 ) {
-                            setPosDisco1([posDisco1[0] + diff*10, posDisco1[1], posDisco1[2]])
-                            setPosDisco2([posDisco2[0] + diff*10, posDisco2[1], posDisco2[2]])
-                            setPosDisco3([posDisco3[0] + diff*10, posDisco3[1], posDisco3[2]])                   
+                            setPosDisco1([posDisco1[0] + diff*9, posDisco1[1], posDisco1[2]])
+                            setPosDisco2([posDisco2[0] + diff*9, posDisco2[1], posDisco2[2]])
+                            setPosDisco3([posDisco3[0] + diff*9, posDisco3[1], posDisco3[2]])                   
                         } else {
                             setPosDisco1([15.3,-11.5,-0.3])
                             setPosDisco2([27.3,-11.5,-0.3])
@@ -298,9 +302,9 @@ export const RolesScene = () => {
                 }
             }
 
-            setPosUSB1([posUSB1[0] - diff*1.5, posUSB1[1], posUSB1[2]])
-            setPosUSB2([posUSB2[0] - diff*1.5, posUSB2[1], posUSB2[2]])
-            setPosUSB3([posUSB3[0] - diff*1.5, posUSB3[1], posUSB3[2]])
+            setPosUSB1([posUSB1[0] - diff, posUSB1[1], posUSB1[2]])
+            setPosUSB2([posUSB2[0] - diff, posUSB2[1], posUSB2[2]])
+            setPosUSB3([posUSB3[0] - diff, posUSB3[1], posUSB3[2]])
             if(posUSB1[0] < -12){
               //setPosDisco1([28, posDisco1[1], posDisco1[2]])
                 setPosUSB1([24, posUSB1[1], posUSB1[2]])

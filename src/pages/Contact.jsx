@@ -94,6 +94,7 @@ export const Contact = () =>{
                 camera={{position: [0,30,60], fov:15}}
                 color={"#000000"}
                 style={{zIndex:100}}
+                dpr={[0.8,1]}
             >
                 <Form3D submitted={submitted}/>
             </Canvas>
