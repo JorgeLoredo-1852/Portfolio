@@ -37,7 +37,7 @@ export const App = () => {
             } else {
                 setHideClass("navbar")    
             }
-        }
+        } 
         else {
             setHideClass("navbar")
         }
