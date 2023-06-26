@@ -42,7 +42,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 export const WorkScene = () => {
     return(
         <>
-            <Environment preset="forest" blur={0.4}/>
+            <Environment files="forest4k.hdr" blur={0.5}/>
             <ambientLight intensity={0.3}/>
 
             <group position={[0,0,0]}>
