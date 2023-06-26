@@ -85,6 +85,7 @@ export const Roles = () => {
                     <Suspense fallback={null}>
                         <ScrollControls pages={6}>
                             <RolesScene/>
+                            
                         </ScrollControls>
                     </Suspense>
                 </Canvas>
@@ -490,7 +491,7 @@ export const RolesScene = () => {
     return (
     <>
             <ambientLight intensity={0.5} />
-            <Environment preset="forest" blur={0.5}/>
+            <Environment files="forest4k.hdr" blur={0.5}/>
             <group position={[0,posScene,0]}>
 
 {

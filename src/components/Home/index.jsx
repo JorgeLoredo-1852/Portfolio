@@ -170,7 +170,7 @@ export const Scene1 = () => {
         <>
             <ambientLight intensity={0.5} />
             <OrbitControls maxPolarAngle={Math.PI / 2 - Math.PI / 12} enableZoom={false} minPolarAngle={Math.PI / 2 - Math.PI / 12}></OrbitControls>
-            <Environment preset="forest" blur={0.5}/>
+            <Environment files="forest4k.hdr" blur={0.5}/>
             <group  position={[0, -7, 0]}>
                 <RoundedBox receiveShadow castShadow smoothness={10} rotation-z={0.1 * Math.PI} radius={0.015} position={[0, 4, 0]} scale={[5,7,0.5]} ref={myMesh}>
                     <meshStandardMaterial color="#4c00a3" envMapIntensity={0.5} roughness={0} metalness={0}/>
