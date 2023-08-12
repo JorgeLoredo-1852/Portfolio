@@ -70,7 +70,7 @@ export const LoadingModels = ({progress}) => {
             </div>
 
             <div style={{fontSize:downLg ? "1rem" :"1.3rem", color:"#A9A9A9"}}>
-              {Math.round(progress * 10) / 10}%
+              {Math.round(progress * 10) / 10}% ... Downloading 3D assets
             </div>
 
           </Grid>
