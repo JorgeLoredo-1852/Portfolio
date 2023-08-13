@@ -351,9 +351,11 @@ const WorkStation = () => {
                             <Earth />
                             {
                                 hideWorks ? <></> : <>
-                                    <MedGlobal position={posWork2} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
-                                    <Micronics position={posWork1} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>
-                                    <Vitale position={posWork3} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                    <Vitale position={posWork2} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                    <MedGlobal position={posWork1} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                    <Micronics position={posWork3} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>
+                                    {/*<Micronics position={posWork1} rotation={[-Math.PI/2,Math.PI,0]} scale={0.5}/>*/}
+                                    {/*<Vitale position={posWork3} rotation={[Math.PI/2,Math.PI,0]} scale={0.5}/>*/}
                                 </>
                             } 
                         </group>

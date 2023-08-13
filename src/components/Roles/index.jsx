@@ -49,6 +49,8 @@ import {Model as Earth} from "../../models/Earth"
 import {Model as Mario} from "../../models/home/Mario"
 
 import {Model as Arrow} from "../../models/ArrowPurple"
+import { Model as DownArrow } from '../../models/downArrow'
+
 
 export const Roles = () => { 
     //const { ref, inView } = useInView();
@@ -85,7 +87,6 @@ export const Roles = () => {
                     <Suspense fallback={null}>
                         <ScrollControls pages={6}>
                             <RolesScene/>
-                            
                         </ScrollControls>
                     </Suspense>
                 </Canvas>
@@ -166,6 +167,7 @@ export const RolesScene = () => {
     const [posUSB1, setPosUSB1] = useState(downSm ? [3.3,-19.3,-0.3] : [3.3,-19.3,-0.3])
     const [posUSB2, setPosUSB2] = useState(downSm ? [15.3,-19.3,-0.3] : [15.3,-19.3,-0.3])
     const [posUSB3, setPosUSB3] = useState(downSm ? [27.3,-19.3,-0.3] : [27.3,-19.3,-0.3])
+    const [posArrow, setPosArrow] = useState(downMd ? -0.5 : 1)
 
 
 
@@ -215,6 +217,10 @@ export const RolesScene = () => {
     useFrame((state, delta) => {
         const offset = scroll.offset        
         if(offset >= 0 && offset < 0.3){
+            setPosArrow(posArrow - 0.005)
+            if(posArrow < - 0.3){
+                setPosArrow(0.3)
+            } 
             if(moving){
                 if(movingDirection === "Left"){
                     if(currDisk == 1){
@@ -503,7 +509,18 @@ export const RolesScene = () => {
 
                 {/*  FIRST SECTION  */}
 
-                    
+                {
+                    !downMd ? <>
+                        <DownArrow position={[1.6,posArrow - 3.7,0]} scale={downMd ? 0.3 : 0.3} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
+                        <DownArrow position={[1.6,posArrow - 4  ,0]} scale={downMd ? 0.3 : 0.3} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
+                        <DownArrow position={[1.6,posArrow - 4.3,0]} scale={downMd ? 0.3 : 0.3} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
+                        <DownArrow position={[-1.6,posArrow - 3.7,0]} scale={downMd ? 0.3 : 0.3} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
+                        <DownArrow position={[-1.6,posArrow - 4  ,0]} scale={downMd ? 0.3 : 0.3} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
+                        <DownArrow position={[-1.6,posArrow - 4.3,0]} scale={downMd ? 0.3 : 0.3} rotation={downMd ? [0,0,Math.PI] : [0,0,0]}/>
+                    </> :<></>
+                }
+
+            
                 <Control2 position={[0,-5,0]} scale={0.17}/>
                 <Compu1 scale={4.8} position={[0,-5,-3.5]} rotation={[0,Math.PI,0]}/>
                 <Compu2 scale={4.6} position={[-3.6,-5,-2.5]} rotation={[0,Math.PI + Math.PI/8,0]}/>

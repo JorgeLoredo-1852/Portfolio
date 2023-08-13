@@ -8,38 +8,38 @@ import { useGLTF } from "@react-three/drei";
 export function Model(props) {
   const { nodes, materials } = useGLTF("/PilarMedglobal3.glb");
   return (
-    <group {...props} dispose={null}>
+<group {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.MedGlobal_Group001.geometry}
         material={materials["Material.005"]}
-        position={[1.07, 13.44, -5.75]}
-        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+        position={[1.07, 16.51, 5.73]}
+        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.MedGlobal_Group002.geometry}
         material={nodes.MedGlobal_Group002.material}
-        position={[1.07, 15.4, 0.04]}
-        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+        position={[1.07, 14.45, 0]}
+        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.MedGlobal_Group003.geometry}
         material={nodes.MedGlobal_Group003.material}
-        position={[1.07, 39.6, -7.85]}
-        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+        position={[1.07, 37.29, 7.94]}
+        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.MedGlobal_Group004.geometry}
         material={nodes.MedGlobal_Group004.material}
-        position={[1.07, 10.78, -6.69]}
-        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+        position={[1.07, 18.67, 6.74]}
+        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
       />
       <group scale={[1, 40, 8]}>
         <mesh
@@ -68,8 +68,8 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.path19.geometry}
         material={materials["Material.003"]}
-        position={[1.62, 34.57, -5.44]}
-        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+        position={[1.62, 21.85, 5.48]}
+        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
         scale={[1000, 1, 1000]}
       />
     </group>
