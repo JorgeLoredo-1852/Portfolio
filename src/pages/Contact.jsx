@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, Suspense } from 'react'
 import { Form3D, JGx } from '../components'
 import { Container, Grid, InputAdornment, OutlinedInput, Typography, IconButton } from "@mui/material"
 import { Canvas, useFrame } from '@react-three/fiber'
@@ -95,8 +95,12 @@ export const Contact = () =>{
                 color={"#000000"}
                 style={{zIndex:100}}
                 dpr={[0.8,1]}
-            >
-                <Form3D submitted={submitted}/>
+            >            
+                                <Suspense fallback={null}>
+
+                                
+
+                    <Form3D submitted={submitted}/></Suspense>
             </Canvas>
             <div className={fadeOut()}>
                 <div style={{backgroundColor: "#1D0060" , width: downMd ? "300px" : "500px", height: downMd ? "420px":"380px"}} className={minimizeClass()}>
