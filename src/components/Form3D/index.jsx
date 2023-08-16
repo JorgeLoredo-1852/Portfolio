@@ -3,7 +3,7 @@ import {Model as Rocket} from '../../models/Rocket'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Environment, OrbitControls, Stars, GizmoHelper, Sky, GizmoViewport, RoundedBox, Text3D, PerspectiveCamera } from '@react-three/drei'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -53,10 +53,7 @@ export const Form3D = ({submitted}) => {
     })
     
     return(
-        <>
-            <ambientLight intensity={0.5} />
-                <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} enableDamping={false}></OrbitControls>
-                <Environment files="forest4k.hdr" blur={0.5}/>
+    <>      <Environment files="forest4k.hdr" blur={0.5}/>
                 <group  position={[0, 0, 0]} rotation-x={earthChange}>
                 <Text3D position={downMd ? [-3.3,4,0] : [-3,0,-0.5]} letterSpacing={0.05} size={scaleText} font="/Inter_Bold.json" rotation-x={-(3/2)*earthChange}>
                 Thanks, I'll reply
@@ -69,8 +66,6 @@ export const Form3D = ({submitted}) => {
                     <Earth position={downMd ? [0,-20,0] : [-20,-20,0]}/>
                     <Rocket scale={10} position={rocketPos} rotation-z={downMd ? 0 : -Math.PI/4}/>
                     <Stars radius={50} depth={50} count={5000} factor={20} saturation={0} fade speed={1} rotation-x={earthChange}/>
-                </group>
-                {/*<color attach="background" args={['#000000']} />*/}
-        </>
+                </group></>  
     )
 }

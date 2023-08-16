@@ -42,11 +42,12 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 export const WorkScene = () => {
     return(
         <>
+
+            <group position={[0,0,0]}>               
+            <Suspense fallback={null}>
+
             <Environment files="forest4k.hdr" blur={0.5}/>
             <ambientLight intensity={0.3}/>
-
-            <group position={[0,0,0]}>
-                <Suspense fallback={null}>
                 <ScrollControls pages={6}>
                     <Physics gravity={[0, -10, 0]}>
                         <WorkStation/>
