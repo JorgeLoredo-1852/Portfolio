@@ -53,7 +53,8 @@ export const Form3D = ({submitted}) => {
     })
     
     return(
-    <>      <Environment files="forest4k.hdr" blur={0.5}/>
+    <>
+    <Environment files="forest4k.hdr" blur={0.5}/>
                 <group  position={[0, 0, 0]} rotation-x={earthChange}>
                 <Text3D position={downMd ? [-3.3,4,0] : [-3,0,-0.5]} letterSpacing={0.05} size={scaleText} font="/Inter_Bold.json" rotation-x={-(3/2)*earthChange}>
                 Thanks, I'll reply
