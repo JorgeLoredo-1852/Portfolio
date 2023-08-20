@@ -16,7 +16,7 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.1",
     "@react-three/cannon": "^6.5.0",
-    "@react-three/drei": "^9.47.1",
+    "@react-three/drei": "9.80.0",
     "@react-three/fiber": "^8.9.1",
     "@react-three/postprocessing": "^2.7.0",
     "gh-pages": "^4.0.0",
@@ -39,6 +39,7 @@
     "scroll-snap": "^4.0.3",
     "stats.js": "^0.17.0",
     "three": "^0.147.0",
+    "use-asset": "^1.0.4",
     "yuka": "^0.7.8"
   },
   "devDependencies": {
