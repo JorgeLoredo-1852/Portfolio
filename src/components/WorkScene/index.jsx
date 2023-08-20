@@ -38,21 +38,24 @@ import { Model as DownArrow } from '../../models/downArrow'
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { useAsset } from 'use-asset'
+
 
 export const WorkScene = () => {
+    useEffect(() => () => useAsset.clear(), [])
+
     return(
         <>
-
-            <group position={[0,0,0]}>               
-            <Suspense fallback={null}>
-
-            <Environment files="forest4k.hdr" blur={0.5}/>
+      <Suspense fallback={null}>
+        <Environment preset="forest" />
+      </Suspense>
+            <group position={[0,0,0]}>
             <ambientLight intensity={0.3}/>
                 <ScrollControls pages={6}>
                     <Physics gravity={[0, -10, 0]}>
                         <WorkStation/>
                     </Physics>
-                </ScrollControls></Suspense>
+                </ScrollControls>
             </group>
             
         </>

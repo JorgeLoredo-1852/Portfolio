@@ -87,7 +87,6 @@ export const Contact = () =>{
 
     return (
         <div style={{height:"100vh", width:"100vw", position:"relative", backgroundColor:"#000000"}}>
-            {/*<JGx/>*/}
             <Canvas 
                 className='canvas' 
                 shadows
@@ -95,13 +94,7 @@ export const Contact = () =>{
                 color={"#000000"}
                 style={{zIndex:100}}
                 dpr={[0.8,1]}
-            >            
-                                <Suspense fallback={null}>
-
-                                
-
-                    <Form3D submitted={submitted}/></Suspense>
-            </Canvas>
+            ><Suspense fallback={null}><Form3D submitted={submitted}/></Suspense></Canvas>
             <div className={fadeOut()}>
                 <div style={{backgroundColor: "#1D0060" , width: downMd ? "300px" : "500px", height: downMd ? "420px":"380px"}} className={minimizeClass()}>
                     <form autoComplete="off" ref={form} onSubmit={sendEmail} style={{display:"flex", flexDirection:"column"}}  className={submitted ? 'displaynone':''}>
