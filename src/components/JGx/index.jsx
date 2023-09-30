@@ -7,7 +7,7 @@ import Twitter from '../../assets/icons/Twitter.png';
 import Instagram from '../../assets/icons/Instagram.png';
 import Linkedin from '../../assets/icons/Linkedin.png';
 import Github from '../../assets/icons/Github.png';
-import Download from '../../assets/icons/Download.png';
+import Download from '../../assets/icons/CV.png';
 import { useLocation } from 'react-router';
 
  
