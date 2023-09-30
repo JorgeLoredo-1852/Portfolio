@@ -115,10 +115,10 @@ export const List = [
     },
     {
         id:10,
-        name: "Moonlight NFT Labs",
+        name: "Moonlight Labs",
         date: "Dec 2021 - Sept 2022",
         description: "Developed and offered a series of blockchain-decentralized applications on Ethereum, Avalanche, Terra, and Solana.",
-        completeDescription: <><p>Developed and offered a series of blockchain-decentralized applications on Ethereum, Avalanche, Terra, and Solana.</p><p style={{marginTop:"0.6rem"}}>Including a Non-Fungible Token (NFT) collection, multichain launchpad, sales, and verification bot with customized smart contracts.</p></>,
+        completeDescription: <><p>Developed and offered a series of blockchain-decentralized applications on Ethereum, Avalanche, Terra, and Solana.</p><p style={{marginTop:"0.6rem"}}>Including a Non-Fungible Token collection, multichain launchpad, sales, and verification bot with customized smart contracts.</p></>,
         tags: ["Frontend", "Backend", "Web 3.0"],
         technologies: ["ReactJS", "NodeJS", "Redux", "Sass", "Solidity", "Rust", "EtherJS"],
         img: "/thumbnails/moonlight.png",

@@ -1,6 +1,20 @@
 export const List = [
     {
         id:1,
+        name: "Sevenly",
+        date: "Sept 2023",
+        description: "Finalist at Iconn Hacks, by creating Sevenly Avatar an hyper-personalized AI that could track your shopping habits.",
+        completeDescription: <><p>Finalist at Iconn Hacks "Hybrid Experience" challenge among +30 teams, by creating Sevenly Avatar an hyper-personalized AI.</p><p style={{marginTop:"0.6rem"}}>Sevenly Avatar could track your shopping habits/behavior, monitor geofences, answer questions, and recognize your emotions to offer you the benefits that best suit you. Along with Sevenly, we created 7-Eleven Rewards, 7-Eleven Recycle, and Smart Convenience Stores.</p></>,
+        tags: ["Frontend", "Competition","3D Modeling"],
+        technologies: ["ReactJS", "ThreeJS", "CSS","Python"],
+        img: "/thumbnails/sevenly.png",
+        modalImg: "/modalImg/sevenly.png",
+        link2:"https://www.linkedin.com/posts/jorgeloredom_hackathon-innovation-coding-activity-7113351410577981440-uHdQ?utm_source=share&utm_medium=member_desktop",
+        link: "https://docs.google.com/document/d/1SFebvJnO_plMn7Xj2oxIHoHPZDA3wMPxOQ3lc7mhWTI/edit?usp=sharing",
+        github: "https://github.com/valjor98/IconnHack23",
+    },
+    {
+        id:2,
         name: "Banorte Generations",
         date: "May 2023",
         description: "First place in Hackathon Banorte 2023, by proposing a new way to combine the digital and physical bank.",
@@ -12,7 +26,7 @@ export const List = [
         link:"https://www.linkedin.com/feed/update/urn:li:activity:7069873962037465088/",
     },
     {
-        id:2,
+        id:3,
         name: "HEB GO",
         date: "Feb 2022 - May 2023",
         description: "HEB-GO is a mobile-first web app that aims to improve the in-store experience through AR gamification.",
@@ -23,7 +37,7 @@ export const List = [
         modalImg:"/modalImg/hebgo.png",
     },
     {
-        id:3,
+        id:4,
         name: "Personal Portfolio",
         date: "Dec 2022 - Jan 2023",
         description: "Personal portfolio built with React, ThreeJS, tears, and a lot of joy. I hope you enjoy visiting this website.",
@@ -34,7 +48,7 @@ export const List = [
         modalImg:"/modalImg/portfolio.png",
     },
     {
-        id:4,
+        id:5,
         name: "Multiagent Systems",
         date: "Nov 2022",
         description: "Modeled (as a team) a roundabout and a warehouse with agents that took decisions given some rules.",
@@ -46,7 +60,7 @@ export const List = [
         github: "https://github.com/JorgeLoredo-1852/Agentes",
     },
     {
-        id:5,
+        id:6,
         name: "Caritapp iOS",
         date: "Sept 2022 - Oct 2023",
         description: "Developed (as a team) a mobile application for a local NGO to facilitate volunteer registration and management.",
@@ -57,7 +71,7 @@ export const List = [
         modalImg:"/modalImg/caritapp.png",
     },
     {
-        id:6,
+        id:7,
         name: "HackMTY Challenge",
         date: "Sept 2022",
         description: "First place in Hack MTY - Banorte's Challenge, by designing a way to retain young clients through gamification.",
@@ -68,11 +82,11 @@ export const List = [
         modalImg:"/modalImg/banorte.png",
     },
     {
-        id:7,
-        name: "Moonlight NFT Labs",
+        id:8,
+        name: "Moonlight Labs",
         date: "Dec 2021 - Sept 2022",
         description: "Developed and offered a series of blockchain-decentralized applications on Ethereum, Avalanche, Terra, and Solana.",
-        completeDescription: <><p>Developed and offered a series of blockchain-decentralized applications on Ethereum, Avalanche, Terra, and Solana.</p><p style={{marginTop:"0.6rem"}}>Including a Non-Fungible Token (NFT) collection, multichain launchpad, sales, and verification bot with customized smart contracts.</p></>,
+        completeDescription: <><p>Developed and offered a series of blockchain-decentralized applications on Ethereum, Avalanche, Terra, and Solana.</p><p style={{marginTop:"0.6rem"}}>Including a Non-Fungible Token collection, multichain launchpad, sales, and verification bot with customized smart contracts.</p></>,
         tags: ["Frontend", "Backend", "Web 3.0"],
         technologies: ["ReactJS", "NodeJS", "Redux", "Sass", "Solidity", "Rust", "EtherJS"],
         img: "/thumbnails/moonlight.png",
@@ -82,7 +96,7 @@ export const List = [
         twitter: "https://twitter.com/MoonlightNFTLab",
     },
     {
-        id:8,
+        id:9,
         name: "Moonlight Launchpad",
         date: "Dec 2021 - Sept 2022",
         description: "Created a Multichain Launchpad with custom smart contracts implemented in a responsive web app to mint NFT tokens.",
@@ -96,10 +110,10 @@ export const List = [
         twitter: "https://twitter.com/MoonlightNFTLab",
     },
     {
-        id:9,
+        id:10,
         name: "Moonlight Bots",
         date: "Dec 2021 - Sept 2022",
-        description: "Deployed an NFT Sales bot as well as a Verification Bot to power DAOs (Decentralized autonomous organizations).",
+        description: "Deployed a Sales bot as well as a Verification Bot to power DAOs (Decentralized autonomous organizations).",
         completeDescription: <><p>Deployed an NFT Sales bot as well as a Verification Bot to power DAOs (Decentralized autonomous organizations).</p><p style={{marginTop:"0.6rem"}}>Compatible with Twitter/Discord and block explorers in Ethereum, Avax, Solana and Terra</p></>,
         tags: ["Frontend", "Backend", "Web 3.0"],
         technologies: ["ReactJS", "NodeJS", "Redux", "Sass", "EtherJS"],
@@ -110,7 +124,7 @@ export const List = [
         twitter: "https://twitter.com/MoonlightNFTLab",
     },
     {
-        id:10,
+        id:11,
         name: "Web 3.0 Templates",
         date: "Aug 2022",
         description: "Created templates for blockchain-based applications on Solana (Staking Platform, Mystery Box Game)",
@@ -123,7 +137,7 @@ export const List = [
         link2: "https://main.d3nwwa1llv0ubk.amplifyapp.com/"
     },
     {
-        id:11,
+        id:12,
         name: "Gas Leak Simulation",
         date: "May 2022",
         description: "Modeled (as a team) a gas leak using a heat map in a factory given CO2 rates and employee movement.",
@@ -134,7 +148,7 @@ export const List = [
         modalImg:"/modalImg/construccion.png",
     },
     {
-        id: 12,
+        id: 13,
         name: "Energy efficiency",
         date: "Dec 2021",
         description: "Built (team) an IoT simulation to streamline the energy usage in a house given environmental variables",
@@ -145,7 +159,7 @@ export const List = [
         modalImg:"/modalImg/iot.png",
     },
     { 
-        id: 13,
+        id: 14,
         name: "SEMS: Monitoring",
         date: "Jan 2021 - June 2021",
         description: "Developed (team) a monitoring system which tracks factors of the student community in a post-pandemic scenario",
@@ -157,7 +171,7 @@ export const List = [
         link: "https://conecta.tec.mx/es/noticias/monterrey/educacion/el-software-que-analiza-estudios-urbanos-para-cumplir-medidas-vs-covid?_hsmi=147996003&_hsenc=p2ANqtz-_7cAvOiumdQwPtBrJ9_JE2yOIYHzsrNFaJoJz82yxzUDAfCpttr6st43RsGd6INLGgnak37S7q6SJ0yjYCphcUpuFFvA"
     },
     { 
-        id: 14,
+        id: 15,
         name: "URL Shortener",
         date: "Dec 2020 - May 2021",
         description: "Developed in a team the Back-End for a link shortener that manages the information from the Roborregos robotics team.",
@@ -168,7 +182,7 @@ export const List = [
         modalImg:"/modalImg/robolinks.png",
     },
     { 
-        id: 15,
+        id: 16,
         name: "Misc. Web",
         date: "Dec 2020 - Apr 2021",
         description: "Coded +10 websites/templates as part of 3 online courses with modern CSS, HTML, Javascript and React",
@@ -181,7 +195,7 @@ export const List = [
         link: "https://drsimi7.netlify.app/"
     },
     {
-        id: 16,
+        id: 17,
         name: "Natours API",
         date: "March 2021",
         description: "Created a complete RESTful API with error handling, authentication, security, data modeling and more",
@@ -192,7 +206,7 @@ export const List = [
         modalImg:"/modalImg/natours.png",
     },
     {
-        id: 17,
+        id: 18,
         name: "Egg Collector",
         date: "Oct 2020",
         description: "Developed a magnetic stripe mechanism box for egg collection as part of a mechanics hackathon",
@@ -204,7 +218,7 @@ export const List = [
         link: "https://gallery.autodesk.com/projects/155724/egg-storing-box"
     },
     {
-        id: 18,
+        id: 19,
         name: "Maze Robot",
         date: "Oct 2020",
         description: "Created a robot that could solve a maze given various requirements for Roborregos Candidates 2020",
@@ -216,7 +230,7 @@ export const List = [
         link: "https://gallery.autodesk.com/projects/155725/maze-robot-solver"
     },
     {
-        id: 19,
+        id: 20,
         name: "Game Jam",
         date: "Oct 2020",
         description: "Developed (team) a 2D RPG game set on the spooky horrors of Halloween during a 24h Hackathon.",
@@ -227,7 +241,7 @@ export const List = [
         modalImg:"/modalImg/unity.png",
     },
     {
-        id: 20,
+        id: 21,
         name: "Photo Generation",
         date: "August 2020",
         description: "Created a neural network to edit photos as part of the Deep Learning specialization by Andrew Ng",
@@ -238,7 +252,7 @@ export const List = [
         modalImg:"/modalImg/ml.png",
     },
     { 
-        id: 21,
+        id: 22,
         name: "Mathematics HL (IB)",
         date: "May 2020",
         description: "IB Mathematics High Level Internal Assessment focused on finding the shortest path in a transportation network",
@@ -250,7 +264,7 @@ export const List = [
         github:"https://github.com/JorgeLoredo-1852/High-School-Projects"
     },
     { 
-        id: 22,
+        id: 23,
         name: "Computing HL (IB)",
         date: "May 2020",
         description: "IB Computer Science High Level Internal Assessment focused on developing a desktop app for a local business",
@@ -262,7 +276,7 @@ export const List = [
         github:"https://github.com/JorgeLoredo-1852/High-School-Projects"
     },
     { 
-        id: 23,
+        id: 24,
         name: "Proximité Installation",
         date: "Nov 2019",
         description: "Built an electronic art installation that got exhibited in Marco Museum inspired in the exposition Présence Instable.",
